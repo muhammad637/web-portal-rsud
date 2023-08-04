@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.home');
 });
+Route::get('/layanan/rawat-inap', function () {
+    return view('pages.layanan.rawat-inap');
+});
