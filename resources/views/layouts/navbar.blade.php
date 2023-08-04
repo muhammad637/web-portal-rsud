@@ -2,9 +2,10 @@
     <div class="container-fluid">
         <div style="width: 18rem;">
            <div class="d-flex justify-content-center align-items-center gap-2">
-            <p> Navbar </p>
+            <img src="{{asset('RSUD-logo.png')}}" alt="">
             <p> | </p>
             <p>RSUD Blambangan Banyuwangi </p>
+           </div>
         </div>
         </div>
         
