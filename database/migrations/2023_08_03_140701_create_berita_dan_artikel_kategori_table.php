@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('berita_dan_artikel_kategori', function (Blueprint $table) {
             $table->unsignedBigInteger('berita_dan_artikel_id');
             $table->unsignedBigInteger('kategori_id');
-            $table->foreign('berita_dan_arikel_id')->references('id')->on('berita_dan_artikels')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('kategori_id')->references('id')->on('kategoris')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('berita_dan_artikel_id')->references('id')->on('berita_dan_artikels')->onDelete('cascade');
+            $table->foreign('kategori_id')->references('id')->on('kategoris')->onDelete('cascade');
             $table->timestamps();
         });
     }

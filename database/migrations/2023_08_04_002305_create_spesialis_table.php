@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('berita_dan_artikels', function (Blueprint $table) {
+        Schema::create('spesialis', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->string('slug');
-            $table->text('isi');
-            $table->string('video')->nullable();
-            $table->string('gambar');
-            $table->enum('jenis',['berita', 'artikel']); 
+            $table->string('nama_spesialis');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('berita_dan_artikels');
+        Schema::dropIfExists('spesialis');
     }
 };
