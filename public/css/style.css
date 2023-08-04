@@ -8,9 +8,9 @@ body {
     background-color: #F0F2F4;
   }
   
-  .header{
+  /* .header{
     background-color: #ffffff;
-  }
+  } */
 
   .header.sticked {
     border-color: #fff;
