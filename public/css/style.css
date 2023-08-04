@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+
+body {
+    background-color: #F0F2F4;
+  }
+  
+  .header{
+    background-color: #ffffff;
+  }
+
+  .header.sticked {
+    border-color: #fff;
+    border-color: #eee;
+  }
+  
+  .header .logo img {
+    max-height: 56px;
+    margin-right: 63px;
+  } 
+  
+  section {
+    scroll-margin-top: 90px;
+  }
+  
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+
+  .navbar li {
+    position: relative;
+  }
+
+  .navbar>ul>li {
+    white-space: nowrap;
+    padding: 10px 0 10px 28px;
+  }
+
+  .navbar a{
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #EF8F1D;
+    text-align: right;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    white-space: nowrap;
+    font-family: 'Nunito', sans-serif;
+    position: relative;
+  }
+
+  .navbar a i,
+  .navbar a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+  }
+
+  .navbar>ul>li>a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background-color: var(--color-primary);
+    visibility: hidden;
+    width: 0px;
+    transition: all 0.3s ease-in-out 0s;
+  }
+
+  .navbar a:hover:before,
+  .navbar li:hover>a:before,
+  .navbar .active:before {
+    visibility: visible;
+    width: 100%;
+  }
+
+  .navbar a:hover,
+  .navbar .active,
+  .navbar .active:focus,
+  .navbar li:hover>a {
+    color: #000;
+  }
+
+  .navbar.icon{
+    display: none;
+  }
+
+  .hero {
+    width: 100%;
+    background-size: cover;
+    position: relative;
+    min-height: 60vh;
+  }
+
+  .hero .cari-dokter .card{
+    background-color: #ffffff;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0px 2px 2px rgba(197, 194, 194, 0.8);
+  }
+  
+  .hero .cari-dokter .card-body{
+    background-color: #EF8F1D;
+  }
+
+  .hero .cari-dokter .card-body H4, h6{
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    color: #565252;
+  }
+
+  .hero .cari-dokter .card-body-in{
+    background-color: #F69F39;
+  }
+
+  .hero .cari-dokter .card-body-in h5{
+    font-family: 'Nunito', sans-serif;
+    color: #565252;
+  }
+
+  .layanan-home .section-header b{
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    font-size: 40px;
+    font-style: medium;
+    color: #1AA51F;
+  }
+
+  .layanan-home .section-header b span{
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    font-size: 40px;
+    font-style: medium;
+    color: #EF8F1D;
+  }
+
+  .layanan-home .layanan-item .layanan-img{
+    align-items: center;
+    height: 303px;
+    width: 411px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+
+  .layanan-home .layanan-item .nama{
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    color: #EF8F1D  ;
+    margin-bottom: 30px;
+
+  }
+
+  .artikel .section-header p{
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    font-size: 40px;
+    font-style: medium;
+    color: #1AA51F;
+  }
+
+  .artikel .section-header p span{
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    font-size: 40px;
+    font-style: medium;
+    color: #EF8F1D;
+  }
+
+  .artikel .swiper-wrapper img{
+    align-items: center;
+    height: 303px;
+    width: 411px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+
+  }
+  
+  .profil .card{
+    background-color: #ffffff;
+    position: absolute;
+  }
+  
