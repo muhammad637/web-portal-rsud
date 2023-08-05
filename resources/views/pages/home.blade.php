@@ -139,14 +139,14 @@
         </div>
       </section>
 
-      <section id="profil" class="profil">
+      {{-- <section id="profil" class="profil">
         <div class="card">
           <br>
-          {{-- <div class="card-body">
+          <div class="card-body">
             <br>
             <p>PROFIL</p>
             <br>
-          </div> --}}
+          </div>
         </div>
-      </section>
+      </section> --}}
 @endsection
