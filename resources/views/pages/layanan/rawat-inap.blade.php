@@ -7,6 +7,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <style>
+      img{
+        background-size: cover;
+      }
+    </style>
 @endpush
 @section('content')
         <section class="bg-white">
@@ -36,11 +41,13 @@
         >
           <div class="col-md-6">
             <div class="mx-auto">
+              <div class="p-2">
                 <img
                   src="https://source.unsplash.com/600x300"
                   class="rounded mx-auto d-block img-fluid"
                   alt=""
                 />
+              </div>
             </div>
           </div>
           <div class="col-md-4 bg-white" >
@@ -70,7 +77,7 @@
           <div class="col-md-6">
             <div class="mx-auto">
                 <img
-                  src="https://source.unsplash.com/600x300"
+                  src="https://source.unsplash.com/1200x600"
                   class="rounded mx-auto d-block img-fluid"
                   alt=""
                 />
