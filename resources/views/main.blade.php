@@ -23,6 +23,7 @@
     </head>
 
     <body>
+      23
     @include('layouts.navbar')
     @yield('content')
     @include('layouts.footer')
