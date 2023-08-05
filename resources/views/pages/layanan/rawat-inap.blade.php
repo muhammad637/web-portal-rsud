@@ -14,7 +14,7 @@
     </style>
 @endpush
 @section('content')
-        <section class="bg-white">
+        <section>
       <div class="container">
         <div class="text-center p-4">
           <h4 class="text-uppercase fs-1 fw-bold color-orange-primary">
@@ -50,7 +50,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 bg-white" >
+          <div class="col-md-4" >
             <h3 class="fw-semi-bold pt-5 pb-5 darknesboy">
               Kamar VVIP
             </h3>
@@ -83,7 +83,7 @@
                 />
             </div>
           </div>
-          <div class="col-md-4 bg-white" >
+          <div class="col-md-4" >
             <h3 class="fw-semi-bold text-warngin pt-5 pb-5">
               Kamar VVIP
             </h3>
@@ -114,7 +114,7 @@
                 />
             </div>
           </div>
-          <div class="col-md-4 bg-white" >
+          <div class="col-md-4" >
             <h3 class="fw-semi-bold text-warngin pt-5 pb-5">
               Kamar VVIP
             </h3>
