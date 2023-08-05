@@ -8,9 +8,9 @@ body {
     background-color: #F0F2F4;
   }
   
-  .header{
+  /* .header{
     background-color: #ffffff;
-  }
+  } */
 
   .header.sticked {
     border-color: #fff;
@@ -26,7 +26,7 @@ body {
     scroll-margin-top: 90px;
   }
   
-  .navbar {
+  /* .navbar {
     justify-content: space-between;
   }
 
@@ -98,7 +98,7 @@ body {
 
   .navbar.icon{
     display: none;
-  }
+  } */
 
   .hero {
     width: 100%;

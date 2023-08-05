@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 
-    <title>Rumah Sakit Umum Daerah Blambangan</title>
+    <title>RSUD Blambangan</title>
     </head>
 
     <body>
