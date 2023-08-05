@@ -57,7 +57,7 @@
                       <label for="basic-url" class="form-label">
                         <h5>Nama Dokter</h5>
                       </label>
-                      <div class="input-group mb-3" >
+                      <div class="input-group mb-3" style="width: 100%">
                         <input required type="text" class="form-control">
                       </div>
                     </div>
