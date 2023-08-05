@@ -197,8 +197,9 @@
 
             <div class="content">    
             <div class="row mt-4">
+              
             <div class="col md-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card">
                 <img src="image/berita/berita1.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="tanggal-artikel">13 Juli 2023</p>
@@ -209,7 +210,7 @@
             </div>
             </div>
             <div class="col md-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card" >
                 <img src="image/berita/berita2.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="tanggal-artikel">13 Juli 2023</p>
@@ -220,7 +221,7 @@
             </div>
             </div>
             <div class="col md-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card" >
                 <img src="image/berita/berita3.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="tanggal-artikel">13 Juli 2023</p>

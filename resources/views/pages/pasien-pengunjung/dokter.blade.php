@@ -12,8 +12,8 @@
         </nav>
     </div>
     <div class="cari-dokter">
-            <div class="container">
-            <form action="" method="">
+        <div class="container">
+        <form action="" method="">
               @csrf
                 <div class="card-body">
                   <H4><b>Cari Dokter - RSUD Blambangan</b></H4>
@@ -71,8 +71,41 @@
                   </div>
                 </div>
               </div>
-              </div>
             </form>
+
+            <div class="section-header">
+                <p>Dokter</p>
+            </div>
+
+            <div class="card border-secondary mb-3">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5>Bedah Umum</h5>
+                    <p>Jadwal Dokter</p>
+                </div>
+            </div>
+            <div class="card-body-jadwal">
+                <h5 class="card-title"></h5>
+                <div class="row">
+                    <div class="card">
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-6">
+                                    <img src="" alt="">
+
+                                </div>
+                                <div class="col-6">
+                                    <div >
+                                    <p>Nama Dokter</p>
+                                    <p>Nama Dokter</p>
+                                    </div>   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
           </div>
 </div>
 </section>
