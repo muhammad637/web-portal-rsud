@@ -21,6 +21,5 @@ Route::get('/layanan/rawat-inap', function () {
     return view('pages.layanan.rawat-inap');
 });
 Route::get('/caridokter', function () {
-    return view('pages.dokter');
-
+    return view('pages.pasien-pengunjung.dokter');
 });

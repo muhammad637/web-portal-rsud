@@ -103,38 +103,48 @@ body {
   .hero {
     width: 100%;
     background-size: cover;
-    position: relative;
-    min-height: 60vh;
   }
 
-  .hero .cari-dokter .card{
-    background-color: #ffffff;
+  .hero .card .carousel-inner img{
+    margin-left: 0px;
+    margin-right: 0px;
+    height: 607px;
+    width: 2000px;
+  }
+  
+  .cari-dokter .card-body{
+    background-color: #EF8F1D;
     height: 100%;
     background-position: center;
     background-size: cover;
     box-shadow: 0px 2px 2px rgba(197, 194, 194, 0.8);
   }
-  
-  .hero .cari-dokter .card-body{
-    background-color: #EF8F1D;
-  }
 
-  .hero .cari-dokter .card-body H4, h6{
+  .cari-dokter .card-body H4, h6{
+    margin-top: 20px;
     font-family: 'Nunito', sans-serif;
     text-align: center;
     color: #565252;
   }
 
-  .hero .cari-dokter .card-body-in{
+  .cari-dokter .card-body-in{
     background-color: #F69F39;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
-  .hero .cari-dokter .card-body-in h5{
+  .cari-dokter label{
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .cari-dokter .card-body-in h5{
     font-family: 'Nunito', sans-serif;
     color: #565252;
   }
 
-  .layanan-home .section-header b{
+  .layanan-home .section-header p{
     font-family: 'Nunito', sans-serif;
     text-align: center;
     font-size: 40px;
@@ -142,7 +152,7 @@ body {
     color: #1AA51F;
   }
 
-  .layanan-home .section-header b span{
+  .layanan-home .section-header p span{
     font-family: 'Nunito', sans-serif;
     text-align: center;
     font-size: 40px;
@@ -183,6 +193,25 @@ body {
     color: #EF8F1D;
   }
 
+  .artikel img{
+    width: 409px;
+    height: 376.297px;
+    flex-shrink: 0;
+  }
+
+  .artikel .judul-artikel p{
+	position: absolute;
+	top: 60px;
+	right: 35px;
+  }
+
+  .artikel .button{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+  }
+
   .artikel .swiper-wrapper img{
     align-items: center;
     height: 303px;
@@ -194,6 +223,78 @@ body {
   
   .profil .card{
     background-color: #ffffff;
-    position: absolute;
+    position: relative;
   }
+
+  .profil .card-body{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 300px;
+    background-color: #FFE9D0;
+  }
+  
+  .berita .section-header p{
+    margin-top: 30px;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    font-size: 40px;
+    font-style: medium;
+    color: #1AA51F;
+  }
+
+  .berita .section-header p span{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    font-size: 40px;
+    font-style: medium;
+    color: #EF8F1D;
+  }
+
+  .berita .card img{
+    width: 380px;
+    height: 255.331px;
+  }
+
+  .berita .card-body{
+    background: rgba(239, 143, 29, 0.45);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 380px;
+    height: 200px;
+    margin-bottom: 50px;
+  }
+
+  /*-----Pasien-Pengunjung--------*/
+  .dokter .card{
+    border-radius: 0px;
+  }
+
+  .dokter .card-breadcrumb{
+    width: 2000px;
+    height: 63px;
+    border-radius: 0px;
+    background-color: rgba(239, 143, 29, 0.40);
+  }
+
+  .dokter .cari-dokter{
+    margin-top: 40px;
+  }
+
+  .dokter .breadcrumb{
+    margin-top: 20px;
+    margin-left: 100px;
+  }
+
+  .dokter .breadcrumb a{
+    color: #696764;
+    font-family: Nunito;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
   
