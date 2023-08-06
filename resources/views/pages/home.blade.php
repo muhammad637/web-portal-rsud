@@ -56,16 +56,16 @@
                       <label for="basic-url" class="form-label">
                         <h5>Nama Dokter</h5>
                       </label>
-                      <div class="input-group mb-3">
-                        <input required type="text" class="form-control">
+                      <div class="input-group mb-3 ms-3" style="width: 1200px;">
+                        <input required type="text" class="form-control" >
                       </div>
                     </div>
-                    <div class="row mt-4">
+                    <div class="row mt">
                     <div class="col-md-4">
                       <label for="basic-url" class="form-label">
                         <h5>Hari</h5>
                       </label>
-                      <div class="input-group mb-3">
+                      <div class="input-group mb-3 ms-3" style="width: 355px;">
                         <select id="cari-hari" class="form-select">
                             <option>Senin</option>
                             <option>Selasa</option>
@@ -80,7 +80,7 @@
                         <label for="basic-url" class="form-label">
                           <h5>Jam</h5>
                         </label>
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-3 ms-3" style="width: 355px;">
                           <input required type="time" class="form-control" name="jam">
                         </div>
                       </div>
@@ -88,14 +88,14 @@
                         <label for="basic-url" class="form-label">
                           <h5>Spesialis</h5>
                         </label>
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-3 ms-3" style="width: 355px;">
                           <select id="spesialis" class="form-select">
                             <option> Bedah Umum</option>
                           </select>
                         </div>
                     </div>
-                      <div class="col-md-12">
-                      <button type="button" class="btn btn-success">Cari</button>
+                      <div class="col-ms-3 mb-3">
+                      <button type="button" class="btn btn-success ms-3" style="width: 1200px;">Cari</button>
                       </div>
                   </div>
                   </div>
@@ -175,7 +175,7 @@
 
 
       <section id="berita" class="berita">
-        <div class="card">
+        <div class="card" style="border: none;">
             <div class="container">
                 
                 <div class="section-header">
@@ -186,7 +186,7 @@
             <div class="row mt-4">
               
             <div class="col md-4">
-            <div class="card">
+            <div class="card" style="border: none;">
                 <img src="image/berita/berita1.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="tanggal-artikel">13 Juli 2023</p>
@@ -197,7 +197,7 @@
             </div>
             </div>
             <div class="col md-4">
-            <div class="card" >
+            <div class="card" style="border: none;" >
                 <img src="image/berita/berita2.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="tanggal-artikel">13 Juli 2023</p>
@@ -208,7 +208,7 @@
             </div>
             </div>
             <div class="col md-4">
-            <div class="card" >
+            <div class="card" style="border: none;" >
                 <img src="image/berita/berita3.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="tanggal-artikel">13 Juli 2023</p>
