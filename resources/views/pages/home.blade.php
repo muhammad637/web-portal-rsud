@@ -172,4 +172,58 @@
           </div> --}}
         </div>
       </section>
+
+
+      <section id="berita" class="berita">
+        <div class="card">
+            <div class="container">
+                
+                <div class="section-header">
+                <p><b>BERITA <span>TERBARU</span></b></p>
+                </div>
+
+            <div class="content">    
+            <div class="row mt-4">
+              
+            <div class="col md-4">
+            <div class="card">
+                <img src="image/berita/berita1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="tanggal-artikel">13 Juli 2023</p>
+                    <h5 class="judul-artikel">oren ipsun dolor sit anet, consectetur adipisci elit,</h5>
+                    <br>
+                    <a href="#" class="btn btn-success">Selengkapnya</a>
+                </div>
+            </div>
+            </div>
+            <div class="col md-4">
+            <div class="card" >
+                <img src="image/berita/berita2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="tanggal-artikel">13 Juli 2023</p>
+                    <h5 class="judul-artikel">Loren ipsun dolor sit anet,</h5>
+                    <br>
+                    <a href="#" class="btn btn-success">Selengkapnya</a>
+                </div>
+            </div>
+            </div>
+            <div class="col md-4">
+            <div class="card" >
+                <img src="image/berita/berita3.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="tanggal-artikel">13 Juli 2023</p>
+                    <h5 class="judul-artikel">Loren ipsun dolor sit anet, consectetur adipisci elit, sed eiusnod</h5>
+                    <br>
+                    <a href="#" class="btn btn-success">Selengkapnya</a>
+                </div>
+            </div>
+            </div>
+
+            </div>
+            </div>
+            </div>
+           
+    </div>
+    </section>
+
 @endsection
