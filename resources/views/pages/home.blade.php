@@ -168,15 +168,26 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-4">
-                        <div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
-                            <a class="p-1 rounded" href="#profil">Profil</a>
-                            <a class="p-1 rounded" href="#visi-misi">Visi & Misi</a>
+                        <div id="simple-list-example" class="d-flex flex-column gap-3 simple-list-example-scrollspy text-center">
+                          <div class="col-md-12">
+                            <button type="button" class="btn" style="background-color: #EF8F1D; width:174px; color:#6F6F6F; font-family :Nunito;">Profil</button>
+                            <br>
+                            <br>
+                            <div class="col-md-12">
+                              <button type="button" class="btn" style="color:#6F6F6F; font-family :Nunito;">Visi & Misi</button>
+                            </div>
+                           
+                            </div>
+                            {{-- <a class="p-2 rounded" href="#profil" style="background-color:#EF8F1D; width:150px; height:40px; text-decoration:none; color:#6F6F6F;">Profil</a>
+                            <a class="p-1 rounded" href="#visi-misi">Visi & Misi</a>  --}}
+                            
                         </div>
                     </div>
                     <div class="col-8">
                         <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
                             <h4 id="profil">Profil</h4>
-                            <p>Loren ipsun dolor sit anet, consectetur adipisci elit, sed eiusnod tenpor incidunt ut labore et dolore nagna aliqua. Ut enin ad ninin venian, quis nostrun exercitationen ullan corporis suscipit laboriosan, nisi ut aliquid ex ea connodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillun dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt nollit anin id est laborun.</p>
+                            <p>Berdiri sejak tahun 1930 sebagai Pusat Kesehatan Sederhana jaman Belanda, yang hanya melayani Pelayanan Kesehatan Dasar dan Penyakit Menular hingga sekarang berkembang menjadi Rumah Sakit Kelas B Pemerintah dan lulus Akreditasi PARIPURNA KARS 2012
+                              Kini telah menjadi Pusat Rujukan Spesialis di kabupaten Banyuwangi, RSUD Blambangan selalu berbenah dalam hal pelayanan kesehatan sehingga dapat menyajikan pelayanan yang modern dan berkelas</p>
                             <h4 id="visi-misi">Visi & Misi</h4>
                             <p>Visi : Loren ipsun dolor sit anet, consectetur adipisci elit, sed eiusnod tenpor incidunt ut labore et dolore nagna aliqua. Ut enin ad ninin venian, quis nostrun exercitationen ullan corporis suscipit laboriosan, nisi ut aliquid ex ea connodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillun dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt nollit anin id est laborun.</p>
                         </div>
@@ -198,33 +209,33 @@
             <div class="content">    
             <div class="row mt-4">
             <div class="col md-4">
-            <div class="card" style="width: 18rem;">
-                <img src="image/berita/berita1.jpg" class="card-img-top" alt="...">
+            <div class="card" style="width: 18rem; border:none;">
+                <img src="image/berita/berita1.jpg" class="card-img-top" alt="">
                 <div class="card-body">
                     <p class="tanggal-artikel">13 Juli 2023</p>
-                    <h5 class="judul-artikel">oren ipsun dolor sit anet, consectetur adipisci elit,</h5>
+                    <h5 class="judul-artikel">Pemberian arahan kepada ibu untuk mencegah stunting untuk anak</h5>
                     <br>
                     <a href="#" class="btn btn-success">Selengkapnya</a>
                 </div>
             </div>
             </div>
             <div class="col md-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem; border:none;">
                 <img src="image/berita/berita2.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="tanggal-artikel">13 Juli 2023</p>
-                    <h5 class="judul-artikel">Loren ipsun dolor sit anet,</h5>
+                    <h5 class="judul-artikel">Satgas COVID- 19 RSUD Blambangan</h5>
                     <br>
                     <a href="#" class="btn btn-success">Selengkapnya</a>
                 </div>
             </div>
             </div>
             <div class="col md-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem; border:none;">
                 <img src="image/berita/berita3.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="tanggal-artikel">13 Juli 2023</p>
-                    <h5 class="judul-artikel">Loren ipsun dolor sit anet, consectetur adipisci elit, sed eiusnod</h5>
+                    <h5 class="judul-artikel">Kunjungan </h5>
                     <br>
                     <a href="#" class="btn btn-success">Selengkapnya</a>
                 </div>
