@@ -15,6 +15,9 @@ class BeritaDanArtikelController extends Controller
     public function index()
     {
         //
+        return [
+            "berita-artikel" => BeritaDanArtikel::with('kategori')->get()
+        ];
     }
 
     /**
@@ -36,6 +39,10 @@ class BeritaDanArtikelController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->all();
+
+        BeritaDanArtikel::create($validatedData);
+        return $validatedData;
     }
 
     /**
@@ -46,7 +53,9 @@ class BeritaDanArtikelController extends Controller
      */
     public function show(BeritaDanArtikel $beritaDanArtikel)
     {
+       return $beritaDanArtikel;
         //
+        // return BeritaDanArtikel::where('id',$beritaDanArtikel->id)->first();
     }
 
     /**
@@ -55,9 +64,10 @@ class BeritaDanArtikelController extends Controller
      * @param  \App\Models\BeritaDanArtikel  $beritaDanArtikel
      * @return \Illuminate\Http\Response
      */
-    public function edit(BeritaDanArtikel $beritaDanArtikel)
+    public function edit($id)
     {
         //
+        return BeritaDanArtikel::with('kategori')->find($id);
     }
 
     /**

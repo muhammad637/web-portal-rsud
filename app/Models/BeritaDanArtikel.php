@@ -12,6 +12,6 @@ class BeritaDanArtikel extends Model
     protected $guarded = ['id'];
     public function kategori()
     {
-        return $this->belongsToMany(Kategori::class, 'berita_dan_artikel_kategori_table');
+        return $this->belongsToMany(Kategori::class, 'berita_dan_artikel_kategori');
     }
 }
