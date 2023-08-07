@@ -51,73 +51,13 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
-        </div>  
+        {{-- </div>   --}}
 
-          <div class="cari-dokter">
-            <div class="container">
-            <form action="" method="">
-              @csrf
-                <div class="card-body">
-                  <H4><b>Cari Dokter - RSUD Blambangan</b></H4>
-                  <h6><b>Temukan jadwal dokter ahli, spesialis, dan berpengalaman</b></h6>
-                  <br>
-                  <br>
-                  <div class="card-body-in">
-                  <div class="row mt-4">
-                    <div class="col-md-12">
-                      <label for="basic-url" class="form-label">
-                        <h5>Nama Dokter</h5>
-                      </label>
-                      <div class="input-group mb-3" >
-                        <input required type="text" class="form-control">
-                      </div>
-                    </div>
-                    <div class="row mt-4">
-                    <div class="col-md-4">
-                      <label for="basic-url" class="form-label">
-                        <h5>Hari</h5>
-                      </label>
-                      <div class="input-group mb-3">
-                        <select id="cari-hari" class="form-select">
-                            <option>Senin</option>
-                            <option>Selasa</option>
-                            <option>Rabu</option>
-                            <option>Kamis</option>
-                            <option>Jumat</option>
-                            <option>Sabtu</option>
-                        </select>
-                      </div>
-                    </div>
-                      <div class="col-md-4">
-                        <label for="basic-url" class="form-label">
-                          <h5>Jam</h5>
-                        </label>
-                        <div class="input-group mb-3">
-                          <input required type="time" class="form-control" name="jam">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <label for="basic-url" class="form-label">
-                          <h5>Spesialis</h5>
-                        </label>
-                        <div class="input-group mb-3">
-                          <select id="spesialis" class="form-select">
-                            <option> Bedah Umum</option>
-                          </select>
-                        </div>
-                    </div>
-                      <div class="col-md-12">
-                      <button type="button" class="btn btn-success">Cari</button>
-                      </div>
-                  </div>
-                  </div>
-                </div>
-              </div>
-              </div>
-            </form>
-          </div>
+          
           <div class="layanan-home" data aos="fade-up">
-          <div class="container text-center">
+            
+          
+          {{-- <div class="container text-center">
             <div class="section-header">
               <br>
               <p><b>LAYANAN <span>UNGGULAN RSUD BLAMBANGAN</span></b></p>
@@ -139,11 +79,11 @@
 
             </div>
             </div>
-          </div>
-        </div>
+          </div> --}}
+        {{-- </div> --}}
       </section>
 
-      <section id="artikel" class="artikel">
+      {{-- <section id="artikel" class="artikel">
         <div class="card">
           <div class="container" data-aos="fade-up">
             <div class="section-header">
@@ -172,9 +112,9 @@
             </div>           
           </div>
         </div>
-      </section>
+      </section> --}}
 
-      <section id="profil" class="profil">
+      {{-- <section id="profil" class="profil">
         <div class="card">
 
             <div class="card-body">
@@ -197,9 +137,9 @@
           </div>
 
         </div>
-      </section>
+      </section> --}}
 
-      <section id="berita" class="berita">
+      {{-- <section id="berita" class="berita">
         <div class="card">
             <div class="container">
                 
@@ -254,16 +194,16 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <img
-                        src="../image/hero/hero1.jpg"
+                        src="image/hero/hero1.jpg"
                         alt=""
                        
                     />
                 </div>
                 <div class="swiper-slide">
-                    <img src="../image/hero/hero2.jpg" alt="" />
+                    <img src="image/hero/hero2.jpg" alt="" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="../image/hero/hero3.jpg" alt="" />
+                    <img src="image/hero/hero3.jpg" alt="" />
                 </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -272,23 +212,71 @@
         <!-- form-cari-dokter -->
         <div class="card w-75 mx-auto kotak1 w-sm-100"   >
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary text-start">
-                    Card subtitle
+                <h5 class="card-title text-center">Cari Dokter - RSUD Blambangan</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary text-center">
+                  Temukan jadwal dokter ahli, spesialis, dan berpengalaman
                 </h6>
-                <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+               <div class="card-body-in">
+                <div class="row mt-4">
+                  <div class="col-md-12">
+                    <label for="basic-url" class="form-label">
+                      <h5>Nama Dokter</h5>
+                    </label>
+                    <div class="input-group-mb-3">
+                      <input required type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="row mt-4">
+                    <div class="col-md-4">
+                      <label for="basic-url" class="form-label">
+                        <h5>Hari</h5>
+                      </label>
+                      <div class="input-group mb-3">
+                        <select id="cari-hari" class="form-select">
+                          <option>Senin</option>
+                          <option>Selasa</option>
+                          <option>Rabu</option>
+                          <option>Kamis</option>
+                          <option>Jum'at</option>
+                          <option>Sabtu</option>
+                        </select>
+                      </div>
+                      
+                    </div>
+                    <div class="col-md-4">
+                      <label for="basic-url" class="form-label">
+                        <h5>Jam</h5>
+                      </label>
+                      <div class="input-group mb-3">
+                        <input required type="time" class="form-control" name="jam">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="basic-url" class="form-label">
+                        <h5>Spesialis</h5>
+                      </label>
+                      <div class="input-group mb-3">
+                        <select id="spesialis" class="form-select">
+                          <option> Bedah Umum</option>
+                        </select>
+                      </div>
+                      
+                  </div>
+                  </div>
+                  <div class="col-md-12">
+                    <button type="button" class="btn btn-success" style="width: 100%">Cari</button>
+                    </div>
+                </div>
+               </div>
             </div>
         </div>
         <!-- end form-cari-dokter -->
         {{-- layanan unggulan --}}
+        
         {{-- end layanan unggulan --}}
 
         <!-- artikel -->
+
         <div class="container">
             <div class="card mt-5" style="border: none">
                 <div class="row align-items-center">
