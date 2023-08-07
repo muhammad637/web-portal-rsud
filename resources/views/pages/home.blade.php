@@ -323,7 +323,7 @@
                                     class="object-fit-cover"
                                 />
                                 <div
-                                    class="position-absolute top-10 start-50 z-1 card-title text-warning"
+                                    class="position-absolute top-10 start-50 z-10 card-title text-warning"
                                 >
                                     Lorem, ipsum dolor sit amet consectetur
                                     adipisicing elit. Nulla in dolorum doloribus
