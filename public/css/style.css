@@ -12,10 +12,7 @@ body {
     background-color: #ffffff;
   } */
 
-  .header.sticked {
-    border-color: #fff;
-    border-color: #eee;
-  }
+
   
   .header .logo img {
     max-height: 56px;

@@ -1,6 +1,18 @@
 @extends('main')
 @section('content')
-    <section id="hero" class="hero d-flex align-items-center section-bg">
+
+@push('link-css')
+  <link rel="stylesheet" href="{{asset('css/home/style.css')}}">
+  <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.1.0/swiper-bundle.css"
+            integrity="sha512-xXQQj99PFpHikerkvc6HrA+dFLC14dMyBh0eL8fCan9h3n8Uhxvq5Os8ysEvn3oTLWJTte9kl5FFEftf2KfyHA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+@endpush
+    {{-- <section id="hero" class="hero d-flex align-items-center section-bg">
         <div class="card">
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-indicators">
@@ -236,5 +248,128 @@
             </div>
            
     </div>
-    </section>
+    </section> --}}
+
+     <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img
+                        src="../image/hero/hero1.jpg"
+                        alt=""
+                       
+                    />
+                </div>
+                <div class="swiper-slide">
+                    <img src="../image/hero/hero2.jpg" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="../image/hero/hero3.jpg" alt="" />
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- form-cari-dokter -->
+        <div class="card w-75 mx-auto kotak1 w-sm-100"   >
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary text-start">
+                    Card subtitle
+                </h6>
+                <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                </p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
+        <!-- end form-cari-dokter -->
+        
+        {{-- layanan unggulan --}}
+        {{-- end layanan unggulan --}}
+
+        <!-- artikel -->
+        <div class="container">
+            <div class="card mt-5" style="border: none">
+                <div class="row align-items-center">
+                    <div class="col-md-4 my-1">
+                        <div class="card" style="border: none">
+                            <div class="overflow-hidden" style="height: 15rem">
+                                <img
+                                    src="../image/artikel/artikel1.jpg"
+                                    alt=""
+                                    class="img-fluid object-fit-cover"
+                                />
+                            </div>
+                            
+                            <h3 class="card-judul">
+                                Lorem, ipsum dolor sit amet consectetur
+                                adipisicing elit. Nulla in dolorum doloribus
+                                dolore sit ipsam cum distinctio provident
+                                aspernatur consequuntur?
+                            </h3>
+                    
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card" style="border: none">
+                            <div
+                                class="position-relative overflow-hidden"
+                                style="height: 15rem"
+                            >
+                                <img
+                                    src="https://source.unsplash.com/400x800"
+                                    alt=""
+                                    class="object-fit-cover"
+                                />
+                                <div
+                                    class="position-absolute top-10 start-50 z-1 card-title text-warning"
+                                >
+                                    Lorem, ipsum dolor sit amet consectetur
+                                    adipisicing elit. Nulla in dolorum doloribus
+                                    dolore sit ipsam cum distinctio provident
+                                    aspernatur consequuntur?
+                                </div>
+                            </div>
+                            <h3 class="card-judul">
+                                Lorem, ipsum dolor sit amet consectetur
+                                adipisicing elit. Nulla in dolorum doloribus
+                                dolore sit ipsam cum distinctio provident
+                                aspernatur consequuntur?
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end artikel -->
 @endsection
+@push('link-script')
+<script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"
+        ></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const cardTitles = document.querySelectorAll(".card-judul");
+                const maxTitleLength = 100; // Jumlah karakter maksimum yang ingin ditampilkan
+
+                cardTitles.forEach((title) => {
+                    let text = title.textContent;
+                    if (text.length > maxTitleLength) {
+                        title.textContent =
+                            text.substring(0, maxTitleLength - 3) + "...";
+                    }
+                });
+            });
+
+            var swiper = new Swiper(".mySwiper", {
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+            });
+        </script>    
+@endpush

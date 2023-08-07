@@ -1,0 +1,42 @@
+/* hero konten utama */
+
+
+.swiper {
+    width: 100%;
+    height: 80vh;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.swiper-pagination {
+    text-align: center;
+    position: absolute; /* Ubah properti position menjadi absolute */
+    bottom: 0; /* Posisikan di bagian bawah kontainer swiper */
+    left: 0; /* Sesuaikan posisi horizontal jika diperlukan */
+    right: 0; /* Sesuaikan posisi horizontal jika diperlukan */
+    margin: 12rem 0; /* Beri jarak margin antara swiper dan pagination */
+    /* color: greenyellow; */
+}
+/* end hero konten utama */
+
+.kotak1{
+    position: absolute;
+    z-index: 50;
+    /* bottom: 0; */
+    left: 0;
+    right: 0;
+    margin: -10rem 0 0 0;
+}
