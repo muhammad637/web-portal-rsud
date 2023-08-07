@@ -189,7 +189,6 @@
            
     </div>
     </section> --}}
-
      <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -210,13 +209,13 @@
         </div>
 
         <!-- form-cari-dokter -->
-        <div class="card w-75 mx-auto kotak1 w-sm-100"   >
+        <div class="card w-75 mx-auto kotak1 w-sm-100" style="background-color: #EF8F1D;">
             <div class="card-body">
                 <h5 class="card-title text-center">Cari Dokter - RSUD Blambangan</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary text-center">
                   Temukan jadwal dokter ahli, spesialis, dan berpengalaman
                 </h6>
-               <div class="card-body-in">
+               <div class="card-body-in p-3" style="background-color: #F69F39;">
                 <div class="row mt-4">
                   <div class="col-md-12">
                     <label for="basic-url" class="form-label">
@@ -270,16 +269,125 @@
                </div>
             </div>
         </div>
+
         <!-- end form-cari-dokter -->
         {{-- layanan unggulan --}}
-        
+        <div class="layanan-home" data aos="fade-up">
+          <div class="container text-center">
+            <div class="section-header">
+              <p><b>LAYANAN <span>UNGGULAN RSUD BLAMBANGAN</span></b></p>
+            </div>
+            <br>
+          </div>
+        </div>
+        <div class="container">
+          
+          <div class="card" style="border: none">
+              <div class="row align-items-center">
+                <div class="col-md-4 my-1">
+                  <div class="card" style="border: none">
+                      <div class="overflow-hidden" style="height: 15rem">
+                          <img
+                              src="../image/artikel/artikel1.jpg"
+                              alt=""
+                              class="img-fluid object-fit-cover"
+                          />
+                      </div>
+                      <div class="text-center">
+                        <h3 class="card-judul">
+                          Lorem, ipsum dolor sit amet consectetur
+                          adipisicing elit. Nulla in dolorum doloribus
+                          dolore sit ipsam cum distinctio provident
+                          aspernatur consequuntur?
+                      </h3>
+                      </div>
+                  </div>
+              </div>
+                  <div class="col-md-4 my-1">
+                      <div class="card" style="border: none">
+                          <div class="overflow-hidden" style="height: 15rem">
+                              <img
+                                  src="../image/artikel/artikel1.jpg"
+                                  alt=""
+                                  class="img-fluid object-fit-cover"
+                              />
+                          </div>
+                          <div class="text-center">
+                            <h3 class="card-judul">
+                              Lorem, ipsum dolor sit amet consectetur
+                              adipisicing elit. Nulla in dolorum doloribus
+                              dolore sit ipsam cum distinctio provident
+                              aspernatur consequuntur?
+                          </h3>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <div class="card" style="border: none">
+                          <div
+                              class="position-relative overflow-hidden"
+                              style="height: 15rem"
+                          >
+                              <img
+                                  src="https://source.unsplash.com/400x800"
+                                  alt=""
+                                  class="object-fit-cover"
+                              />
+                              <div
+                                  class="position-absolute top-10 start-50 z-10 card-title text-warning"
+                              >
+                                  Lorem, ipsum dolor sit amet consectetur
+                                  adipisicing elit. Nulla in dolorum doloribus
+                                  dolore sit ipsam cum distinctio provident
+                                  aspernatur consequuntur?
+                              </div>
+                          </div>
+                          <div class="text-center">
+                            <h3 class="card-judul">
+                              Lorem, ipsum dolor sit amet consectetur
+                              adipisicing elit. Nulla in dolorum doloribus
+                              dolore sit ipsam cum distinctio provident
+                              aspernatur consequuntur?
+                          </h3>
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
         {{-- end layanan unggulan --}}
 
         <!-- artikel -->
-
+          <div class="container text-center">
+            <div class="section-header">
+              <p><b>ARTIKEL <span>KESEHATAN</span></b></p>
+            </div>
+            <br>
+          </div>
         <div class="container">
-            <div class="card mt-5" style="border: none">
+          
+            <div class="card" style="border: none">
                 <div class="row align-items-center">
+                  <div class="col-md-4 my-1">
+                    <div class="card" style="border: none">
+                        <div class="overflow-hidden" style="height: 15rem">
+                            <img
+                                src="../image/artikel/artikel1.jpg"
+                                alt=""
+                                class="img-fluid object-fit-cover"
+                            />
+                        </div>
+                        <div class="text-center">
+                          <h3 class="card-judul">
+                            Lorem, ipsum dolor sit amet consectetur
+                            adipisicing elit. Nulla in dolorum doloribus
+                            dolore sit ipsam cum distinctio provident
+                            aspernatur consequuntur?
+                        </h3>
+                        </div>
+                    </div>
+                </div>
                     <div class="col-md-4 my-1">
                         <div class="card" style="border: none">
                             <div class="overflow-hidden" style="height: 15rem">
@@ -289,14 +397,14 @@
                                     class="img-fluid object-fit-cover"
                                 />
                             </div>
-                            
-                            <h3 class="card-judul">
+                            <div class="text-center">
+                              <h3 class="card-judul">
                                 Lorem, ipsum dolor sit amet consectetur
                                 adipisicing elit. Nulla in dolorum doloribus
                                 dolore sit ipsam cum distinctio provident
                                 aspernatur consequuntur?
                             </h3>
-                    
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -319,12 +427,15 @@
                                     aspernatur consequuntur?
                                 </div>
                             </div>
-                            <h3 class="card-judul">
+                            <div class="text-center">
+                              <h3 class="card-judul">
                                 Lorem, ipsum dolor sit amet consectetur
                                 adipisicing elit. Nulla in dolorum doloribus
                                 dolore sit ipsam cum distinctio provident
                                 aspernatur consequuntur?
                             </h3>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>

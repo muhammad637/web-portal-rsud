@@ -2,28 +2,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   }
+}
 
 body {
-    background-color: #F0F2F4;
-  }
-  
-  /* .header{
+    background-color: #f0f2f4;
+
+}
+
+/* .header{
     background-color: #ffffff;
   } */
 
-
-  
-  .header .logo img {
+.header .logo img {
     max-height: 56px;
     margin-right: 63px;
-  } 
-  
-  section {
+}
+
+section {
     scroll-margin-top: 90px;
-  }
-  
-  /* .navbar {
+}
+
+/* .navbar {
     justify-content: space-between;
   }
 
@@ -97,203 +96,207 @@ body {
     display: none;
   } */
 
-  .hero {
+.hero {
     width: 100%;
     background-size: cover;
-  }
+}
 
-  .hero .card .carousel-inner img{
+.hero .card .carousel-inner img {
     margin-left: 0px;
     margin-right: 0px;
     height: 607px;
     width: 2000px;
-  }
-  
-  .cari-dokter .card-body{
-    background-color: #EF8F1D;
+}
+
+.cari-dokter .card-body {
+    background-color: #ef8f1d;
     height: 100%;
 
     background-position: center;
     background-size: cover;
     box-shadow: 0px 2px 2px rgba(197, 194, 194, 0.8);
-  }
+}
 
-  
-  .hero .cari-dokter .card-body{
+.hero .cari-dokter .card-body {
     width: 100%;
-    background-color: #EF8F1D;
-  }
+    background-color: #ef8f1d;
+}
 
-
-  .cari-dokter .card-body H4, h6{
+.cari-dokter .card-body H4,
+h6 {
     margin-top: 20px;
-    font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
     text-align: center;
     color: #565252;
-  }
+}
 
-
-  .cari-dokter label{
+.cari-dokter label {
     margin-top: 20px;
     margin-left: 20px;
-  }
+}
 
-  .cari-dokter .card-body-in h5{
-    font-family: 'Nunito', sans-serif;
+.cari-dokter .card-body-in h5 {
+    font-family: "Nunito", sans-serif;
     color: #565252;
-  }
+}
 
-  .layanan-home .section-header p{
-    font-family: 'Nunito', sans-serif;
+.layanan-home .section-header p {
+    font-family: "Nunito", sans-serif;
     text-align: center;
     font-size: 40px;
     font-style: medium;
-    color: #1AA51F;
-  }
+    color: #1aa51f;
+    margin-top: 18%;
+}
 
-  .layanan-home .section-header p span{
-    font-family: 'Nunito', sans-serif;
+.layanan-home .section-header p span {
+    font-family: "Nunito", sans-serif;
     text-align: center;
     font-size: 40px;
     font-style: medium;
-    color: #EF8F1D;
-  }
+    color: #ef8f1d;
+}
 
-  .layanan-home .layanan-item .layanan-img{
+.layanan-home .layanan-item .layanan-img {
     align-items: center;
     height: 303px;
     width: 411px;
     border-radius: 10px;
-    margin-bottom: 15px;
-  }
+    }
 
-  .layanan-home .layanan-item .nama{
+.layanan-home .layanan-item .nama {
     text-align: center;
-    font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
     font-size: 20px;
-    color: #EF8F1D  ;
-    margin-bottom: 30px;
+    color: #ef8f1d;
+    
+}
 
-  }
-
-  .artikel .section-header p{
-    font-family: 'Nunito', sans-serif;
+.artikel .section-header p {
+    font-family: "Nunito", sans-serif;
     text-align: center;
     font-size: 40px;
     font-style: medium;
-    color: #1AA51F;
-  }
+    color: #1aa51f;
+}
 
-  .artikel .section-header p span{
-    font-family: 'Nunito', sans-serif;
+.artikel .section-header p span {
+    font-family: "Nunito", sans-serif;
     text-align: center;
     font-size: 40px;
     font-style: medium;
-    color: #EF8F1D;
-  }
+    color: #ef8f1d;
+}
 
-  .artikel img{
+.artikel img {
     width: 409px;
     height: 376.297px;
     flex-shrink: 0;
-  }
+}
 
-  .artikel .judul-artikel p{
-	position: absolute;
-	top: 60px;
-	right: 35px;
-  }
+.artikel .judul-artikel p {
+    position: absolute;
+    top: 60px;
+    right: 35px;
+}
 
-  .artikel .button{
+.artikel .button {
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 30px;
 
-  }
+}
 
-  .artikel .swiper-wrapper img{
+.artikel .swiper-wrapper img {
     align-items: center;
     height: 303px;
     width: 411px;
     border-radius: 10px;
     margin-bottom: 15px;
+}
 
-  }
-  
-  .profil .card{
+.profil .card {
     background-color: #ffffff;
     position: relative;
-  }
+}
 
-  .profil .card-body{
+.profil .card-body {
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 20px;
     margin-right: 20px;
     height: 300px;
-    background-color: #FFE9D0;
-  }
-  
-  .berita .section-header p{
+    background-color: #ffe9d0;
+}
+
+.berita .section-header p {
     margin-top: 30px;
-    font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
     text-align: center;
     font-size: 40px;
     font-style: medium;
-    color: #1AA51F;
-  }
+    color: #1aa51f;
+}
 
-  .berita .section-header p span{
+.berita .section-header p span {
     margin-top: 30px;
     margin-bottom: 30px;
-    font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
     text-align: center;
     font-size: 40px;
     font-style: medium;
-    color: #EF8F1D;
-  }
+    color: #ef8f1d;
+}
 
-  .berita .card img{
+.berita .card img {
     width: 380px;
     height: 255.331px;
-  }
+}
 
-  .berita .card-body{
+.berita .card-body {
     background: rgba(239, 143, 29, 0.45);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     width: 380px;
     height: 200px;
     margin-bottom: 50px;
-  }
+}
 
-  /*-----Pasien-Pengunjung--------*/
-  .dokter .card{
+/*-----Pasien-Pengunjung--------*/
+.dokter .card {
     border-radius: 0px;
-  }
+}
 
-  .dokter .card-breadcrumb{
+.dokter .card-breadcrumb {
     width: 2000px;
     height: 63px;
     border-radius: 0px;
-    background-color: rgba(239, 143, 29, 0.40);
-  }
+    background-color: rgba(239, 143, 29, 0.4);
+}
 
-  .dokter .cari-dokter{
+.dokter .cari-dokter {
     margin-top: 40px;
-  }
+}
 
-  .dokter .breadcrumb{
+.dokter .breadcrumb {
     margin-top: 20px;
     margin-left: 100px;
-  }
+}
 
-  .dokter .breadcrumb a{
+.dokter .breadcrumb a {
     color: #696764;
     font-family: Nunito;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-  }
+}
 
-  
+@media (max-width: 768px) {
+  .layanan-home .section-header p {
+    margin-top: 200%;
+}
+}
+
+/* Media query for screens with a max width of 480px */
+@media (max-width: 480px) {
+  .layanan-home .section-header p {
+    margin-top: 115%;
+}}
