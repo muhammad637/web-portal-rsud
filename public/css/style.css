@@ -101,7 +101,8 @@ body {
   } */
 
   .hero {
-    width: 100%;
+    width: 5000px;
+    /* max-width: 1440px; */
     background-size: cover;
   }
 
@@ -109,7 +110,8 @@ body {
     margin-left: 0px;
     margin-right: 0px;
     height: 607px;
-    width: 2000px;
+    width: 100%;
+    max-width: 1440px;
   };
 
   
@@ -141,7 +143,8 @@ body {
     margin-bottom: 30px;
     margin-left: 10px;
     margin-right: 10px;
-    height: 280px;
+    max-height: 280px;
+    max-width: 1400px;
   }
 
   .cari-dokter label{
@@ -173,7 +176,7 @@ body {
   .layanan-home .layanan-item .layanan-img{
     align-items: center;
     height: 303px;
-    width: 411px;
+    width: 100%;
     border-radius: 10px;
     margin-bottom: 15px;
   }
@@ -242,7 +245,7 @@ body {
     margin-left: 20px;
     margin-right: 20px;
     height: 300px;
-    background-color: #FFE9D0;
+    /* background-color: #FFE9D0; */
   }
   
   .berita .section-header p{
@@ -265,7 +268,7 @@ body {
   }
 
   .berita .card img{
-    width: 380px;
+    width: 100%;
     height: 255.331px;
   }
 

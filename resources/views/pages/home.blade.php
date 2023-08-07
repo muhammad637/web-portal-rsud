@@ -56,7 +56,7 @@
                       <label for="basic-url" class="form-label">
                         <h5>Nama Dokter</h5>
                       </label>
-                      <div class="input-group mb-3 ms-3" style="width: 1200px;">
+                      <div class="input-group mb-3 ms-3" style="max-width: 1200px; min-width: 50px;">
                         <input required type="text" class="form-control" >
                       </div>
                     </div>
@@ -65,7 +65,7 @@
                       <label for="basic-url" class="form-label">
                         <h5>Hari</h5>
                       </label>
-                      <div class="input-group mb-3 ms-3" style="width: 355px;">
+                      <div class="input-group mb-3 ms-3" style="max-width: 355px; min-width:100px;" >
                         <select id="cari-hari" class="form-select">
                             <option>Senin</option>
                             <option>Selasa</option>
@@ -80,7 +80,7 @@
                         <label for="basic-url" class="form-label">
                           <h5>Jam</h5>
                         </label>
-                        <div class="input-group mb-3 ms-3" style="width: 355px;">
+                        <div class="input-group mb-3 ms-3" style="width: max : 355px;">
                           <input required type="time" class="form-control" name="jam">
                         </div>
                       </div>
@@ -88,14 +88,14 @@
                         <label for="basic-url" class="form-label">
                           <h5>Spesialis</h5>
                         </label>
-                        <div class="input-group mb-3 ms-3" style="width: 355px;">
+                        <div class="input-group mb-3 ms-3" style="width: max : 355px;">
                           <select id="spesialis" class="form-select">
                             <option> Bedah Umum</option>
                           </select>
                         </div>
                     </div>
                       <div class="col-ms-3 mb-3">
-                      <button type="button" class="btn btn-success ms-3" style="width: 1200px;">Cari</button>
+                      <button type="button" class="btn btn-success ms-3" style="max-width:1200px;">Cari</button>
                       </div>
                   </div>
                   </div>
@@ -162,14 +162,29 @@
         </div>
       </section>
 
-      {{-- <section id="profil" class="profil">
+      <section id="profil" class="profil">
         <div class="card">
-          <br>
-          {{-- <div class="card-body">
-            <br>
-            <p>PROFIL</p>
-            <br>
-          </div> --}}
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-4">
+                        <div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
+                            <a class="p-2 rounded" href="profil" style="text-decoration:none; color: #6F6F6F">Profil</a>
+                            <a class="p-2 rounded" href="#visi-misi" style="text-decoration: none; color: #6F6F6F">Visi & Misi</a>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+                            <h4 id="profil">Profil</h4>
+                            <p>Berdiri sejak tahun 1930 sebagai Pusat Kesehatan Sederhana jaman Belanda, yang hanya melayani Pelayanan Kesehatan Dasar dan Penyakit Menular hingga sekarang berkembang menjadi Rumah Sakit Kelas B Pemerintah dan lulus Akreditasi PARIPURNA KARS 2012
+                              Kini telah menjadi Pusat Rujukan Spesialis di kabupaten Banyuwangi, RSUD Blambangan selalu berbenah dalam hal pelayanan kesehatan sehingga dapat menyajikan pelayanan yang modern dan berkelas</p>
+                            <h4 id="visi-misi">Visi & Misi</h4>
+                            <p>Visi : Loren ipsun dolor sit anet, consectetur adipisci elit, sed eiusnod tenpor incidunt ut labore et dolore nagna aliqua. Ut enin ad ninin venian, quis nostrun exercitationen ullan corporis suscipit laboriosan, nisi ut aliquid ex ea connodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillun dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt nollit anin id est laborun.</p>
+                        </div>
+                    </div>
+                </div>
+          </div>
+
         </div>
       </section>
 
