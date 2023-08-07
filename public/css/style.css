@@ -275,7 +275,7 @@ body {
   }
 
   .dokter .card-breadcrumb{
-    width: 2000px;
+    width: 1520px;
     height: 63px;
     border-radius: 0px;
     background-color: rgba(239, 143, 29, 0.40);
@@ -327,9 +327,51 @@ body {
     line-height: normal;
   }
 
-  .dokter .cari-dokter .card-body-jadwal .card{
-    
+  .dokter .card-body-jadwal .card{
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    width: 1255px;
+    height: 200px;
+    background-color: rgba(239, 143, 29, 0.45);
+    ;
   }
 
+  .dokter .card-body-jadwal .card img{
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 160px;
+    height: 180px;
+  }
 
+  .dokter .card-body-jadwal .card p{
+    margin-top: 30px;
+  }
 
+/*-----Ketersediaan Tempat Tidur--------*/
+  .ketersediaan-tempat .card{
+    border-radius: 0px;
+  }
+
+  .ketersediaan-tempat .breadcrumb{
+    margin-top: 20px;
+    margin-left: 100px;
+  }
+
+  .ketersediaan-tempat .card-breadcrumb{
+    width: 1520px;
+    height: 63px;
+    border-radius: 0px;
+    background-color: rgba(239, 143, 29, 0.40);
+  }
+
+  .ketersediaan-tempat .breadcrumb a{
+    color: #696764;
+    font-family: Nunito;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
