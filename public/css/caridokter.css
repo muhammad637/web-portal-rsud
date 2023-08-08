@@ -1,0 +1,66 @@
+.dokter .card{
+    border-radius: 0px;
+  }
+
+  .dokter .card-breadcrumb{
+    width: 2000px;
+    height: 63px;
+    border-radius: 0px;
+    background-color: rgba(239, 143, 29, 0.40);
+  }
+
+  .dokter .cari-dokter{
+    margin-top: 40px;
+  }
+
+  .dokter .breadcrumb{
+    margin-top: 20px;
+    margin-left: 100px;
+  }
+
+  .dokter .breadcrumb a{
+    color: #696764;
+    font-family: Nunito;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .dokter .section-header p{
+    margin-top: 40px;
+    color: #EF8F1D;
+    font-family: Nunito;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .dokter .cari-dokter .card-header p{
+    color: #696764;
+    font-family: Nunito;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .dokter .cari-dokter .card-header h5{
+    color: #EF8F1D;
+    font-family: Nunito;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+  }
+
+  .dokter .card-body-jadwal .card{
+    width: 1157px;
+    height: 246px;
+    background-color: rgba(239, 143, 29, 0.45);
+    ;
+  }
+
+
+

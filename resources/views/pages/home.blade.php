@@ -11,6 +11,7 @@
             referrerpolicy="no-referrer"
         />
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 @endpush
     {{-- <section id="hero" class="hero d-flex align-items-center section-bg">
         <div class="card">
@@ -54,7 +55,7 @@
         {{-- </div>   --}}
 
           
-          <div class="layanan-home" data aos="fade-up">
+          {{-- <div class="layanan-home" data aos="fade-up"> --}}
             
           
           {{-- <div class="container text-center">
@@ -81,7 +82,7 @@
             </div>
           </div> --}}
         {{-- </div> --}}
-      </section>
+      {{-- </section> --}}
 
       {{-- <section id="artikel" class="artikel">
         <div class="card">
@@ -358,13 +359,15 @@
       </div>
         {{-- end layanan unggulan --}}
 
-        <!-- artikel -->
+        <!-- artikel --> 
+        <div class="artikel my-5" data aos="fade-up">
           <div class="container text-center">
             <div class="section-header">
               <p><b>ARTIKEL <span>KESEHATAN</span></b></p>
             </div>
             <br>
           </div>
+        </div>
         <div class="container">
           
             <div class="card" style="border: none">
@@ -411,16 +414,14 @@
                         <div class="card" style="border: none">
                             <div
                                 class="position-relative overflow-hidden"
-                                style="height: 15rem"
-                            >
+                                style="height: 15rem">
                                 <img
                                     src="https://source.unsplash.com/400x800"
                                     alt=""
                                     class="object-fit-cover"
                                 />
                                 <div
-                                    class="position-absolute top-10 start-50 z-10 card-title text-warning"
-                                >
+                                    class="position-absolute top-10 start-50 z-10 card-title text-warning">
                                     Lorem, ipsum dolor sit amet consectetur
                                     adipisicing elit. Nulla in dolorum doloribus
                                     dolore sit ipsam cum distinctio provident
@@ -441,7 +442,89 @@
                 </div>
             </div>
         </div>
+        <div class="button my-5"> 
+          <button type="button" class="btn btn-success d-block mx-auto w-25">Lihat Lebih Banyak</button>
+        </div>
         <!-- end artikel -->
+        {{-- Profil & Visi Misi --}}
+        <div class="card   w-75  mx-auto w-sm-100 my-2" style="background-color: #FFE9D0;">
+          <div class="card-body">
+            <div class="row">
+                <div class="col-4">
+                    <div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
+                      <button type="myButton" id="btnprofil" class="btn w-50 mx-auto" style="color: #6F6F6F;">Profil</button>
+                      <button type="myButton2" id="btnvisi" class="btn w-50 mx-auto mt-3" style="color: #6F6F6F;">Visi & Misi</button>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+                      <div class="profil" id="profile" >
+                        <h4>Profil</h4>
+                        <p>Loren ipsun dolor sit anet, consectetur adipisci elit, sed eiusnod tenpor incidunt ut labore et dolore nagna aliqua. Ut enin ad ninin venian, quis nostrun exercitationen ullan corporis suscipit laboriosan, nisi ut aliquid ex ea connodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillun dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt nollit anin id est laborun.</p>
+                      </div>
+                      <div class="visi" id="text-visi" style="display: none;">
+                        <h4>Visi dan Misi</h4>
+                        <p>Loren ipsun dolor sit anet, consectetur adipisci elit, sed eiusnod tenpor incidunt ut labore et dolore nagna aliqua. Ut enin ad ninin venian, quis nostrun exercitationen ullan corporis suscipit laboriosan, nisi ut aliquid ex ea connodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillun dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt nollit anin id est laborun.</p>
+                      </div>
+                        
+                       
+                    </div>
+                </div>
+            </div>
+      </div>
+      </div>
+      {{-- Berita Terbaru --}}
+      <div class="berita" data aos="fade-up">
+        <div class="container text-center">
+          <div class="section-header">
+            <p><b>BERITA <span>TERBARU</span></b></p>
+          </div>
+          <br>
+        </div>
+      </div>
+      <section id="berita" class="berita">
+            <div class="content">    
+            <div class="row mt-5 ms-auto">
+            <div class="col md-5 ms-5">
+            <div class="card" style="width: 18rem; border:none;">
+                <img src="image/berita/berita1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="tanggal-artikel">13 Juli 2023</p>
+                    <h5 class="judul-artikel">oren ipsun dolor sit anet, consectetur adipisci elit,</h5>
+                    <br>
+                    <a href="#" class="btn btn-success">Selengkapnya</a>
+                </div>
+            </div>
+            </div>
+            <div class="col md-4">
+            <div class="card" style="width: 18rem; border:none;">
+                <img src="image/berita/berita2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="tanggal-artikel">13 Juli 2023</p>
+                    <h5 class="judul-artikel">Loren ipsun dolor sit anet,</h5>
+                    <br>
+                    <a href="#" class="btn btn-success">Selengkapnya</a>
+                </div>
+            </div>
+            </div>
+            <div class="col md-4">
+            <div class="card" style="width: 18rem; border:none;">
+                <img src="image/berita/berita3.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="tanggal-artikel">13 Juli 2023</p>
+                    <h5 class="judul-artikel">Loren ipsun dolor sit anet, consectetur adipisci elit, sed eiusnod</h5>
+                    <br>
+                    <a href="#" class="btn btn-success">Selengkapnya</a>
+                </div>
+            </div>
+            </div>
+
+            </div>
+            </div>
+            </div>
+           
+    </div>
+    </section>
 @endsection
 @push('link-script')
 <script
@@ -449,6 +532,9 @@
             integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
             crossorigin="anonymous"
         ></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
         <script>
             document.addEventListener("DOMContentLoaded", function () {
@@ -469,5 +555,37 @@
                     el: ".swiper-pagination",
                 },
             });
-        </script>    
+        </script>
+        <script>
+          const myButton = document.getElementById("btnprofil");
+          
+          myButton.addEventListener("click", function() {
+            myButton.classList.toggle("btn-warning");
+          });
+          </script>
+          <script>
+            const myButton2 = document.getElementById("btnvisi");
+
+            myButton2.addEventListener("click", function(){
+              myButton2.classList.toggle("btn-warning");
+            });
+          </script>
+           <script>
+            const btnprofil = document.getElementById("btnprofil");
+            const btnvisi = document.getElementById("btnvisi");
+            const contentArea = document.getElementById("contentArea");
+            const contentprofile = document.getElementById("profile");
+            const contentvisi = document.getElementById("text-visi");
+            
+            btnprofil.addEventListener("click", function() {
+              contentprofile.style.display = "block"
+              contentvisi.style.display = "none"
+            });
+        
+           btnvisi.addEventListener("click", function() {
+              contentprofile.style.display = "none"
+              contentvisi.style.display = "block"
+            });
+        
+          </script>
 @endpush

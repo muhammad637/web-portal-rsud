@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-white">
+<nav class="navbar fixed-top navbar-expand-lg bg-white">
     <div class="container">
         <div style="border-right: solid 2px #EF8F1D; padding-right:1rem;">
             <img src={{asset("RSUD-logo.png")}} width="56" height="
