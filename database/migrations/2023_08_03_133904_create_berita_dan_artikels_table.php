@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('video')->nullable();
             $table->string('gambar');
             $table->enum('jenis',['berita', 'artikel']); 
-            $table->string('views')->nullable();
+            $table->integer('views')->default(0);
             $table->timestamps();
         });
     }

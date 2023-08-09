@@ -75,7 +75,11 @@ class BeritaDanArtikelController extends Controller
      */
     public function show($slug)
     {
-        return BeritaDanArtikel::with('kategori')->where('slug', $slug)->first();
+
+        $beritaDanArtikel = BeritaDanArtikel::with('kategori')->where('slug', $slug)->first();
+        $beritaDanArtikel->views += 1;
+        $beritaDanArtikel->save();
+        return $beritaDanArtikel;
         //
         // return BeritaDanArtikel::where('id',$beritaDanArtikel->id)->first();
     }

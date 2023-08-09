@@ -15,6 +15,7 @@ class SpesialisController extends Controller
     public function index()
     {
         //
+        return Spesialis::all();
     }
 
     /**
@@ -25,6 +26,7 @@ class SpesialisController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -36,6 +38,15 @@ class SpesialisController extends Controller
     public function store(Request $request)
     {
         //
+
+        $validatedData = $request->validate(
+            [
+                'nama_spesialis' => 'required|unique:spesialis'
+            ]
+        );
+
+        Spesialis::create($validatedData);
+        return Spesialis::all();
     }
 
     /**
