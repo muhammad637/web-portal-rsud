@@ -37,6 +37,6 @@ class KategoriController extends Controller
     }
 
     public function show($kategori){
-        return Kategori::where('nama_kategori',$kategori)->first();
+        return Kategori::with('beritadanartikel')->where('nama_kategori', $kategori)->get();
     }
 }

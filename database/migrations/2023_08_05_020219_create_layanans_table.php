@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('nama_layanan');
             $table->string('gambar_utama');
-            $table->string('nama_layanan');
             $table->string('gambar-1')->nullable();
             $table->string('gambar-2')->nullable();
             $table->string('gambar-3')->nullable();

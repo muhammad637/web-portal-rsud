@@ -29,6 +29,8 @@ Route::get('/kategori/{nama_kategori}', [KategoriController::class, 'show'])->na
 
 // berita artikel admin
 Route::get('berita', [BeritaDanArtikelController::class, 'index']);
-Route::get('berita/{berita:id}', [BeritaDanArtikelController::class, 'show']);
-Route::get('berita/edit/{id}', [BeritaDanArtikelController::class, 'edit']);
 Route::post('berita/store', [BeritaDanArtikelController::class, 'store']);
+Route::get('berita/show/{slug}', [BeritaDanArtikelController::class, 'show']);
+Route::get('berita/edit/{id}', [BeritaDanArtikelController::class, 'edit']);
+Route::get('berita/update/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'update']);
+Route::get('berita/destroy/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'destroy']);
