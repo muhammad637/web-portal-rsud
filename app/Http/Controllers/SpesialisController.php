@@ -57,6 +57,7 @@ class SpesialisController extends Controller
      */
     public function show(Spesialis $spesialis)
     {
+        return Spesialis::with('nama_spesialis')->where('id', $spesialis)->get();
         //
     }
 
@@ -80,6 +81,14 @@ class SpesialisController extends Controller
      */
     public function update(Request $request, Spesialis $spesialis)
     {
+        $validatedData = $request->validate(
+            [
+                'nama_spesialis' => 'required',
+            ]
+            );
+
+            $spesialis->update($validatedData);
+            return Spesialis::all();
         //
     }
 

@@ -14,6 +14,7 @@ class LayananController extends Controller
      */
     public function index()
     {
+        return Layanan::all();
         //
     }
 
@@ -35,6 +36,17 @@ class LayananController extends Controller
      */
     public function store(Request $request)
     {
+        $validateData = $request->validate(
+            [
+                'nama_layanan' => 'required',
+                'gambar_utama' => 'required',
+                'gambar-1' => 'required',
+                'gambar-2' => 'required',
+                'gambar-3' => 'required'
+            ]
+            );
+            Layanan::create($validateData);
+            return Layanan::all();
         //
     }
 
@@ -46,6 +58,7 @@ class LayananController extends Controller
      */
     public function show(Layanan $layanan)
     {
+        return Layanan::with('nama_layanan')->where('id', $layanan)->get();
         //
     }
 
@@ -69,6 +82,16 @@ class LayananController extends Controller
      */
     public function update(Request $request, Layanan $layanan)
     {
+
+        $validateData = $request->validate([
+            'nama_layanan' => 'required',
+            'gambar_utama' => 'required',
+            'gambar-1' => 'required',
+            'gambar-2' => 'required',
+            'gambar-3' => 'required'
+        ]);
+        $layanan->update($validateData);
+        return Layanan::all();
         //
     }
 

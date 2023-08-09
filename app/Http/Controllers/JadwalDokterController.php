@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dokter;
 use App\Models\JadwalDokter;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 
 class JadwalDokterController extends Controller
 {
@@ -14,7 +18,7 @@ class JadwalDokterController extends Controller
      */
     public function index()
     {
-        //
+        return Dokter::all();
     }
 
     /**
@@ -36,6 +40,16 @@ class JadwalDokterController extends Controller
     public function store(Request $request)
     {
         //
+        $validateData = $request()->validate([
+            'dokter_id' => 'required',
+            'hari' => 'required',
+            'jam-mulai-praktek' => 'required',
+            'jam-selesai-praktek' => 'reqired'
+
+        ]);
+
+        Dokter::create($validateData);
+        return Dokter::all();
     }
 
     /**
@@ -44,8 +58,9 @@ class JadwalDokterController extends Controller
      * @param  \App\Models\JadwalDokter  $jadwalDokter
      * @return \Illuminate\Http\Response
      */
-    public function show(JadwalDokter $jadwalDokter)
+    public function show($jadwalDokter)
     {
+        return JadwalDokter::all();
         //
     }
 
@@ -69,7 +84,17 @@ class JadwalDokterController extends Controller
      */
     public function update(Request $request, JadwalDokter $jadwalDokter)
     {
-        //
+        $validateData = $request->validate(
+            [
+
+            'id_dokter' => 'required |' .
+            Rule::unique('id')->ignore($jadwalDokter->id),
+            ]
+            );
+        $jadwalDokter->update($validateData);
+        return JadwalDokter::all();
+        
+            //
     }
 
     /**
