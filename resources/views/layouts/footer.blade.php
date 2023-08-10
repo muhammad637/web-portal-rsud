@@ -56,7 +56,7 @@
             	<h2 class="ftco-heading-2">Office</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">Jl. Istoqlah No. 49, Kec. Banyuwangi, Kab. Banyuwangi, Jawa Timur, Indonesia 68415</span></li>
+	                <li><span class="icon icon-map-marker"></span><span class="text">Jl. Istiqlah No. 49, Kec. Banyuwangi, Kab. Banyuwangi, Jawa Timur, Indonesia 68415</span></li>
 	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">(0333) 3627289</span></a></li>
 	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">rsudblambangan@gmail.com</span></a></li>
 	              </ul>

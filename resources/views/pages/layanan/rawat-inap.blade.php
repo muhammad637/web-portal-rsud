@@ -1,153 +1,135 @@
 @extends('main')
-@push('link-css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.1.0/swiper-bundle.css"
-        integrity="sha512-xXQQj99PFpHikerkvc6HrA+dFLC14dMyBh0eL8fCan9h3n8Uhxvq5Os8ysEvn3oTLWJTte9kl5FFEftf2KfyHA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        img {
-            background-size: cover;
-        }
-    </style>
-@endpush
 @section('content')
-    <section>
-        <div class="container">
-            <div class="text-center p-4">
-                <h4 class="text-uppercase fs-1 fw-bold color-orange-primary">
-                    rawat inap
-                </h4>
-                <div class="border p-1 rounded color-green" style="width: 16rem; margin: auto"></div>
+<section class="home-slider owl-carousel">
+      <div class="slider-item bread-item" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container" data-scrollax-parent="true">
+          <div class="row slider-text align-items-end">
+            <div class="col-md-7 col-sm-12 ftco-animate mb-5">
+              <p class="breadcrumbs" data-scrollax=" properties: { translateY: '70%', opacity: 1.6}"><span class="mr-2"><a href="index.html">Home</a></span> <span>Layanan</span></p>
+              <h1 class="mb-3" data-scrollax=" properties: { translateY: '70%', opacity: .9}">Kamar Rawat Inap</h1>
             </div>
-
-
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Slider main container -->
-    <div class="swiper">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide">
-                <div class="row color-orange-primary ms-auto gap-2 justify-content-center align-items-center">
-                    <div class="col-md-6">
-                        <div class="mx-auto">
-                            <div class="p-2">
-                                <img src="https://source.unsplash.com/600x300" class="rounded mx-auto d-block img-fluid"
-                                    alt="" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <h3 class="fw-semi-bold pt-5 pb-5">
-                            Kamar VVIP
-                        </h3>
-                        <h6 class="text-start">Fasilitas Kamar :</h6>
-                        <ol>
-                            <li>Lorem, ipsum.</li>
-                            <li>Voluptatibus, debitis.</li>
-                            <li>Ad, neque.</li>
-                            <li>Ab, blanditiis.</li>
-                            <li>Expedita, exercitationem!</li>
-                            <li>Labore, veniam.</li>
-                            <li>Nostrum, labore.</li>
-                            <li>Consequuntur, porro.</li>
-                            <li>Voluptate, optio.</li>
-                            <li>Ex, voluptatem.</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="row color-orange-primary ms-auto gap-2 justify-content-center align-items-center">
-                    <div class="col-md-6">
-                        <div class="mx-auto">
-                            <img src="https://source.unsplash.com/1200x600" class="rounded mx-auto d-block img-fluid"
-                                alt="" />
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <h3 class="fw-semi-bold text-warngin pt-5 pb-5">
-                            Kamar VVIP
-                        </h3>
-                        <h6 class="text-start">Fasilitas Kamar :</h6>
-                        <ol>
-                            <li>Lorem, ipsum.</li>
-                            <li>Voluptatibus, debitis.</li>
-                            <li>Ad, neque.</li>
-                            <li>Ab, blanditiis.</li>
-                            <li>Expedita, exercitationem!</li>
-                            <li>Labore, veniam.</li>
-                            <li>Nostrum, labore.</li>
-                            <li>Consequuntur, porro.</li>
-                            <li>Voluptate, optio.</li>
-                            <li>Ex, voluptatem.</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="row color-orange-primary ms-auto gap-2 justify-content-center align-items-center">
-                    <div class="col-md-6">
-                        <div class="mx-auto">
-                            <img src="https://source.unsplash.com/600x300" class="rounded mx-auto d-block img-fluid"
-                                alt="" />
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <h3 class="fw-semi-bold text-warngin pt-5 pb-5">
-                            Kamar VVIP
-                        </h3>
-                        <h6 class="text-start">Fasilitas Kamar :</h6>
-                        <ol>
-                            <li>Lorem, ipsum.</li>
-                            <li>Voluptatibus, debitis.</li>
-                            <li>Ad, neque.</li>
-                            <li>Ab, blanditiis.</li>
-                            <li>Expedita, exercitationem!</li>
-                            <li>Labore, veniam.</li>
-                            <li>Nostrum, labore.</li>
-                            <li>Consequuntur, porro.</li>
-                            <li>Voluptate, optio.</li>
-                            <li>Ex, voluptatem.</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- If we need pagination -->
-        <div class="pt-5">
-            <div class="swiper-pagination"></div>
-        </div>
+		<section class="ftco-section">
+    	<div class="container">
+    		<div class="row d-md-flex">
+	    		<div class="col-md-6 ftco-animate img about-image order-md-last" style="background-image: url(images/about.jpg);">
+	    		</div>
+	    		<div class="col-md-6 ftco-animate pr-md-5 order-md-first">
+		    		<div class="row">
+		          <div class="col-md-12 d-flex align-items-center">
 
-    </div>
+		              <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel" aria-labelledby="v-pills-whatwedo-tab">
+		              	<div>
+			                <h2 class="mb-4" style="color: #169BE6"><b>Kamar VVIP</b></h2>
+			              	<p>Fasilitas Kamar:</p>
+			                <p>1. AC <br>2. 1 Tempat Tidur Pasien <br>3. 1 Kamar Mandi Dalam dengan Air Hangat <br>4. Ruang Keluarga <br>5. Dapur Kering <br>6. Sofa Mini <br>7. 1 Tv <br>8. 1 Dispenser <br>9. 1 Set Teh dan Kopi <br>10. 1 Meja Makan dan Kursi Makan</p>
+				            </div>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+    	</div>
+    </section>
+
+    <section class="ftco-section-2">
+    	<div class="container-wrap">
+      	<div class="row d-flex no-gutters">
+      		<div class="col-md-6 img" style="background-image: url(images/about-2.jpg);">
+      		</div>
+      		<div class="col-md-6 d-flex">
+      			<div class="about-wrap">
+      				<div class="heading-section heading-section-white mb-5 ftco-animate">
+		            <h2 class="mb-2"><b>Kamar VIP</b></h2>
+		            <p>Fasilitas Kamar:</p>
+                    <p>1. AC <br>2. 1 Tampat Tidur Pasien <br>3. 1 Kamar Mandi Dalam dengan Air Hangat <br>4. Sofa Mini <br>5. 1 Tv <br>6. 1 Dispenser <br>7. 1 Set Teh dan Kopi <br>8. 1 Meja Makan dan Kursi Makan</p>
+		          </div>
+      			</div>
+      		</div>
+      	</div>
+      </div>
+    </section>
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row d-md-flex">
+	    		<div class="col-md-6 ftco-animate img about-image order-md-last" style="background-image: url(images/about.jpg);">
+	    		</div>
+	    		<div class="col-md-6 ftco-animate pr-md-5 order-md-first">
+		    		<div class="row">
+		          <div class="col-md-12 d-flex align-items-center">
+
+		              <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel" aria-labelledby="v-pills-whatwedo-tab">
+		              	<div>
+			                <h2 class="mb-4" style="color: #169BE6"><b>Kamar Kelas 1</b></h2>
+			              	<p>Fasilitas Kamar:</p>
+			                <p>1. AC <br>2. 2 Tempat Tidur Pasien <br>3. 1 Kamar Mandi <br>4. 1 Tv <br>5. Meja dan Kursi Makan</p> <br>
+                            <br>
+                            <br>
+                            <br>
+				            </div>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+    	</div>
+    </section>
+
+    <section class="ftco-section-2">
+    	<div class="container-wrap">
+      	<div class="row d-flex no-gutters">
+      		<div class="col-md-6 img" style="background-image: url(images/about-2.jpg);">
+      		</div>
+      		<div class="col-md-6 d-flex">
+      			<div class="about-wrap">
+      				<div class="heading-section heading-section-white mb-5 ftco-animate">
+		            <h2 class="mb-2"><b>Kamar Kelas 2</b></h2>
+		            <p>Fasilitas Kamar:</p>
+                    <p>1. AC <br>2. 4 Tempat Tidur Pasien <br>3. 1 Kamar Mandi <br>4. 1 Tv <br>5. Meja dan Kursi Makan <br>
+                    <br>
+                    <br>
+                    <br>
+                </p>
+		          </div>
+      			</div>
+      		</div>
+      	</div>
+      </div>
+    </section>
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row d-md-flex">
+	    		<div class="col-md-6 ftco-animate img about-image order-md-last" style="background-image: url(images/about.jpg);">
+	    		</div>
+	    		<div class="col-md-6 ftco-animate pr-md-5 order-md-first">
+		    		<div class="row">
+		          <div class="col-md-12 d-flex align-items-center">
+
+		              <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel" aria-labelledby="v-pills-whatwedo-tab">
+		              	<div>
+			                <h2 class="mb-4" style="color: #169BE6"><b>Kamar Kelas 1</b></h2>
+			              	<p>Fasilitas Kamar:</p>
+			                <p>1. AC <br>2. 6 Tempat Tidur Pasien <br>3. 1 Kamar Mandi <br>4. 1 Tv <br>5. Meja dan Kursi Makan</p><br>
+                            <br>
+                            <br>
+                            <br>
+				            </div>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+    	</div>
+    </section>
+
 @endsection
-@push('link-script')
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script>
-        const swiper = new Swiper('.swiper', {
-            // Optional parameters
-            effect: 'coverflow',
-            direction: 'horizontal',
-            loop: true,
-            a11y: {
-                prevSlideMessage: 'Previous slide',
-                nextSlideMessage: 'Next slide',
-            },
-            coverflowEffect: {
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: false,
-            },
-            // If we need pagination
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-
-
-        });
-    </script>
-@endpush
