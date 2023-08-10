@@ -1,7 +1,7 @@
 @extends('main')
 @section('content')
 <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image: url('image/hero/hero.jpg');">
+      <div class="slider-item" style="background-image: url('images/bg_1.jpg');">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text align-items-center" data-scrollax-parent="true">
@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image: url('image/hero/hero1.jpg');">
+      <div class="slider-item" style="background-image: url('images/bg_2.jpg');">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text align-items-center" data-scrollax-parent="true">
