@@ -33,3 +33,11 @@ Route::get('/informasikunjungan', function () {
 Route::get('/artikel', function () {
     return view('pages.berita-artikel.artikel');
 });
+
+Route::get('/artikel-klik', function () {
+    return view('pages.berita-artikel.artikel-single');
+});
+
+Route::get('/profil', function () {
+    return view('pages.profil.profil');
+});

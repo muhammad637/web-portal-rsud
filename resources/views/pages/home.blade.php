@@ -37,22 +37,22 @@
     				<span class="phone-number">+ (0333) 5672572</span>
     			</div>
     			<div class="col-md-3 color-2 p-4">
-    				<h3 class="mb-4">Opening Hours</h3>
+    				<h3 class="mb-4">Jam Operasional</h3>
     				<p class="openinghours d-flex">
-    					<span>Monday - Friday</span>
-    					<span>8:00 - 19:00</span>
+    					<span>Senin - Kamis</span>
+    					<span>8:00 - 15:30</span>
     				</p>
     				<p class="openinghours d-flex">
-    					<span>Saturday</span>
-    					<span>10:00 - 17:00</span>
+    					<span>Jumat</span>
+    					<span>8:00 - 15:00</span>
     				</p>
     				<p class="openinghours d-flex">
-    					<span>Sunday</span>
-    					<span>10:00 - 16:00</span>
+    					<span>Sabtu - Minggu</span>
+    					<span>Libur</span>
     				</p>
     			</div>
     			<div class="col-md-6 color-3 p-4">
-    				<h3 class="mb-2">Make an Appointment</h3>
+    				<h3 class="mb-2">Cari Dokter</h3>
     				<form action="#" class="appointment-form">
 	            <div class="row">
 	            	<div class="col-sm-4">
