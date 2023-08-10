@@ -35,25 +35,6 @@
     				<p class="openinghours d-flex">
     					<span>Sabtu</span>
     					<span>07:00 - 12:00</span>
-=======
-    				<h3 class="mb-4">Telepon Darurat</h3>
-    				<p>Hubungi nomor telfon jika anda mengalami keadaan darurat</p>
-    				<span class="phone-number">+ (0333) 5672572</span>
-    			</div>
-    			<div class="col-md-3 color-2 p-4">
-    				<h3 class="mb-4">Jam Operasional</h3>
-    				<p class="openinghours d-flex">
-    					<span>Senin - Kamis</span>
-    					<span>8:00 - 15:30</span>
-    				</p>
-    				<p class="openinghours d-flex">
-    					<span>Jumat</span>
-    					<span>8:00 - 15:00</span>
-    				</p>
-    				<p class="openinghours d-flex">
-    					<span>Sabtu - Minggu</span>
-    					<span>Libur</span>
->>>>>>> 4a0116c5b26e5ac31ea82bc400771e5d5baf73b5
     				</p>
     			</div>
     			<div class="col-md-6 color-3 p-4">

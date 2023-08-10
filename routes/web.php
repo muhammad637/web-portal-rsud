@@ -36,12 +36,7 @@ Route::get('/informasikunjungan', function () {
     return view('pages.pasien-pengunjung.informasi-kunjungan');
 });
 
-<<<<<<< HEAD
-Route::get('/berita', function () {
-    return view('pages.berita-artikel.berita');
-});
 
-=======
 
 
 Route::get('/artikel', function () {
@@ -57,4 +52,4 @@ Route::get('/artikel/klik', function () {
 Route::get('/profil', function () {
     return view('pages.profil.profil');
 });
->>>>>>> 4a0116c5b26e5ac31ea82bc400771e5d5baf73b5
+
