@@ -1,4 +1,6 @@
 @extends('main')
+@push('link.css')
+@endpush
 @section('content')
 <section id="dokter" class="dokter">
 <div class="card">
@@ -91,15 +93,44 @@
                         <div class="col-6">
                             <div class="row">
                                 <div class="col-6">
-                                    <img src="" alt="">
-
+                                    <img src="image/dokter/dokter1.jpg" alt="">
                                 </div>
                                 <div class="col-6">
                                     <div >
-                                    <p>Nama Dokter</p>
-                                    <p>Nama Dokter</p>
+                                    <p><b>Nama Dokter</b></p>
+                                    <p>Spesialis</p>
                                     </div>   
+                                </div>   
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-6">
+                                    <img src="image/dokter/dokter1.jpg" alt="">
                                 </div>
+                                <div class="col-6">
+                                    <div >
+                                    <p><b>Nama Dokter</b></p>
+                                    <p>Spesialis</p>
+                                    </div>   
+                                </div>   
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-6">
+                                    <img src="image/dokter/dokter1.jpg" alt="">
+                                </div>
+                                <div class="col-6">
+                                    <div >
+                                    <p><b>Nama Dokter</b></p>
+                                    <p>Spesialis</p>
+                                    </div>   
+                                </div>   
                             </div>
                         </div>
                     </div>

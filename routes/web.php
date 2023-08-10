@@ -23,3 +23,13 @@ Route::get('/layanan/rawat-inap', function () {
 Route::get('/caridokter', function () {
     return view('pages.pasien-pengunjung.dokter');
 });
+Route::get('/ketersediaantempat', function () {
+    return view('pages.pasien-pengunjung.ketersediaan-tempat');
+});
+Route::get('/informasikunjungan', function () {
+    return view('pages.pasien-pengunjung.informasi-kunjungan');
+});
+
+Route::get('/berita', function () {
+    return view('pages.berita-artikel.berita');
+});
