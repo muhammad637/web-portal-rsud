@@ -26,3 +26,13 @@ Route::get('/caridokter', function () {
 Route::get('/ketersediaantempat', function () {
     return view('pages.pasien-pengunjung.ketersediaan-tempat');
 });
+<<<<<<< HEAD
+=======
+Route::get('/informasikunjungan', function () {
+    return view('pages.pasien-pengunjung.informasi-kunjungan');
+});
+
+Route::get('/berita', function () {
+    return view('pages.berita-artikel.berita');
+});
+>>>>>>> 5fd9694a6b7f60ee5205d0c9e9828c294d901047
