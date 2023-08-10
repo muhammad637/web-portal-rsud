@@ -4707,18 +4707,11 @@ button.close {
   .popover-header:empty {
     display: none; }
 
-<<<<<<< HEAD
-  .dokter .card-breadcrumb{
-    width: 1520px;
-    height: 63px;
-    border-radius: 0px;
-    background-color: rgba(239, 143, 29, 0.40);
-  }
-=======
+
 .popover-body {
   padding: 0.5rem 0.75rem;
   color: #212529; }
->>>>>>> 5fd9694a6b7f60ee5205d0c9e9828c294d901047
+
 
 .carousel {
   position: relative; }
@@ -7727,20 +7720,12 @@ h1, h2, h3, h4, h5,
       .ftco-intro .container {
         margin-top: -100px; } }
   .ftco-intro .color-1 {
-    background: #2cbcbc; }
+    background: #7BCECC; }
   .ftco-intro .color-2 {
-    background: #21aac4; }
+    background: #6FA5B1; }
   .ftco-intro .color-3 {
-    background: #2f89fc;
-    background: -moz-linear-gradient(-45deg, #2f89fc 0%, #2cbcbc 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, #2f89fc), color-stop(100%, #2cbcbc));
-    background: -webkit-linear-gradient(-45deg, #2f89fc 0%, #2cbcbc 100%);
-    background: -o-linear-gradient(-45deg, #2f89fc 0%, #2cbcbc 100%);
-    background: -ms-linear-gradient(-45deg, #2f89fc 0%, #2cbcbc 100%);
-    background: -webkit-linear-gradient(315deg, #2f89fc 0%, #2cbcbc 100%);
-    background: -o-linear-gradient(315deg, #2f89fc 0%, #2cbcbc 100%);
-    background: linear-gradient(135deg, #2f89fc 0%, #2cbcbc 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2f89fc', endColorstr='#00dc94', GradientType=1 ); }
+    background: #3090A1;
+   }
   .ftco-intro h3 {
     font-size: 20px;
     color: #fff; }
@@ -7800,58 +7785,10 @@ h1, h2, h3, h4, h5,
       .ftco-intro .appointment-form .icon {
         right: 10px; } }
 
-<<<<<<< HEAD
-  .dokter .card-body-jadwal .card{
-    margin-top: 10px;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 30px;
-    width: 1255px;
-    height: 200px;
-    background-color: rgba(239, 143, 29, 0.45);
-    ;
-  }
-
-  .dokter .card-body-jadwal .card img{
-    margin-left: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 160px;
-    height: 180px;
-  }
-
-  .dokter .card-body-jadwal .card p{
-    margin-top: 30px;
-  }
-
-/*-----Ketersediaan Tempat Tidur--------*/
-  .ketersediaan-tempat .card{
-    border-radius: 0px;
-  }
-
-  .ketersediaan-tempat .breadcrumb{
-    margin-top: 20px;
-    margin-left: 100px;
-  }
-
-  .ketersediaan-tempat .card-breadcrumb{
-    width: 1520px;
-    height: 63px;
-    border-radius: 0px;
-    background-color: rgba(239, 143, 29, 0.40);
-  }
-
-  .ketersediaan-tempat .breadcrumb a{
-    color: #696764;
-    font-family: Nunito;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-=======
 .ftco-services {
-  padding-bottom: 0 !important; }
+  padding-bottom: 0 !important;
+ }
+
 
 .services {
   display: block;
@@ -8517,7 +8454,7 @@ textarea.form-control {
 .heading-section h2 {
   font-size: 30px;
   font-weight: 400;
-  background: #2f89fc;
+  background: #71C9CE;
   background: -moz-linear-gradient(-45deg, #2f89fc 0%, #2cbcbc 100%);
   background: -webkit-gradient(left top, right bottom, color-stop(0%, #2f89fc), color-stop(100%, #2cbcbc));
   background: -webkit-linear-gradient(-45deg, #2f89fc 0%, #2cbcbc 100%);
@@ -9388,4 +9325,4 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
->>>>>>> 5fd9694a6b7f60ee5205d0c9e9828c294d901047
+

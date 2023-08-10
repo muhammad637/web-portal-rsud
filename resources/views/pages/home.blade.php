@@ -1,61 +1,46 @@
 @extends('main')
 @section('content')
 <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image: url('images/bg_1.jpg');">
+      <div class="slider-item" style="background-image: url('images/bg1.jpg');">
         <div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text align-items-center" data-scrollax-parent="true">
-            <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-              <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Modern Dentistry in a Calm and Relaxed Environment</h1>
-              <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#" class="btn btn-primary px-4 py-3">Make an Appointment</a></p>
-            </div>
-          </div>
-        </div>
       </div>
-
-      <div class="slider-item" style="background-image: url('images/bg_2.jpg');">
+	  <div class="slider-item" style="background-image: url('images/bg3.jpg');">
         <div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text align-items-center" data-scrollax-parent="true">
-            <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-              <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Modern Achieve Your Desired Perfect Smile</h1>
-              <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              <p><a href="#" class="btn btn-primary px-4 py-3">Make an Appointment</a></p>
-            </div>
-          </div>
-        </div>
       </div>
+	  <div class="slider-item" style="background-image: url('images/bg2.jpg');">
+        <div class="overlay"></div>
+      </div>
+      
     </section>
 
     <section class="ftco-intro">
     	<div class="container">
     		<div class="row no-gutters">
     			<div class="col-md-3 color-1 p-4">
-    				<h3 class="mb-4">Emergency Cases</h3>
-    				<p>A small river named Duden flows by their place and supplies</p>
-    				<span class="phone-number">+ (123) 456 7890</span>
+    				<h3 class="mb-4">Telpon Darurat</h3>
+    				<p>Hubungi nomor telfon jika anda mengalami keadaan darurat</p>
+    				<span class="phone-number">(0333) 5672572</span>
     			</div>
     			<div class="col-md-3 color-2 p-4">
-    				<h3 class="mb-4">Opening Hours</h3>
+    				<h3 class="mb-4">Jam Operasional </h3>
     				<p class="openinghours d-flex">
-    					<span>Monday - Friday</span>
-    					<span>8:00 - 19:00</span>
+    					<span>Senin - Kamis</span>
+    					<span>07:00 - 14:00</span>
     				</p>
     				<p class="openinghours d-flex">
-    					<span>Saturday</span>
-    					<span>10:00 - 17:00</span>
+    					<span>Jum'at</span>
+    					<span>07:00 - 10:30</span>
     				</p>
     				<p class="openinghours d-flex">
-    					<span>Sunday</span>
-    					<span>10:00 - 16:00</span>
+    					<span>Sabtu</span>
+    					<span>07:00 - 12:00</span>
     				</p>
     			</div>
     			<div class="col-md-6 color-3 p-4">
-    				<h3 class="mb-2">Make an Appointment</h3>
+    				<h3 class="mb-2">Cari Dokter</h3>
     				<form action="#" class="appointment-form">
 	            <div class="row">
-	            	<div class="col-sm-4">
+	            	{{-- <div class="col-sm-4">
 	                <div class="form-group">
 			              <div class="select-wrap">
                       <div class="icon"><span class="ion-ios-arrow-down"></span></div>
@@ -68,43 +53,32 @@
                       </select>
                     </div>
 			            </div>
-	              </div>
-	              <div class="col-sm-4">
+	              </div> --}}
+				  
+	              <div class="col-sm-12">
 	                <div class="form-group">
 	                	<div class="icon"><span class="icon-user"></span></div>
 			              <input type="text" class="form-control" id="appointment_name" placeholder="Name">
 			            </div>
 	              </div>
-	              <div class="col-sm-4">
+				  <div class="col-sm-12">
 	                <div class="form-group">
-	                	<div class="icon"><span class="icon-paper-plane"></span></div>
-			              <input type="text" class="form-control" id="appointment_email" placeholder="Email">
+			              <div class="select-wrap">
+                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                      <select name="" id="" class="form-control">
+                      	<option value="" class="text-dark">Department</option>
+                        <option value="" class="text-dark">Teeth Whitening</option>
+                        <option value="" class="text-dark">Teeth CLeaning</option>
+                        <option value="" class="text-dark">Quality Brackets</option>
+                        <option value="" class="text-dark">Modern Anesthetic</option>
+                      </select>
+                    </div>
 			            </div>
-	              </div>
-	            </div>
-	            <div class="row">
-	              <div class="col-sm-4">
-	                <div class="form-group">
-	                	<div class="icon"><span class="ion-ios-calendar"></span></div>
-	                  <input type="text" class="form-control appointment_date" placeholder="Date">
-	                </div>    
-	              </div>
-	              <div class="col-sm-4">
-	                <div class="form-group">
-	                	<div class="icon"><span class="ion-ios-clock"></span></div>
-	                  <input type="text" class="form-control appointment_time" placeholder="Time">
-	                </div>
-	              </div>
-	              <div class="col-sm-4">
-	                <div class="form-group">
-	                	<div class="icon"><span class="icon-phone2"></span></div>
-	                  <input type="text" class="form-control" id="phone" placeholder="Phone">
-	                </div>
 	              </div>
 	            </div>
 	            
 	            <div class="form-group">
-	              <input type="submit" value="Make an Appointment" class="btn btn-primary">
+	              <input type="submit" value="Telusuri" class="btn btn-primary">
 	            </div>
 	          </form>
     			</div>
@@ -116,7 +90,7 @@
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
-            <h2 class="mb-2">Our Service Keeps you Smile</h2>
+            <h2 class="mb-2" style="color: #71C9CE;"><strong>LAYANAN UNGGULAN</strong></h2>
             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
           </div>
         </div>
