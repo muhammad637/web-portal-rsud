@@ -55,16 +55,16 @@
     				<h3 class="mb-2">Cari Dokter</h3>
     				<form action="#" class="appointment-form">
 	            <div class="row">
-	            	<div class="col-sm-4">
+	            	<div class="col-sm-4 bg-black">
 	                <div class="form-group">
 			              <div class="select-wrap">
                       <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                       <select name="" id="" class="form-control">
-                      	<option value="">Department</option>
-                        <option value="">Teeth Whitening</option>
-                        <option value="">Teeth CLeaning</option>
-                        <option value="">Quality Brackets</option>
-                        <option value="">Modern Anesthetic</option>
+                      	<option value="" class="text-dark">Department</option>
+                        <option value="" class="text-dark">Teeth Whitening</option>
+                        <option value="" class="text-dark">Teeth CLeaning</option>
+                        <option value="" class="text-dark">Quality Brackets</option>
+                        <option value="" class="text-dark">Modern Anesthetic</option>
                       </select>
                     </div>
 			            </div>
