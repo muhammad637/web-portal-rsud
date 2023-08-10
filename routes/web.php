@@ -17,9 +17,14 @@ Route::get('/', function () {
     return view('pages.home');
 });
 
-Route::get('/layanan/rawat-inap', function () {
+Route::get('/rawat-inap', function () {
     return view('pages.layanan.rawat-inap');
 });
+Route::get('/layanan-unggulan', function () {
+    return view('pages.layanan.layanan-unggulan');
+});
+
+
 Route::get('/caridokter', function () {
     return view('pages.pasien-pengunjung.dokter');
 });
@@ -31,7 +36,25 @@ Route::get('/informasikunjungan', function () {
     return view('pages.pasien-pengunjung.informasi-kunjungan');
 });
 
+<<<<<<< HEAD
 Route::get('/berita', function () {
     return view('pages.berita-artikel.berita');
 });
 
+=======
+
+
+Route::get('/artikel', function () {
+    return view('pages.berita-artikel.artikel');
+});
+
+Route::get('/artikel/klik', function () {
+    return view('pages.berita-artikel.artikel-single');
+});
+
+
+
+Route::get('/profil', function () {
+    return view('pages.profil.profil');
+});
+>>>>>>> 4a0116c5b26e5ac31ea82bc400771e5d5baf73b5
