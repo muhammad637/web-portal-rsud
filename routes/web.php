@@ -30,6 +30,6 @@ Route::get('/informasikunjungan', function () {
     return view('pages.pasien-pengunjung.informasi-kunjungan');
 });
 
-Route::get('/berita', function () {
-    return view('pages.berita-artikel.berita');
+Route::get('/artikel', function () {
+    return view('pages.berita-artikel.artikel');
 });
