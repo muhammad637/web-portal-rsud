@@ -38,12 +38,15 @@ class DokterController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request->nama;
         $validatedData = $request->validate(
             [
                 'nama' => 'required',
-                'gambar' => 'required'
+                'spesialis_id' => 'required',
+                'gambar' => 'required|max:1024'
             ]
             );
+            $validatedData['gambar'] = $request->file('gambar')->store('gambar-dokter');
             Dokter::create($validatedData);
             return Dokter::all();
         //
@@ -57,7 +60,8 @@ class DokterController extends Controller
      */
     public function show(Dokter $dokter)
     {
-        return Dokter::with('nama')->where('id', $dokter)->get();
+        // return Dokter::where('id', $dokter)->get();
+        return $dokter;
     }
 
     /**

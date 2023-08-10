@@ -18,7 +18,7 @@ class JadwalDokterController extends Controller
      */
     public function index()
     {
-        return Dokter::all();
+        return JadwalDokter::all();
     }
 
     /**
@@ -40,16 +40,14 @@ class JadwalDokterController extends Controller
     public function store(Request $request)
     {
         //
-        $validateData = $request()->validate([
+        $validateData = $request->validate([
             'dokter_id' => 'required',
             'hari' => 'required',
             'jam-mulai-praktek' => 'required',
-            'jam-selesai-praktek' => 'reqired'
-
+            'jam-selesai-praktek' => 'required'
         ]);
-
-        Dokter::create($validateData);
-        return Dokter::all();
+        JadwalDokter::create($validateData);
+        return JadwalDokter::all();
     }
 
     /**
@@ -58,10 +56,9 @@ class JadwalDokterController extends Controller
      * @param  \App\Models\JadwalDokter  $jadwalDokter
      * @return \Illuminate\Http\Response
      */
-    public function show($jadwalDokter)
+    public function show(JadwalDokter $jadwalDokter)
     {
-        return JadwalDokter::all();
-        //
+        return "testing";
     }
 
     /**
@@ -92,8 +89,7 @@ class JadwalDokterController extends Controller
             ]
             );
         $jadwalDokter->update($validateData);
-        return JadwalDokter::all();
-        
+        return $jadwalDokter;
             //
     }
 

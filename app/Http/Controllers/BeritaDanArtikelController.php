@@ -110,7 +110,7 @@ class BeritaDanArtikelController extends Controller
         $validatedData = $request->validate(
             [
                 'judul' => 'required',
-                'slug' => 'required|' .Rule::unique('berita_dan_artikels'),
+                'slug' => 'required|' .Rule::unique('berita_dan_artikels')->ignore($beritaDanArtikel->id),
                 'isi' => 'required',
                 'video' => '',
                 'gambar' => '',

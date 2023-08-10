@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Spesialis;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use App\Http\Controllers\Controller;
 
 class SpesialisController extends Controller
 {
@@ -81,14 +83,15 @@ class SpesialisController extends Controller
      */
     public function update(Request $request, Spesialis $spesialis)
     {
+        // return $request;
         $validatedData = $request->validate(
             [
-                'nama_spesialis' => 'required',
+                'nama_spesialis' => 'required'. Rule::unique('spesialis')->ignore($spesialis->id),
             ]
-            );
-
-            $spesialis->update($validatedData);
-            return Spesialis::all();
+        );
+        // return $validatedData;
+        $spesialis->update($validatedData);
+        return $spesialis;
         //
     }
 
