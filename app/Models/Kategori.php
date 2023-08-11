@@ -12,6 +12,6 @@ class Kategori extends Model
     protected $guarded = ["id"];
 
     public function beritadanartikel(){
-        return $this->belongsToMany(BeritaDanArtikel::class, 'berita_dan_artikel_kategori_table');
+        return $this->belongsToMany(BeritaDanArtikel::class, 'berita_dan_artikel_kategori');
     }
 }

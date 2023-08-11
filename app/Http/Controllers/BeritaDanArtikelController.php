@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BeritaDanArtikel;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use App\Models\BeritaDanArtikel;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class BeritaDanArtikelController extends Controller
 {
@@ -39,10 +42,29 @@ class BeritaDanArtikelController extends Controller
     public function store(Request $request)
     {
         //
-        $validatedData = $request->all();
-
-        BeritaDanArtikel::create($validatedData);
-        return $validatedData;
+        try {
+            // return "coba";
+            $validatedData = $request->validate(
+                [
+                    'judul' => 'required',
+                    'slug' => 'required|unique:berita_dan_artikels',
+                    'isi' => 'required',
+                    'video' => '',
+                    'gambar' => 'required|file|max:1024',
+                    'jenis' => 'required'
+                    ]
+                );
+                //code...
+            $validatedData['gambar'] = $request->file('gambar')->store('image-berita-artikel');; 
+            BeritaDanArtikel::create($validatedData);
+            $beritaartikel = BeritaDanArtikel::where('judul', $request->judul)->first();
+            $beritaartikel->kategori()->sync($request->kategori);
+            return BeritaDanArtikel::with('kategori')->get();
+        } catch (\Throwable $th) {
+            //throw $th;
+            return $th->getMessage();
+        }
+      
     }
 
     /**
@@ -51,9 +73,13 @@ class BeritaDanArtikelController extends Controller
      * @param  \App\Models\BeritaDanArtikel  $beritaDanArtikel
      * @return \Illuminate\Http\Response
      */
-    public function show(BeritaDanArtikel $beritaDanArtikel)
+    public function show($slug)
     {
-       return $beritaDanArtikel;
+
+        $beritaDanArtikel = BeritaDanArtikel::with('kategori')->where('slug', $slug)->first();
+        $beritaDanArtikel->views += 1;
+        $beritaDanArtikel->save();
+        return $beritaDanArtikel;
         //
         // return BeritaDanArtikel::where('id',$beritaDanArtikel->id)->first();
     }
@@ -64,10 +90,10 @@ class BeritaDanArtikelController extends Controller
      * @param  \App\Models\BeritaDanArtikel  $beritaDanArtikel
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(BeritaDanArtikel $beritaDanArtikel)
     {
         //
-        return BeritaDanArtikel::with('kategori')->find($id);
+        return BeritaDanArtikel::with('kategori')->find($beritaDanArtikel->id);
     }
 
     /**
@@ -80,6 +106,32 @@ class BeritaDanArtikelController extends Controller
     public function update(Request $request, BeritaDanArtikel $beritaDanArtikel)
     {
         //
+        // return BeritaDanArtikel::with('kategori')->find($id);
+        $validatedData = $request->validate(
+            [
+                'judul' => 'required',
+                'slug' => 'required|' .Rule::unique('berita_dan_artikels')->ignore($beritaDanArtikel->id),
+                'isi' => 'required',
+                'video' => '',
+                'gambar' => '',
+                'jenis' => 'required'
+            ]
+        );
+        if ($validatedData['gambar'] == null) {
+            # code...
+            $validatedData['gambar'] = $beritaDanArtikel->gambar;
+        }else{
+            $old = \str_replace('','', $beritaDanArtikel->gambar);
+            $new = $request->file('gambar')->store('image-berita-artikel');
+            Storage::delete($old);
+            $validatedData['gambar'] = $new;
+        }
+        $beritaDanArtikel->update();
+        if ($request->kategori) {
+            # code...
+            $beritaDanArtikel->kategori()->sync($request->kategori);
+        }
+        return $beritaDanArtikel;
     }
 
     /**
@@ -91,5 +143,7 @@ class BeritaDanArtikelController extends Controller
     public function destroy(BeritaDanArtikel $beritaDanArtikel)
     {
         //
+        $beritaDanArtikel->delete();
+        return BeritaDanArtikel::all();
     }
 }

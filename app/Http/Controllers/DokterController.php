@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokter;
+use Illuminate\Contracts\Support\ValidatedData;
 use Illuminate\Http\Request;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class DokterController extends Controller
 {
@@ -14,6 +16,7 @@ class DokterController extends Controller
      */
     public function index()
     {
+        return Dokter::all();
         //
     }
 
@@ -35,6 +38,17 @@ class DokterController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request->nama;
+        $validatedData = $request->validate(
+            [
+                'nama' => 'required',
+                'spesialis_id' => 'required',
+                'gambar' => 'required|max:1024'
+            ]
+            );
+            $validatedData['gambar'] = $request->file('gambar')->store('gambar-dokter');
+            Dokter::create($validatedData);
+            return Dokter::all();
         //
     }
 
@@ -46,7 +60,8 @@ class DokterController extends Controller
      */
     public function show(Dokter $dokter)
     {
-        //
+        // return Dokter::where('id', $dokter)->get();
+        return $dokter;
     }
 
     /**
@@ -69,7 +84,16 @@ class DokterController extends Controller
      */
     public function update(Request $request, Dokter $dokter)
     {
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'gambar' => 'required'
+        ]
+    );
+
+        $dokter->update($validatedData);
+        return Dokter::all();
         //
+
     }
 
     /**

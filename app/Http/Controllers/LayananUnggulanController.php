@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Spesialis;
+use App\Models\LayananUnggulan;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
-use App\Http\Controllers\Controller;
 
-class SpesialisController extends Controller
+class LayananUnggulanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +15,6 @@ class SpesialisController extends Controller
     public function index()
     {
         //
-        return Spesialis::all();
     }
 
     /**
@@ -28,7 +25,6 @@ class SpesialisController extends Controller
     public function create()
     {
         //
-
     }
 
     /**
@@ -40,36 +36,26 @@ class SpesialisController extends Controller
     public function store(Request $request)
     {
         //
-
-        $validatedData = $request->validate(
-            [
-                'nama_spesialis' => 'required|unique:spesialis'
-            ]
-        );
-
-        Spesialis::create($validatedData);
-        return Spesialis::all();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Spesialis  $spesialis
+     * @param  \App\Models\LayananUnggulan  $layananUnggulan
      * @return \Illuminate\Http\Response
      */
-    public function show(Spesialis $spesialis)
+    public function show(LayananUnggulan $layananUnggulan)
     {
-        return Spesialis::with('nama_spesialis')->where('id', $spesialis)->get();
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Spesialis  $spesialis
+     * @param  \App\Models\LayananUnggulan  $layananUnggulan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Spesialis $spesialis)
+    public function edit(LayananUnggulan $layananUnggulan)
     {
         //
     }
@@ -78,30 +64,21 @@ class SpesialisController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Spesialis  $spesialis
+     * @param  \App\Models\LayananUnggulan  $layananUnggulan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Spesialis $spesialis)
+    public function update(Request $request, LayananUnggulan $layananUnggulan)
     {
-        // return $request;
-        $validatedData = $request->validate(
-            [
-                'nama_spesialis' => 'required'. Rule::unique('spesialis')->ignore($spesialis->id),
-            ]
-        );
-        // return $validatedData;
-        $spesialis->update($validatedData);
-        return $spesialis;
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Spesialis  $spesialis
+     * @param  \App\Models\LayananUnggulan  $layananUnggulan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Spesialis $spesialis)
+    public function destroy(LayananUnggulan $layananUnggulan)
     {
         //
     }
