@@ -31,9 +31,11 @@ Route::get('/caridokter', function () {
 Route::get('/ketersediaantempat', function () {
     return view('pages.pasien-pengunjung.ketersediaan-tempat');
 });
+
 Route::get('/informasikunjungan', function () {
     return view('pages.pasien-pengunjung.informasi-kunjungan');
 });
+
 
 
 
@@ -50,3 +52,4 @@ Route::get('/artikel/klik', function () {
 Route::get('/profil', function () {
     return view('pages.profil.profil');
 });
+
