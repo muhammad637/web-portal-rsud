@@ -1,591 +1,781 @@
 @extends('main')
 @section('content')
-
-@push('link-css')
-  <link rel="stylesheet" href="{{asset('css/home/style.css')}}">
-  <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.1.0/swiper-bundle.css"
-            integrity="sha512-xXQQj99PFpHikerkvc6HrA+dFLC14dMyBh0eL8fCan9h3n8Uhxvq5Os8ysEvn3oTLWJTte9kl5FFEftf2KfyHA=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-@endpush
-    {{-- <section id="hero" class="hero d-flex align-items-center section-bg">
-        <div class="card">
-        <div id="carouselExampleCaptions" class="carousel slide">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="image/hero/hero1.jpg" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="image/hero/hero2.jpg"  alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="image/hero/hero3.jpg"  alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        {{-- </div>   --}}
-
-          
-          {{-- <div class="layanan-home" data aos="fade-up"> --}}
-            
-          
-          {{-- <div class="container text-center">
-            <div class="section-header">
-              <br>
-              <p><b>LAYANAN <span>UNGGULAN RSUD BLAMBANGAN</span></b></p>
-            </div>
-            <br>
-            <div class="row mt-4">
-              <div class="col-md-4 layanan-item">
-                <img src="image/layanan/layanan1.jpg" class="layanan-img img-fluid" alt="">
-                <p class="nama"><b>MEDICAL CHECKUP</b></p>
-              </div>
-              <div class="col-md-4 layanan-item">
-                <img src="image/layanan/layanan2.png" class="layanan-img img-fluid" alt="">
-                <p class="nama"><b>IGD</b></p>
-              </div>
-              <div class="col-md-4 layanan-item">
-                <img src="image/layanan/layanan3.jpg" class="layanan-img img-fluid" alt="">
-                <p class="nama"><b>RSUD DENTAL CLINIC</b></p>
-              </div>
-
-            </div>
-            </div>
-          </div> --}}
-        {{-- </div> --}}
-      {{-- </section> --}}
-
-      {{-- <section id="artikel" class="artikel">
-        <div class="card">
-          <div class="container" data-aos="fade-up">
-            <div class="section-header">
-              <br>
-              <p><b>ARTIKEL <span>KESEHATAN</span></b></p>
-              <br>
-            </div>
-            <div class="row mt-4">
-                <div class="col-md-4 artikel">
-                    <img src="image/artikel/artikel1.jpg" class="artikel-img img-fluid" alt="">
-                    <p class="judul-artikel"><b>Judul Artikel</b></p>
-                </div>
-                <div class="col-md-4 artikel">
-                    <img src="image/artikel/artikel2.jpg" class="artikel-img img-fluid" alt="">
-                    <p class="judul-artikel"><b>Judul Artikel</b></p>
-                </div>
-                <div class="col-md-4 artikel">
-                    <img src="image/artikel/artikel3.jpg" class="artikel-img img-fluid" alt="">
-                    <p class="judul-artikel"><b>Judul Artikel</b></p>
-                </div>
-                <div class="button">
-                <div class="col-md-12">
-                      <button type="button" class="btn btn-success">Lihat Lebih Banyak</button>
-                      </div>
-                </div>
-            </div>           
-          </div>
-        </div>
-      </section> --}}
-
-      {{-- <section id="profil" class="profil">
-        <div class="card">
-
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-4">
-                        <div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
-                            <a class="p-1 rounded" href="#profil">Profil</a>
-                            <a class="p-1 rounded" href="#visi-misi">Visi & Misi</a>
-                        </div>
-                    </div>
-                    <div class="col-8">
-                        <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-                            <h4 id="profil">Profil</h4>
-                            <p>Loren ipsun dolor sit anet, consectetur adipisci elit, sed eiusnod tenpor incidunt ut labore et dolore nagna aliqua. Ut enin ad ninin venian, quis nostrun exercitationen ullan corporis suscipit laboriosan, nisi ut aliquid ex ea connodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillun dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt nollit anin id est laborun.</p>
-                            <h4 id="visi-misi">Visi & Misi</h4>
-                            <p>Visi : Loren ipsun dolor sit anet, consectetur adipisci elit, sed eiusnod tenpor incidunt ut labore et dolore nagna aliqua. Ut enin ad ninin venian, quis nostrun exercitationen ullan corporis suscipit laboriosan, nisi ut aliquid ex ea connodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillun dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt nollit anin id est laborun.</p>
-                        </div>
-                    </div>
-                </div>
-          </div>
-
-        </div>
-      </section> --}}
-
-      {{-- <section id="berita" class="berita">
-        <div class="card">
+    <section class="home-slider owl-carousel">
+        <div class="slider-item" style="background-image: url('images/bg_1.jpg');">
+            <div class="overlay"></div>
             <div class="container">
-                
-                <div class="section-header">
-                <p><b>BERITA <span>TERBARU</span></b></p>
-                </div>
-
-            <div class="content">    
-            <div class="row mt-4">
-            <div class="col md-4">
-            <div class="card" style="width: 18rem;">
-                <img src="image/berita/berita1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="tanggal-artikel">13 Juli 2023</p>
-                    <h5 class="judul-artikel">oren ipsun dolor sit anet, consectetur adipisci elit,</h5>
-                    <br>
-                    <a href="#" class="btn btn-success">Selengkapnya</a>
-                </div>
-            </div>
-            </div>
-            <div class="col md-4">
-            <div class="card" style="width: 18rem;">
-                <img src="image/berita/berita2.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="tanggal-artikel">13 Juli 2023</p>
-                    <h5 class="judul-artikel">Loren ipsun dolor sit anet,</h5>
-                    <br>
-                    <a href="#" class="btn btn-success">Selengkapnya</a>
-                </div>
-            </div>
-            </div>
-            <div class="col md-4">
-            <div class="card" style="width: 18rem;">
-                <img src="image/berita/berita3.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="tanggal-artikel">13 Juli 2023</p>
-                    <h5 class="judul-artikel">Loren ipsun dolor sit anet, consectetur adipisci elit, sed eiusnod</h5>
-                    <br>
-                    <a href="#" class="btn btn-success">Selengkapnya</a>
-                </div>
-            </div>
-            </div>
-
-            </div>
-            </div>
-            </div>
-           
-    </div>
-    </section> --}}
-     <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img
-                        src="image/hero/hero1.jpg"
-                        alt=""
-                       
-                    />
-                </div>
-                <div class="swiper-slide">
-                    <img src="image/hero/hero2.jpg" alt="" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="image/hero/hero3.jpg" alt="" />
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-
-        <!-- form-cari-dokter -->
-        <div class="card w-75 mx-auto kotak1 w-sm-100" style="background-color: #EF8F1D;">
-            <div class="card-body">
-                <h5 class="card-title text-center">Cari Dokter - RSUD Blambangan</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary text-center">
-                  Temukan jadwal dokter ahli, spesialis, dan berpengalaman
-                </h6>
-               <div class="card-body-in p-3" style="background-color: #F69F39;">
-                <div class="row mt-4">
-                  <div class="col-md-12">
-                    <label for="basic-url" class="form-label">
-                      <h5>Nama Dokter</h5>
-                    </label>
-                    <div class="input-group-mb-3">
-                      <input required type="text" class="form-control">
-                    </div>
-                  </div>
-                  <div class="row mt-4">
-                    <div class="col-md-4">
-                      <label for="basic-url" class="form-label">
-                        <h5>Hari</h5>
-                      </label>
-                      <div class="input-group mb-3">
-                        <select id="cari-hari" class="form-select">
-                          <option>Senin</option>
-                          <option>Selasa</option>
-                          <option>Rabu</option>
-                          <option>Kamis</option>
-                          <option>Jum'at</option>
-                          <option>Sabtu</option>
-                        </select>
-                      </div>
-                      
-                    </div>
-                    <div class="col-md-4">
-                      <label for="basic-url" class="form-label">
-                        <h5>Jam</h5>
-                      </label>
-                      <div class="input-group mb-3">
-                        <input required type="time" class="form-control" name="jam">
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <label for="basic-url" class="form-label">
-                        <h5>Spesialis</h5>
-                      </label>
-                      <div class="input-group mb-3">
-                        <select id="spesialis" class="form-select">
-                          <option> Bedah Umum</option>
-                        </select>
-                      </div>
-                      
-                  </div>
-                  </div>
-                  <div class="col-md-12">
-                    <button type="button" class="btn btn-success" style="width: 100%">Cari</button>
+                <div class="row slider-text align-items-center" data-scrollax-parent="true">
+                    <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                        <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Modern Dentistry
+                            in a Calm and Relaxed Environment</h1>
+                        <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">A small river
+                            named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#"
+                                class="btn btn-primary px-4 py-3">Make an Appointment</a></p>
                     </div>
                 </div>
-               </div>
             </div>
         </div>
 
-        <!-- end form-cari-dokter -->
-        {{-- layanan unggulan --}}
-        <div class="layanan-home" data aos="fade-up">
-          <div class="container text-center">
-            <div class="section-header">
-              <p><b>LAYANAN <span>UNGGULAN RSUD BLAMBANGAN</span></b></p>
+        <div class="slider-item" style="background-image: url('images/bg_2.jpg');">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row slider-text align-items-center" data-scrollax-parent="true">
+                    <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                        <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Modern Achieve
+                            Your Desired Perfect Smile</h1>
+                        <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary
+                            regelialia.</p>
+                        <p><a href="#" class="btn btn-primary px-4 py-3">Make an Appointment</a></p>
+                    </div>
+                </div>
             </div>
-            <br>
-          </div>
         </div>
+    </section>
+
+    <section class="ftco-intro">
         <div class="container">
-          
-          <div class="card" style="border: none">
-              <div class="row align-items-center">
-                <div class="col-md-4 my-1">
-                  <div class="card" style="border: none">
-                      <div class="overflow-hidden" style="height: 15rem">
-                          <img
-                              src="../image/artikel/artikel1.jpg"
-                              alt=""
-                              class="img-fluid object-fit-cover"
-                          />
-                      </div>
-                      <div class="text-center">
-                        <h3 class="card-judul">
-                          Lorem, ipsum dolor sit amet consectetur
-                          adipisicing elit. Nulla in dolorum doloribus
-                          dolore sit ipsam cum distinctio provident
-                          aspernatur consequuntur?
-                      </h3>
-                      </div>
-                  </div>
-              </div>
-                  <div class="col-md-4 my-1">
-                      <div class="card" style="border: none">
-                          <div class="overflow-hidden" style="height: 15rem">
-                              <img
-                                  src="../image/artikel/artikel1.jpg"
-                                  alt=""
-                                  class="img-fluid object-fit-cover"
-                              />
-                          </div>
-                          <div class="text-center">
-                            <h3 class="card-judul">
-                              Lorem, ipsum dolor sit amet consectetur
-                              adipisicing elit. Nulla in dolorum doloribus
-                              dolore sit ipsam cum distinctio provident
-                              aspernatur consequuntur?
-                          </h3>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-4">
-                      <div class="card" style="border: none">
-                          <div
-                              class="position-relative overflow-hidden"
-                              style="height: 15rem"
-                          >
-                              <img
-                                  src="https://source.unsplash.com/400x800"
-                                  alt=""
-                                  class="object-fit-cover"
-                              />
-                              <div
-                                  class="position-absolute top-10 start-50 z-10 card-title text-warning"
-                              >
-                                  Lorem, ipsum dolor sit amet consectetur
-                                  adipisicing elit. Nulla in dolorum doloribus
-                                  dolore sit ipsam cum distinctio provident
-                                  aspernatur consequuntur?
-                              </div>
-                          </div>
-                          <div class="text-center">
-                            <h3 class="card-judul">
-                              Lorem, ipsum dolor sit amet consectetur
-                              adipisicing elit. Nulla in dolorum doloribus
-                              dolore sit ipsam cum distinctio provident
-                              aspernatur consequuntur?
-                          </h3>
-                          </div>
-                          
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-        {{-- end layanan unggulan --}}
-
-        <!-- artikel --> 
-        <div class="artikel my-5" data aos="fade-up">
-          <div class="container text-center">
-            <div class="section-header">
-              <p><b>ARTIKEL <span>KESEHATAN</span></b></p>
-            </div>
-            <br>
-          </div>
-        </div>
-        <div class="container">
-          
-            <div class="card" style="border: none">
-                <div class="row align-items-center">
-                  <div class="col-md-4 my-1">
-                    <div class="card" style="border: none">
-                        <div class="overflow-hidden" style="height: 15rem">
-                            <img
-                                src="../image/artikel/artikel1.jpg"
-                                alt=""
-                                class="img-fluid object-fit-cover"
-                            />
-                        </div>
-                        <div class="text-center">
-                          <h3 class="card-judul">
-                            Lorem, ipsum dolor sit amet consectetur
-                            adipisicing elit. Nulla in dolorum doloribus
-                            dolore sit ipsam cum distinctio provident
-                            aspernatur consequuntur?
-                        </h3>
-                        </div>
-                    </div>
+            <div class="row no-gutters">
+                <div class="col-md-3 color-1 p-4">
+                    <h3 class="mb-4">Telepon Darurat</h3>
+                    <p>Hubungi nomor telfon jika anda mengalami keadaan darurat</p>
+                    <span class="phone-number">+ (0333) 5672572</span>
                 </div>
-                    <div class="col-md-4 my-1">
-                        <div class="card" style="border: none">
-                            <div class="overflow-hidden" style="height: 15rem">
-                                <img
-                                    src="../image/artikel/artikel1.jpg"
-                                    alt=""
-                                    class="img-fluid object-fit-cover"
-                                />
-                            </div>
-                            <div class="text-center">
-                              <h3 class="card-judul">
-                                Lorem, ipsum dolor sit amet consectetur
-                                adipisicing elit. Nulla in dolorum doloribus
-                                dolore sit ipsam cum distinctio provident
-                                aspernatur consequuntur?
-                            </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card" style="border: none">
-                            <div
-                                class="position-relative overflow-hidden"
-                                style="height: 15rem">
-                                <img
-                                    src="https://source.unsplash.com/400x800"
-                                    alt=""
-                                    class="object-fit-cover"
-                                />
-                                <div
-                                    class="position-absolute top-10 start-50 z-10 card-title text-warning">
-                                    Lorem, ipsum dolor sit amet consectetur
-                                    adipisicing elit. Nulla in dolorum doloribus
-                                    dolore sit ipsam cum distinctio provident
-                                    aspernatur consequuntur?
+                <div class="col-md-3 color-2 p-4">
+                    <h3 class="mb-4">Jam Operasional</h3>
+                    <p class="openinghours d-flex">
+                        <span>Senin - Kamis</span>
+                        <span>8:00 - 15:30</span>
+                    </p>
+                    <p class="openinghours d-flex">
+                        <span>Jumat</span>
+                        <span>8:00 - 15:00</span>
+                    </p>
+                    <p class="openinghours d-flex">
+                        <span>Sabtu - Minggu</span>
+                        <span>Libur</span>
+                    </p>
+                </div>
+                <div class="col-md-6 color-3 p-4">
+                    <h3 class="mb-2">Cari Dokter</h3>
+                    <form action="#" class="appointment-form">
+                        <div class="row">
+                            <div class="col-sm-4 bg-black">
+                                <div class="form-group">
+                                    <div class="select-wrap">
+                                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                        <select name="" id="" class="form-control">
+                                            <option value="" class="text-dark">Department</option>
+                                            <option value="" class="text-dark">Teeth Whitening</option>
+                                            <option value="" class="text-dark">Teeth CLeaning</option>
+                                            <option value="" class="text-dark">Quality Brackets</option>
+                                            <option value="" class="text-dark">Modern Anesthetic</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="text-center">
-                              <h3 class="card-judul">
-                                Lorem, ipsum dolor sit amet consectetur
-                                adipisicing elit. Nulla in dolorum doloribus
-                                dolore sit ipsam cum distinctio provident
-                                aspernatur consequuntur?
-                            </h3>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="icon"><span class="icon-user"></span></div>
+                                    <input type="text" class="form-control" id="appointment_name" placeholder="Name">
+                                </div>
                             </div>
-                            
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="icon"><span class="icon-paper-plane"></span></div>
+                                    <input type="text" class="form-control" id="appointment_email" placeholder="Email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="icon"><span class="ion-ios-calendar"></span></div>
+                                    <input type="text" class="form-control appointment_date" placeholder="Date">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="icon"><span class="ion-ios-clock"></span></div>
+                                    <input type="text" class="form-control appointment_time" placeholder="Time">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="icon"><span class="icon-phone2"></span></div>
+                                    <input type="text" class="form-control" id="phone" placeholder="Phone">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Make an Appointment" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section ftco-services">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-5">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <h2 class="mb-2">Our Service Keeps you Smile</h2>
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services d-block text-center">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="flaticon-tooth-1"></span>
+                        </div>
+                        <div class="media-body p-2 mt-3">
+                            <h3 class="heading">Teeth Whitening</h3>
+                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
+                                unorthographic.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services d-block text-center">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="flaticon-dental-care"></span>
+                        </div>
+                        <div class="media-body p-2 mt-3">
+                            <h3 class="heading">Teeth Cleaning</h3>
+                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
+                                unorthographic.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services d-block text-center">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="flaticon-tooth-with-braces"></span>
+                        </div>
+                        <div class="media-body p-2 mt-3">
+                            <h3 class="heading">Quality Brackets</h3>
+                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
+                                unorthographic.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services d-block text-center">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="flaticon-anesthesia"></span>
+                        </div>
+                        <div class="media-body p-2 mt-3">
+                            <h3 class="heading">Modern Anesthetic</h3>
+                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
+                                unorthographic.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="button my-5"> 
-          <button type="button" class="btn btn-success d-block mx-auto w-25">Lihat Lebih Banyak</button>
+        <div class="container-wrap mt-5">
+            <div class="row d-flex no-gutters">
+                <div class="col-md-6 img" style="background-image: url(images/about-2.jpg);">
+                </div>
+                <div class="col-md-6 d-flex">
+                    <div class="about-wrap">
+                        <div class="heading-section heading-section-white mb-5 ftco-animate">
+                            <h2 class="mb-2">Dentacare with a personal touch</h2>
+                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                            </p>
+                        </div>
+                        <div class="list-services d-flex ftco-animate">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-check2"></span>
+                            </div>
+                            <div class="text">
+                                <h3>Well Experience Dentist</h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+                                    there live the blind texts.</p>
+                            </div>
+                        </div>
+                        <div class="list-services d-flex ftco-animate">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-check2"></span>
+                            </div>
+                            <div class="text">
+                                <h3>High Technology Facilities</h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+                                    there live the blind texts.</p>
+                            </div>
+                        </div>
+                        <div class="list-services d-flex ftco-animate">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-check2"></span>
+                            </div>
+                            <div class="text">
+                                <h3>Comfortable Clinics</h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+                                    there live the blind texts.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- end artikel -->
-        {{-- Profil & Visi Misi --}}
-        <div class="card   w-75  mx-auto w-sm-100 my-2" style="background-color: #FFE9D0;">
-          <div class="card-body">
+    </section>
+
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-5">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <h2 class="mb-3">Meet Our Experience Dentist</h2>
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a
+                        paradisematic country, in which roasted parts of sentences</p>
+                </div>
+            </div>
             <div class="row">
-                <div class="col-4">
-                    <div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
-                      <button type="myButton" id="btnprofil" class="btn w-50 mx-auto" style="color: #6F6F6F;">Profil</button>
-                      <button type="myButton2" id="btnvisi" class="btn w-50 mx-auto mt-3" style="color: #6F6F6F;">Visi & Misi</button>
+                <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
+                    <div class="staff">
+                        <div class="img mb-4" style="background-image: url(images/person_5.jpg);"></div>
+                        <div class="info text-center">
+                            <h3><a href="teacher-single.html">Tom Smith</a></h3>
+                            <span class="position">Dentist</span>
+                            <div class="text">
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia</p>
+                                <ul class="ftco-social">
+                                    <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a>
+                                    </li>
+                                    <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a>
+                                    </li>
+                                    <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a>
+                                    </li>
+                                    <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-8">
-                    <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-                      <div class="profil" id="profile" >
-                        <h4>Profil</h4>
-                        <p>Loren ipsun dolor sit anet, consectetur adipisci elit, sed eiusnod tenpor incidunt ut labore et dolore nagna aliqua. Ut enin ad ninin venian, quis nostrun exercitationen ullan corporis suscipit laboriosan, nisi ut aliquid ex ea connodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillun dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt nollit anin id est laborun.</p>
-                      </div>
-                      <div class="visi" id="text-visi" style="display: none;">
-                        <h4>Visi dan Misi</h4>
-                        <p>Loren ipsun dolor sit anet, consectetur adipisci elit, sed eiusnod tenpor incidunt ut labore et dolore nagna aliqua. Ut enin ad ninin venian, quis nostrun exercitationen ullan corporis suscipit laboriosan, nisi ut aliquid ex ea connodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillun dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt nollit anin id est laborun.</p>
-                      </div>
-                        
-                       
+                <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
+                    <div class="staff">
+                        <div class="img mb-4" style="background-image: url(images/person_6.jpg);"></div>
+                        <div class="info text-center">
+                            <h3><a href="teacher-single.html">Mark Wilson</a></h3>
+                            <span class="position">Dentist</span>
+                            <div class="text">
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia</p>
+                                <ul class="ftco-social">
+                                    <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a>
+                                    </li>
+                                    <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a>
+                                    </li>
+                                    <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a>
+                                    </li>
+                                    <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
+                    <div class="staff">
+                        <div class="img mb-4" style="background-image: url(images/person_7.jpg);"></div>
+                        <div class="info text-center">
+                            <h3><a href="teacher-single.html">Patrick Jacobson</a></h3>
+                            <span class="position">Dentist</span>
+                            <div class="text">
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia</p>
+                                <ul class="ftco-social">
+                                    <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a>
+                                    </li>
+                                    <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a>
+                                    </li>
+                                    <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a>
+                                    </li>
+                                    <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
+                    <div class="staff">
+                        <div class="img mb-4" style="background-image: url(images/person_8.jpg);"></div>
+                        <div class="info text-center">
+                            <h3><a href="teacher-single.html">Ivan Dorchsner</a></h3>
+                            <span class="position">System Analyst</span>
+                            <div class="text">
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia</p>
+                                <ul class="ftco-social">
+                                    <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a>
+                                    </li>
+                                    <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a>
+                                    </li>
+                                    <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a>
+                                    </li>
+                                    <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-      </div>
-      </div>
-      {{-- Berita Terbaru --}}
-      <div class="berita" data aos="fade-up">
-        <div class="container text-center">
-          <div class="section-header">
-            <p><b>BERITA <span>TERBARU</span></b></p>
-          </div>
-          <br>
+            <div class="row  mt-5 justify-conten-center">
+                <div class="col-md-8 ftco-animate">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi vero accusantium sunt sit aliquam
+                        ipsum molestias autem perferendis, incidunt cumque necessitatibus cum amet cupiditate, ut accusamus.
+                        Animi, quo. Laboriosam, laborum.</p>
+                </div>
+            </div>
         </div>
-      </div>
-      <section id="berita" class="berita">
-            <div class="content">    
-            <div class="row mt-5 ms-auto">
-            <div class="col md-5 ms-5">
-            <div class="card" style="width: 18rem; border:none;">
-                <img src="image/berita/berita1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="tanggal-artikel">13 Juli 2023</p>
-                    <h5 class="judul-artikel">oren ipsun dolor sit anet, consectetur adipisci elit,</h5>
-                    <br>
-                    <a href="#" class="btn btn-success">Selengkapnya</a>
+    </section>
+
+    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);"
+        data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="col-md-3 aside-stretch py-5">
+                    <div class=" heading-section heading-section-white ftco-animate pr-md-4">
+                        <h2 class="mb-3">Achievements</h2>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                    </div>
+                </div>
+                <div class="col-md-9 py-5 pl-md-5">
+                    <div class="row">
+                        <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18">
+                                <div class="text">
+                                    <strong class="number" data-number="14">0</strong>
+                                    <span>Years of Experience</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18">
+                                <div class="text">
+                                    <strong class="number" data-number="4500">0</strong>
+                                    <span>Qualified Dentist</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18">
+                                <div class="text">
+                                    <strong class="number" data-number="4200">0</strong>
+                                    <span>Happy Smiling Customer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18">
+                                <div class="text">
+                                    <strong class="number" data-number="320">0</strong>
+                                    <span>Patients Per Year</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
-            <div class="col md-4">
-            <div class="card" style="width: 18rem; border:none;">
-                <img src="image/berita/berita2.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="tanggal-artikel">13 Juli 2023</p>
-                    <h5 class="judul-artikel">Loren ipsun dolor sit anet,</h5>
-                    <br>
-                    <a href="#" class="btn btn-success">Selengkapnya</a>
+        </div>
+    </section>
+
+    <section class="ftco-section-parallax">
+        <div class="parallax-img d-flex align-items-center">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                        <h2>Subcribe to our Newsletter</h2>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+                            live the blind texts. Separated they live in</p>
+                        <div class="row d-flex justify-content-center mt-5">
+                            <div class="col-md-8">
+                                <form action="#" class="subscribe-form">
+                                    <div class="form-group d-flex">
+                                        <input type="text" class="form-control" placeholder="Enter email address">
+                                        <input type="submit" value="Subscribe" class="submit px-3">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
-            <div class="col md-4">
-            <div class="card" style="width: 18rem; border:none;">
-                <img src="image/berita/berita3.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="tanggal-artikel">13 Juli 2023</p>
-                    <h5 class="judul-artikel">Loren ipsun dolor sit anet, consectetur adipisci elit, sed eiusnod</h5>
-                    <br>
-                    <a href="#" class="btn btn-success">Selengkapnya</a>
+        </div>
+    </section>
+
+    <section class="ftco-section testimony-section bg-light">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <h2 class="mb-2">Testimony</h2>
+                    <span class="subheading">Our Happy Customer Says</span>
                 </div>
             </div>
+            <div class="row justify-content-center ftco-animate">
+                <div class="col-md-8">
+                    <div class="carousel-testimony owl-carousel ftco-owl">
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5">Even the all-powerful Pointing has no control about the blind texts
+                                        it is an almost unorthographic life One day however a small line of blind text by
+                                        the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+                                    <p class="name">Dennis Green</p>
+                                    <span class="position">Marketing Manager</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5" style="background-image: url(images/person_2.jpg)">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5">Far far away, behind the word mountains, far from the countries
+                                        Vokalia and Consonantia, there live the blind texts.</p>
+                                    <p class="name">Dennis Green</p>
+                                    <span class="position">Interface Designer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5" style="background-image: url(images/person_3.jpg)">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5">Far far away, behind the word mountains, far from the countries
+                                        Vokalia and Consonantia, there live the blind texts.</p>
+                                    <p class="name">Dennis Green</p>
+                                    <span class="position">UI Designer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5">Far far away, behind the word mountains, far from the countries
+                                        Vokalia and Consonantia, there live the blind texts.</p>
+                                    <p class="name">Dennis Green</p>
+                                    <span class="position">Web Developer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-wrap p-4 pb-5">
+                                <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text text-center">
+                                    <p class="mb-5">Far far away, behind the word mountains, far from the countries
+                                        Vokalia and Consonantia, there live the blind texts.</p>
+                                    <p class="name">Dennis Green</p>
+                                    <span class="position">System Analytics</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section class="ftco-gallery">
+        <div class="container-wrap">
+            <div class="row no-gutters">
+                <div class="col-md-3 ftco-animate">
+                    <a href="#" class="gallery img d-flex align-items-center"
+                        style="background-image: url(images/gallery-1.jpg);">
+                        <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                            <span class="icon-search"></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 ftco-animate">
+                    <a href="#" class="gallery img d-flex align-items-center"
+                        style="background-image: url(images/gallery-2.jpg);">
+                        <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                            <span class="icon-search"></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 ftco-animate">
+                    <a href="#" class="gallery img d-flex align-items-center"
+                        style="background-image: url(images/gallery-3.jpg);">
+                        <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                            <span class="icon-search"></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 ftco-animate">
+                    <a href="#" class="gallery img d-flex align-items-center"
+                        style="background-image: url(images/gallery-4.jpg);">
+                        <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                            <span class="icon-search"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <h2 class="mb-2">Latest Blog</h2>
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 ftco-animate">
+                    <div class="blog-entry">
+                        <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+                        </a>
+                        <div class="text d-flex py-4">
+                            <div class="meta mb-3">
+                                <div><a href="#">Sep. 20, 2018</a></div>
+                                <div><a href="#">Admin</a></div>
+                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                            </div>
+                            <div class="desc pl-3">
+                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about
+                                        the blind texts</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ftco-animate">
+                    <div class="blog-entry" data-aos-delay="100">
+                        <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+                        </a>
+                        <div class="text d-flex py-4">
+                            <div class="meta mb-3">
+                                <div><a href="#">Sep. 20, 2018</a></div>
+                                <div><a href="#">Admin</a></div>
+                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                            </div>
+                            <div class="desc pl-3">
+                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about
+                                        the blind texts</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ftco-animate">
+                    <div class="blog-entry" data-aos-delay="200">
+                        <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+                        </a>
+                        <div class="text d-flex py-4">
+                            <div class="meta mb-3">
+                                <div><a href="#">Sep. 20, 2018</a></div>
+                                <div><a href="#">Admin</a></div>
+                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                            </div>
+                            <div class="desc pl-3">
+                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about
+                                        the blind texts</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-quote">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 pr-md-5 aside-stretch py-5 choose">
+                    <div class="heading-section heading-section-white mb-5 ftco-animate">
+                        <h2 class="mb-2">DentaCare Procedure &amp; High Quality Services</h2>
+                    </div>
+                    <div class="ftco-animate">
+                        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
+                            unorthographic life One day however a small line of blind text by the name of Lorem Ipsum
+                            decided to leave for the far World of Grammar. Because there were thousands of bad Commas, wild
+                            Question Marks and devious Semikoli</p>
+                        <ul class="un-styled my-5">
+                            <li><span class="icon-check"></span>Consectetur adipisicing elit</li>
+                            <li><span class="icon-check"></span>Adipisci repellat accusamus</li>
+                            <li><span class="icon-check"></span>Tempore reprehenderit vitae</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 py-5 pl-md-5">
+                    <div class="heading-section mb-5 ftco-animate">
+                        <h2 class="mb-2">Get a Free Quote</h2>
+                    </div>
+                    <form action="#" class="ftco-animate">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Full Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Website">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="submit" value="Get a Quote" class="btn btn-primary py-3 px-5">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="map"></div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalRequest" tabindex="-1" role="dialog" aria-labelledby="modalRequestLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalRequestLabel">Make an Appointment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="#">
+                        <div class="form-group">
+                            <!-- <label for="appointment_name" class="text-black">Full Name</label> -->
+                            <input type="text" class="form-control" id="appointment_name" placeholder="Full Name">
+                        </div>
+                        <div class="form-group">
+                            <!-- <label for="appointment_email" class="text-black">Email</label> -->
+                            <input type="text" class="form-control" id="appointment_email" placeholder="Email">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <!-- <label for="appointment_date" class="text-black">Date</label> -->
+                                    <input type="text" class="form-control appointment_date" placeholder="Date">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <!-- <label for="appointment_time" class="text-black">Time</label> -->
+                                    <input type="text" class="form-control appointment_time" placeholder="Time">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <!-- <label for="appointment_message" class="text-black">Message</label> -->
+                            <textarea name="" id="appointment_message" class="form-control" cols="30" rows="10"
+                                placeholder="Message"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Make an Appointment" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
 
             </div>
-            </div>
-            </div>
-           
+        </div>
     </div>
-    </section>
 @endsection
 @push('link-script')
-<script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-            crossorigin="anonymous"
-        ></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const cardTitles = document.querySelectorAll(".card-judul");
-                const maxTitleLength = 100; // Jumlah karakter maksimum yang ingin ditampilkan
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const cardTitles = document.querySelectorAll(".card-judul");
+            const maxTitleLength = 100; // Jumlah karakter maksimum yang ingin ditampilkan
 
-                cardTitles.forEach((title) => {
-                    let text = title.textContent;
-                    if (text.length > maxTitleLength) {
-                        title.textContent =
-                            text.substring(0, maxTitleLength - 3) + "...";
-                    }
-                });
+            cardTitles.forEach((title) => {
+                let text = title.textContent;
+                if (text.length > maxTitleLength) {
+                    title.textContent =
+                        text.substring(0, maxTitleLength - 3) + "...";
+                }
             });
+        });
 
-            var swiper = new Swiper(".mySwiper", {
-                pagination: {
-                    el: ".swiper-pagination",
-                },
-            });
-        </script>
-        <script>
-          const myButton = document.getElementById("btnprofil");
-          
-          myButton.addEventListener("click", function() {
+        var swiper = new Swiper(".mySwiper", {
+            pagination: {
+                el: ".swiper-pagination",
+            },
+        });
+    </script>
+    <script>
+        const myButton = document.getElementById("btnprofil");
+
+        myButton.addEventListener("click", function() {
             myButton.classList.toggle("btn-warning");
-          });
-          </script>
-          <script>
-            const myButton2 = document.getElementById("btnvisi");
+        });
+    </script>
+    <script>
+        const myButton2 = document.getElementById("btnvisi");
 
-            myButton2.addEventListener("click", function(){
-              myButton2.classList.toggle("btn-warning");
-            });
-          </script>
-           <script>
-            const btnprofil = document.getElementById("btnprofil");
-            const btnvisi = document.getElementById("btnvisi");
-            const contentArea = document.getElementById("contentArea");
-            const contentprofile = document.getElementById("profile");
-            const contentvisi = document.getElementById("text-visi");
-            
-            btnprofil.addEventListener("click", function() {
-              contentprofile.style.display = "block"
-              contentvisi.style.display = "none"
-            });
-        
-           btnvisi.addEventListener("click", function() {
-              contentprofile.style.display = "none"
-              contentvisi.style.display = "block"
-            });
-        
-          </script>
+        myButton2.addEventListener("click", function() {
+            myButton2.classList.toggle("btn-warning");
+        });
+    </script>
+    <script>
+        const btnprofil = document.getElementById("btnprofil");
+        const btnvisi = document.getElementById("btnvisi");
+        const contentArea = document.getElementById("contentArea");
+        const contentprofile = document.getElementById("profile");
+        const contentvisi = document.getElementById("text-visi");
+
+        btnprofil.addEventListener("click", function() {
+            contentprofile.style.display = "block"
+            contentvisi.style.display = "none"
+        });
+
+        btnvisi.addEventListener("click", function() {
+            contentprofile.style.display = "none"
+            contentvisi.style.display = "block"
+        });
+    </script>
 @endpush
