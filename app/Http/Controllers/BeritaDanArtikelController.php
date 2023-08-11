@@ -117,6 +117,7 @@ class BeritaDanArtikelController extends Controller
                 'jenis' => 'required'
             ]
         );
+        
         if ($validatedData['gambar'] == null) {
             # code...
             $validatedData['gambar'] = $beritaDanArtikel->gambar;
@@ -131,7 +132,7 @@ class BeritaDanArtikelController extends Controller
             # code...
             $beritaDanArtikel->kategori()->sync($request->kategori);
         }
-        return $beritaDanArtikel;
+        return $beritaDanArtikel->update();
     }
 
     /**

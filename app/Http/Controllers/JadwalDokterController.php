@@ -40,11 +40,12 @@ class JadwalDokterController extends Controller
     public function store(Request $request)
     {
         //
+        // return $request;
         $validateData = $request->validate([
             'dokter_id' => 'required',
             'hari' => 'required',
-            'jam-mulai-praktek' => 'required',
-            'jam-selesai-praktek' => 'required'
+            'jam-mulai-praktik' => 'required',
+            'jam-selesai-praktik' => 'required'
         ]);
         JadwalDokter::create($validateData);
         return JadwalDokter::all();

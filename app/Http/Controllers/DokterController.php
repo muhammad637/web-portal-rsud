@@ -43,12 +43,12 @@ class DokterController extends Controller
             [
                 'nama' => 'required',
                 'spesialis_id' => 'required',
-                'gambar' => 'required|max:1024'
+                'gambar' => 'required'
             ]
-            );
-            $validatedData['gambar'] = $request->file('gambar')->store('gambar-dokter');
-            Dokter::create($validatedData);
-            return Dokter::all();
+        );
+        $validatedData['gambar'] = $request->file('gambar')->store('gambar-dokter');
+        return Dokter::create($validatedData);
+        
         //
     }
 
@@ -84,11 +84,14 @@ class DokterController extends Controller
      */
     public function update(Request $request, Dokter $dokter)
     {
-        $validatedData = $request->validate([
-            'nama' => 'required',
-            'gambar' => 'required'
-        ]
-    );
+        // return $request;
+        $validatedData = $request->validate(
+            [
+                'nama' => 'required',
+                'gambar' => 'required',
+                'spesialis_id' => 'required'
+            ]
+        );
 
         $dokter->update($validatedData);
         return Dokter::all();
@@ -105,5 +108,26 @@ class DokterController extends Controller
     public function destroy(Dokter $dokter)
     {
         //
+        $dokter->delete();
+        return Dokter::all();
+    }
+
+    public function cariDokter(Request $request)
+    {
+        $namaSpesialis = $request->nama_spesialis;
+        // $nama = $request->nama;
+        $hariJadwal = $request->hari;
+        // return $request->all();
+        $JamMulai = $request->jam_mulai;
+        $JamSelesai = $request->jam_selesai;
+        $dokter = Dokter::whereHas('spesialis', function ($query) use ($namaSpesialis) {
+            $query->where('nama_spesialis', $namaSpesialis);
+        })
+            ->orWhereHas('jadwalDokter', function ($query) use ($hariJadwal) {
+                $query->where('hari', $hariJadwal);
+            })
+        ->orWhere('nama',$request->nama)
+            ->get();
+        return $dokter;
     }
 }
