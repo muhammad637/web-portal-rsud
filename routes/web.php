@@ -36,6 +36,9 @@ Route::get('/informasikunjungan', function () {
     return view('pages.pasien-pengunjung.informasi-kunjungan');
 });
 
+Route::get('/home' , function(){
+    return view('pages.home');
+});
 
 
 

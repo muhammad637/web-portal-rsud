@@ -236,15 +236,15 @@
 						</a>
 					</div>
 					<div class="col-md-3 ftco-animate">
-						<a href="#" class="gallery img d-flex align-items-center" style="background-image: url(images/61.jpg); background-size: cover;">
+						<a href="#" class="gallery img d-flex align-items-center" style="background-image: url(images/suntik.jpg); background-size: cover;">
 						</a>
 					</div>
 					<div class="col-md-3 ftco-animate">
-						<a href="#" class="gallery img d-flex align-items-center" style="background-image: url(images/16.jpg); background-size: cover;">
+						<a href="#" class="gallery img d-flex align-items-center" style="background-image: url(images/pp.jpeg); background-size: cover;">
 						</a>
 					</div>
 					<div class="col-md-3 ftco-animate">
-						<a href="#" class="gallery img d-flex align-items-center" style="background-image: url(images/info.jpg); background-size:cover;">
+						<a href="#" class="gallery img d-flex align-items-center" style="background-image: url(images/dokter.jpeg); background-size:cover;">
 
 						</a>
 					</div>
