@@ -67,7 +67,7 @@
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script>| RSUD Blambangan. All rights reserved 
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script>|RSUD Blambangan. All rights reserved 
   <p>Design by <span style="color: red;">Tim Pengembangan Website RSUD</span></p>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>

@@ -59,7 +59,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <div class="icon"><span class="icon-user"></span></div>
-                                    <input type="text" class="form-control" id="appointment_name" placeholder="Name">
+                                    <input type="text" class="form-control" id="appointment_name" placeholder="Nama Dokter">
                                 </div>
                             </div>
                             <div class="col-sm-12">
@@ -67,7 +67,7 @@
                                     <div class="select-wrap">
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                         <select name="" id="" class="form-control">
-                                            <option value="" class="text-dark">Department</option>
+                                            <option value="" class="text-dark">Spesialis</option>
                                             <option value="" class="text-dark">Teeth Whitening</option>
                                             <option value="" class="text-dark">Teeth CLeaning</option>
                                             <option value="" class="text-dark">Quality Brackets</option>
@@ -260,7 +260,7 @@
         <div class="row">
           <div class="col-md-4 ftco-animate">
             <div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/artikel1.png');">
               </a>
               <div class="text d-flex py-4">
                 <div class="meta mb-3">
@@ -276,7 +276,7 @@
           </div>
           <div class="col-md-4 ftco-animate">
             <div class="blog-entry" data-aos-delay="100">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/artikel2.png');">
               </a>
               <div class="text d-flex py-4">
                 <div class="meta mb-3">
@@ -292,7 +292,7 @@
           </div>
           <div class="col-md-4 ftco-animate">
             <div class="blog-entry" data-aos-delay="200">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/artikel3.png');">
               </a>
               <div class="text d-flex py-4">
                 <div class="meta mb-3">

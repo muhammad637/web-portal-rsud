@@ -9,9 +9,40 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item"><a href="/profil" class="nav-link">Profil</a></li>
-	          <li class="nav-item"><a href="" class="nav-link">Pasien & Pengunjung</a></li>
-	          <li class="nav-item"><a href="" class="nav-link">Layanan</a></li>
-	          <li class="nav-item"><a href="" class="nav-link">Berita</a></li>
+			  <li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+					aria-expanded="false">
+					Pasien & Pengunjung
+				</a>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="#">Pasien</a></li>
+					<li><a class="dropdown-item" href="#">Pengunjung</a></li>
+				</ul>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+					aria-expanded="false">
+					Berita
+				</a>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="#">Berita</a></li>
+					<li><a class="dropdown-item" href="/artikel">Artikel</a></li>
+				</ul>
+			</li>
+	          {{-- <li class="nav-item"><a href="" class="nav-link">Pasien & Pengunjung</a></li> --}}
+	          {{-- <li class="nav-item"><a href="" class="nav-link">Layanan</a></li>
+		 --}}
+		 <li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+				aria-expanded="false">
+				Layanan
+			</a>
+			<ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="/layanan-unggulan">Layanan Unggulan</a></li>
+				<li><a class="dropdown-item" href="/rawat-inap">Rawat Inap</a></li>
+			</ul>
+		</li>
+	          {{-- <li class="nav-item"><a href="" class="nav-link">Berita</a></li> --}}
 	        </ul>
 	      </div>
 	    </div>
