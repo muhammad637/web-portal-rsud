@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('spesialis_id')->constrained('spesialis')->onUpdate('cascade')->onDelete('cascade');
             $table->string('nama');
-            $table->string('gambar');
+            $table->string('gambar')->nullable();
             $table->timestamps();
         });
     }

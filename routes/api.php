@@ -39,7 +39,7 @@ Route::get('berita', [BeritaDanArtikelController::class, 'index']);
 Route::post('berita/store', [BeritaDanArtikelController::class, 'store']);
 Route::get('berita/show/{slug}', [BeritaDanArtikelController::class, 'show']);
 Route::get('berita/edit/{id}', [BeritaDanArtikelController::class, 'edit']);
-Route::put('berita/update/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'update']);
+Route::put('berita/update/{beritaDanArtikel}', [BeritaDanArtikelController::class, 'update']);
 Route::delete('berita/destroy/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'destroy']);
 
 
@@ -53,7 +53,7 @@ Route::get('/spesialis/update/{spesialis:id}', [SpesialisController::class, 'upd
 Route::get('/dokter', [DokterController::class, 'index']);
 Route::post('/dokter/store', [DokterController::class, 'store'])->name('dokter.store');
 Route::get('/dokter/show/{dokter:id}', [DokterController::class, 'show'])->name('dokter.show');
-Route::put('/dokter/update/{dokter:id}', [DokterController::class, 'update'])->name('dokter.update');
+Route::patch('/dokter/update/{dokter}', [DokterController::class, 'update'])->name('dokter.update');
 Route::delete('/dokter/destroy/{dokter:id}', [DokterController::class, 'delete'])->name('dokter.update');
 
 

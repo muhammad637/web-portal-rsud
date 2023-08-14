@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('rawat_jalans', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('slug');
+            $table->string('gambar');
+            $table->text('deskripsi');
+            $table->string('gambar1')->nullable();
+            $table->string('gambar2')->nullable();
+            $table->string('gambar3')->nullable();
             $table->timestamps();
         });
     }

@@ -15,9 +15,13 @@ return new class extends Migration
     {
         Schema::create('rawat_inaps', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kamar');
+            $table->string('nama');
+            $table->string('slug');
             $table->string('gambar');
-            $table->text('fasilitas_kamar');
+            $table->text('deskripsi');
+            $table->string('gambar1')->nullable();
+            $table->string('gambar2')->nullable();
+            $table->string('gambar3')->nullable();
             $table->timestamps();
         });
     }

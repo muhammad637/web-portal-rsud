@@ -15,6 +15,7 @@ class LayananUnggulanController extends Controller
     public function index()
     {
         //
+        return view('admin.pages.pelayanan.layanan-unggulan.index');
     }
 
     /**

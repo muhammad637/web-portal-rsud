@@ -112,8 +112,8 @@ class BeritaDanArtikelController extends Controller
                 'judul' => 'required',
                 'slug' => 'required|' .Rule::unique('berita_dan_artikels')->ignore($beritaDanArtikel->id),
                 'isi' => 'required',
-                'video' => '',
-                'gambar' => '',
+                'video' => 'nullable',
+                'gambar' => 'nullable',
                 'jenis' => 'required'
             ]
         );
