@@ -15,8 +15,9 @@
 					Pasien & Pengunjung
 				</a>
 				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Pasien</a></li>
-					<li><a class="dropdown-item" href="#">Pengunjung</a></li>
+					<li><a class="dropdown-item" href="/caridokter">Dokter</a></li>
+					<li><a class="dropdown-item" href="/ketersediaantempat">Ketersediaan Kamar</a></li>
+					<li><a class="dropdown-item" href="/informasikunjungan">Informasi Kunjungan</a></li>
 				</ul>
 			</li>
 			<li class="nav-item dropdown">
@@ -25,7 +26,7 @@
 					Berita
 				</a>
 				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Berita</a></li>
+					<li><a class="dropdown-item" href="/berita">Berita</a></li>
 					<li><a class="dropdown-item" href="/artikel">Artikel</a></li>
 				</ul>
 			</li>
@@ -39,7 +40,9 @@
 			</a>
 			<ul class="dropdown-menu">
 				<li><a class="dropdown-item" href="/layanan-unggulan">Layanan Unggulan</a></li>
-				<li><a class="dropdown-item" href="/rawat-inap">Rawat Inap</a></li>
+				<li><a class="dropdown-item" href="/rawat-inap">Layanan Rawat Inap</a></li>
+				<li><a class="dropdown-item" href="/rawat-jalan">Layanan Rawat Jalan</a></li>
+				<li><a class="dropdown-item" href="/layanan-mcu">Layanan Medical Check Up</a></li>
 			</ul>
 		</li>
 	          {{-- <li class="nav-item"><a href="" class="nav-link">Berita</a></li> --}}

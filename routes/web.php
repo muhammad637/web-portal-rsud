@@ -23,8 +23,12 @@ Route::get('/rawat-inap', function () {
 Route::get('/layanan-unggulan', function () {
     return view('pages.layanan.layanan-unggulan');
 });
-
-
+Route::get('/rawat-jalan', function(){
+    return view('pages.layanan.rawat-jalan');
+});
+Route::get('layanan-mcu',function(){
+    return view('pages.layanan.layanan-mcu');
+});
 Route::get('/caridokter', function () {
     return view('pages.pasien-pengunjung.dokter');
 });
@@ -50,6 +54,9 @@ Route::get('/artikel/klik', function () {
     return view('pages.berita-artikel.artikel-single');
 });
 
+Route::get('berita', function(){
+    return view('pages.berita-artikel.berita');
+});
 
 
 Route::get('/profil', function () {

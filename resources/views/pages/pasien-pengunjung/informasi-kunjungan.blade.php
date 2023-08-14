@@ -1,34 +1,48 @@
 @extends('main')
 @section('content')
-<section id="informasi-kunjungan" class="informasi-kunjungan">
-    <div class="card-breadcrumb">
-        <nav aria-label="breadcrumb">
-            <br>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Pasien & Pengunjung</a></li>
-                <li class="breadcrumb-item active" aria-current="page" style="color: #EF8F1D">Informasi Kunjungan</li>
-            </ol>
-        </nav>
-    </div>
-    <div class="card">
-        <div class="container">
-            <div class="section-header"> 
-              <br>
-              <p><b>INFORMASI KUNJUNGAN</b></p>
-              <div class="box"></div>
-              <br>
+<section class="home-slider owl-carousel">
+      <div class="slider-item bread-item" style="background-image: url('images/bg1.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container" data-scrollax-parent="true">
+          <div class="row slider-text align-items-end">
+            <div class="col-md-7 col-sm-12 ftco-animate mb-5">
+              <p class="breadcrumbs" data-scrollax=" properties: { translateY: '70%', opacity: 1.6}"><span class="mr-2"><a href="index.html">Home</a></span> <span>Layanan</span></p>
+              <h1 class="mb-3" data-scrollax=" properties: { translateY: '70%', opacity: .9}">Informasi Kunjungan RSUD Blambangan</h1>
             </div>
-            <div class="card-informasi">
-                <br>
-                <h5>TATA TERTIB KUNJUNGAN</h5><br> 
-                <p>1. Jam Berkunjung<br><span>Pagi 07.00 - 10.00 <br>Sore 17.00 - 20.00</span></p>
-                <p>2. Saat berkunjung, keluarga melepas alas kaki, mencuci tangan dengan dengan cairan pembersih tangan</p>
-                <p>3. Anak berusia kurang dari 12 tahun tidak diperbolehkan masuk ke ruang perawatan</p>
-                <p>4. Pengunjung selalu menjaga ketertiban dan ketenangan dalam ruang perawatan </p>
-                <p>5. Kehilangan barang tidak menjadi tanggung jawab rumah sakit</p>            
-            </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
+		
+	<br>
+    <h2 class="text-center" style="color: #71C9CE;"><b>INFORMASI KUNJUNGAN</b></h2>
+		<section class="ftco-section">
+    	<div class="container">
+    		<div class="row d-md-flex">
+	    		<div class="col-md-6 ftco-animate img about-image order-md-last" style="background-image: url(images/halamanrsud.jpg);">
+	    		</div>
+	    		<div class="col-md-6 ftco-animate pr-md-5 order-md-first">
+		    		<div class="row">
+		          <div class="col-md-12 d-flex align-items-center">
+
+		              <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel" aria-labelledby="v-pills-whatwedo-tab">
+		              	<div>
+			                <h2 class="text-center" style="color: #71C9CE"><b>TATA TERTIB KUNJUNGAN</b></h2>
+                           <ol>
+                        <li>Jam Berkunjung<br><span>Pagi 07.00 - 10.00 <br>Sore 17.00 - 20.00</span></li>  
+                        <li>Saat berkunjung, keluarga melepas alas kaki, mencuci tangan dengan dengan cairan pembersih tangan</li>  
+                        <li>Anak berusia kurang dari 12 tahun tidak diperbolehkan masuk ke ruang perawatan</li>
+                        <li>Pengunjung selalu menjaga ketertiban dan ketenangan dalam ruang perawatan</li>
+                        <li>Kehilangan barang tidak menjadi tanggung jawab rumah sakit</li>
+                        </ol>      
+				            </div>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+    	</div>
+    </section>
+
 @endsection
