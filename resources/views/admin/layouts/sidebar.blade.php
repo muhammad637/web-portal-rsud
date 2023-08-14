@@ -1,12 +1,5 @@
  <aside class="left-sidebar">
      <!-- Sidebar scroll-->
-     <style>
-         .kotak1 {
-             width: 5px;
-             height: 50px;
-             background-image: linear-gradient(to bottom, red, yellow);
-         }
-     </style>
      <div>
          <div class="brand-logo d-flex align-items-center justify-content-between my-4">
              <a href="./index.html" class="text-nowrap logo-img">
