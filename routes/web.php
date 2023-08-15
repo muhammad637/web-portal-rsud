@@ -66,13 +66,18 @@ use App\Http\Controllers\BeritaDanArtikelController;
 // // pencarian dokter
 // Route::post('/admin/cari-dokter', [DokterController::class, 'cariDokter'])->name('cari-dokter.store');
 
+
+
 // admin-dashboard
 Route::get('/admin/dashboard', [DashboardController::class,'dashboard'])->name('admin.dashboard');
 
 
 
+// login
+// Route::get('/login',[])
+// pelayanan
 // admin-layanannuguulan
 Route::get('/admin/layanan-unggulan', [LayananUnggulanController::class,'index'])->name('admin.layanan-unggulan');
 
-
+// admin-mcu
 

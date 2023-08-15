@@ -24,12 +24,6 @@
               <ul
                 class="navbar-nav flex-row ms-auto align-items-center justify-content-end"
               >
-                <a
-                  href="https://adminmart.com/product/modernize-free-bootstrap-admin-dashboard/"
-                  target="_blank"
-                  class="btn btn-primary"
-                  >Download Free</a
-                >
                 <li class="nav-item dropdown">
                   <a
                     class="nav-link nav-icon-hover"
@@ -39,7 +33,7 @@
                     aria-expanded="false"
                   >
                     <img
-                      src="{{('./admin/assets/images/profile/user-1.jpg')}}"
+                      src="{{asset('./admin/assets/images/profile/user-1.jpg')}}"
                       alt=""
                       width="35"
                       height="35"
