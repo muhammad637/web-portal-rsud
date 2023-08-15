@@ -2,6 +2,18 @@
 @push('link-css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <style>
+        .ftco-section .nav-pills .nav-link.active,
+        .ftco-section .nav-pills .nav-link:hover {
+            color: #fff;
+            -moz-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            background: #2470A0;
+            bordeR: 1px solid #71C9CE;
+        }
+
         .container-swiper {
             height: 20rem;
         }
@@ -416,26 +428,41 @@
                             </div>
                         </div>
                     </div>
-                </section>
-            @endsection
+            </div>
+        </div>
+        </div>
+    </section>
+@endsection
 
-
-            @push('link-script')
-                <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-                <script>
-                    $(document).ready(function() {
-                        var swiper = new Swiper(".mySwiper", {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-                            autoplay: {
-                                delay: 5000,
-                            },
-                            pagination: {
-                                el: ".swiper-pagination",
-                                clickable: true,
-                            },
-                        });
-                    })
-                </script>
-            @endpush
+@push('link-script')
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var swiper = new Swiper(".mySwiper", {
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1,
+                        // spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                },
+                autoplay: {
+                    delay: 5000,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+        })
+    </script>
+@endpush
+>>>>>>> c5077b2040cd9e3f003d683cb68323c41f933c6e
