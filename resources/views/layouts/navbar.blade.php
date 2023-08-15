@@ -8,11 +8,11 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="/profil" class="nav-link">Profil</a></li>
+	          <li class="nav-item"><a href="/profil" class="nav-link"><strong>Profil</strong></a></li>
 			  <li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-					aria-expanded="false">
-					Pasien & Pengunjung
+					aria-expanded="false"><strong>
+					Pasien & Pengunjung</strong>
 				</a>
 				<ul class="dropdown-menu">
 					<li><a class="dropdown-item" href="/caridokter">Dokter</a></li>
@@ -22,8 +22,8 @@
 			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-					aria-expanded="false">
-					Berita
+					aria-expanded="false"><strong>
+					Berita</strong>
 				</a>
 				<ul class="dropdown-menu">
 					<li><a class="dropdown-item" href="/berita">Berita</a></li>
@@ -35,8 +35,8 @@
 		 --}}
 		 <li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-				aria-expanded="false">
-				Layanan
+				aria-expanded="false"><strong>
+				Layanan</strong>
 			</a>
 			<ul class="dropdown-menu">
 				<li><a class="dropdown-item" href="/layanan-unggulan">Layanan Unggulan</a></li>

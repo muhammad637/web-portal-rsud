@@ -222,11 +222,11 @@
                                     aria-orientation="vertical">
                                     <a class="nav-link active text-white" id="v-pills-whatwedo-tab" data-toggle="pill"
                                         href="#v-pills-whatwedo" role="tab" aria-controls="v-pills-whatwedo"
-                                        aria-selected="true">Sejarah</a>
+                                        aria-selected="true"><strong>Sejarah</strong></a>
 
                                     <a class="nav-link text-white" id="v-pills-mission-tab" data-toggle="pill"
                                         href="#v-pills-mission" role="tab" aria-controls="v-pills-mission"
-                                        aria-selected="false">Maklumat</a>
+                                        aria-selected="false"><strong>Maklumat</strong></a>
                                 </div>
                             </div>
                             <div class="col-md-12 d-flex align-items-center">
@@ -425,29 +425,6 @@
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
                 <script>
                     $(document).ready(function() {
-                        $('#btnSejarah').click(function() {
-                            $('#btnSejarah').addClass('btn-info')
-                            $('#btnSejarah').removeClass('btn-secondary')
-                            $('#btnMaklumat').addClass('btn-secondary')
-                            $('#btnMaklumat').removeClass('btn-info')
-
-                            $('#textMaklumat').addClass('d-none')
-                            $('#textMaklumat').removeClass('d-block')
-                            $('#textSejarah').removeClass('d-none')
-                            $('#textSejarah').addClass('d-block')
-                        })
-                        $('#btnMaklumat').click(function() {
-                            $('#btnMaklumat').addClass('btn-info')
-                            $('#btnMaklumat').removeClass('btn-secondary')
-                            $('#btnSejarah').addClass('btn-secondary')
-                            $('#btnSejarah').removeClass('btn-info')
-
-                            $('#textSejarah').addClass('d-none')
-                            $('#textSejarah').removeClass('d-block')
-                            $('#textMaklumat').addClass('d-block')
-                            $('#textMaklumat').removeClass('d-none')
-                        })
-
                         var swiper = new Swiper(".mySwiper", {
                             slidesPerView: 3,
                             spaceBetween: 30,
