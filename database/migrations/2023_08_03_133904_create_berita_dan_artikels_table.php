@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('judul');
             $table->string('slug');
             $table->text('isi');
-            $table->string('video')->nullable();
+            $table->text('link')->nullable();
             $table->string('gambar');
             $table->enum('jenis',['berita', 'artikel']); 
             $table->integer('views')->default(0);

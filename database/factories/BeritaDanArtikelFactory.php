@@ -21,7 +21,7 @@ class BeritaDanArtikelFactory extends Factory
             "judul" => fake()->sentence(4),
             "slug" => fake()->sentence(3),
             "isi" => fake()->text(100),
-            "video" => "",
+            "link" => "",
             "gambar" => fake()->word(),
             "jenis" => "berita"
         ];

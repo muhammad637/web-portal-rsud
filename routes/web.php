@@ -95,15 +95,22 @@ Route::middleware('auth')->group(function () {
     
     // berita
     Route::get('/admin/berita',[BeritaDanArtikelController::class,'berita'])->name('admin.berita');
-    Route::get('/admin/createSlug', [BeritaDanArtikelController::class, 'slug'])->name('admin.createSlug');
     Route::get('/admin/berita/create', [BeritaDanArtikelController::class, 'beritaCreate'])->name('admin.berita.create');
     Route::post('/admin/berita/store', [BeritaDanArtikelController::class, 'beritaStore'])->name('admin.berita.store');
     Route::get('/admin/berita/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'beritaShow'])->name('admin.berita.show');
     Route::get('/admin/berita/{beritaDanArtikel:slug}/edit', [BeritaDanArtikelController::class, 'beritaEdit'])->name('admin.berita.edit');
-    Route::get('/admin/berita/{beritaDanArtikel:slug}/update', [BeritaDanArtikelController::class, 'beritaEdit'])->name('admin.berita.update');
-    
+    Route::put('/admin/berita/{beritaDanArtikel:slug}/update', [BeritaDanArtikelController::class, 'beritaUpdate'])->name('admin.berita.update');
+
     // artikel
-    Route::get('/admin/artikel', [KategoriController::class, 'artikel'])->name('admin.artikel');
+    Route::get('/admin/artikel', [BeritaDanArtikelController::class, 'artikel'])->name('admin.artikel');
+    Route::get('/admin/artikel/create', [BeritaDanArtikelController::class, 'artikelCreate'])->name('admin.artikel.create');
+    Route::post('/admin/artikel/store', [BeritaDanArtikelController::class, 'artikelStore'])->name('admin.artikel.store');
+    Route::get('/admin/artikel/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'artikelShow'])->name('admin.artikel.show');
+    Route::get('/admin/artikel/{beritaDanArtikel:slug}/edit', [BeritaDanArtikelController::class, 'artikelEdit'])->name('admin.artikel.edit');
+    Route::put('/admin/artikel/{beritaDanArtikel:slug}/update', [BeritaDanArtikelController::class, 'artikelUpdate'])->name('admin.artikel.update');
+
+    Route::get('/admin/createSlug', [BeritaDanArtikelController::class, 'slug'])->name('admin.createSlug');
+
 });
 
 
