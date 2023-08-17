@@ -11,24 +11,35 @@ class LoginController extends Controller
     //
 
     public function index(){
-
+        // return 'view';
+        return view('admin.pages.login');
     }
 
-    public function authtenticate(Request $request){
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
+    public function authenticate(Request $request){
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+        // return $request->all();
+            //code...
+            $credentials = $request->validate([
+                'username' => ['required'],
+                'password' => ['required'],
+            ]);
 
-            return redirect()->intended('dashboard');
-        }
+            if (Auth::attempt($credentials)) {
+                $request->session()->regenerate();
+                // return $request->all();
+                return redirect()->intended(route('admin.dashboard'));
+            }
+
+            return redirect()->back()->withErrors([
+                'username' => 'invalid username',
+                'password' => 'invalid Password',
+            ]);
+        
     }
 
     public function logout(){
-
+        Auth::logout();
+        return redirect(route('coba-coba'));
     }
 
 }

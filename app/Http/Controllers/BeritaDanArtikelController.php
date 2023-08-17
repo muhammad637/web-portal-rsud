@@ -2,149 +2,72 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\BeritaDanArtikel;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Cviebrock\EloquentSluggable\Tests\Models\Post;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class BeritaDanArtikelController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    // admin-berita
+    public function berita()
     {
-        //
-        return [
-            "berita-artikel" => BeritaDanArtikel::with('kategori')->get()
-        ];
+        return BeritaDanArtikel::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function beritaShow(BeritaDanArtikel $beritaDanArtikel)
     {
-        //
+        return view('admin.pages.konten.berita.show', [
+            'berita' => $beritaDanArtikel
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function beritaCreate()
     {
-        //
-        try {
-            // return "coba";
-            $validatedData = $request->validate(
-                [
-                    'judul' => 'required',
-                    'slug' => 'required|unique:berita_dan_artikels',
-                    'isi' => 'required',
-                    'video' => '',
-                    'gambar' => 'required|file|max:1024',
-                    'jenis' => 'required'
-                    ]
-                );
-                //code...
-            $validatedData['gambar'] = $request->file('gambar')->store('image-berita-artikel');; 
-            BeritaDanArtikel::create($validatedData);
-            $beritaartikel = BeritaDanArtikel::where('judul', $request->judul)->first();
-            $beritaartikel->kategori()->sync($request->kategori);
-            return BeritaDanArtikel::with('kategori')->get();
-        } catch (\Throwable $th) {
-            //throw $th;
-            return $th->getMessage();
-        }
-      
+        return view('admin.pages.konten.berita.create', [
+            "kategori" => Kategori::all()
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\BeritaDanArtikel  $beritaDanArtikel
-     * @return \Illuminate\Http\Response
-     */
-    public function show($slug)
+    public function beritaStore(Request $request)
     {
 
-        $beritaDanArtikel = BeritaDanArtikel::with('kategori')->where('slug', $slug)->first();
-        $beritaDanArtikel->views += 1;
-        $beritaDanArtikel->save();
-        return $beritaDanArtikel;
-        //
-        // return BeritaDanArtikel::where('id',$beritaDanArtikel->id)->first();
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\BeritaDanArtikel  $beritaDanArtikel
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(BeritaDanArtikel $beritaDanArtikel)
-    {
-        //
-        return BeritaDanArtikel::with('kategori')->find($beritaDanArtikel->id);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BeritaDanArtikel  $beritaDanArtikel
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, BeritaDanArtikel $beritaDanArtikel)
-    {
-        //
-        // return BeritaDanArtikel::with('kategori')->find($id);
+        //code...
         $validatedData = $request->validate(
             [
                 'judul' => 'required',
-                'slug' => 'required|' .Rule::unique('berita_dan_artikels')->ignore($beritaDanArtikel->id),
+                'slug' => 'required|unique:berita_dan_artikels,slug',
                 'isi' => 'required',
-                'video' => 'nullable',
-                'gambar' => 'nullable',
-                'jenis' => 'required'
+                'video' => '',
+                'gambar' => 'required|',
+                'jenis' => ''
             ]
         );
-        
-        if ($validatedData['gambar'] == null) {
-            # code...
-            $validatedData['gambar'] = $beritaDanArtikel->gambar;
-        }else{
-            $old = \str_replace('','', $beritaDanArtikel->gambar);
-            $new = $request->file('gambar')->store('image-berita-artikel');
-            Storage::delete($old);
-            $validatedData['gambar'] = $new;
-        }
-        $beritaDanArtikel->update();
-        if ($request->kategori) {
-            # code...
-            $beritaDanArtikel->kategori()->sync($request->kategori);
-        }
-        return $beritaDanArtikel->update();
+        $validatedData['jenis'] = 'berita';
+        //code...
+        $validatedData['gambar'] = $request->file('gambar')->store('image-berita-artikel');
+        BeritaDanArtikel::create($validatedData);
+        return BeritaDanArtikel::all();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\BeritaDanArtikel  $beritaDanArtikel
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(BeritaDanArtikel $beritaDanArtikel)
+
+    // admin-artikel
+
+
+
+
+    // createSlug
+    public function slug(Request $request)
     {
-        //
-        $beritaDanArtikel->delete();
-        return BeritaDanArtikel::all();
+        $slug = SlugService::createSlug(BeritaDanArtikel::class, 'slug', $request->judul);
+        return response()->json([
+            "slug" => $slug
+        ]);
+        return "testing";
     }
 }

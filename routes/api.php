@@ -24,46 +24,46 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// kategori admin
-Route::get('/kategori', [KategoriController::class, 'index']);
-Route::post('/kategori/store', [KategoriController::class, 'store']);
-Route::put('/kategori/update/{kategori}', [KategoriController::class, 'update'])->name('kategori.update');
-Route::delete('/kategori/destroy/{kategori}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
+// // kategori admin
+// Route::get('/kategori', [KategoriController::class, 'index']);
+// Route::post('/kategori/store', [KategoriController::class, 'store']);
+// Route::put('/kategori/update/{kategori}', [KategoriController::class, 'update'])->name('kategori.update');
+// Route::delete('/kategori/destroy/{kategori}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
 
-// kategri untuk user
-Route::get('/kategori/{kategori:nama_kategori}', [KategoriController::class, 'show'])->name('kategori.show');
-
-
-// berita artikel admin
-Route::get('berita', [BeritaDanArtikelController::class, 'index']);
-Route::post('berita/store', [BeritaDanArtikelController::class, 'store']);
-Route::get('berita/show/{slug}', [BeritaDanArtikelController::class, 'show']);
-Route::get('berita/edit/{id}', [BeritaDanArtikelController::class, 'edit']);
-Route::put('berita/update/{beritaDanArtikel}', [BeritaDanArtikelController::class, 'update']);
-Route::delete('berita/destroy/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'destroy']);
+// // kategri untuk user
+// Route::get('/kategori/{kategori:nama_kategori}', [KategoriController::class, 'show'])->name('kategori.show');
 
 
-// spesialis 
-Route::get('/spesialis', [SpesialisController::class, 'index']);
-Route::get('/spesialis/store', [SpesialisController::class, 'store']);
-Route::get('/spesialis/update/{spesialis:id}', [SpesialisController::class, 'update']);
+// // berita artikel admin
+// Route::get('berita', [BeritaDanArtikelController::class, 'index']);
+// Route::post('berita/store', [BeritaDanArtikelController::class, 'store']);
+// Route::get('berita/show/{slug}', [BeritaDanArtikelController::class, 'show']);
+// Route::get('berita/edit/{id}', [BeritaDanArtikelController::class, 'edit']);
+// Route::put('berita/update/{beritaDanArtikel}', [BeritaDanArtikelController::class, 'update']);
+// Route::delete('berita/destroy/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'destroy']);
 
 
-// dokter
-Route::get('/dokter', [DokterController::class, 'index']);
-Route::post('/dokter/store', [DokterController::class, 'store'])->name('dokter.store');
-Route::get('/dokter/show/{dokter:id}', [DokterController::class, 'show'])->name('dokter.show');
-Route::patch('/dokter/update/{dokter}', [DokterController::class, 'update'])->name('dokter.update');
-Route::delete('/dokter/destroy/{dokter:id}', [DokterController::class, 'delete'])->name('dokter.update');
+// // spesialis 
+// Route::get('/spesialis', [SpesialisController::class, 'index']);
+// Route::get('/spesialis/store', [SpesialisController::class, 'store']);
+// Route::get('/spesialis/update/{spesialis:id}', [SpesialisController::class, 'update']);
 
 
-// jadwal-dokter
-Route::get('/jadwal-dokter', [JadwalDokterController::class, 'index'])->name('jadwal-dokter.index');
-Route::post('/jadwal-dokter/store', [JadwalDokterController::class, 'store'])->name('jadwal-dokter.store');
-Route::get('/jadwal-dokter/show/{jadwalDokter:id}', [JadwalDokterController::class, 'show'])->name('jadwal-dokter.show');
-Route::get('/jadwal-dokter/update/{jadwalDokter:id}', [JadwalDokterController::class, 'update'])->name('jadwal-dokter.update');
-Route::get('/jadwal-dokter/destroy/{jadwalDokter:id}', [JadwalDokter::class, 'destroy'])->name('jadwal-dokter.destroy');
+// // dokter
+// Route::get('/dokter', [DokterController::class, 'index']);
+// Route::post('/dokter/store', [DokterController::class, 'store'])->name('dokter.store');
+// Route::get('/dokter/show/{dokter:id}', [DokterController::class, 'show'])->name('dokter.show');
+// Route::patch('/dokter/update/{dokter}', [DokterController::class, 'update'])->name('dokter.update');
+// Route::delete('/dokter/destroy/{dokter:id}', [DokterController::class, 'delete'])->name('dokter.update');
 
 
-// pencarian dokter
-Route::post('/cari-dokter', [DokterController::class, 'cariDokter'])->name('cari-dokter.store');
+// // jadwal-dokter
+// Route::get('/jadwal-dokter', [JadwalDokterController::class, 'index'])->name('jadwal-dokter.index');
+// Route::post('/jadwal-dokter/store', [JadwalDokterController::class, 'store'])->name('jadwal-dokter.store');
+// Route::get('/jadwal-dokter/show/{jadwalDokter:id}', [JadwalDokterController::class, 'show'])->name('jadwal-dokter.show');
+// Route::get('/jadwal-dokter/update/{jadwalDokter:id}', [JadwalDokterController::class, 'update'])->name('jadwal-dokter.update');
+// Route::get('/jadwal-dokter/destroy/{jadwalDokter:id}', [JadwalDokter::class, 'destroy'])->name('jadwal-dokter.destroy');
+
+
+// // pencarian dokter
+// Route::post('/cari-dokter', [DokterController::class, 'cariDokter'])->name('cari-dokter.store');

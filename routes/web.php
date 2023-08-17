@@ -10,6 +10,9 @@ use App\Http\Controllers\SpesialisController;
 use App\Http\Controllers\JadwalDokterController;
 use App\Http\Controllers\LayananUnggulanController;
 use App\Http\Controllers\BeritaDanArtikelController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MedicalCheckUpController;
+use App\Models\BeritaDanArtikel;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,19 +68,46 @@ use App\Http\Controllers\BeritaDanArtikelController;
 
 // // pencarian dokter
 // Route::post('/admin/cari-dokter', [DokterController::class, 'cariDokter'])->name('cari-dokter.store');
-
-
-
-// admin-dashboard
-Route::get('/admin/dashboard', [DashboardController::class,'dashboard'])->name('admin.dashboard');
-
-
-
+Route::get('/coba', function () {
+    return "keluar";
+})->name('coba-coba');
 // login
-// Route::get('/login',[])
+Route::get('/login', [LoginController::class, 'index'])->name('login.index')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::middleware('auth')->group(function () {
+    // admin-dashboard
+    Route::get('/admin/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+    // admin-layanann-uggulan
+    Route::get('/admin/layanan-unggulan', [LayananUnggulanController::class, 'index'])->name('admin.layanan-unggulan');
+    // admin-mcu
+    Route::get('/admin/mcu', [MedicalCheckUpController::class, 'index'])->name('admin.mcu');
+    // admin-rawat-inap
+    Route::get('/admin/rawat-inap', [MedicalCheckUpController::class, 'index'])->name('admin.rawat-inap');
+    // admin-rawat-jalan
+    Route::get('/admin/rawat-jalan', [MedicalCheckUpController::class, 'index'])->name('admin.rawat-jalan');
+
+    // konten
+    // kategori
+    Route::get('/admin/kategori', [KategoriController::class, 'index'])->name('admin.kategori');
+    
+    
+    // berita
+    Route::get('/admin/berita',[BeritaDanArtikelController::class,'berita'])->name('admin.berita');
+    Route::get('/admin/createSlug', [BeritaDanArtikelController::class, 'slug'])->name('admin.createSlug');
+    Route::get('/admin/berita/create', [BeritaDanArtikelController::class, 'beritaCreate'])->name('admin.berita.create');
+    Route::post('/admin/berita/store', [BeritaDanArtikelController::class, 'beritaStore'])->name('admin.berita.store');
+    Route::get('/admin/berita/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'beritaShow'])->name('admin.berita.show');
+    Route::get('/admin/berita/{beritaDanArtikel:slug}/edit', [BeritaDanArtikelController::class, 'beritaEdit'])->name('admin.berita.edit');
+    Route::get('/admin/berita/{beritaDanArtikel:slug}/update', [BeritaDanArtikelController::class, 'beritaEdit'])->name('admin.berita.update');
+    
+    // artikel
+    Route::get('/admin/artikel', [KategoriController::class, 'artikel'])->name('admin.artikel');
+});
+
+
+
+
+
 // pelayanan
-// admin-layanannuguulan
-Route::get('/admin/layanan-unggulan', [LayananUnggulanController::class,'index'])->name('admin.layanan-unggulan');
-
-// admin-mcu
-
