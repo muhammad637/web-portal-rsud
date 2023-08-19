@@ -42,7 +42,7 @@
 @endpush
 @section('content')
     <section class="home-slider owl-carousel">
-        <div class="slider-item" style="background-image: url('images/bg1.jpg');" loading="lazy">
+        <div class="slider-item" style="background-image: url('images/bg1.jpg');">
             <div class="overlay"></div>
         </div>
         <div class="slider-item" style="background-image: url('images/bg3.jpg');">
@@ -192,7 +192,7 @@
         
         <div class="container-wrap mt-5">
             <div class="row d-flex no-gutters">
-                <div class="col-md-6 img" style="background-image: url(images/halamanrsud.jpg);" loading="lazy">
+                <div class="col-md-6 img" style="background-image: url(images/halamanrsud.jpg);" >
                 </div>
                 <div class="col-md-6 d-flex">
                     <div class="about-wrap">
