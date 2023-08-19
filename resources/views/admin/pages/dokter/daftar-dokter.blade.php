@@ -1,17 +1,12 @@
 @extends('admin.pages.main')
 @push('link-css-admin')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
-    <style>
-        .bunder {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-    </style>
+    @livewireStyles
 @endpush
 @section('content-admin')
     <div class="card">
         <div class="card-body">
+
             <h5 class="card-title">Card Daftar Dokter</h5>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TambahDokter">
@@ -49,16 +44,18 @@
                             <th>No</th>
                             <th>Nama</th>
                             <th>Gambar</th>
-                            <th>Gambar</th>
+                            <th>Spesialis</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+
                         @foreach ($dokter as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $item->nama }}</td>
-                                <td>{{ $item->spesialis->nama_spesialis }}</td>
+                                <td><img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->gambar }}" width="200"> </td>
+                                <td>{{ $item->spesialis->nama_spesialis }} </td>
                                 <td>
                                     <a class="badge bg-warning border-0" data-bs-toggle="modal"
                                         href="#editKategori{{ $item->id }}"><img src="{{ asset('icon/icon_pen.png') }}"
@@ -67,8 +64,6 @@
                                             src="{{ asset('icon/icon_trash.png') }}" alt=""></a>
                                 </td>
                             </tr>
-
-
 
 
                             <!-- Modal edit -->
@@ -110,7 +105,7 @@
                             <th>No</th>
                             <th>Nama</th>
                             <th>Gambar</th>
-                            <th>Gambar</th>
+                            <th>Spesialis</th>
                             <th>Aksi</th>
                         </tr>
                     </tfoot>
@@ -127,43 +122,20 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create Dokter</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('admin.kategori.store') }}" method="post">
+                <form action="{{ route('admin.dokter.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <input type="text" id="searchInput" class="form-control"
-                                        placeholder="Nama Spesialis">
-                                </div>
-                                <div class="mb-3">
-                                    <select id="resultSelect" class="form-select"></select>
-                                </div>
-                            </div>
+                        <div class="mb-3">
+                            <label for="NamaDokter" class="form-label">Nama Dokter</label>
+                            <input type="text" class="form-control" id="NamaDokter" aria-describedby="NamaDokter"
+                                required name="nama">
                         </div>
-                        <form class="p-2 mb-2 bg-body-tertiary border-bottom">
-                            <input type="search" class="form-control" autocomplete="false"
-                                placeholder="Type to filter...">
-                        </form>
-                        <ul class="list-unstyled mb-0">
-                            <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
-                                    <span class="d-inline-block bg-success rounded-circle p-1"></span>
-                                    Action
-                                </a></li>
-                            <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
-                                    <span class="d-inline-block bg-primary rounded-circle p-1"></span>
-                                    Another action
-                                </a></li>
-                            <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
-                                    <span class="d-inline-block bg-danger rounded-circle p-1"></span>
-                                    Something else here
-                                </a></li>
-                            <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
-                                    <span class="d-inline-block bg-info rounded-circle p-1"></span>
-                                    Separated link
-                                </a></li>
-                        </ul>
+                        <div class="mb-3">
+                            @livewire('admin.dokter.preview-gambar')
+                        </div>
+                        @livewire('admin.dokter.search-spesialis-dokter')
                     </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Save changes</button>
@@ -178,45 +150,10 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-
     <script>
         $(document).ready(function() {
             $("#example").DataTable();
-            const searchInput = $('#searchInput');
-            const resultSelect = $('#resultSelect');
-
-            searchInput.on('input', function() {
-                const query = searchInput.val().trim();
-
-                if (query === '') {
-                    resultSelect.empty();
-                    return;
-                }
-
-                $.ajax({
-                    url: `{{ route('admin.spesialis.search') }}?query=${query}`,
-                    method: 'GET',
-                    dataType: 'json',
-                    success: function(data) {
-                        resultSelect.empty();
-
-                        $.each(data, function(index, item) {
-                            const option = $('<option>', {
-                                value: item.id,
-                                text: item.nama_spesialis
-                            });
-
-                            resultSelect.append(option);
-                        });
-                    }
-                });
-            });
-
-            resultSelect.on('change', function() {
-                const selectedOption = resultSelect.find('option:selected');
-                const selectedText = selectedOption.text();
-                searchInput.val(selectedText);
-            });
         });
     </script>
+    @livewireScripts
 @endpush

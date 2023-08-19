@@ -43,7 +43,8 @@ class SpesialisController extends Controller
 
         $validatedData = $request->validate(
             [
-                'nama_spesialis' => 'required|unique:spesialis'
+                'nama_spesialis' => 'required|unique:spesialis',
+                'gambar' => 'gambar'
             ]
         );
 

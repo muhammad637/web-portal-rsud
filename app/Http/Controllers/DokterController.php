@@ -17,8 +17,9 @@ class DokterController extends Controller
      */
     public function dokter()
     {
-        return view('admin.pages.dokter.daftar-dokter',[
-            'dokter' => Dokter::orderBy('updated_at','desc'),
+        // return Dokter::all();
+        return view('admin.pages.dokter.daftar-dokter', [
+            'dokter' => Dokter::orderBy('updated_at', 'desc')->get(),
             'spesialis' => Spesialis::all(),
         ]);
         // return Dokter::all();
@@ -41,19 +42,26 @@ class DokterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function dokterStore(Request $request)
     {
-        // return $request->nama;
+
+        $spesialis =  Spesialis::where('nama_spesialis', $request->nama_spesialis)->first();
         $validatedData = $request->validate(
             [
                 'nama' => 'required',
-                'spesialis_id' => 'required',
+                'nama_spesialis' => 'required',
                 'gambar' => 'required'
             ]
         );
         $validatedData['gambar'] = $request->file('gambar')->store('gambar-dokter');
-        return Dokter::create($validatedData);
-        
+        Dokter::create([
+            'nama' => $validatedData['nama'],
+            'gambar' => $validatedData['gambar'],
+            'spesialis_id' => $spesialis->id
+        ]);
+
+        return redirect()->back()->with('success', 'dokter berhasil ditambahkan');
+
         //
     }
 
@@ -87,24 +95,24 @@ class DokterController extends Controller
      * @param  \App\Models\Dokter  $dokter
      * @return \Illuminate\Http\Response
      */
-        public function update(Request $request, Dokter $dokter)
-        {
-            return $request;
-            $validatedData = $request->validate(
-                [
-                    'nama' => 'required',
-                    'gambar' => 'nullable',
-                    'spesialis_id' => 'required'
-                ]
-            );
-            if (!empty($validatedData['gambar'])) {
-                # code...
-                $validatedData['gambar'] = $request->file('gambar')->store('gambar-dokter');
-            }   
-            $dokter->update($validatedData);
-            return $dokter;
-            //
+    public function update(Request $request, Dokter $dokter)
+    {
+        return $request;
+        $validatedData = $request->validate(
+            [
+                'nama' => 'required',
+                'gambar' => 'nullable',
+                'spesialis_id' => 'required'
+            ]
+        );
+        if (!empty($validatedData['gambar'])) {
+            # code...
+            $validatedData['gambar'] = $request->file('gambar')->store('gambar-dokter');
         }
+        $dokter->update($validatedData);
+        return $dokter;
+        //
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -170,12 +178,12 @@ class DokterController extends Controller
         return  ['dokter' => $dokter];
     }
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $query = $request->get('query');
 
         $results = Spesialis::where('nama_spesialis', 'like', '%' . $query . '%')->get();
 
         return response()->json($results);
     }
-    
 }
