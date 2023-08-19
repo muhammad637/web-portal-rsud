@@ -3236,7 +3236,8 @@ input[type="button"].btn-block {
   text-align: center; }
 
 .tab-content > .tab-pane {
-  display: none; }
+  display: none;
+ }
 
 .tab-content > .active {
   display: block; }
@@ -9276,6 +9277,57 @@ textarea.form-control {
   -webkit-animation: loader-dash 1.5s ease-in-out infinite;
   animation: loader-dash 1.5s ease-in-out infinite;
   stroke-linecap: round; }
+
+  .petunjuk-umum {
+    width: 100%;
+    display: block;
+    padding: 25px;
+    bordeR: 1px solid whitesmoke;
+    -webkit-box-shadow: 0px 3px 66px -24px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 3px 66px -24px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 66px -24px rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease; }
+    @media (max-width: 767.98px) {
+      .petunjuk-umum {
+        margin-bottom: 30px; } }
+    .petunjuk-umum .info {
+      width: 100%; }
+      .petunjuk-umum .info h3 {
+        font-size: 18px; }
+        .petunjuk-umum .info h3 a {
+          color: #000; }
+      .petunjuk-umum .info span.position {
+        display: block;
+        margin-bottom: 15px;
+        font-size: 13px;
+        font-weight: 400;
+        color: #919191; }
+    .petunjuk-umum .img {
+      width: 80px;
+      height: 80px;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      -webkit-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
+    .petunjuk-umum .text .ftco-social {
+      padding: 0; }
+      .petunjuk-umum .text .ftco-social li {
+        list-style: none;
+        display: inline-block;
+        margin: 0 5px; }
+    .petunjuk-umum:hover, .petunjuk-umum:focus {
+      -webkit-box-shadow: 0px 3px 66px -24px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0px 3px 66px -24px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 3px 66px -24px rgba(0, 0, 0, 0.5); }
+  
 
 @-webkit-keyframes loader-rotate {
   100% {

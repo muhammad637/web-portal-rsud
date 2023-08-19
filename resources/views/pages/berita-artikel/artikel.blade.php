@@ -35,7 +35,7 @@
 								</a></h3>
 			                <p>Batuk dan flu rentan dialami anak akibat udara buruk di Indonesia 
 								terutama Jakarta.</p>
-			                <p><a href="blog-single.html" class="btn btn-primary btn-outline-primary">Read more</a></p>
+			                <p><a href="" class="btn btn-primary btn-outline-primary">Read more</a></p>
 			              </div>
 		              </div>
 		            </div>

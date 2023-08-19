@@ -39,6 +39,9 @@ Route::get('/ketersediaantempat', function () {
 Route::get('/informasikunjungan', function () {
     return view('pages.pasien-pengunjung.informasi-kunjungan');
 });
+Route::get('petunjuk-umum', function(){
+    return view('pages.informasi.petunjuk-umum');
+});
 
 Route::get('/home' , function(){
     return view('pages.home');
@@ -51,7 +54,7 @@ Route::get('/artikel', function () {
 });
 
 Route::get('/artikel/klik', function () {
-    return view('pages.berita-artikel.artikel-single');
+    return view('pages.berita-artikel.isi-artikel');
 });
 
 Route::get('berita', function(){
@@ -63,3 +66,16 @@ Route::get('/profil', function () {
     return view('pages.profil.profil');
 });
 
+Route::get('alur-persyaratan', function(){
+    return view('pages.informasi.alur-persyaratan');
+});
+
+Route::get('tarif', function(){
+    return view('pages.informasi.tarif');
+});
+Route::get('lkm', function(){
+    return view('pages.informasi.lkm');
+});
+Route::get('sakip', function(){
+    return view('pages.informasi.sakip');
+});

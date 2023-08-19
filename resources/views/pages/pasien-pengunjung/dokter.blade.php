@@ -71,7 +71,7 @@
 
             <div class="row justify-content-center mb-5 ">
                 <div class="col-md-7 text-center heading-section ftco-animate">
-                    <h2 class="mb-3">Dokter Spesialis Paru RSUD Blambangan</h2>
+                    <h2 class="mb-3">Dokter RSUD Blambangan</h2>
                     <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a
                         paradisematic country, in which roasted parts of sentences</p>
                 </div>

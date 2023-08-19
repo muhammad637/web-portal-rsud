@@ -46,6 +46,20 @@
 				<li><a class="dropdown-item" href="/layanan-mcu">Layanan Medical Check Up</a></li>
 			</ul>
 		</li>
+		<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+				aria-expanded="false"><strong>
+				Informasi</strong>
+			</a>
+			<ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="/alur-persyaratan">Alur dan Persyaratan</a></li>
+				<li><a class="dropdown-item" href="/tarif">Tarif</a></li>
+				<li><a class="dropdown-item" href="/petunjuk-umum">Petunjuk Umum</a></li>
+				<li><a class="dropdown-item" href="/lkm">Layanan Kepuasan Masyarakat</a></li>
+				<li><a class="dropdown-item" href="/sakip">Sakip</a></li>
+			</ul>
+		</li>
+
 	          {{-- <li class="nav-item"><a href="" class="nav-link">Berita</a></li> --}}
 	        </ul>
 	      </div>

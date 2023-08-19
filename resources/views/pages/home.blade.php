@@ -189,39 +189,7 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="container-wrap mt-5">
-            <div class="row d-flex no-gutters">
-                <div class="col-md-6 img" style="background-image: url(images/halamanrsud.jpg);">
-                </div>
-                <div class="col-md-6 d-flex">
-                    <div class="about-wrap">
-                        <div class="heading-section heading-section-white text-center ftco-animate">
-                            <button type="button" class="btn btn-info mb-5" id="btnSejarah">Sejarah</button>
-                            <button type="button" class="btn btn-secondary mb-5" id="btnMaklumat">Maklumat</button>
-                        </div>
-                        <div class="list-services d-flex ftco-animate">
-                            <div class="text-center" id="textSejarah">
-                                <p>Berdiri sejak tahun 1930 sebagai Pusat Kesehatan Sederhana jaman Belanda, yang hanya
-                                    melayani Pelayanan Kesehatan Dasar dan Penyakit Menular hingga sekarang berkembang
-                                    menjadi Rumah Sakit Kelas B Pemerintah dan lulus Akreditasi PARIPURNA KARS 2012
-                                    Kini telah menjadi Pusat Rujukan Spesialis di kabupaten Banyuwangi, RSUD Blambangan
-                                    selalu berbenah dalam hal pelayanan kesehatan sehingga dapat menyajikan pelayanan yang
-                                    modern dan berkelas</p>
-                            </div>
-                            <div class="text-center d-none" id="textMaklumat">
-                                <p>Maklumat sejak tahun 1930 sebagai Pusat Kesehatan Sederhana jaman Belanda, yang hanya
-                                    melayani Pelayanan Kesehatan Dasar dan Penyakit Menular hingga sekarang berkembang
-                                    menjadi Rumah Sakit Kelas B Pemerintah dan lulus Akreditasi PARIPURNA KARS 2012
-                                    Kini telah menjadi Pusat Rujukan Spesialis di kabupaten Banyuwangi, RSUD Blambangan
-                                    selalu berbenah dalam hal pelayanan kesehatan sehingga dapat menyajikan pelayanan yang
-                                    modern dan berkelas</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-
+        
         <div class="container-wrap mt-5">
             <div class="row d-flex no-gutters">
                 <div class="col-md-6 img" style="background-image: url(images/halamanrsud.jpg);" loading="lazy">
@@ -465,4 +433,3 @@
         })
     </script>
 @endpush
->>>>>>> c5077b2040cd9e3f003d683cb68323c41f933c6e

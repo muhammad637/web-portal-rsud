@@ -7,7 +7,7 @@
           <div class="row slider-text align-items-end">
             <div class="col-md-7 col-sm-12 ftco-animate mb-5">
               <p class="breadcrumbs" data-scrollax=" properties: { translateY: '70%', opacity: 1.6}"><span class="mr-2"><a href="index.html">Beranda</a></span> <span>Berita</span></p>
-              <h1 class="mb-3" data-scrollax=" properties: { translateY: '70%', opacity: .9}">Berita RSUD Blambangan</h1>
+              <h1 class="mb-3" data-scrollax=" properties: { translateY: '70%', opacity: .9}">Artikel RSUD Blambangan</h1>
             </div>
           </div>
         </div>
@@ -134,6 +134,16 @@
                   <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
                 </div>
               </form>
+            </div>
+            <div class="sidebar-box ftco-animate">
+              <div class="categories">
+                <h3>Categories</h3>
+                <li><a href="#">Food <span>(12)</span></a></li>
+                <li><a href="#">Healthy <span>(22)</span></a></li>
+                <li><a href="#">Desserts <span>(37)</span></a></li>
+                <li><a href="#">Drinks <span>(42)</span></a></li>
+                <li><a href="#">Ocassion <span>(14)</span></a></li>
+              </div>
             </div>
 
             <div class="sidebar-box ftco-animate">
