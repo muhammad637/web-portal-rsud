@@ -32,14 +32,16 @@
         <!--  Main wrapper -->
         <div class="body-wrapper">
             <!--  Header Start -->
-          @include('admin.layouts.navbar')
+            @include('admin.layouts.navbar')
             <!--  Header End -->
             <div class="container-fluid">
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-                        @yield('breadcrumb')
-                    </ol>
+                    <div class="card pt-3 px-2">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+                            @yield('breadcrumb')
+                        </ol>
+                    </div>
                 </nav>
                 <!--  Row 1 -->
                 @yield('content-admin')

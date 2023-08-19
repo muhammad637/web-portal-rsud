@@ -66,10 +66,10 @@
                     </tbody>
                     <tfoot>
                         <tr>
+                            <th>No</th>
                             <th>Nama Berita</th>
                             <th>Gambar</th>
                             <th>excerpt</th>
-                            <th>tanggal dibuat</th>
                             <th>tanggal dibuat</th>
                             <th>Aksi</th>
                         </tr>

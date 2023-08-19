@@ -12,9 +12,9 @@
 @section('content-admin')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Card Kategori</h5>
+            <h5 class="card-title">Card Daftar Dokter</h5>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TambahKategori">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TambahDokter">
                 Create <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
                     <path
@@ -47,15 +47,18 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Kategori</th>
+                            <th>Nama</th>
+                            <th>Gambar</th>
+                            <th>Gambar</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($kategori as $index => $item)
+                        @foreach ($dokter as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
-                                <td>{{ $item->nama_kategori }}</td>
+                                <td>{{ $item->nama }}</td>
+                                <td>{{ $item->spesialis->nama_spesialis }}</td>
                                 <td>
                                     <a class="badge bg-warning border-0" data-bs-toggle="modal"
                                         href="#editKategori{{ $item->id }}"><img src="{{ asset('icon/icon_pen.png') }}"
@@ -78,7 +81,8 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('admin.kategori.update', ['kategori' => $item->id]) }}" method="post">
+                                        <form action="{{ route('admin.kategori.update', ['kategori' => $item->id]) }}"
+                                            method="post">
                                             @method('put')
                                             @csrf
                                             <div class="modal-body ">
@@ -104,7 +108,9 @@
                     <tfoot>
                         <tr>
                             <th>No</th>
-                            <th>Nama Kategori</th>
+                            <th>Nama</th>
+                            <th>Gambar</th>
+                            <th>Gambar</th>
                             <th>Aksi</th>
                         </tr>
                     </tfoot>
@@ -114,22 +120,49 @@
     </div>
 
     <!-- Modal create -->
-    <div class="modal fade " id="TambahKategori" tabindex="-1" aria-labelledby="TambahKategoriLabel" aria-hidden="true">
+    <div class="modal fade " id="TambahDokter" tabindex="-1" aria-labelledby="TambahKategoriLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create kategori</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create Dokter</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="{{ route('admin.kategori.store') }}" method="post">
                     @csrf
                     <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="nama_kategori" class="form-label">Nama Kategori</label>
-                            <input type="text" class="form-control" name="nama_kategori" id="nama_kategori"
-                                value="{{ old('nama_kategori') }}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <input type="text" id="searchInput" class="form-control"
+                                        placeholder="Nama Spesialis">
+                                </div>
+                                <div class="mb-3">
+                                    <select id="resultSelect" class="form-select"></select>
+                                </div>
+                            </div>
                         </div>
-
+                        <form class="p-2 mb-2 bg-body-tertiary border-bottom">
+                            <input type="search" class="form-control" autocomplete="false"
+                                placeholder="Type to filter...">
+                        </form>
+                        <ul class="list-unstyled mb-0">
+                            <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                                    <span class="d-inline-block bg-success rounded-circle p-1"></span>
+                                    Action
+                                </a></li>
+                            <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                                    <span class="d-inline-block bg-primary rounded-circle p-1"></span>
+                                    Another action
+                                </a></li>
+                            <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                                    <span class="d-inline-block bg-danger rounded-circle p-1"></span>
+                                    Something else here
+                                </a></li>
+                            <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                                    <span class="d-inline-block bg-info rounded-circle p-1"></span>
+                                    Separated link
+                                </a></li>
+                        </ul>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -149,6 +182,41 @@
     <script>
         $(document).ready(function() {
             $("#example").DataTable();
+            const searchInput = $('#searchInput');
+            const resultSelect = $('#resultSelect');
+
+            searchInput.on('input', function() {
+                const query = searchInput.val().trim();
+
+                if (query === '') {
+                    resultSelect.empty();
+                    return;
+                }
+
+                $.ajax({
+                    url: `{{ route('admin.spesialis.search') }}?query=${query}`,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        resultSelect.empty();
+
+                        $.each(data, function(index, item) {
+                            const option = $('<option>', {
+                                value: item.id,
+                                text: item.nama_spesialis
+                            });
+
+                            resultSelect.append(option);
+                        });
+                    }
+                });
+            });
+
+            resultSelect.on('change', function() {
+                const selectedOption = resultSelect.find('option:selected');
+                const selectedText = selectedOption.text();
+                searchInput.val(selectedText);
+            });
         });
     </script>
 @endpush

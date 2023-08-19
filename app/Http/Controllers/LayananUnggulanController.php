@@ -12,75 +12,40 @@ class LayananUnggulanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function unggulan()
     {
-        //
-        return view('admin.pages.pelayanan.layanan-unggulan.index');
+        return view('admin.pages.pelayanan.layanan-unggulan.index',[
+            'layanan_unggulan' => LayananUnggulan::orderBy('updated_at', 'desc')->get()
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function unggulanCreate()
     {
-        //
+        return "testing";
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function unggulanShow()
     {
-        //
+        return "show";
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\LayananUnggulan  $layananUnggulan
-     * @return \Illuminate\Http\Response
-     */
-    public function show(LayananUnggulan $layananUnggulan)
+    public function unggulanStore()
     {
-        //
+        return "store";
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\LayananUnggulan  $layananUnggulan
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(LayananUnggulan $layananUnggulan)
+    public function unggulanEdit()
     {
-        //
+        return "edit";
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\LayananUnggulan  $layananUnggulan
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, LayananUnggulan $layananUnggulan)
+    public function unggulanUpdate()
     {
-        //
+        return "update";
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\LayananUnggulan  $layananUnggulan
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(LayananUnggulan $layananUnggulan)
+    public function unggulanDestroy()
     {
-        //
+        return "delete";
     }
 }

@@ -12,8 +12,8 @@
 @section('content-admin')
     <div class="card">
         <div class="card-body">
-            <h1 class="fw-bold">Card Berita</h1>
-            <a href="{{ route('admin.berita.create') }}" class="btn btn-primary text-decoration-none"> Create <svg
+            <h1 class="fw-bold">Card Artikel</h1>
+            <a href="{{ route('admin.artikel.create') }}" class="btn btn-primary text-decoration-none"> Create <svg
                     xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
                     <path
@@ -34,14 +34,14 @@
                         <tr>
                             <th>No</th>
                             <th>Gambar</th>
-                            <th>Nama Berita</th>
+                            <th>Nama Artikel</th>
                             <th>excerpt</th>
                             <th>tanggal dibuat</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($berita as $index => $item)
+                        @foreach ($artikel as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
                                 <td>
@@ -55,7 +55,7 @@
                                 <td>
                                     <a href="#" class="badge bg-success"><img
                                             src="{{ asset('icon/icon_folder.png') }}" alt=""></a>
-                                    <a href="{{ route('admin.berita.edit', ['beritaDanArtikel' => $item->slug]) }}"
+                                    <a href="{{ route('admin.artikel.edit', ['beritaDanArtikel' => $item->slug]) }}"
                                         class="badge bg-warning"><img src="{{ asset('icon/icon_pen.png') }}"
                                             alt=""></a>
                                     <a href="#" class="badge bg-danger"><img src="{{ asset('icon/icon_trash.png') }}"

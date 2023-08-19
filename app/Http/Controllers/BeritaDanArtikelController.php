@@ -90,32 +90,31 @@ class BeritaDanArtikelController extends Controller
     // admin-artikel
     public function artikel()
     {
-        return view('admin.pages.konten.berita.index', [
-            'berita' => BeritaDanArtikel::where('jenis', 'berita')
-            ->orderBy('updated_at', 'desc')
-            ->get()
+        return view('admin.pages.konten.artikel.index', [
+            'artikel' => BeritaDanArtikel::where('jenis', 'artikel')
+                ->orderBy('updated_at', 'desc')
+                ->get()
         ]);
     }
 
     public function artikelShow(BeritaDanArtikel $beritaDanArtikel)
     {
-        return view('admin.pages.konten.berita.show', [
-            'berita' => $beritaDanArtikel
+        return view('admin.pages.konten.artikel.show', [
+            'artikel' => $beritaDanArtikel
         ]);
     }
 
     public function artikelCreate()
     {
-        return view('admin.pages.konten.berita.create', [
+        return view('admin.pages.konten.artikel.create', [
             "kategori" => Kategori::all()
         ]);
     }
 
     public function artikelStore(Request $request)
     {
-        // dd($request->all);
 
-        //code...
+        //code...     
         $validatedData = $request->validate(
             [
                 'judul' => 'required',
@@ -127,16 +126,20 @@ class BeritaDanArtikelController extends Controller
                 'link' => '',
             ]
         );
-        $validatedData['jenis'] = 'berita';
+        $validatedData['jenis'] = 'artikel';
         //code...
         $validatedData['gambar'] = $request->file('gambar')->store('image-berita-artikel');
         BeritaDanArtikel::create($validatedData);
-        return BeritaDanArtikel::all();
+        $beritaDanArtikel = BeritaDanArtikel::where('slug', $request->slug)->first();
+        $beritaDanArtikel->kategori()->sync($request->input('kategori'));
+        return redirect(route('admin.artikel'))->with('success', 'artikel berhasil di tambahkan');
     }
     public function artikelEdit(BeritaDanArtikel $beritaDanArtikel)
     {
-        return view('admin.pages.konten.berita.edit', [
-            'berita' => $beritaDanArtikel
+        // return $beritaDanArtikel->kategori->pluck('id')->toArray();
+        return view('admin.pages.konten.artikel.edit', [
+            'artikel' => $beritaDanArtikel,
+            'kategori' => Kategori::all()
         ]);
     }
     public function artikelUpdate(Request $request, BeritaDanArtikel $beritaDanArtikel)
@@ -153,11 +156,11 @@ class BeritaDanArtikelController extends Controller
             Storage::delete($beritaDanArtikel->gambar);
             $gambar = $request->file('gambar')->store('image-berita-artikel', 'public');
         }
-        $updatedData = array_merge(['gambar' => $gambar], $validatedData);
+        $updatedData = array_merge(['gambar' => $gambar, 'link' => $request->link], $validatedData);
         $beritaDanArtikel->update(
             $updatedData
         );
-        return redirect(route('admin.berita'))->with('success', 'berhasil update berita');
+        return redirect(route('admin.artikel'))->with('success', 'berhasil update berita');
     }
 
 

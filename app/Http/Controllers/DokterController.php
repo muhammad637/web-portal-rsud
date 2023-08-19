@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokter;
+use App\Models\Spesialis;
 use Illuminate\Contracts\Support\ValidatedData;
 use Illuminate\Http\Request;
 use Symfony\Contracts\Service\Attribute\Required;
@@ -14,9 +15,13 @@ class DokterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function dokter()
     {
-        return Dokter::all();
+        return view('admin.pages.dokter.daftar-dokter',[
+            'dokter' => Dokter::orderBy('updated_at','desc'),
+            'spesialis' => Spesialis::all(),
+        ]);
+        // return Dokter::all();
         //
     }
 
@@ -163,6 +168,14 @@ class DokterController extends Controller
 
         // Kirim hasil pencarian ke view
         return  ['dokter' => $dokter];
+    }
+
+    public function search(Request $request){
+        $query = $request->get('query');
+
+        $results = Spesialis::where('nama_spesialis', 'like', '%' . $query . '%')->get();
+
+        return response()->json($results);
     }
     
 }

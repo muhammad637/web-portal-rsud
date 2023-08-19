@@ -50,7 +50,7 @@
                     <input type="text" class="form-control @error('link') is-invalid @enderror" name="link"
                         id="link" value="{{ old('link', $berita->link) }}">
                 </div>
-
+                
                 <button class="btn btn-primary" type="submit">Kirim</button>
             </form>
             <a class="btn btn-warning" href="{{ route('admin.berita') }}">Kembali</a>

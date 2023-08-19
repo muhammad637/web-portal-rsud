@@ -91,10 +91,11 @@ Route::middleware('auth')->group(function () {
     // konten
     // kategori
     Route::get('/admin/kategori', [KategoriController::class, 'index'])->name('admin.kategori');
-    
-    
+    Route::post('/admin/kategori/store', [KategoriController::class, 'store'])->name('admin.kategori.store');
+    Route::put('/admin/kategori/{kategori:id}/update', [KategoriController::class, 'update'])->name('admin.kategori.update');
+
     // berita
-    Route::get('/admin/berita',[BeritaDanArtikelController::class,'berita'])->name('admin.berita');
+    Route::get('/admin/berita', [BeritaDanArtikelController::class, 'berita'])->name('admin.berita');
     Route::get('/admin/berita/create', [BeritaDanArtikelController::class, 'beritaCreate'])->name('admin.berita.create');
     Route::post('/admin/berita/store', [BeritaDanArtikelController::class, 'beritaStore'])->name('admin.berita.store');
     Route::get('/admin/berita/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'beritaShow'])->name('admin.berita.show');
@@ -109,8 +110,33 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/artikel/{beritaDanArtikel:slug}/edit', [BeritaDanArtikelController::class, 'artikelEdit'])->name('admin.artikel.edit');
     Route::put('/admin/artikel/{beritaDanArtikel:slug}/update', [BeritaDanArtikelController::class, 'artikelUpdate'])->name('admin.artikel.update');
 
-    Route::get('/admin/createSlug', [BeritaDanArtikelController::class, 'slug'])->name('admin.createSlug');
 
+
+    // pelayanan
+    // unggulan
+    Route::get('/admin/unggulan', [LayananUnggulanController::class, 'unggulan'])->name('admin.unggulan');
+    Route::get('/admin/unggulan/create', [LayananUnggulanController::class, 'unggulanCreate'])->name('admin.unggulan.create');
+    Route::post('/admin/unggulan/store', [LayananUnggulanController::class, 'unggulanStore'])->name('admin.unggulan.store');
+    Route::get('/admin/unggulan/{beritaDanArtikel:slug}', [LayananUnggulanController::class, 'unggulanShow'])->name('admin.unggulan.show');
+    Route::get('/admin/unggulan/{beritaDanArtikel:slug}/edit', [LayananUnggulanController::class, 'unggulanEdit'])->name('admin.unggulan.edit');
+    Route::put('/admin/unggulan/{beritaDanArtikel:slug}/update', [LayananUnggulanController::class, 'unggulanUpdate'])->name('admin.unggulan.update');
+
+    // dokter
+    // daftar-dokter
+    Route::get('/admin/dokter', [DokterController::class, 'dokter'])->name('admin.dokter');
+    Route::post('/admin/dokter/store', [DokterController::class, 'dokterStore'])->name('admin.dokter.store');
+    Route::patch('/admin/dokter/{dokter}/update', [DokterController::class, 'dokterUpdate'])->name('admin.dokter.update');
+    Route::delete('/admin/dokter/{dokter:id}/destroy', [DokterController::class, 'delete'])->name('admin.dokter.delete');
+    Route::get('/admin/spesialis/search', [DokterController::class, 'search'])->name('admin.spesialis.search');
+
+    // spesialis
+    // jadwal
+
+
+
+
+
+    Route::get('/admin/createSlug', [BeritaDanArtikelController::class, 'slug'])->name('admin.createSlug');
 });
 
 

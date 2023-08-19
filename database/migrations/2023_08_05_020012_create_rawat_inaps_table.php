@@ -17,11 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('slug');
+            $table->string('icon');
             $table->string('gambar');
             $table->text('deskripsi');
-            $table->string('gambar1')->nullable();
-            $table->string('gambar2')->nullable();
-            $table->string('gambar3')->nullable();
             $table->timestamps();
         });
     }

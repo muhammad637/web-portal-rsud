@@ -13,8 +13,8 @@
 @section('content-admin')
     <div class="card">
         <div class="card-body">
-            <h1 class="text-center text-capitalize fw-bold">form upload berita</h1>
-            <form action="{{ route('admin.berita.store') }}" method="post" enctype="multipart/form-data">
+            <h1 class="text-center text-capitalize fw-bold">form upload Artikel</h1>
+            <form action="{{ route('admin.artikel.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="" class="form-label">Title</label>
@@ -65,9 +65,19 @@
                 <div class="mb-3">
                     <label for="link" class="form-label">link Embed</label>
                     <input type="text" class="form-control @error('link') is-invalid @enderror" name="link"
-                        id="link"  value="{{ old('link') }}">
+                        id="link" value="{{ old('link') }}">
                 </div>
+                <p class="form-label">Kategori</p>
+                <div class="row mb-3">
 
+                    @foreach ($kategori as $item)
+                    <div class="col-md-6">
+                        <input type="checkbox" name="kategori[]" value="{{ $item->id }}" id="{{$item->id}}">
+                        <label for="{{$item->id}}"> {{ $item->nama_kategori }}</label>
+                    </div>
+                    @endforeach
+                </div>
+                    
                 <a class="btn btn-warning" href="{{ route('admin.berita') }}">Kembali</a>
                 <button class="btn btn-primary " type="submit">Kirim</button>
             </form>
