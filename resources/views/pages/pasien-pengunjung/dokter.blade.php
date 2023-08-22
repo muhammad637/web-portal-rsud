@@ -33,8 +33,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 4,
-            spaceBetween: 30,
+            breakpoints: {
+                    640: {
+                        slidesPerView: 1,
+                        // spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                },
             autoplay: {
                 delay: 3000,
             },
