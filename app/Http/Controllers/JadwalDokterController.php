@@ -16,9 +16,13 @@ class JadwalDokterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function jadwal()
     {
-        return JadwalDokter::all();
+        // return Dokter::all();
+        return view('admin.pages.dokter.jadwal-dokter', [
+            'jadwalDokter' => JadwalDokter::orderBy('updated_at', 'desc')->get(),
+            'dokter' => Dokter::orderBy('updated_at', 'desc')->get()
+        ]);
     }
 
     /**
@@ -37,18 +41,18 @@ class JadwalDokterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function jadwalStore(Request $request)
     {
         //
-        // return $request;
-        $validateData = $request->validate([
-            'dokter_id' => 'required',
-            'hari' => 'required',
-            'jam-mulai-praktik' => 'required',
-            'jam-selesai-praktik' => 'required'
+        // return $request->all();
+        $dokter = Dokter::where('nama', $request->nama_dokter)->first();
+        JadwalDokter::create([
+            'dokter_id' => $dokter->id,
+            'hari' => $request->hari,
+            'jam_mulai_praktik' => $request->jam_mulai_praktik,
+            'jam_selesai_praktik' => $request->jam_selesai_praktik
         ]);
-        JadwalDokter::create($validateData);
-        return JadwalDokter::all();
+        return redirect()->back()->with('success', 'jadwal dokter berhasil ditambahkan');
     }
 
     /**
@@ -80,18 +84,16 @@ class JadwalDokterController extends Controller
      * @param  \App\Models\JadwalDokter  $jadwalDokter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, JadwalDokter $jadwalDokter)
+    public function jadwalUpdate(Request $request, JadwalDokter $jadwalDokter)
     {
         $validateData = $request->validate(
             [
-
-            'id_dokter' => 'required |' .
-            Rule::unique('id')->ignore($jadwalDokter->id),
+                'id_dokter' => 'required',
             ]
-            );
+        );
         $jadwalDokter->update($validateData);
         return $jadwalDokter;
-            //
+        //
     }
 
     /**
@@ -100,7 +102,7 @@ class JadwalDokterController extends Controller
      * @param  \App\Models\JadwalDokter  $jadwalDokter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(JadwalDokter $jadwalDokter)
+    public function jadwalDestroy(JadwalDokter $jadwalDokter)
     {
         //
     }

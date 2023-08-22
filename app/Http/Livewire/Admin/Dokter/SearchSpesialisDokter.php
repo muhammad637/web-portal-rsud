@@ -8,11 +8,22 @@ use Livewire\Component;
 class SearchSpesialisDokter extends Component
 {
     public $search;
+    public $spesialisFormEdit;
     public $results = [];
     public $displayResult = false;
-    
-    public function updatedSearch(){
-        if(empty($this->search)){
+
+    public function mount()
+    {
+        if ($this->spesialisFormEdit != null) {
+            $this->displayResult = false;
+            $this->search = $this->spesialisFormEdit;
+            return;
+        }
+    }
+
+    public function updatedSearch()
+    {
+        if (empty($this->search)) {
             $this->displayResult = false;
             $this->search = '';
             return;
@@ -26,7 +37,8 @@ class SearchSpesialisDokter extends Component
         return view('livewire.admin.dokter.search-spesialis-dokter');
     }
 
-    public function selectItem($item){
+    public function selectItem($item)
+    {
         $this->search = $item;
         $this->displayResult = false;
     }

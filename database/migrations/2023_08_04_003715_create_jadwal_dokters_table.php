@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('dokter_id')->constrained('dokters')->onUpdate('cascade')->onDelete('cascade');
             $table->string('hari');
-            $table->time('jam-mulai-praktik');
-            $table->time('jam-selesai-praktik');
+            $table->time('jam_mulai_praktik');
+            $table->time('jam_selesai_praktik');
             $table->timestamps();
         });
     }

@@ -14,10 +14,12 @@ class SpesialisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function spesialis()
     {
         //
-        return Spesialis::all();
+        return view('admin.pages.dokter.spesialis', [
+            'spesialis' => Spesialis::orderBy('updated_at', 'desc')->get()
+        ]);
     }
 
     /**
@@ -37,19 +39,18 @@ class SpesialisController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function spesialisStore(Request $request)
     {
         //
 
         $validatedData = $request->validate(
             [
-                'nama_spesialis' => 'required|unique:spesialis',
-                'gambar' => 'gambar'
+                'nama_spesialis' => 'required|unique:spesialis,nama_spesialis',
             ]
         );
 
         Spesialis::create($validatedData);
-        return Spesialis::all();
+        return redirect()->back()->with('success', 'nama spesialis berhasil ditambahkan');
     }
 
     /**
@@ -70,7 +71,7 @@ class SpesialisController extends Controller
      * @param  \App\Models\Spesialis  $spesialis
      * @return \Illuminate\Http\Response
      */
-    public function edit(Spesialis $spesialis)
+    public function spesialisEdit(Spesialis $spesialis)
     {
         //
     }
@@ -82,17 +83,17 @@ class SpesialisController extends Controller
      * @param  \App\Models\Spesialis  $spesialis
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Spesialis $spesialis)
+    public function spesilaisUpdate(Request $request, Spesialis $spesialis)
     {
         // return $request;
         $validatedData = $request->validate(
             [
-                'nama_spesialis' => 'required'. Rule::unique('spesialis')->ignore($spesialis->id),
+                'nama_spesialis' => 'required|unique:spesialis,nama_spesialis,' . $spesialis->id,
             ]
         );
         // return $validatedData;
         $spesialis->update($validatedData);
-        return $spesialis;
+        return redirect()->back()->with('success','nama spesialis berhasil di update');
         //
     }
 
@@ -102,8 +103,10 @@ class SpesialisController extends Controller
      * @param  \App\Models\Spesialis  $spesialis
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Spesialis $spesialis)
+    public function spesialisDelete(Spesialis $spesialis)
     {
         //
+        $spesialis->delete();
+        return redirect()->back()->with('success', 'nama spesialis berhasil di delete');
     }
 }

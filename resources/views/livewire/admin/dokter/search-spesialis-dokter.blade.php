@@ -3,9 +3,9 @@
         <div class="position-relative">
             <label for="" class="form-label">Nama Spesialis</label>
             <input wire:model="search" type="text" class="form-control" autocomplete="false" placeholder="Search..."
-                name="nama_spesialis">
+                name="nama_spesialis" required>
             @if ($results)
-                <ul class="dropdown-menu  w-100"
+                <ul class="dropdown-menu w-100"
                     style="display: {{ $displayResult ? 'block' : 'none' }};  max-height:10rem; overflow:auto;">
                     @foreach ($results as $result)
                         <li>
