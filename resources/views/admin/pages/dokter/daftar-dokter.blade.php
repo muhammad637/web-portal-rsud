@@ -54,21 +54,28 @@
                             <tr>
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $item->nama }}</td>
-                                <td><img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->gambar }}" width="200"> </td>
+                                <td><img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->gambar }}"
+                                        width="200"> </td>
                                 <td>{{ $item->spesialis->nama_spesialis }} </td>
                                 <td>
                                     <a class="badge bg-warning border-0" data-bs-toggle="modal"
-                                        href="#editKategori{{ $item->id }}"><img src="{{ asset('icon/icon_pen.png') }}"
+                                        href="#editDokter{{ $item->id }}"><img src="{{ asset('icon/icon_pen.png') }}"
                                             alt=""></a>
-                                    <a href="#" class="badge bg-danger border-0"><img
-                                            src="{{ asset('icon/icon_trash.png') }}" alt=""></a>
+                                    <form action="{{ route('admin.dokter.delete', ['dokter' => $item->id]) }}" class="d-inline"
+                                        method="post">
+                                        <button type="submit" class="badge bg-danger border-0">
+                                            @method('delete')
+                                            @csrf
+                                            <img src="{{ asset('icon/icon_trash.png') }}" alt="">
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
 
 
                             <!-- Modal edit -->
-                            <div class="modal fade " id="editKategori{{ $item->id }}" tabindex="-1"
-                                aria-labelledby="TambahKategoriLabel" aria-hidden="true">
+                            <div class="modal fade " id="editDokter{{ $item->id }}" tabindex="-1"
+                                aria-labelledby="EditDokterLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -76,18 +83,21 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('admin.kategori.update', ['kategori' => $item->id]) }}"
+                                        <form action="{{ route('admin.dokter.update', ['dokter' => $item->id]) }}"
                                             method="post">
                                             @method('put')
                                             @csrf
-                                            <div class="modal-body ">
+                                            <div class="modal-body">
                                                 <div class="mb-3">
-                                                    <label for="nama_kategori" class="form-label">Nama Kategori</label>
-                                                    <input type="text" class="form-control" name="nama_kategori"
-                                                        id="nama_kategori"
-                                                        value="{{ old('nama_kategori', $item->nama_kategori) }}">
+                                                    <label for="NamaDokter" class="form-label">Nama Dokter</label>
+                                                    <input type="text" class="form-control" id="NamaDokter"
+                                                        aria-describedby="NamaDokter" required name="nama"
+                                                        value="{{ old('nama', $item->nama) }}">
                                                 </div>
-
+                                                <div class="mb-3">
+                                                    @livewire('admin.dokter.preview-gambar', ['gambarFormEdit' => $item->gambar])
+                                                </div>
+                                                @livewire('admin.dokter.search-spesialis-dokter', ['spesialisFormEdit' => $item->spesialis->nama_spesialis])
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"

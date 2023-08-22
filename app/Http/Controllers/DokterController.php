@@ -6,6 +6,7 @@ use App\Models\Dokter;
 use App\Models\Spesialis;
 use Illuminate\Contracts\Support\ValidatedData;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Contracts\Service\Attribute\Required;
 
 class DokterController extends Controller
@@ -97,20 +98,20 @@ class DokterController extends Controller
      */
     public function update(Request $request, Dokter $dokter)
     {
-        return $request;
         $validatedData = $request->validate(
             [
                 'nama' => 'required',
-                'gambar' => 'nullable',
                 'spesialis_id' => 'required'
             ]
         );
-        if (!empty($validatedData['gambar'])) {
-            # code...
-            $validatedData['gambar'] = $request->file('gambar')->store('gambar-dokter');
+        $gambar = $dokter->gambar;
+        if ($request->gambar) {
+            Storage::delete($dokter->gambar);
+            $gambar = $request->file('gambar')->store('gambar-dokter');
         }
-        $dokter->update($validatedData);
-        return $dokter;
+        $merging = array_merge(['gambar' => $gambar], $validatedData);
+        $dokter->update($merging);
+        return redirect()->back();
         //
     }
 
@@ -120,11 +121,12 @@ class DokterController extends Controller
      * @param  \App\Models\Dokter  $dokter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dokter $dokter)
+    public function dokterDelete(Dokter $dokter)
     {
         //
+        Storage::delete($dokter->gambar);
         $dokter->delete();
-        return Dokter::all();
+        return redirect()->back()->with('success', 'dokter berhasil dihapus');
     }
 
     public function cariDokter(Request $request)
@@ -181,9 +183,7 @@ class DokterController extends Controller
     public function search(Request $request)
     {
         $query = $request->get('query');
-
         $results = Spesialis::where('nama_spesialis', 'like', '%' . $query . '%')->get();
-
         return response()->json($results);
     }
 }

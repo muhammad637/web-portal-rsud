@@ -11,10 +11,16 @@ class Dokter extends Model
 
     protected $guarded = ['id'];
 
-    public function spesialis(){
+    public function spesialis()
+    {
         return $this->belongsTo(Spesialis::class, 'spesialis_id');
     }
-    public function jadwalDokter(){
+    public function jadwalDokter()
+    {
         return $this->hasMany(JadwalDokter::class);
+    }
+    public function RawatJalan()
+    {
+        return $this->belongsTo(RawatJalan::class, 'rawatJalan_id');
     }
 }
