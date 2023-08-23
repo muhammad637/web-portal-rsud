@@ -33,8 +33,19 @@ class TarifController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function TARIFstore(Request $request)
     {
+        $validateData = $request->validate(
+            [
+                'jenis_kamar' => 'required',
+                'tarif' => 'required',
+                'nama_tindakan' => 'required',
+                'tarif_tindakan' => 'required'
+                
+            ]
+            );
+            TARIF::create($validateData);
+            return TARIF::all();
         //
     }
 
