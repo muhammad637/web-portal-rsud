@@ -45,6 +45,7 @@
                             <th>Nama</th>
                             <th>Gambar</th>
                             <th>Spesialis</th>
+                            <th>Ruangan</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -57,12 +58,13 @@
                                 <td><img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->gambar }}"
                                         width="200"> </td>
                                 <td>{{ $item->spesialis->nama_spesialis }} </td>
+                                <td>{{ $item->RawatJalan->nama }} </td>
                                 <td>
                                     <a class="badge bg-warning border-0" data-bs-toggle="modal"
                                         href="#editDokter{{ $item->id }}"><img src="{{ asset('icon/icon_pen.png') }}"
                                             alt=""></a>
-                                    <form action="{{ route('admin.dokter.delete', ['dokter' => $item->id]) }}" class="d-inline"
-                                        method="post">
+                                    <form action="{{ route('admin.dokter.delete', ['dokter' => $item->id]) }}"
+                                        class="d-inline" method="post">
                                         <button type="submit" class="badge bg-danger border-0">
                                             @method('delete')
                                             @csrf
@@ -84,8 +86,8 @@
                                                 aria-label="Close"></button>
                                         </div>
                                         <form action="{{ route('admin.dokter.update', ['dokter' => $item->id]) }}"
-                                            method="post">
-                                            @method('put')
+                                            method="post" enctype="multipart/form-data">
+                                            @method('patch')
                                             @csrf
                                             <div class="modal-body">
                                                 <div class="mb-3">
@@ -98,6 +100,7 @@
                                                     @livewire('admin.dokter.preview-gambar', ['gambarFormEdit' => $item->gambar])
                                                 </div>
                                                 @livewire('admin.dokter.search-spesialis-dokter', ['spesialisFormEdit' => $item->spesialis->nama_spesialis])
+                                                @livewire('admin.dokter.search-rawat-jalan', ['rawatJalanFormEdit' => $item->Rawatjalan->nama])
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -116,6 +119,7 @@
                             <th>Nama</th>
                             <th>Gambar</th>
                             <th>Spesialis</th>
+                            <th>Ruangan</th>
                             <th>Aksi</th>
                         </tr>
                     </tfoot>
@@ -144,6 +148,7 @@
                             @livewire('admin.dokter.preview-gambar')
                         </div>
                         @livewire('admin.dokter.search-spesialis-dokter')
+                        @livewire('admin.dokter.search-rawat-jalan')
                     </div>
 
                     <div class="modal-footer">

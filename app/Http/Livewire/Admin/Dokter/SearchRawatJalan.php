@@ -2,40 +2,37 @@
 
 namespace App\Http\Livewire\Admin\Dokter;
 
-use App\Models\Spesialis;
+use App\Models\RawatJalan;
 use Livewire\Component;
 
-class SearchSpesialisDokter extends Component
+class SearchRawatJalan extends Component
 {
     public $search;
-    public $spesialisFormEdit;
+    public $rawatJalanFormEdit;
     public $results = [];
     public $displayResult = false;
 
     public function mount()
     {
-        if ($this->spesialisFormEdit != null) {
+        if ($this->rawatJalanFormEdit != null) {
             $this->displayResult = false;
-            $this->search = $this->spesialisFormEdit;
+            $this->search = $this->rawatJalanFormEdit;
             return;
         }
     }
-
     public function updatedSearch()
     {
         if (empty($this->search)) {
             $this->displayResult = false;
             return;
         }
-        $this->results = Spesialis::all();
+        $this->results = RawatJalan::all();
         $this->displayResult = count($this->results) > 0;
     }
-
     public function render()
     {
-        return view('livewire.admin.dokter.search-spesialis-dokter');
+        return view('livewire.admin.dokter.search-rawat-jalan');
     }
-
     public function selectItem($item)
     {
         $this->search = $item;

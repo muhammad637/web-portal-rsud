@@ -13,8 +13,8 @@
 @section('content-admin')
     <div class="card">
         <div class="card-body">
-            <h1 class="text-center text-capitalize fw-bold">form upload Pelayanan Rawat jalan</h1>
-            <form action="{{ route('admin.rawatJalan.store') }}" method="post" enctype="multipart/form-data">
+            <h1 class="text-center text-capitalize fw-bold">form upload Pelayanan Rawat Inap</h1>
+            <form action="{{ route('admin.rawatInap.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="" class="form-label">Nama</label>
@@ -36,21 +36,7 @@
                         </div>
                     @enderror
                 </div>
-                <div class="mb-3">
-                    <p class="d-none" id="text-preview-icon">preview icon</p>
-                    <img id="displayedIcon" class="img-fluid w-50" src="{{ old('icon') }}" alt="icon yang Dipilih">
-                </div>
-                <label for="" class="form-label">icon</label>
-                <div class="input-group mb-3">
-                    <input type="file" class="form-control @error('icon') is-invalid @enderror" name="icon"
-                    id="icon" accept="image/*" value="{{ old('icon') }}">
-                    <label for="" class="input-group-text"> <i class="ti ti-mood-happy fs-6"></i></label>
-                    @error('icon')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
+               
                 <div class="mb-3">
                     <p class="d-none" id="text-preview">preview gambar</p>
                     <img id="displayedImage" class="img-fluid w-50" src="{{ old('gambar') }}" alt="Gambar yang Dipilih">
@@ -108,18 +94,7 @@
                     reader.readAsDataURL(selectedImage);
                 }
             });
-            $("#icon").change(function() {
-                $("#text-preview-icon").removeClass('d-none');
-                const selectedIcon = $(this).prop("files")[0];
-                console.log(selectedIcon)
-                if (selectedIcon && selectedIcon.type.includes("image")) {
-                    const reader2 = new FileReader();
-                    reader2.onload = function(e) {
-                        $("#displayedIcon").attr("src", e.target.result);
-                    };
-                    reader2.readAsDataURL(selectedIcon);
-                }
-            });
+          
         });
     </script>
 @endpush

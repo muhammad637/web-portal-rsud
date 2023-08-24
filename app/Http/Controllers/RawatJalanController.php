@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\RawatJalan;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class RawatJalanController extends Controller
 {
@@ -33,21 +35,48 @@ class RawatJalanController extends Controller
             );
             //code...
             $validatedData['gambar'] = $request->file('gambar')->store('image-rawat-jalan');
-            $validatedData['icon'] = $request->file('gambar')->store('icon-rawat-jalan');
+            $validatedData['icon'] = $request->file('icon')->store('icon-rawat-jalan');
             RawatJalan::create($validatedData);
-            return redirect(route('admin.rawatJalan'))->with('success','berhasil menambahkan pelayanan rawat jalan');
+            return redirect(route('admin.rawatJalan'))->with('success', 'pelayanan rawat jalan berhasil ditambahkan');
         }
     }
     public function rawatJalanEdit(RawatJalan $rawatJalan)
     {
-        return 'testing';
+        return view('admin.pages.pelayanan.rawat-jalan.edit', [
+            'rawatJalan' => $rawatJalan
+        ]);
     }
-    public function rawatJalanUpdate()
+    public function rawatJalanUpdate(Request $request, RawatJalan $rawatJalan)
     {
-        return 'testing';
+       
+        $validatedData = $request->validate(
+            [
+                'nama' => 'required',
+                'icon' => '',
+                'slug' => 'required|unique:rawat_jalans,slug,' . $rawatJalan->id,
+                'deskripsi' => 'required',
+                'gambar' => '',
+            ]
+        );
+        //code...
+        if ($request->icon != null) {
+            # code...
+            Storage::delete($rawatJalan->icon);
+            $validatedData['icon'] = $request->file('icon')->store('icon-rawat-jalan');
+        }
+        if ($request->gambar != null) {
+            Storage::delete($rawatJalan->gambar);
+            $validatedData['gambar'] = $request->file('gambar')->store('image-rawat-jalan');
+        }
+        $rawatJalan->update($validatedData);
+        // return $rawatJalan;
+        return redirect(route('admin.rawatJalan'))->with('success', 'pelayanan rawat jalan berhasil diupdate');
     }
-    public function rawatJalanDelete()
+    public function rawatJalanDelete(RawatJalan $rawatJalan)
     {
-        return 'testing';
+        Storage::delete($rawatJalan->icon);
+        Storage::delete($rawatJalan->gambar);
+        return redirect(route('admin.rawatJalan'))->with('success', 'pelayanan rawat jalan berhasil dihapus');
+
     }
 }
