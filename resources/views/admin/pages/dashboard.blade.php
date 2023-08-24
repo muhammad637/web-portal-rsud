@@ -107,6 +107,41 @@
             </div>
         </div>
     </div>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="fw-bold">History Update Konten</h1>
+            <div class="table-responsive mt-5">
+                <table id="example-2" class="table  table-striped table-bordered   " style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Pelayanan</th>
+                            <th>Jenis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <div class="bunder" style="">
+                                </div>
+                            </td>
+                            <td></td>
+                            
+                        </tr>
+                        {{-- @endforeach --}}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Pelayanan</th>
+                            <th>Jenis</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
 @endsection
 @push('link-script-admin')
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -116,6 +151,9 @@
     <script>
         $(document).ready(function() {
             $("#example").DataTable();
+        });
+        $(document).ready(function() {
+            $("#example-2").DataTable();
         });
     </script>
 @endpush

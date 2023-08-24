@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('./admin/assets/css/styles.min.css') }}" />
 </head>
 
-<body style="background: images">
+<body>
     <!--  Body Wrapper -->
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">

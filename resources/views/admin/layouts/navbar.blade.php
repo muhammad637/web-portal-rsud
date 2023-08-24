@@ -1,5 +1,5 @@
 
-<header class="app-header">
+<header class="app-header" style="background-color: #4E6B9F;">
       <nav class="navbar navbar-expand-lg navbar-light" >
           <ul class="navbar-nav">
               <li class="nav-item d-block d-xl-none">
@@ -36,7 +36,7 @@
                           </div>
                       </div>
                   </li>
-                 <li style="height:40px;">Admin <br>Profile</li>
+                 {{-- <li style="height:40px;">Admin <br>Profile</li> --}}
               </ul>
           </div>
       </nav>
