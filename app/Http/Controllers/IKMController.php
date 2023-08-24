@@ -33,9 +33,20 @@ class IKMController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function ikmstore(Request $request)
     {
+        $validateData = $request->validate(
+            [
+                'nama' => 'required',
+                'link_file' => 'required',
+                
+            ]
+            );
+            Ikm::create($validateData);
+            return Ikm::all();
+        
         //
+        
     }
 
     /**

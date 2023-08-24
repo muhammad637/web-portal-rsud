@@ -33,9 +33,19 @@ class AlurController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function alurStore(Request $request)
     {
         //
+        $validatedData = $request->validate(
+            [
+                'nama' => 'required',
+                'gambar' => 'required'
+            ]
+            );
+
+            Alur::create($validatedData);
+            $validatedData['gambar'] = $request->file('gambar')->store('gambar-artikel');
+            return redirect()->back()->with('succes', 'alur berhasil ditambahkan');
     }
 
     /**

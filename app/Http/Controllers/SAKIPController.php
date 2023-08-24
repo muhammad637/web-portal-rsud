@@ -33,8 +33,17 @@ class SAKIPController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function SAKIPstore(Request $request)
     {
+        $validateData = $request->validate(
+            [
+                'nama' => 'required',
+                'link_file' => 'required',
+                
+            ]
+            );
+            SAKIP::create($validateData);
+            return SAKIP::all();
         //
     }
 

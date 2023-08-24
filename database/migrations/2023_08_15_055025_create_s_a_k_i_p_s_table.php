@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('s_a_k_i_p_s', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('link_file');
             $table->timestamps();
         });
     }
