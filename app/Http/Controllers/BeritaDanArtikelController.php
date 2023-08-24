@@ -70,7 +70,7 @@ class BeritaDanArtikelController extends Controller
     {
         $rule = [
             'judul' => 'required',
-            'slug' => 'required|unique:berita_dan_artikels,slug,' . $beritaDanArtikel->id,
+            'slug' => 'required|unique:berita_dan_artikels,slug,'. $beritaDanArtikel->id,
             'isi' => 'required',
         ];
 
