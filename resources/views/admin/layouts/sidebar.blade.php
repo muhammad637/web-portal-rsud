@@ -63,8 +63,9 @@
                      </a>
                  </li>
                  <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('rawat-jalan*') ? 'active' : '' }}"
-                     href="{{ route('admin.rawat-jalan') }}" aria-expanded="false">
+                     <a class="sidebar-link {{ Request::is('rawat-jalan*') ? 'active' : '' }}"
+                         href="{{ route('admin.rawatJalan') }}" aria-expanded="false">
+
                          <span>
                             <img src="/icon-rawatjalan.png" alt="">
                          </span>

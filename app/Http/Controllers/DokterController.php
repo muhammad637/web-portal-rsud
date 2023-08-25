@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokter;
+use App\Models\RawatJalan;
 use App\Models\Spesialis;
 use Illuminate\Contracts\Support\ValidatedData;
 use Illuminate\Http\Request;
@@ -21,7 +22,6 @@ class DokterController extends Controller
         // return Dokter::all();
         return view('admin.pages.dokter.daftar-dokter', [
             'dokter' => Dokter::orderBy('updated_at', 'desc')->get(),
-            'spesialis' => Spesialis::all(),
         ]);
         // return Dokter::all();
         //
@@ -46,19 +46,22 @@ class DokterController extends Controller
     public function dokterStore(Request $request)
     {
 
-        $spesialis =  Spesialis::where('nama_spesialis', $request->nama_spesialis)->first();
         $validatedData = $request->validate(
             [
                 'nama' => 'required',
                 'nama_spesialis' => 'required',
+                'nama_rawat_jalan' => 'required',
                 'gambar' => 'required'
             ]
         );
+        $spesialis =  Spesialis::where('nama_spesialis', $request->nama_spesialis)->first();
+        $rawatJalan =  RawatJalan::where('nama', $request->nama_rawat_jalan)->first();
         $validatedData['gambar'] = $request->file('gambar')->store('gambar-dokter');
         Dokter::create([
             'nama' => $validatedData['nama'],
             'gambar' => $validatedData['gambar'],
-            'spesialis_id' => $spesialis->id
+            'spesialis_id' => $spesialis->id,
+            'rawatJalan_id' => $rawatJalan->id
         ]);
 
         return redirect()->back()->with('success', 'dokter berhasil ditambahkan');
@@ -96,22 +99,30 @@ class DokterController extends Controller
      * @param  \App\Models\Dokter  $dokter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dokter $dokter)
+    public function dokterUpdate(Request $request, Dokter $dokter)
     {
-        $validatedData = $request->validate(
+        $request->validate(
             [
                 'nama' => 'required',
-                'spesialis_id' => 'required'
+                'nama_spesialis' => 'required',
+                'nama_rawat_jalan' => 'required'
             ]
         );
+        $spesialis =  Spesialis::where('nama_spesialis', $request->nama_spesialis)->first();
+        $rawatJalan =  RawatJalan::where('nama', $request->nama_rawat_jalan)->first();
         $gambar = $dokter->gambar;
         if ($request->gambar) {
             Storage::delete($dokter->gambar);
             $gambar = $request->file('gambar')->store('gambar-dokter');
         }
-        $merging = array_merge(['gambar' => $gambar], $validatedData);
-        $dokter->update($merging);
-        return redirect()->back();
+        // $merging = array_merge(['gambar' => $gambar], $validatedData);
+        $dokter->update([
+            'nama' => $request->nama,
+            'gambar' => $gambar,
+            'spesialis_id' => $spesialis->id,
+            'rawatJalan_id' => $rawatJalan->id
+        ]);
+        return redirect()->back()->with('success', 'dokter berhasil diupdate');
         //
     }
 

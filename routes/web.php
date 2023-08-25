@@ -15,6 +15,7 @@ use App\Http\Controllers\MedicalCheckUpController;
 use App\Http\Controllers\RawatInapController;
 use App\Http\Controllers\RawatJalanController;
 use App\Models\BeritaDanArtikel;
+use App\Models\RawatInap;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,18 +83,6 @@ Route::middleware('auth')->group(function () {
     // admin-dashboard
     Route::get('/admin/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
 
-    // admin-layanann-uggulan
-    Route::get('/admin/layanan-unggulan', [LayananUnggulanController::class, 'index'])->name('admin.layanan-unggulan');
-
-    // admin-mcu
-    Route::get('/admin/mcu', [MedicalCheckUpController::class, 'index'])->name('admin.mcu');
-
-    // admin-rawat-inap
-    Route::get('/admin/rawat-inap', [RawatInapController::class, 'index'])->name('admin.rawat-inap');
-
-    // admin-rawat-jalan
-    Route::get('/admin/rawat-jalan', [RawatJalanController::class, 'index'])->name('admin.rawat-jalan');
-
     // konten
     // kategori
     Route::get('/admin/kategori', [KategoriController::class, 'index'])->name('admin.kategori');
@@ -136,6 +125,28 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/rawat-jalan/{rawatJalan:slug}/edit', [RawatJalanController::class, 'rawatJalanEdit'])->name('admin.rawatJalan.edit');
     Route::put('/admin/rawat-jalan/{rawatJalan:slug}/update', [RawatJalanController::class, 'rawatJalanUpdate'])->name('admin.rawatJalan.update');
     Route::delete('/admin/rawat-jalan/{rawatJalan:slug}/delete', [RawatJalanController::class, 'rawatJalanDelete'])->name('admin.rawatJalan.delete');
+
+    // admin-rawat-inap
+    Route::get('/admin/rawat-inap', [RawatInapController::class, 'rawatInap'])->name('admin.rawatInap');
+    Route::get('/admin/rawat-inap/create', [RawatInapController::class, 'rawatInapCreate'])->name('admin.rawatInap.create');
+    Route::post('/admin/rawat-inap/store', [RawatInapController::class, 'rawatInapStore'])->name('admin.rawatInap.store');
+    Route::get('/admin/rawat-inap/{rawatInap:slug}', [RawatInapController::class, 'rawatInapShow'])->name('admin.rawatInap.show');
+    Route::get('/admin/rawat-inap/{rawatInap:slug}/edit', [RawatInapController::class, 'rawatInapEdit'])->name('admin.rawatInap.edit');
+    Route::put('/admin/rawat-inap/{rawatInap:slug}/update', [RawatInapController::class, 'rawatInapUpdate'])->name('admin.rawatInap.update');
+    Route::delete('/admin/rawat-inap/{rawatInap:slug}/delete', [RawatInapController::class, 'rawatInapDelete'])->name('admin.rawatInap.delete');
+
+
+    Route::get('/admin/mcu', [MedicalCheckUpController::class, 'mcu'])->name('admin.mcu');
+    Route::get('/admin/mcu/create', [MedicalCheckUpController::class, 'mcuCreate'])->name('admin.mcu.create');
+    Route::post('/admin/mcu/store', [MedicalCheckUpController::class, 'mcuStore'])->name('admin.mcu.store');
+    Route::get('/admin/mcu/{mcu:slug}', [MedicalCheckUpController::class, 'mcuShow'])->name('admin.mcu.show');
+    Route::get('/admin/mcu/{mcu:slug}/edit', [MedicalCheckUpController::class, 'mcuEdit'])->name('admin.mcu.edit');
+    Route::put('/admin/mcu/{mcu:slug}/update', [MedicalCheckUpController::class, 'mcuUpdate'])->name('admin.mcu.update');
+    Route::delete('/admin/mcu/{mcu:slug}/delete', [MedicalCheckUpController::class, 'mcuDelete'])->name('admin.mcu.delete');
+
+
+
+
 
     // dokter
     // daftar-dokter

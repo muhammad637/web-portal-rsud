@@ -50,7 +50,7 @@
                                     </div>
                                 </td>
                                 <td>{{ $item->nama }}</td>
-                                <td>{{ $item->deskripsi }}</td>
+                                <td>{!! $item->deskripsi !!}</td>
                                 <td>{{ Carbon\Carbon::parse($item->created_at)->format('d-M-Y') }}</td>
                                 <td>
                                     <a href="#" class="badge bg-success"><img

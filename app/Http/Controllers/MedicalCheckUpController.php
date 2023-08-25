@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MedicalCheckUp;
 use Illuminate\Http\Request;
+use App\Models\MedicalCheckUp;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class MedicalCheckUpController extends Controller
 {
@@ -12,86 +14,62 @@ class MedicalCheckUpController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function mcu()
     {
-        //
-        return view('admin.pages.pelayanan.mcu.index');
+        return view('admin.pages.pelayanan.mcu.index', [
+            'mcu' => MedicalCheckUp::orderBy('updated_at', 'desc')->get()
+        ]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function mcuCreate()
     {
-        //
+        return view('admin.pages.pelayanan.mcu.create');
     }
+    public function mcuStore(Request $request)
+    { {
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function MedicalCheckUp(Request $request)
+            $validatedData = $request->validate(
+                [
+                    'nama' => 'required',
+                    'slug' => 'required|unique:rawat_jalans,slug',
+                    'deskripsi' => 'required',
+                    'gambar' => 'required|image|mimes:png,jpg,jpeg,webp',
+                ]
+            );
+            //code...
+            $validatedData['gambar'] = $request->file('gambar')->store('image-mcu');
+            MedicalCheckUp::create($validatedData);
+            return redirect(route('admin.mcu'))->with('success', 'pelayanan rawat jalan berhasil ditambahkan');
+        }
+    }
+    public function mcuEdit(MedicalCheckUp $mcu)
     {
-        $validateData = $request->validate(
+        return view('admin.pages.pelayanan.mcu.edit', [
+            'mcu' => $mcu
+        ]);
+    }
+    public function mcuUpdate(Request $request, MedicalCheckUp $mcu)
+    {
+
+        $validatedData = $request->validate(
             [
                 'nama' => 'required',
-                'slug' => 'required',
-                'icon' => 'required',
-                'gambar' => 'required',
-                'deskripsi' => 'required'
+                'slug' => 'required|unique:rawat_jalans,slug,' . $mcu->id,
+                'deskripsi' => 'required',
+                'gambar' => '',
             ]
-            );
-            MedicalCheckUp::create($validateData);
-            return MedicalCheckUp::all();
-        //
-    }
+        );
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\MedicalCheckUp  $medicalCheckUp
-     * @return \Illuminate\Http\Response
-     */
-    public function show(MedicalCheckUp $medicalCheckUp)
-    {
-        //
+        if ($request->gambar != null) {
+            Storage::delete($mcu->gambar);
+            $validatedData['gambar'] = $request->file('gambar')->store('image-mcu');
+        }
+        $mcu->update($validatedData);
+        // return $mcu;
+        return redirect(route('admin.mcu'))->with('success', 'pelayanan rawat jalan berhasil diupdate');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\MedicalCheckUp  $medicalCheckUp
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(MedicalCheckUp $medicalCheckUp)
+    public function mcuDelete(MedicalCheckUp $mcu)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\MedicalCheckUp  $medicalCheckUp
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, MedicalCheckUp $medicalCheckUp)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\MedicalCheckUp  $medicalCheckUp
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(MedicalCheckUp $medicalCheckUp)
-    {
-        //
+        Storage::delete($mcu->gambar);
+        return redirect(route('admin.mcu'))->with('success', 'pelayanan rawat jalan berhasil dihapus');
     }
 }
