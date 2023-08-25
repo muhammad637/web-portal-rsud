@@ -54,67 +54,74 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($dokter as $index => $item)
-                            <tr>
-                                <td>{{ $index + 1 }}</td>
-                                <td>{{ $item->nama }}</td>
-                                <td>
-                                    <ul class="">
-                                        @foreach ($item->jadwalDokter as $item)
-                                        <li class="list-group-item ">An item</li>
-                                        @endforeach
-                                    </ul>
-                                </td>
-                                <td>
-                                    <a class="badge bg-warning border-0" data-bs-toggle="modal"
-                                        href="#editJadwal{{ $item->id }}"><img src="{{ asset('icon/icon_pen.png') }}"
-                                            alt=""></a>
-                                    <form action="{{ route('admin.spesialis.delete', ['spesialis' => $item->id]) }}"
-                                        method="post" class="d-inline">
-                                        @method('delete')
-                                        @csrf
-                                        <button type="submit" class="badge bg-danger border-0"><img
-                                                src="{{ asset('icon/icon_trash.png') }}" alt=""></button>
-                                    </form>
-                                </td>
-                            </tr>
-
-
-
-
-                            <!-- Modal edit -->
-                            {{-- <div class="modal fade " id="editJadwal{{ $item->id }}" tabindex="-1"
-                                aria-labelledby="TambahKategoriLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit kategori</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <form action="{{ route('admin.spesialis.update', ['spesialis' => $item->id]) }}"
-                                            method="post">
-                                            @method('put')
+                        @if (count($jadwalDokter) > 0)
+                            @foreach ($dokter as $index => $item)
+                                <tr>
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>
+                                        @if (count($item->jadwalDokter) == 0)
+                                            -
+                                        @endif
+                                        <ul class="">
+                                            @foreach ($item->jadwalDokter as $value)
+                                                <li class="list-group-item ">
+                                                   hari {{$value->hari}} : {{ Carbon\Carbon::parse($value->jam_mulai_praktik)->format('H:i') }} - {{ Carbon\Carbon::parse($value->jam_selesai_praktik)->format('H:i')}}
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <a class="badge bg-warning border-0" data-bs-toggle="modal"
+                                            href="#editJadwal{{ $item->id }}"><img
+                                                src="{{ asset('icon/icon_pen.png') }}" alt=""></a>
+                                        <form action="{{ route('admin.spesialis.delete', ['spesialis' => $item->id]) }}"
+                                            method="post" class="d-inline">
+                                            @method('delete')
                                             @csrf
-                                            <div class="modal-body ">
-                                                <div class="mb-3">
-                                                    <label for="nama_spesialis" class="form-label">Nama Spesialis</label>
-                                                    <input type="text" class="form-control" name="nama_spesialis"
-                                                        id="nama_spesialis"
-                                                        value="{{ old('nama_spesialis', $item->nama_spesialis) }}">
-                                                </div>
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save changes</button>
-                                            </div>
+                                            <button type="submit" class="badge bg-danger border-0"><img
+                                                    src="{{ asset('icon/icon_trash.png') }}" alt=""></button>
                                         </form>
+                                    </td>
+                                </tr>
+
+
+
+
+                                <!-- Modal edit -->
+                                {{-- <div class="modal fade " id="editJadwal{{ $item->id }}" tabindex="-1"
+                                    aria-labelledby="TambahKategoriLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit kategori</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <form action="{{ route('admin.spesialis.update', ['spesialis' => $item->id]) }}"
+                                                method="post">
+                                                @method('put')
+                                                @csrf
+                                                <div class="modal-body ">
+                                                    <div class="mb-3">
+                                                        <label for="nama_spesialis" class="form-label">Nama Spesialis</label>
+                                                        <input type="text" class="form-control" name="nama_spesialis"
+                                                            id="nama_spesialis"
+                                                            value="{{ old('nama_spesialis', $item->nama_spesialis) }}">
+                                                    </div>
+    
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
-                                </div>
-                            </div> --}}
-                        @endforeach
+                                </div> --}}
+                            @endforeach
+                        @endif
                     </tbody>
                     <tfoot>
                         <tr>
@@ -134,7 +141,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create kategori</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create Jadwal Dokter</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="{{ route('admin.jadwal.store') }}" method="post">

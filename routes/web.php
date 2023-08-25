@@ -144,10 +144,6 @@ Route::middleware('auth')->group(function () {
     Route::put('/admin/mcu/{mcu:slug}/update', [MedicalCheckUpController::class, 'mcuUpdate'])->name('admin.mcu.update');
     Route::delete('/admin/mcu/{mcu:slug}/delete', [MedicalCheckUpController::class, 'mcuDelete'])->name('admin.mcu.delete');
 
-
-
-
-
     // dokter
     // daftar-dokter
     Route::get('/admin/dokter', [DokterController::class, 'dokter'])->name('admin.dokter');
