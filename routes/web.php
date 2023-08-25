@@ -12,6 +12,7 @@ use App\Http\Controllers\LayananUnggulanController;
 use App\Http\Controllers\BeritaDanArtikelController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MedicalCheckUpController;
+use App\Http\Controllers\RawatInapController;
 use App\Http\Controllers\RawatJalanController;
 use App\Models\BeritaDanArtikel;
 
@@ -88,10 +89,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/mcu', [MedicalCheckUpController::class, 'index'])->name('admin.mcu');
 
     // admin-rawat-inap
-    Route::get('/admin/rawat-inap', [MedicalCheckUpController::class, 'index'])->name('admin.rawat-inap');
+    Route::get('/admin/rawat-inap', [RawatInapController::class, 'index'])->name('admin.rawat-inap');
 
     // admin-rawat-jalan
-    Route::get('/admin/rawat-jalan', [MedicalCheckUpController::class, 'index'])->name('admin.rawat-jalan');
+    Route::get('/admin/rawat-jalan', [RawatJalanController::class, 'index'])->name('admin.rawat-jalan');
 
     // konten
     // kategori

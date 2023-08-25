@@ -36,7 +36,8 @@
                           </div>
                       </div>
                   </li>
-                 {{-- <li style="height:40px;">Admin <br>Profile</li> --}}
+                  
+                 <li style="height:40px; color:white">Admin <br>Profile</li>
               </ul>
           </div>
       </nav>

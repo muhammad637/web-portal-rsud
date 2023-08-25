@@ -45,7 +45,8 @@
                      </a>
                  </li>
                  <li class="sidebar-item">
-                     <a class="sidebar-link" href="#" aria-expanded="false">
+                       <a class="sidebar-link {{ Request::is('mcu*') ? 'active' : '' }}"
+                     href="{{ route('admin.mcu') }}" aria-expanded="false">
                          <span>
                            <img src="/icon-mcu.png" alt="">
                          </span>
@@ -53,7 +54,8 @@
                      </a>
                  </li>
                  <li class="sidebar-item">
-                     <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('rawat-inap*') ? 'active' : '' }}"
+                     href="{{ route('admin.rawat-inap') }}" aria-expanded="false">
                          <span>
                             <img src="/icon-rawatinap.png" alt="">
                          </span>
@@ -61,7 +63,8 @@
                      </a>
                  </li>
                  <li class="sidebar-item">
-                     <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('rawat-jalan*') ? 'active' : '' }}"
+                     href="{{ route('admin.rawat-jalan') }}" aria-expanded="false">
                          <span>
                             <img src="/icon-rawatjalan.png" alt="">
                          </span>
@@ -95,7 +98,7 @@
                      <a class="sidebar-link {{ Request::is('admin/artikel/*') ? 'active' : '' }}"
                          href="{{ route('admin.artikel') }}" aria-expanded="false">
                          <span>
-                             <img src="/icon-spesialis.png" alt="">
+                             <img src="/icon-spesialis.png" alt="" width="25px;">
                          </span>
                          <strong><span class="hide-menu">Spesialis</span></strong>
                      </a>

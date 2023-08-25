@@ -27,6 +27,11 @@ class RawatInapController extends Controller
             return RawatInap::all();
         //
     }
+    public function index()
+    {
+        //
+        return view('admin.pages.pelayanan.rawat-inap.index');
+    }
 
    
 }
