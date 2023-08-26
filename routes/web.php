@@ -179,6 +179,11 @@ Route::middleware('auth')->group(function () {
 
 });
 
+///alur
+Route::get('/alur', function () {
+    return view('.admin.alur');
+});
+
 
 
 
