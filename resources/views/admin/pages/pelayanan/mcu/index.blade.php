@@ -63,7 +63,6 @@
                                 </td>
                             </tr>
                         @endforeach
->>>>>>> c9d4eced476b5d406e2560c1c40412375fc9facf
                     </tbody>
                     <tfoot>
                         <tr>

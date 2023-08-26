@@ -55,7 +55,7 @@
                  </li>
                  <li class="sidebar-item">
                     <a class="sidebar-link {{ Request::is('rawat-inap*') ? 'active' : '' }}"
-                     href="{{ route('admin.rawat-inap') }}" aria-expanded="false">
+                     href="{{ route('admin.rawatInap') }}" aria-expanded="false">
                          <span>
                             <img src="/icon-rawatinap.png" alt="">
                          </span>
