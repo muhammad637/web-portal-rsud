@@ -14,6 +14,7 @@ class PersyaratanController extends Controller
      */
     public function index()
     {
+        return view('admin.pages.informasi.persyaratan.index');
         //
     }
 

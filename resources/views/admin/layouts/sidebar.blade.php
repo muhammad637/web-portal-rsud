@@ -151,8 +151,8 @@
                     </a>
                 </li>
                 <li class="sidebar-item mb">
-                    <a class="sidebar-link {{ Request::is('admin/artikel/*') ? 'active' : '' }}"
-                        href="{{ route('admin.artikel') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('admin/persyaratan/*') ? 'active' : '' }}"
+                        href="{{ route('admin.persyaratan') }}" aria-expanded="false">
                         <span>
                            <img src="/icon/icon-persyaratan.png" alt="">
                         </span>
@@ -160,8 +160,8 @@
                     </a>
                 </li>
                 <li class="sidebar-item mb">
-                    <a class="sidebar-link {{ Request::is('admin/artikel/*') ? 'active' : '' }}"
-                        href="{{ route('admin.artikel') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('admin/tarif/*') ? 'active' : '' }}"
+                        href="{{ route('admin.tarif') }}" aria-expanded="false">
                         <span>
                            <img src="/icon/icon-tarif.png" alt="">
                         </span>
@@ -169,8 +169,8 @@
                     </a>
                 </li>
                 <li class="sidebar-item mb">
-                    <a class="sidebar-link {{ Request::is('admin/artikel/*') ? 'active' : '' }}"
-                        href="{{ route('admin.artikel') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('admin/petunjuk-umum/*') ? 'active' : '' }}"
+                        href="{{ route('admin.petunjuk-umum') }}" aria-expanded="false">
                         <span>
                            <img src="/icon/icon-petunjuk-umum.png" alt="">
                         </span>

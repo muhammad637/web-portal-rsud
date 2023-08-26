@@ -14,6 +14,7 @@ class TarifController extends Controller
      */
     public function index()
     {
+        return view('admin.pages.informasi.tarif.index');
         //
     }
 

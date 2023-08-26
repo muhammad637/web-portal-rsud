@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlurController;
 use App\Models\JadwalDokter;
 use App\Models\LayananUnggulan;
 use Illuminate\Support\Facades\Route;
@@ -12,8 +13,11 @@ use App\Http\Controllers\LayananUnggulanController;
 use App\Http\Controllers\BeritaDanArtikelController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MedicalCheckUpController;
+use App\Http\Controllers\PersyaratanController;
+use App\Http\Controllers\PetunjukUmumController;
 use App\Http\Controllers\RawatInapController;
 use App\Http\Controllers\RawatJalanController;
+use App\Http\Controllers\TarifController;
 use App\Models\BeritaDanArtikel;
 use App\Models\RawatInap;
 
@@ -180,12 +184,23 @@ Route::middleware('auth')->group(function () {
 });
 
 ///alur
-Route::get('/alur', function () {
-    return view('.admin.alur');
-});
+Route::get('/admin/alur', [AlurController::class, 'index'])->name('admin.alur');
 
 
 
 
+///persyaratan
+Route::get('/admin/persyaratan',[PersyaratanController::class, 'index'])->name('admin.persyaratan');
 
+
+
+///tarif
+
+Route::get('/admin/tarif',[TarifController::class, 'index'])->name('admin.tarif');
 // pelayanan
+
+
+///petunjuk-umum
+
+
+Route::get('/admin/petunjuk-umum',[PetunjukUmumController::class, 'index'])->name('admin.petunjuk-umum');
