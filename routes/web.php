@@ -184,7 +184,13 @@ Route::middleware('auth')->group(function () {
 });
 
 ///alur
-Route::get('/admin/alur', [AlurController::class, 'index'])->name('admin.alur');
+Route::get('/admin/alur', [AlurController::class, 'alur'])->name('admin.alur');
+Route::get('/admin/alur/create', [AlurController::class, 'alurCreate'])->name('admin.alur.create');
+Route::post('/admin/alur/store', [AlurController::class, 'alurStore'])->name('admin.alur.store');
+Route::get('/admin/alur/edit', [AlurController::class, 'alurEdit'])->name('admin.alur.edit');
+Route::put('/admin/alur/update', [AlurController::class, 'alurUpdate'])->name('admin.alur.update');
+Route::head('/admin/alur/delete', [AlurController::class, 'alurDelete'])->name('admin.alur.delete');
+
 
 
 
@@ -198,9 +204,3 @@ Route::get('/admin/persyaratan',[PersyaratanController::class, 'index'])->name('
 
 Route::get('/admin/tarif',[TarifController::class, 'index'])->name('admin.tarif');
 // pelayanan
-
-
-///petunjuk-umum
-
-
-Route::get('/admin/petunjuk-umum',[PetunjukUmumController::class, 'index'])->name('admin.petunjuk-umum');

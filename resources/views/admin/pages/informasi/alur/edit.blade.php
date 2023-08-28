@@ -28,7 +28,6 @@
                         </div>
                     @enderror
                 </div>
-              
                 <div class="mb-3">
                     <p class="d-none" id="text-preview">preview gambar</p>
                     <img id="displayedImage" class="img-fluid w-50"
@@ -45,6 +44,7 @@
                     @enderror
                 </div>
 
+              
 
                 <a class="btn btn-warning" href="{{ route('admin.alur') }}">Kembali</a>
                 <button class="btn btn-primary " type="submit">Kirim</button>
@@ -57,7 +57,6 @@
 @push('link-script-admin')
     <script>
         $(document).ready(function() {
-            const judul = document.querySelector('#nama')
             $("#gambar").change(function() {
                 $("#text-preview").removeClass('d-none');
                 const selectedImage = $(this).prop("files")[0];

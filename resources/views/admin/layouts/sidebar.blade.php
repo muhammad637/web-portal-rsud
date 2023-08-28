@@ -169,15 +169,6 @@
                     </a>
                 </li>
                 <li class="sidebar-item mb">
-                    <a class="sidebar-link {{ Request::is('admin/petunjuk-umum/*') ? 'active' : '' }}"
-                        href="{{ route('admin.petunjuk-umum') }}" aria-expanded="false">
-                        <span>
-                           <img src="/icon/icon-petunjuk-umum.png" alt="">
-                        </span>
-                        <strong><span class="hide-menu">Petunjuk Umum</span></strong>
-                    </a>
-                </li>
-                <li class="sidebar-item mb">
                     <a class="sidebar-link {{ Request::is('admin/artikel/*') ? 'active' : '' }}"
                         href="{{ route('admin.artikel') }}" aria-expanded="false">
                         <span>

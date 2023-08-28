@@ -51,6 +51,16 @@
                         </div>
                     @enderror
                 </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">icon</label>
+                    <input type="file" class="form-control @error('icon') is-invalid @enderror" name="icon"
+                        id="icon" id="icon" accept="image/*" value="{{ old('icon') }}">
+                    @error('icon')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
 
                 <div class="mb-3">
                     <label for="deskripsi" class="form-label">Isi Berita</label>

@@ -33,6 +33,7 @@ class MedicalCheckUpController extends Controller
                     'slug' => 'required|unique:rawat_jalans,slug',
                     'deskripsi' => 'required',
                     'gambar' => 'required|image|mimes:png,jpg,jpeg,webp',
+                    'icon' => 'required|image|mimes:png,svg,webp'
                 ]
             );
             //code...

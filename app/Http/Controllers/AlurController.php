@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alur;
+use GrahamCampbell\ResultType\Success;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AlurController extends Controller
 {
@@ -12,20 +15,25 @@ class AlurController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('admin.pages.informasi.alur.index');
-        //
-    }
+   
+ 
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function alur()
     {
+        return view('admin.pages.informasi.alur.index', [
+            'alur' => Alur::orderBy('updated_at', 'desc')->get()
+        ]);
         //
+    }
+
+    public function alurCreate()
+    {
+        return view('admin.pages.informasi.alur.create');
     }
 
     /**
@@ -43,10 +51,15 @@ class AlurController extends Controller
                 'gambar' => 'required'
             ]
             );
-
-            Alur::create($validatedData);
-            $validatedData['gambar'] = $request->file('gambar')->store('gambar-artikel');
             return redirect()->back()->with('succes', 'alur berhasil ditambahkan');
+            $validatedData['gambar'] = $request->file('gambar')->store('gambar-alur');
+            Alur::create([
+                'nama' => $validatedData['nama'],
+                'gambar' => $validatedData['gambar']
+                
+            ]);
+            
+           
     }
 
     /**
@@ -66,8 +79,11 @@ class AlurController extends Controller
      * @param  \App\Models\Alur  $alur
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alur $alur)
+    public function alurEdit(Alur $alur)
     {
+        return view('admin.pages.informasi.alur.edit', [
+            'alur' => $alur
+        ]);
         //
     }
 
@@ -78,9 +94,29 @@ class AlurController extends Controller
      * @param  \App\Models\Alur  $alur
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alur $alur)
+    public function alurUpdate(Request $request, Alur $alur)
     {
         //
+
+        $validatedData = $request->validate(
+            [
+                'nama' => 'required',
+                'gambar' => 'required'
+            ]
+            );
+
+            if ($request->gambar != null){
+                Storage::delete($alur->gambar);
+                $validatedData['gambar'] = $request->file('gambar')->store('image-alur');
+            }
+            $alur->update($validatedData);
+            return redirect(route('admin.alur'))->with('succes', 'alur berhasil');
+    }
+
+    public function alurDelete(Alur $alur)
+    {
+        Storage::delete($alur->gambar);
+        return redirect(route('admin.alur'))->with('success', 'alur berhasil dihapus');
     }
 
     /**
