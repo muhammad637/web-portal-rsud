@@ -28,7 +28,7 @@ class AlurController extends Controller
         return view('admin.pages.informasi.alur.index', [
             'alur' => Alur::orderBy('updated_at', 'desc')->get()
         ]);
-        //
+        
     }
 
     public function alurCreate()
@@ -51,14 +51,14 @@ class AlurController extends Controller
                 'gambar' => 'required'
             ]
             );
-            return redirect()->back()->with('succes', 'alur berhasil ditambahkan');
+            
             $validatedData['gambar'] = $request->file('gambar')->store('gambar-alur');
             Alur::create([
                 'nama' => $validatedData['nama'],
                 'gambar' => $validatedData['gambar']
                 
             ]);
-            
+            return redirect(route('admin.alur'))->with('succes', 'alur berhasil ditambahkan');
            
     }
 
@@ -101,16 +101,16 @@ class AlurController extends Controller
         $validatedData = $request->validate(
             [
                 'nama' => 'required',
-                'gambar' => 'required'
+                'gambar' => ''
             ]
             );
-
-            if ($request->gambar != null){
+            if ($request->gambar != null) {
                 Storage::delete($alur->gambar);
                 $validatedData['gambar'] = $request->file('gambar')->store('image-alur');
             }
             $alur->update($validatedData);
-            return redirect(route('admin.alur'))->with('succes', 'alur berhasil');
+            // return $mcu;
+            return redirect(route('admin.alur'))->with('success', 'pelayanan rawat jalan berhasil diupdate');
     }
 
     public function alurDelete(Alur $alur)

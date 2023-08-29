@@ -11,15 +11,19 @@ use App\Http\Controllers\SpesialisController;
 use App\Http\Controllers\JadwalDokterController;
 use App\Http\Controllers\LayananUnggulanController;
 use App\Http\Controllers\BeritaDanArtikelController;
+use App\Http\Controllers\IKMController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MedicalCheckUpController;
 use App\Http\Controllers\PersyaratanController;
 use App\Http\Controllers\PetunjukUmumController;
 use App\Http\Controllers\RawatInapController;
 use App\Http\Controllers\RawatJalanController;
+use App\Http\Controllers\SAKIPController;
 use App\Http\Controllers\TarifController;
 use App\Models\BeritaDanArtikel;
+use App\Models\Persyaratan;
 use App\Models\RawatInap;
+use App\Models\SAKIP;
 
 /*
 |--------------------------------------------------------------------------
@@ -183,16 +187,18 @@ Route::middleware('auth')->group(function () {
 Route::get('/admin/alur', [AlurController::class, 'alur'])->name('admin.alur');
 Route::get('/admin/alur/create', [AlurController::class, 'alurCreate'])->name('admin.alur.create');
 Route::post('/admin/alur/store', [AlurController::class, 'alurStore'])->name('admin.alur.store');
-Route::get('/admin/alur/edit', [AlurController::class, 'alurEdit'])->name('admin.alur.edit');
-Route::put('/admin/alur/update', [AlurController::class, 'alurUpdate'])->name('admin.alur.update');
-Route::head('/admin/alur/delete', [AlurController::class, 'alurDelete'])->name('admin.alur.delete');
+Route::put('/admin/alur/{alur:id}/update', [AlurController::class, 'alurUpdate'])->name('admin.alur.update');
+// Route::head('/admin/alur/delete', [AlurController::class, 'alurDelete'])->name('admin.alur.delete');
 
 
 
 
 
 ///persyaratan
-Route::get('/admin/persyaratan',[PersyaratanController::class, 'index'])->name('admin.persyaratan');
+Route::get('/admin/persyaratan',[PersyaratanController::class, 'persyaratan'])->name('admin.persyaratan');
+Route::get('/admin/persyaratan/create', [PersyaratanController::class, 'persyaratanCreate'])->name('admin.pesyaratan.create');
+Route::post('/admin/persyaratan/store', [PersyaratanController::class, 'persyaratanStore'])->name('admin.persyaratan.store');
+Route::put('/admin/persyaratan/{persyaratan:id}/update', [PersyaratanController::class, 'persyaratanUpdate'])->name('admin.persyaratan.update');
 
 
 
@@ -200,3 +206,15 @@ Route::get('/admin/persyaratan',[PersyaratanController::class, 'index'])->name('
 
 Route::get('/admin/tarif',[TarifController::class, 'index'])->name('admin.tarif');
 // pelayanan
+
+
+//IKM
+Route::get('/admin/index-kepuasan-masyarakat', [IKMController::class, 'ikm'])->name('admin.index-kepuasan-masyarakat');
+Route::get('/admin/index-kepuasan-masyarakat/create', [IKMController::class, 'ikmCreate'])->name('admin.index-kepuasan-masyarakat.create');
+Route::post('/admin/index-kepuasan-masyarakat/store', [IKMController::class, 'ikmStore'])->name('admin.index-kepuasan-masyarakat.store');
+Route::put('/admin/index-kepuasan-masyarakat/{ikm:id}/update', [IKMController::class, 'ikmUpdate'])->name('admin.ikm.update');
+
+Route::get('/admin/sakip', [SAKIPController::class, 'sakip'])->name('admin.sakip');
+Route::get('/admin/sakip/create', [SAKIPController::class, 'sakipCreate'])->name('admin.sakip.create');
+Route::post('/admin/sakip/store', [SAKIPController::class, 'sakipStore'])->name('admin.sakip.store');
+Route::put('/admin/sakip/{sakip:id}/update', [SAKIP::class, 'sakipUpdate'])->name('admin.sakip.update');

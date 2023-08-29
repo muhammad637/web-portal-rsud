@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\IKM;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class IKMController extends Controller
 {
@@ -12,8 +13,12 @@ class IKMController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function ikm()
     {
+        
+        return view('admin.pages.informasi.index-kepuasan-masyarakat.index', [
+            'ikm' => Ikm::orderBy('updated_at', 'desc')->get()
+        ]);
         //
     }
 
@@ -22,8 +27,9 @@ class IKMController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function ikmcreate()
     {
+        return view('admin.pages.informasi.index-kepuasan-masyarakat.create');
         //
     }
 
@@ -38,12 +44,17 @@ class IKMController extends Controller
         $validateData = $request->validate(
             [
                 'nama' => 'required',
-                'link_file' => 'required',
+                'pdf' => 'required',
                 
             ]
             );
-            Ikm::create($validateData);
-            return Ikm::all();
+            $validateData['pdf'] = $request->file('pdf')->store('pdf-ikm');
+            Ikm::create([
+                'nama' => $validateData['nama'],
+                'pdf' => $validateData['pdf']
+            ]);
+            return redirect(route('admin.index-kepuasan-masyarakat'))->with('succes', 'ikm berhasil ditambahkan');
+            // return Ikm::all();
         
         //
         
@@ -66,8 +77,11 @@ class IKMController extends Controller
      * @param  \App\Models\IKM  $iKM
      * @return \Illuminate\Http\Response
      */
-    public function edit(IKM $iKM)
+    public function ikmedit(IKM $ikm)
     {
+        return view('admin.pages.informasi.index-kepuasan-masyarakat.edit', [
+            'ikm' => $ikm
+        ]);
         //
     }
 
@@ -78,9 +92,24 @@ class IKMController extends Controller
      * @param  \App\Models\IKM  $iKM
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, IKM $iKM)
+    public function ikmUpdate(Request $request, IKM $ikm)
     {
+
         //
+
+        $validateData = $request->validate(
+            [
+                'nama' => 'required',
+                'pdf' => ''
+            ]
+            );
+            if ($request->pdf != null){
+                Storage::delete($ikm->pdf);
+                $validateData['pdf'] = 
+                $request->file('pdf')->store('pdf-ikm');
+            }
+            $ikm->update($validateData);
+            return redirect(route('admin.index-kepuasan-masyarakat'))->with('succes', 'ikm berhasil diupdate');
     }
 
     /**

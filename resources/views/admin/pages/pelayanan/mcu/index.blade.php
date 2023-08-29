@@ -58,7 +58,7 @@
                                     <a href="{{ route('admin.mcu.edit', ['mcu' => $item->slug]) }}"
                                         class="badge bg-warning"><img src="{{ asset('icon/icon_pen.png') }}"
                                             alt=""></a>
-                                    <a href="#" class="badge bg-danger"><img src="{{ asset('icon/icon_trash.png') }}"
+                                    <a href="{{ route('admin.mcu.delete', ['mcu' => $item->slug]) }}" class="badge bg-danger"><img src="{{ asset('icon/icon_trash.png') }}"
                                             alt=""></a>
                                 </td>
                             </tr>
