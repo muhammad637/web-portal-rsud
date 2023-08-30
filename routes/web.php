@@ -175,7 +175,7 @@ Route::middleware('auth')->group(function () {
 
 
 
-    
+
     Route::get('/admin/createSlug', [BeritaDanArtikelController::class, 'slug'])->name('admin.createSlug');
 });
 
@@ -196,15 +196,18 @@ Route::put('/admin/alur/update', [AlurController::class, 'alurUpdate'])->name('a
 
 
 ///persyaratan
-Route::get('/admin/persyaratan',[PersyaratanController::class, 'persyaratan'])->name('admin.persyaratan');
+Route::get('/admin/persyaratan', [PersyaratanController::class, 'persyaratan'])->name('admin.persyaratan');
 Route::get('/admin/persyaratan/create', [PersyaratanController::class, 'persyaratanCreate'])->name('admin.pesyaratan.create');
 Route::post('/admin/persyaratan/store', [PersyaratanController::class, 'persyaratanStore'])->name('admin.persyaratan.store');
 Route::put('/admin/persyaratan/{persyaratan:id}/update', [PersyaratanController::class, 'persyaratanUpdate'])->name('admin.persyaratan.update');
 
 
-
 ///tarif
 Route::get('/admin/tarif', [TarifController::class, 'index'])->name('admin.tarif');
+Route::post('/admin/tarifTindakan', [TarifController::class, 'tarifTindakan'])->name('admin.tarifTindakan.store');
+Route::post('/admin/tarifKamar', [TarifController::class, 'tarifKamar'])->name('admin.tarifKamar.store');
+Route::put('/admin/tarif/{tarif:id}/update', [TarifController::class, 'update'])->name('admin.tarif.update');
+Route::delete('/admin/tarif/{tarif:id}/delete', [TarifController::class, 'destroy'])->name('admin.tarif.delete');
 
 
 

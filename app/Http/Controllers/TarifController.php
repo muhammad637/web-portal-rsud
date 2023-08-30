@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tarif;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class TarifController extends Controller
 {
@@ -14,8 +15,10 @@ class TarifController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.informasi.tarif.index');
-        //
+        return view('admin.pages.informasi.tarif.index', [
+            'tarifTindakan' => Tarif::where('type', 'tindakan')->get(),
+            'tarifKamar' => Tarif::where('type', 'kamar')->get(),
+        ]);
     }
 
     /**
@@ -34,19 +37,34 @@ class TarifController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function TARIFstore(Request $request)
+
+    public function TarifTindakan(Request $request)
     {
         $validateData = $request->validate(
             [
-                'jenis_kamar' => 'required',
+                'nama' => 'required',
                 'tarif' => 'required',
-                'nama_tindakan' => 'required',
-                'tarif_tindakan' => 'required'
-                
+                // 'type' => 'required',
             ]
-            );
-            TARIF::create($validateData);
-            return TARIF::all();
+        );
+        Tarif::create(array_merge(['type' => 'tindakan'], $validateData));
+
+        // Tarif::create($validateData);
+        return redirect()->back()->with('successTindakan', 'data berhasil diupdate');
+        //
+    }
+    public function tarifKamar(Request $request)
+    {
+        $validateData = $request->validate(
+            [
+                'nama' => 'required',
+                'tarif' => 'required',
+                // 'type' => 'required',
+            ]
+        );
+        $tarif = array_merge(['type' => 'kamar'], $validateData);
+        Tarif::create($tarif);
+        return redirect()->back()->with('successKamar', 'data berhasil diupdate');
         //
     }
 
@@ -82,6 +100,18 @@ class TarifController extends Controller
     public function update(Request $request, Tarif $tarif)
     {
         //
+        $validateData = $request->validate(
+            [
+                'nama' => 'required',
+                'tarif' => 'required'
+            ]
+        );
+        $tarif->update($validateData);
+        if ($tarif->type == 'kamar') {
+            return  redirect()->back()->with('successKamar', 'tarif Kamar berhasil di update');
+        } else {
+            return  redirect()->back()->with('successTindakan', 'tarif Tindakan berhasil di update');
+        }
     }
 
     /**
@@ -93,5 +123,12 @@ class TarifController extends Controller
     public function destroy(Tarif $tarif)
     {
         //
+        if ($tarif->type == 'kamar') {
+            $tarif->delete();
+            return  redirect()->back()->with('successKamar', 'tarif Kamar berhasil di hapus');
+        } else {
+            $tarif->delete();
+            return  redirect()->back()->with('successTindakan', 'tarif Tindakan berhasil di hapus');
+        }
     }
 }

@@ -9,7 +9,7 @@
 
             <h5 class="card-title">Card Informasi Tarif Kamar</h5>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TambahDokter">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tarifKamar">
                 Create <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
                     <path
@@ -21,9 +21,9 @@
 
 
 
-            @if (session()->has('success'))
+            @if (session()->has('successKamar'))
                 <div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
-                    <span>{{ session()->get('success') }}</span>
+                    <span>{{ session()->get('successKamar') }}</span>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
@@ -48,33 +48,63 @@
                     </thead>
                     <tbody>
 
-                        {{-- @foreach ($dokter as $index => $item) --}}
+                        @foreach ($tarifKamar as $index => $item)
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td>1</td>
+                                <td>2</td>
                                 <td>
-                                    <a class="badge bg-success border-0" data-bs-toggle="modal"
-                                        href="#editDokter"><img src="{{ asset('icon/icon_folder.png') }}"
-                                            alt=""></a>
+                                    <a class="badge bg-success border-0" data-bs-toggle="modal" href="#editDokter"><img
+                                            src="{{ asset('icon/icon_folder.png') }}" alt=""></a>
                                     <a class="badge bg-primary border-0" data-bs-toggle="modal"
-                                        href="#editDokter"><img src="{{ asset('icon/icon_pen.png') }}"
+                                        href="#tarifKamar-{{ $item->id }}"><img src="{{ asset('icon/icon_pen.png') }}"
                                             alt=""></a>
-                                    
-                                    <form action="" class="d-inline"
-                                        method="post">
+                                    <form action="{{ route('admin.tarif.delete', ['tarif' => $item->id]) }}"
+                                        class="d-inline" method="post">
+                                        @csrf
                                         <button type="submit" class="badge bg-danger border-0">
-                                            @method('delete')
-                                            @csrf
                                             <img src="{{ asset('icon/icon_trash.png') }}" alt="">
                                         </button>
                                     </form>
                                 </td>
                             </tr>
-
-
                             <!-- Modal edit -->
-                           
-                        {{-- @endforeach --}}
+                            <!-- Modal edit tarifKamar-->
+                            <div class="modal fade " id="tarifTindakan-{{ $item->id }}" tabindex="-1"
+                                aria-labelledby="TambahKategoriLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Form Update Tarif Kamar
+                                            </h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <form action="{{ route('admin.tarif.update', ['tarif' => $item->id]) }}"
+                                            method="post">
+                                            @method('put')
+                                            @csrf
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="nama" class="form-label">Nama Kamar</label>
+                                                    <input type="text" class="form-control" name="nama" id="nama"
+                                                        value="{{ old('nama', $item->nama) }}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="tarif" class="form-label">Tarif Kamar</label>
+                                                    <input type="text" class="form-control" name="tarif"
+                                                        value="{{ old('tarif', $item->tarif) }}">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
@@ -88,13 +118,13 @@
         </div>
     </div>
 
-    
+    {{-- card tindakan --}}
     <div class="card">
         <div class="card-body">
 
             <h5 class="card-title">Card Informasi Tarif Tindakan</h5>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TambahDokter">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tarifTindakan">
                 Create <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
                     <path
@@ -106,9 +136,9 @@
 
 
 
-            @if (session()->has('success'))
+            @if (session()->has('successTindakan'))
                 <div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
-                    <span>{{ session()->get('success') }}</span>
+                    <span>{{ session()->get('successTindakan') }}</span>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
@@ -123,7 +153,7 @@
                 </div>
             @endif
             <div class="table-responsive mt-5">
-                <table id="example" class="table  table-striped table-bordered" style="width:100%">
+                <table id="tindakan" class="table  table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
                             <th>Jenis Tindakan</th>
@@ -133,20 +163,18 @@
                     </thead>
                     <tbody>
 
-                        {{-- @foreach ($dokter as $index => $item) --}}
+                        @foreach ($tarifTindakan as $index => $item)
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td>1</td>
+                                <td>1</td>
                                 <td>
-                                    <a class="badge bg-success border-0" data-bs-toggle="modal"
-                                        href="#editDokter"><img src="{{ asset('icon/icon_folder.png') }}"
-                                            alt=""></a>
-                                    <a class="badge bg-primary border-0" data-bs-toggle="modal"
-                                        href="#editDokter"><img src="{{ asset('icon/icon_pen.png') }}"
-                                            alt=""></a>
-                                    
-                                    <form action="" class="d-inline"
-                                        method="post">
+                                    <a class="badge bg-success border-0" data-bs-toggle="modal" href="#editDokter"><img
+                                            src="{{ asset('icon/icon_folder.png') }}" alt=""></a>
+                                    <button class="badge bg-primary border-0" data-bs-toggle="modal"
+                                        data-bs-target="#tarifTindakan-{{ $item->id }}"><img
+                                            src="{{ asset('icon/icon_pen.png') }}" alt=""></button>
+
+                                    <form action="{{route('admin.tarif.delete',['tarif' => $item->id])}}" class="d-inline" method="post">
                                         <button type="submit" class="badge bg-danger border-0">
                                             @method('delete')
                                             @csrf
@@ -157,9 +185,46 @@
                             </tr>
 
 
-                            <!-- Modal edit -->
-                           
-                        {{-- @endforeach --}}
+
+
+
+                            <!-- Modal edit tarifTindakan-->
+                            <div class="modal fade " id="tarifTindakan-{{ $item->id }}" tabindex="-1"
+                                aria-labelledby="TambahKategoriLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Form Update Tarif Tindakan
+                                            </h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <form action="{{ route('admin.tarif.update', ['tarif' => $item->id]) }}"
+                                            method="post">
+                                            @method('put')
+                                            @csrf
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="nama" class="form-label">Nama Tindakan</label>
+                                                    <input type="text" class="form-control" name="nama"
+                                                        id="nama" value="{{ old('nama', $item->nama) }}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="tarif" class="form-label">Tarif Tindakan</label>
+                                                    <input type="text" class="form-control" name="tarif"
+                                                        value="{{ old('tarif', $item->tarif) }}">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
@@ -169,6 +234,68 @@
                         </tr>
                     </tfoot>
                 </table>
+            </div>
+        </div>
+    </div>
+    {{-- end card tindakan --}}
+
+
+    <!-- Modal create tarifKamar-->
+    <div class="modal fade " id="tarifKamar" tabindex="-1" aria-labelledby="TambahKategoriLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create Tarif Kamar</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{ route('admin.tarifKamar.store') }}" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="nama" class="form-label">Nama Kamar</label>
+                            <input type="text" class="form-control" name="nama" id="nama"
+                                value="{{ old('nama') }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="tarif" class="form-label">Tarif Kamar</label>
+                            <input type="text" class="form-control" name="tarif" value="{{ old('tarif') }}">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal create tarifTindakan-->
+    <div class="modal fade " id="tarifTindakan" tabindex="-1" aria-labelledby="TambahKategoriLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create Tarif Tindakan</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{ route('admin.tarifTindakan.store') }}" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="nama" class="form-label">Nama</label>
+                            <input type="text" class="form-control" name="nama" id="nama"
+                                value="{{ old('nama') }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="tarif" class="form-label">Tarif</label>
+                            <input type="text" class="form-control" name="tarif" value="{{ old('tarif') }}">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -181,6 +308,9 @@
     <script>
         $(document).ready(function() {
             $("#example").DataTable();
+        });
+        $(document).ready(function() {
+            $("#tindakan").DataTable();
         });
     </script>
     @livewireScripts
