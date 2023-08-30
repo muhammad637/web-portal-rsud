@@ -79,13 +79,12 @@ use App\Models\SAKIP;
 
 // // pencarian dokter
 // Route::post('/admin/cari-dokter', [DokterController::class, 'cariDokter'])->name('cari-dokter.store');
-Route::get('/coba', function () {
-    return "keluar";
-})->name('coba-coba');
+
 // login
 Route::get('/login', [LoginController::class, 'index'])->name('login.index')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
 
 Route::middleware('auth')->group(function () {
     // admin-dashboard
@@ -168,7 +167,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/spesialis/{spesialis:id}/destroy', [SpesialisController::class, 'spesialisDelete'])->name('admin.spesialis.delete');
     Route::get('/admin/spesialis/search', [SpesialisController::class, 'search'])->name('admin.spesialis.search');
 
-    
+
     // jadwal-dokter
     Route::get('/admin/jadwal', [JadwalDokterController::class, 'jadwal'])->name('admin.jadwal');
     Route::post('/admin/jadwal/store', [JadwalDokterController::class, 'jadwalStore'])->name('admin.jadwal.store');
@@ -179,51 +178,102 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/admin/createSlug', [BeritaDanArtikelController::class, 'slug'])->name('admin.createSlug');
+
+
+
+
+
+    ///alur
+    Route::get('/admin/alur', [AlurController::class, 'alur'])->name('admin.alur');
+    Route::get('/admin/alur/create', [AlurController::class, 'alurCreate'])->name('admin.alur.create');
+    Route::post('/admin/alur/store', [AlurController::class, 'alurStore'])->name('admin.alur.store');
+    Route::get('/admin/alur/edit', [AlurController::class, 'alurEdit'])->name('admin.alur.edit');
+    Route::put('/admin/alur/update', [AlurController::class, 'alurUpdate'])->name('admin.alur.update');
+    // Route::put('/admin/alur/{alur:id}/update', [AlurController::class, 'alurUpdate'])->name('admin.alur.update');
+    // Route::head('/admin/alur/delete', [AlurController::class, 'alurDelete'])->name('admin.alur.delete');
+
+
+
+
+
+    ///persyaratan
+    Route::get('/admin/persyaratan', [PersyaratanController::class, 'persyaratan'])->name('admin.persyaratan');
+    Route::get('/admin/persyaratan/create', [PersyaratanController::class, 'persyaratanCreate'])->name('admin.pesyaratan.create');
+    Route::post('/admin/persyaratan/store', [PersyaratanController::class, 'persyaratanStore'])->name('admin.persyaratan.store');
+    Route::put('/admin/persyaratan/{persyaratan:id}/update', [PersyaratanController::class, 'persyaratanUpdate'])->name('admin.persyaratan.update');
+
+
+    ///tarif
+    Route::get('/admin/tarif', [TarifController::class, 'index'])->name('admin.tarif');
+    Route::post('/admin/tarifTindakan', [TarifController::class, 'tarifTindakan'])->name('admin.tarifTindakan.store');
+    Route::post('/admin/tarifKamar', [TarifController::class, 'tarifKamar'])->name('admin.tarifKamar.store');
+    Route::put('/admin/tarif/{tarif:id}/update', [TarifController::class, 'update'])->name('admin.tarif.update');
+    Route::delete('/admin/tarif/{tarif:id}/delete', [TarifController::class, 'destroy'])->name('admin.tarif.delete');
+    //IKM
+    Route::get('/admin/index-kepuasan-masyarakat', [IKMController::class, 'ikm'])->name('admin.index-kepuasan-masyarakat');
+    Route::get('/admin/index-kepuasan-masyarakat/create', [IKMController::class, 'ikmCreate'])->name('admin.index-kepuasan-masyarakat.create');
+    Route::post('/admin/index-kepuasan-masyarakat/store', [IKMController::class, 'ikmStore'])->name('admin.index-kepuasan-masyarakat.store');
+    Route::put('/admin/index-kepuasan-masyarakat/{ikm:id}/update', [IKMController::class, 'ikmUpdate'])->name('admin.ikm.update');
+    // SAKIP
+    Route::get('/admin/sakip', [SAKIPController::class, 'sakip'])->name('admin.sakip');
+    Route::get('/admin/sakip/create', [SAKIPController::class, 'sakipCreate'])->name('admin.sakip.create');
+    Route::post('/admin/sakip/store', [SAKIPController::class, 'sakipStore'])->name('admin.sakip.store');
+    Route::put('/admin/sakip/{sakip:id}/update', [SAKIP::class, 'sakipUpdate'])->name('admin.sakip.update');
 });
 
+Route::get('/profil', function () {
+    return view('pages.profil.profil');
+});
+Route::get('alur-persyaratan', function () {
+    return view('pages.informasi.alur-persyaratan');
+});
 
+Route::get('tarif', function () {
+    return view('pages.informasi.tarif');
+});
+Route::get('lkm', function () {
+    return view('pages.informasi.lkm');
+});
+Route::get('sakip', function () {
+    return view('pages.informasi.sakip');
+});
+Route::get('/artikel/klik', function () {
+    return view('pages.berita-artikel.isi-artikel');
+});
 
+Route::get('berita', function () {
+    return view('pages.berita-artikel.berita');
+});
+Route::get('/', function () {
+    return view('pages.home');
+})->name('home');
 
-///alur
-Route::get('/admin/alur', [AlurController::class, 'alur'])->name('admin.alur');
-Route::get('/admin/alur/create', [AlurController::class, 'alurCreate'])->name('admin.alur.create');
-Route::post('/admin/alur/store', [AlurController::class, 'alurStore'])->name('admin.alur.store');
-Route::get('/admin/alur/edit', [AlurController::class, 'alurEdit'])->name('admin.alur.edit');
-Route::put('/admin/alur/update', [AlurController::class, 'alurUpdate'])->name('admin.alur.update');
-// Route::put('/admin/alur/{alur:id}/update', [AlurController::class, 'alurUpdate'])->name('admin.alur.update');
-// Route::head('/admin/alur/delete', [AlurController::class, 'alurDelete'])->name('admin.alur.delete');
+Route::get('/rawat-inap', function () {
+    return view('pages.layanan.rawat-inap');
+});
+Route::get('/layanan-unggulan', function () {
+    return view('pages.layanan.layanan-unggulan');
+});
+Route::get('/rawat-jalan', function () {
+    return view('pages.layanan.rawat-jalan');
+});
+Route::get('layanan-mcu', function () {
+    return view('pages.layanan.layanan-mcu');
+});
+Route::get('/caridokter', function () {
+    return view('pages.pasien-pengunjung.dokter');
+});
+Route::get('/ketersediaantempat', function () {
+    return view('pages.pasien-pengunjung.ketersediaan-tempat');
+});
 
+Route::get('/informasikunjungan', function () {
+    return view('pages.pasien-pengunjung.informasi-kunjungan');
+});
+Route::get('petunjuk-umum', function () {
+    return view('pages.informasi.petunjuk-umum');
+});
 
-
-
-
-///persyaratan
-Route::get('/admin/persyaratan', [PersyaratanController::class, 'persyaratan'])->name('admin.persyaratan');
-Route::get('/admin/persyaratan/create', [PersyaratanController::class, 'persyaratanCreate'])->name('admin.pesyaratan.create');
-Route::post('/admin/persyaratan/store', [PersyaratanController::class, 'persyaratanStore'])->name('admin.persyaratan.store');
-Route::put('/admin/persyaratan/{persyaratan:id}/update', [PersyaratanController::class, 'persyaratanUpdate'])->name('admin.persyaratan.update');
-
-
-///tarif
-Route::get('/admin/tarif', [TarifController::class, 'index'])->name('admin.tarif');
-Route::post('/admin/tarifTindakan', [TarifController::class, 'tarifTindakan'])->name('admin.tarifTindakan.store');
-Route::post('/admin/tarifKamar', [TarifController::class, 'tarifKamar'])->name('admin.tarifKamar.store');
-Route::put('/admin/tarif/{tarif:id}/update', [TarifController::class, 'update'])->name('admin.tarif.update');
-Route::delete('/admin/tarif/{tarif:id}/delete', [TarifController::class, 'destroy'])->name('admin.tarif.delete');
-
-
-
-
-// pelayanan
-
-
-//IKM
-Route::get('/admin/index-kepuasan-masyarakat', [IKMController::class, 'ikm'])->name('admin.index-kepuasan-masyarakat');
-Route::get('/admin/index-kepuasan-masyarakat/create', [IKMController::class, 'ikmCreate'])->name('admin.index-kepuasan-masyarakat.create');
-Route::post('/admin/index-kepuasan-masyarakat/store', [IKMController::class, 'ikmStore'])->name('admin.index-kepuasan-masyarakat.store');
-Route::put('/admin/index-kepuasan-masyarakat/{ikm:id}/update', [IKMController::class, 'ikmUpdate'])->name('admin.ikm.update');
-
-Route::get('/admin/sakip', [SAKIPController::class, 'sakip'])->name('admin.sakip');
-Route::get('/admin/sakip/create', [SAKIPController::class, 'sakipCreate'])->name('admin.sakip.create');
-Route::post('/admin/sakip/store', [SAKIPController::class, 'sakipStore'])->name('admin.sakip.store');
-Route::put('/admin/sakip/{sakip:id}/update', [SAKIP::class, 'sakipUpdate'])->name('admin.sakip.update');
+Route::get('/home', function () {
+    return view('pages.home');
+});
