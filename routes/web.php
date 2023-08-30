@@ -100,7 +100,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/berita/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'beritaShow'])->name('admin.berita.show');
     Route::get('/admin/berita/{beritaDanArtikel:slug}/edit', [BeritaDanArtikelController::class, 'beritaEdit'])->name('admin.berita.edit');
     Route::put('/admin/berita/{beritaDanArtikel:slug}/update', [BeritaDanArtikelController::class, 'beritaUpdate'])->name('admin.berita.update');
-    
+
 
     // artikel
     Route::get('/admin/artikel', [BeritaDanArtikelController::class, 'artikel'])->name('admin.artikel');
@@ -171,13 +171,12 @@ Route::middleware('auth')->group(function () {
 
 
 
-
-
-
-
+    
     Route::get('/admin/createSlug', [BeritaDanArtikelController::class, 'slug'])->name('admin.createSlug');
-
 });
+
+
+
 
 ///alur
 Route::get('/admin/alur', [AlurController::class, 'alur'])->name('admin.alur');
@@ -185,18 +184,18 @@ Route::get('/admin/alur/create', [AlurController::class, 'alurCreate'])->name('a
 Route::post('/admin/alur/store', [AlurController::class, 'alurStore'])->name('admin.alur.store');
 Route::get('/admin/alur/edit', [AlurController::class, 'alurEdit'])->name('admin.alur.edit');
 Route::put('/admin/alur/update', [AlurController::class, 'alurUpdate'])->name('admin.alur.update');
-Route::head('/admin/alur/delete', [AlurController::class, 'alurDelete'])->name('admin.alur.delete');
+// Route::head('/admin/alur/delete', [AlurController::class, 'alurDelete'])->name('admin.alur.delete');
 
 
 
 
 
 ///persyaratan
-Route::get('/admin/persyaratan',[PersyaratanController::class, 'index'])->name('admin.persyaratan');
+Route::get('/admin/persyaratan', [PersyaratanController::class, 'index'])->name('admin.persyaratan');
 
 
 
 ///tarif
 
-Route::get('/admin/tarif',[TarifController::class, 'index'])->name('admin.tarif');
+Route::get('/admin/tarif', [TarifController::class, 'index'])->name('admin.tarif');
 // pelayanan
