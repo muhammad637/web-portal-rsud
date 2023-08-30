@@ -3,7 +3,7 @@
 		
 	      <a class="navbar-brand" href="{{(route('home'))}}"><img src="{{ asset('images/navbar/logo.png') }}" alt="" style="width: 50px;"><span class="d-sm-inline d-none" style="font-weight: normal;">
 			 RSUD<strong> Blambangan</strong></span></a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="true" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
