@@ -188,7 +188,7 @@ Route::get('/admin/alur/create', [AlurController::class, 'alurCreate'])->name('a
 Route::post('/admin/alur/store', [AlurController::class, 'alurStore'])->name('admin.alur.store');
 Route::get('/admin/alur/edit', [AlurController::class, 'alurEdit'])->name('admin.alur.edit');
 Route::put('/admin/alur/update', [AlurController::class, 'alurUpdate'])->name('admin.alur.update');
-Route::put('/admin/alur/{alur:id}/update', [AlurController::class, 'alurUpdate'])->name('admin.alur.update');
+// Route::put('/admin/alur/{alur:id}/update', [AlurController::class, 'alurUpdate'])->name('admin.alur.update');
 // Route::head('/admin/alur/delete', [AlurController::class, 'alurDelete'])->name('admin.alur.delete');
 
 
@@ -205,6 +205,10 @@ Route::put('/admin/persyaratan/{persyaratan:id}/update', [PersyaratanController:
 
 ///tarif
 Route::get('/admin/tarif', [TarifController::class, 'index'])->name('admin.tarif');
+
+
+
+
 // pelayanan
 
 
