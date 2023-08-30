@@ -169,17 +169,17 @@
                     </a>
                 </li>
                 <li class="sidebar-item mb">
-                    <a class="sidebar-link {{ Request::is('admin/artikel/*') ? 'active' : '' }}"
-                        href="{{ route('admin.artikel') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('admin/index-kepuasan-masyarakat/*') ? 'active' : '' }}"
+                        href="{{ route('admin.index-kepuasan-masyarakat') }}" aria-expanded="false">
                         <span>
-                           <img src="/icon/icon-kepuasan-masyarakat.png" alt="">
+                           <img src="/icon/icon-ikm.png" alt="">
                         </span>
-                        <strong><span class="hide-menu">Layanan Kepuasan Masyarakat</span></strong>
+                        <strong><span class="hide-menu">IKM</span></strong>
                     </a>
                 </li>
                 <li class="sidebar-item mb-5">
-                    <a class="sidebar-link {{ Request::is('admin/artikel/*') ? 'active' : '' }}"
-                        href="{{ route('admin.artikel') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('admin/sakip/*') ? 'active' : '' }}"
+                        href="{{ route('admin.sakip') }}" aria-expanded="false">
                         <span>
                            <img src="/icon/icon-sakip.png" alt="">
                         </span>

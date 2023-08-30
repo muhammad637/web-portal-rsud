@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('tarifs', function (Blueprint $table) {
             $table->id();
-            $table->string('jenis_kamar');
+            $table->string('nama');
             $table->string('tarif');
-            $table->string('nama_tindakan');
-            $table->string('tarif_tindakan');
+            $table->enum('type',['kamar','tindakan']);
             $table->timestamps();
         });
     }

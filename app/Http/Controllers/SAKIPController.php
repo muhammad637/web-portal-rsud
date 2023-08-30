@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SAKIP;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SAKIPController extends Controller
 {
@@ -12,8 +13,12 @@ class SAKIPController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function sakip()
     {
+        
+        return view('admin.pages.informasi.sakip.index', [
+            'sakip' => Sakip::orderBy('updated_at', 'desc')->get()
+        ]);
         //
     }
 
@@ -22,8 +27,9 @@ class SAKIPController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function sakipcreate()
     {
+        return view('admin.pages.informasi.sakip.create');
         //
     }
 
@@ -33,7 +39,7 @@ class SAKIPController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function SAKIPstore(Request $request)
+    public function sakipstore(Request $request)
     {
         $validateData = $request->validate(
             [
@@ -42,18 +48,24 @@ class SAKIPController extends Controller
                 
             ]
             );
-            SAKIP::create($validateData);
-            return SAKIP::all();
+            Sakip::create([
+                'nama' => $validateData['nama'],
+                'link_file' => $validateData['link_file']
+            ]);
+            return redirect(route('admin.sakip'))->with('succes', 'sakip berhasil ditambahkan');
+            // return Ikm::all();
+        
         //
+        
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\SAKIP  $sAKIP
+     * @param  \App\Models\sakip  $sakip
      * @return \Illuminate\Http\Response
      */
-    public function show(SAKIP $sAKIP)
+    public function show(SAKIP $sakip)
     {
         //
     }
@@ -61,11 +73,14 @@ class SAKIPController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\SAKIP  $sAKIP
+     * @param  \App\Models\IKM  $iKM
      * @return \Illuminate\Http\Response
      */
-    public function edit(SAKIP $sAKIP)
+    public function sakipedit(SAKIP $ikm)
     {
+        return view('admin.pages.sakip.edit', [
+            'sakip' => $ikm
+        ]);
         //
     }
 
@@ -73,21 +88,31 @@ class SAKIPController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SAKIP  $sAKIP
+     * @param  \App\Models\SAKIP  $iKM
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SAKIP $sAKIP)
+    public function sakipUpdate(Request $request, SAKIP $sakip)
     {
+
         //
+
+        $validateData = $request->validate(
+            [
+                'nama' => 'required',
+                'link_file' => ''
+            ]
+            );
+            $sakip->update($validateData);
+            return redirect(route('admin.sakip'))->with('succes', 'sakip berhasil diupdate');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\SAKIP  $sAKIP
+     * @param  \App\Models\SAKIP  $sakip
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SAKIP $sAKIP)
+    public function destroy(sakip $iKM)
     {
         //
     }

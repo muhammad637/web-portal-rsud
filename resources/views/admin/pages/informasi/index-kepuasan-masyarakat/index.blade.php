@@ -12,9 +12,10 @@
 @section('content-admin')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Card persyaratan</h5>
+
+            <h5 class="card-title">Card Informasi IKM</h5>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Tambahpersyaratan">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Tambahikm">
                 Create <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
                     <path
@@ -46,53 +47,63 @@
                 <table id="example" class="table  table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Jenis Penjamin</th>
-                            <th>Rawat Inap</th>
+                            <th>No</th>
+                            <th>Dokumen</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($persyaratan as $index => $item)
+
+                        @foreach ($ikm as $index => $item)
                             <tr>
-                                <td>{{ $item->jenis_penjaminan }}</td>
-                                <td>{{ $item->rawat_inap}}</td>
+                                <td>{{ $index + 1 }}</td>
                                 <td>
-                                    <a class="badge bg-warning border-0" data-bs-toggle="modal"
-                                        href="#editpersyaratan{{ $item->id }}"><img src="{{ asset('icon/icon_pen.png') }}"
+                                    <label for="">{{ $item->nama }}</label><br>
+                                    {{ $item->pdf }}
+                                </td>
+                                <td>
+                                    <a class="badge bg-success border-0" data-bs-toggle="modal" href="#editikm"><img
+                                            src="{{ asset('icon/icon_eyes.png') }}" alt=""></a>
+                                    <a class="badge bg-primary border-0" data-bs-toggle="modal"
+                                        href="#editikm-{{ $item->id }}"><img src="{{ asset('icon/icon_pen.png') }}"
                                             alt=""></a>
-                                    <a href="#" class="badge bg-danger border-0"><img
-                                            src="{{ asset('icon/icon_trash.png') }}" alt=""></a>
+
+                                    <form action="" class="d-inline" method="post">
+                                        <button type="submit" class="badge bg-danger border-0">
+                                            @method('delete')
+                                            @csrf
+                                            <img src="{{ asset('icon/icon_trash.png') }}" alt="">
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
 
 
-
-
                             <!-- Modal edit -->
-                            <div class="modal fade " id="editpersyaratan{{ $item->id }}" tabindex="-1"
-                                aria-labelledby="TambahpersyaratanLabel" aria-hidden="true">
+                            <div class="modal fade " id="editikm-{{ $item->id }}" tabindex="-1"
+                                aria-labelledby="editikmLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit persyaratan</h1>
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit
+                                                ikm{{ $item->id }}</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('admin.persyaratan.update', ['persyaratan' => $item->id]) }}" method="post" enctype="multipart/form-data">
+                                        <form action="{{ route('admin.ikm.update', ['ikm' => $item->id]) }}" method="post"
+                                            enctype="multipart/form-data">
                                             @method('put')
                                             @csrf
-                                            <div class="modal-body ">
+                                            <div class="modal-body">
                                                 <div class="mb-3">
-                                                    <label for="jenis_penjaminan" class="form-label">Jenis Penjamin</label>
-                                                    <input type="text" class="form-control" name="jenis_penjaminan"
-                                                        id="jenis_penjaminan"
-                                                        value="{{ old('jenis_penjaminan', $item->jenis_penjamin) }}">
+                                                    <label for="nama" class="form-label">Nama</label>
+                                                    <input type="text" class="form-control" name="nama" id="nama"
+                                                        value="{{ old('nama', $item->nama) }}">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="rawat_inap" class="form-label">Rawat Inap</label>
-                                                    <input type="text" class="form-control" name="rawat_inap"
-                                                        id="rawat_inap"
-                                                        value="{{ old('rawatinap', $item->rawat_inap) }}">
+                                                    <label for="pdf" class="form-label">Upload File</label>
+                                                    <input type="file" class="form-control" name="pdf" id="pdf"
+                                                        value="{{ old('pdf') }}">
                                                 </div>
 
                                             </div>
@@ -109,8 +120,8 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Jenis Penjamin</th>
-                            <th>Rawat Inap</th>
+                            <th>No</th>
+                            <th>Dokumen</th>
                             <th>Aksi</th>
                         </tr>
                     </tfoot>
@@ -120,26 +131,27 @@
     </div>
 
     <!-- Modal create -->
-    <div class="modal fade " id="Tambahpersyaratan" tabindex="-1" aria-labelledby="TambahpersyaratanLabel" aria-hidden="true">
+    <div class="modal fade " id="Tambahikm" tabindex="-1" aria-labelledby="TambahikmLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create persyaratan</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create ikm</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('admin.persyaratan.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.index-kepuasan-masyarakat.store') }}" method="post"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="jenis_penjamin" class="form-label">Jenis Penjamin</label>
-                            <input type="text" class="form-control" name="jenis_penjaminan" id="jenis_penjamin"
-                                value="{{ old('jenis_penjamin') }}">
+                            <label for="nama" class="form-label">Nama</label>
+                            <input type="text" class="form-control" name="nama" id="nama"
+                                value="{{ old('nama') }}">
                         </div>
-                            <div class="mb-3">
-                                <label for="nama" class="form-label">Rawat Inap</label>
-                                <input type="text" class="form-control" name="rawat_inap" id="rawat_inap"
-                                    value="{{ old('rawat_inap') }}">
-                            </div>
+                        <div class="mb-3">
+                            <label for="pdf" class="form-label">Upload File</label>
+                            <input type="file" class="form-control" name="pdf" id="pdf"
+                                value="{{ old('pdf') }}">
+                        </div>
 
                     </div>
                     <div class="modal-footer">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Persyaratan;
 use Illuminate\Http\Request;
+use Illuminate\Queue\Jobs\RedisJob;
+use Illuminate\Support\Facades\Redirect;
 
 class PersyaratanController extends Controller
 {
@@ -12,9 +14,11 @@ class PersyaratanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function persyaratan()
     {
-        return view('admin.pages.informasi.persyaratan.index');
+        return view('admin.pages.informasi.persyaratan.index', [
+            'persyaratan' => Persyaratan::orderBy('updated_at', 'desc')->get()
+        ]);
         //
     }
 
@@ -23,8 +27,9 @@ class PersyaratanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function persyaratanCreate()
     {
+        return view('admin.pages.informasi.persyaratan.create');
         //
     }
 
@@ -34,9 +39,22 @@ class PersyaratanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function persyaratanStore(Request $request)
     {
+
         //
+        $validatedData = $request->validate(
+            [
+                'jenis_penjaminan' => 'required',
+                'rawat_inap' => 'required'
+            ]
+            );
+
+            Persyaratan::create([
+                'jenis_penjaminan' => $validatedData['jenis_penjaminan'],
+                'rawat_inap' => $validatedData['rawat_inap']
+            ]);
+            return redirect(route('admin.persyaratan'))->with('succes', 'persyaratan berhasil ditambahkan');
     }
 
     /**
@@ -56,8 +74,11 @@ class PersyaratanController extends Controller
      * @param  \App\Models\Persyaratan  $persyaratan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Persyaratan $persyaratan)
+    public function persyaratanEdit(Persyaratan $persyaratan)
     {
+        return view('admin.pages.informasi.persyaratan.edit', [
+            'persyaratan' => $persyaratan
+        ]);
         //
     }
 
@@ -68,9 +89,23 @@ class PersyaratanController extends Controller
      * @param  \App\Models\Persyaratan  $persyaratan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Persyaratan $persyaratan)
+    public function persyaratanUpdate(Request $request, Persyaratan $persyaratan)
     {
+        $validatedData = $request->validate(
+            [
+                'jenis_penjaminan' => 'required',
+                'rawat_inap' => 'required'
+            ]
+            );
+            $persyaratan->update($validatedData);
+            return redirect(route('admin.persyaratan'))->with('success', 'persyaratan berhasil di update');
         //
+    }
+
+    public function persyaratanDelete(Persyaratan $persyaratan)
+    {
+        Persyaratan::delete($persyaratan->jenis_penjamin);
+        return redirect(route('admin.persyaratan'))->with('success', 'persyaratan berhasil dihapus');
     }
 
     /**
