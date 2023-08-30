@@ -66,22 +66,25 @@
                                         <ul class="">
                                             @foreach ($item->jadwalDokter as $value)
                                                 <li class="list-group-item ">
-                                                   hari {{$value->hari}} : {{ Carbon\Carbon::parse($value->jam_mulai_praktik)->format('H:i') }} - {{ Carbon\Carbon::parse($value->jam_selesai_praktik)->format('H:i')}}
+                                                    hari {{ $value->hari }} :
+                                                    {{ Carbon\Carbon::parse($value->jam_mulai_praktik)->format('H:i') }} -
+                                                    {{ Carbon\Carbon::parse($value->jam_selesai_praktik)->format('H:i') }}
                                                 </li>
                                             @endforeach
                                         </ul>
                                     </td>
                                     <td>
-                                        <a class="badge bg-warning border-0" data-bs-toggle="modal"
-                                            href="#editJadwal{{ $item->id }}"><img
+                                        @if (count($item->jadwalDokter) > 0)
+                                            <a class="badge bg-warning border-0" data-bs-toggle="modal"
+                                            href="#editJadwal-{{ $item->id }}"><img
                                                 src="{{ asset('icon/icon_pen.png') }}" alt=""></a>
-                                        <form action="{{ route('admin.spesialis.delete', ['spesialis' => $item->id]) }}"
-                                            method="post" class="d-inline">
-                                            @method('delete')
-                                            @csrf
-                                            <button type="submit" class="badge bg-danger border-0"><img
-                                                    src="{{ asset('icon/icon_trash.png') }}" alt=""></button>
-                                        </form>
+                                        <a class="badge bg-danger border-0" data-bs-toggle="modal"
+                                            href="#hapusJadwal-{{ $item->id }}"><img
+                                                src="{{ asset('icon/icon_trash.png') }}" alt=""></a>
+                                        @else
+                                            -
+                                        @endif
+                                        
                                     </td>
                                 </tr>
 
@@ -89,27 +92,25 @@
 
 
                                 <!-- Modal edit -->
-                                {{-- <div class="modal fade " id="editJadwal{{ $item->id }}" tabindex="-1"
+                                <div class="modal fade " id="editJadwal-{{ $item->id }}" tabindex="-1"
                                     aria-labelledby="TambahKategoriLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit kategori</h1>
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Salah Satu Jadwal
+                                                    Dokter
+                                                    {{ $item->nama }}</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
-                                            <form action="{{ route('admin.spesialis.update', ['spesialis' => $item->id]) }}"
+                                            <form action="{{ route('admin.jadwal.update', ['dokter' => $item->id]) }}"
                                                 method="post">
-                                                @method('put')
+                                                @method('patch')
                                                 @csrf
-                                                <div class="modal-body ">
-                                                    <div class="mb-3">
-                                                        <label for="nama_spesialis" class="form-label">Nama Spesialis</label>
-                                                        <input type="text" class="form-control" name="nama_spesialis"
-                                                            id="nama_spesialis"
-                                                            value="{{ old('nama_spesialis', $item->nama_spesialis) }}">
-                                                    </div>
-    
+                                                <div class="modal-body">
+                                                    <input type="hidden" name="id_dokter" value="{{ $item->id }}">
+                                                    @livewire('admin.jadwal.jadwal-dokter-update', ['dokter' => $item])
+
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
@@ -119,7 +120,48 @@
                                             </form>
                                         </div>
                                     </div>
-                                </div> --}}
+                                </div>
+
+                                {{-- modal Delete --}}
+                                <div class="modal fade " id="hapusJadwal-{{ $item->id }}" tabindex="-1"
+                                    aria-labelledby="TambahKategoriLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Salah Satu Jadwal
+                                                    Dokter
+                                                    {{ $item->nama }}</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <form action="{{ route('admin.jadwal.delete', ['dokter' => $item->id]) }}"
+                                                method="post">
+                                                @method('delete')
+                                                @csrf
+                                                <div class="modal-body">
+                                                    <input type="hidden" name="id_dokter" value="{{ $item->id }}">
+                                                    <div class="mb-3">
+                                                        <label for="hari" class="form-label">Hari</label>
+
+                                                        <select name="hari" id="" class="form-control">
+                                                            <option value="">Pilih</option>
+                                                            @foreach ($item->jadwalDokter as $data)
+                                                                <option value="{{ $data->hari }}">{{ $data->hari }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             @endforeach
                         @endif
                     </tbody>
@@ -137,7 +179,8 @@
     </div>
 
     <!-- Modal create -->
-    <div class="modal fade " id="TambahJadwal" tabindex="-1" aria-labelledby="TambahSpesialisLabel" aria-hidden="true">
+    <div class="modal fade " id="TambahJadwal" tabindex="-1" aria-labelledby="TambahSpesialisLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">

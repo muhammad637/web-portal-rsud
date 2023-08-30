@@ -22,7 +22,7 @@
     @stack('link-css-admin')
 </head>
 
-<body style="background-color: #949494;">
+<body style="background-color: #E9EEF4;">
     <!--  Body Wrapper -->
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">

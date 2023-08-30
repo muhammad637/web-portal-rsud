@@ -84,15 +84,17 @@ class JadwalDokterController extends Controller
      * @param  \App\Models\JadwalDokter  $jadwalDokter
      * @return \Illuminate\Http\Response
      */
-    public function jadwalUpdate(Request $request, JadwalDokter $jadwalDokter)
+    public function jadwalUpdate(Request $request, Dokter $dokter)
     {
         $validateData = $request->validate(
             [
-                'id_dokter' => 'required',
+                'jam_mulai_praktik' => 'required',
+                'jam_selesai_praktik' => 'required',
             ]
         );
-        $jadwalDokter->update($validateData);
-        return $jadwalDokter;
+        $jadwalDokterUpdate = JadwalDokter::where('dokter_id', $dokter->id)->where('hari', $request->hari)->get()->first();
+        $jadwalDokterUpdate->update($validateData);
+        return redirect()->back()->with('success', 'jadwal berhasil diupdate');
         //
     }
 
@@ -102,8 +104,15 @@ class JadwalDokterController extends Controller
      * @param  \App\Models\JadwalDokter  $jadwalDokter
      * @return \Illuminate\Http\Response
      */
-    public function jadwalDestroy(JadwalDokter $jadwalDokter)
+    public function jadwalDelete(Request $request, Dokter $dokter)
     {
         //
+        $jadwalDokter = JadwalDokter::where('dokter_id', $dokter->id)
+            ->where('hari', $request->hari)
+            ->get()
+            ->first()
+            ->delete();
+        $jadwalDokter;
+        return redirect()->back()->with('success', 'berhasil delete jadwal dokter');
     }
 }

@@ -121,9 +121,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/unggulan', [LayananUnggulanController::class, 'unggulan'])->name('admin.unggulan');
     Route::get('/admin/unggulan/create', [LayananUnggulanController::class, 'unggulanCreate'])->name('admin.unggulan.create');
     Route::post('/admin/unggulan/store', [LayananUnggulanController::class, 'unggulanStore'])->name('admin.unggulan.store');
-    Route::get('/admin/unggulan/{beritaDanArtikel:slug}', [LayananUnggulanController::class, 'unggulanShow'])->name('admin.unggulan.show');
-    Route::get('/admin/unggulan/{beritaDanArtikel:slug}/edit', [LayananUnggulanController::class, 'unggulanEdit'])->name('admin.unggulan.edit');
-    Route::put('/admin/unggulan/{beritaDanArtikel:slug}/update', [LayananUnggulanController::class, 'unggulanUpdate'])->name('admin.unggulan.update');
+    Route::get('/admin/unggulan/{unggulan:slug}', [LayananUnggulanController::class, 'unggulanShow'])->name('admin.unggulan.show');
+    Route::get('/admin/unggulan/{unggulan:slug}/edit', [LayananUnggulanController::class, 'unggulanEdit'])->name('admin.unggulan.edit');
+    Route::put('/admin/unggulan/{unggulan:slug}/update', [LayananUnggulanController::class, 'unggulanUpdate'])->name('admin.unggulan.update');
+    Route::delete('/admin/unggulan/{unggulan:slug}/delete', [LayananUnggulanController::class, 'unggulanDelete'])->name('admin.unggulan.delete');
 
     // rawat-jalan
     Route::get('/admin/rawat-jalan', [RawatJalanController::class, 'rawatJalan'])->name('admin.rawatJalan');
@@ -167,11 +168,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/spesialis/{spesialis:id}/destroy', [SpesialisController::class, 'spesialisDelete'])->name('admin.spesialis.delete');
     Route::get('/admin/spesialis/search', [SpesialisController::class, 'search'])->name('admin.spesialis.search');
 
+    
     // jadwal-dokter
     Route::get('/admin/jadwal', [JadwalDokterController::class, 'jadwal'])->name('admin.jadwal');
     Route::post('/admin/jadwal/store', [JadwalDokterController::class, 'jadwalStore'])->name('admin.jadwal.store');
-    Route::patch('/admin/jadwal/{jadwal}/update', [JadwalDokterController::class, 'jadwalUpdate'])->name('admin.jadwal.update');
-    Route::delete('/admin/jadwal/{jadwal:id}/destroy', [JadwalDokterController::class, 'jadwalDelete'])->name('admin.jadwal.delete');
+    Route::patch('/admin/jadwal/{dokter}/update', [JadwalDokterController::class, 'jadwalUpdate'])->name('admin.jadwal.update');
+    Route::delete('/admin/jadwal/{dokter}/destroy', [JadwalDokterController::class, 'jadwalDelete'])->name('admin.jadwal.delete');
 
 
 
