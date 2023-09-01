@@ -77,10 +77,10 @@
                                         @if (count($item->jadwalDokter) > 0)
                                             <a class="badge bg-warning border-0" data-bs-toggle="modal"
                                             href="#editJadwal-{{ $item->id }}"><img
-                                                src="{{ asset('icon/icon_pen.png') }}" alt=""></a>
+                                                src="{{ asset('images/icon/icon_pen.svg') }}" alt=""></a>
                                         <a class="badge bg-danger border-0" data-bs-toggle="modal"
                                             href="#hapusJadwal-{{ $item->id }}"><img
-                                                src="{{ asset('icon/icon_trash.png') }}" alt=""></a>
+                                                src="{{ asset('images/icon/icon_trash.svg') }}" alt=""></a>
                                         @else
                                             -
                                         @endif

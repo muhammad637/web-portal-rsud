@@ -63,16 +63,16 @@
                                 </td>
                                 <td>
                                     <a class="badge bg-success border-0" data-bs-toggle="modal" href="#editsakip"><img
-                                            src="{{ asset('icon/icon_eyes.png') }}" alt=""></a>
+                                            src="{{ asset('images/icon/icon_eyes.svg') }}" alt=""></a>
                                     <a class="badge bg-primary border-0" data-bs-toggle="modal"
-                                        href="#editsakip-{{ $item->id }}"><img src="{{ asset('icon/icon_pen.png') }}"
+                                        href="#editsakip-{{ $item->id }}"><img src="{{ asset('images/icon/icon_pen.svg') }}"
                                             alt=""></a>
 
                                     <form action="" class="d-inline" method="post">
                                         <button type="submit" class="badge bg-danger border-0">
                                             @method('delete')
                                             @csrf
-                                            <img src="{{ asset('icon/icon_trash.png') }}" alt="">
+                                            <img src="{{ asset('images/icon/icon_trash.svg') }}" alt="">
                                         </button>
                                     </form>
                                 </td>

@@ -21,7 +21,7 @@
                     <div class="row align-items-center mt-2">
                         <div class="col-8">
                             <div class="numbers">
-                                <img src="/icon/icon_toa.png" alt="">
+                                <img src="{{ asset('images/icon/icon_toa.svg') }}" alt="">
                             </div>
                         </div>
                         <div class="col-4">
@@ -41,7 +41,7 @@
                     <div class="row align-items-center mt-2">
                         <div class="col-8">
                             <div class="numbers">
-                                <img src="/icon/icon_kertas.png" alt="">
+                                <img src="{{ asset('images/icon/icon_kertas.svg') }}" alt="">
                             </div>
                         </div>
                         <div class="col-4">
@@ -61,7 +61,7 @@
                     <div class="row align-items-center mt-2">
                         <div class="col-8">
                             <div class="numbers">
-                                <img src="/icon/icon_file.png" alt="">
+                                <img src="{{ asset('images/icon/icon_file.svg') }}" alt="">
                             </div>
                         </div>
                         <div class="col-4">

@@ -55,11 +55,11 @@
                                 <td>{{ Carbon\Carbon::parse($item->created_at)->format('d-M-Y') }}</td>
                                 <td>
                                     <a href="#" class="badge bg-success"><img
-                                            src="{{ asset('icon/icon_folder.png') }}" alt=""></a>
+                                            src="{{ asset('images/icon/icon_folder.svg') }}" alt=""></a>
                                     <a href="{{ route('admin.rawatInap.edit', ['rawatInap' => $item->slug]) }}"
                                         class="badge bg-warning"><img src="{{ asset('icon/icon_pen.png') }}"
                                             alt=""></a>
-                                    <a href="#" class="badge bg-danger"><img src="{{ asset('icon/icon_trash.png') }}"
+                                    <a href="#" class="badge bg-danger"><img src="{{ asset('images/icon/icon_trash.svg') }}"
                                             alt=""></a>
                                 </td>
                             </tr>

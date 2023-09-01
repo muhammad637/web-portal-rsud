@@ -61,14 +61,14 @@
                                 <td>{{ $item->RawatJalan->nama }} </td>
                                 <td>
                                     <a class="badge bg-warning border-0" data-bs-toggle="modal"
-                                        href="#editDokter{{ $item->id }}"><img src="{{ asset('icon/icon_pen.png') }}"
+                                        href="#editDokter{{ $item->id }}"><img src="{{ asset('images/icon/icon_pen.svg') }}"
                                             alt=""></a>
                                     <form action="{{ route('admin.dokter.delete', ['dokter' => $item->id]) }}"
                                         class="d-inline" method="post">
                                         <button type="submit" class="badge bg-danger border-0">
                                             @method('delete')
                                             @csrf
-                                            <img src="{{ asset('icon/icon_trash.png') }}" alt="">
+                                            <img src="{{ asset('images/icon/icon_trash.svg') }}" alt="">
                                         </button>
                                     </form>
                                 </td>

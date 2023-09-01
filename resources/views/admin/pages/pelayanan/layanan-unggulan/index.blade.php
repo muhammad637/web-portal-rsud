@@ -45,24 +45,26 @@
                             <tr>
                                 <td>{{ $index + 1 }}</td>
                                 <td>
-                                    <div class="bunder"
-                                        style=" background: url('{{ asset('storage/' . $item->gambar) }}') no-repeat center">
-                                    </div>
+                                    {{-- storage/{{$item->gambar}} --}}
+                                    {{-- <div class="bunder"
+                                        style=" background: url('{{ asset('./storage/' . $item->gambar) }}') no-repeat center">
+                                    </div> --}}
+                                    <img src="{{asset('storage/app'.$item->gambar)}}" alt="" width="100">
                                 </td>
                                 <td>{{ $item->nama }}</td>
                                 <td>{!! $item->deskripsi !!}</td>
                                 <td>{{ Carbon\Carbon::parse($item->created_at)->format('d-M-Y') }}</td>
                                 <td>
                                     <a href="#" class="badge bg-success"><img
-                                            src="{{ asset('icon/icon_folder.png') }}" alt=""></a>
+                                            src="{{ asset('images/icon/icon_folder.svg') }}" alt=""></a>
                                     <a href="{{ route('admin.unggulan.edit', ['unggulan' => $item->slug]) }}"
-                                        class="badge bg-warning"><img src="{{ asset('icon/icon_pen.png') }}"
+                                        class="badge bg-warning"><img src="{{ asset('images/icon/icon_pen.svg') }}"
                                             alt=""></a>
                                     <form action="{{route('admin.unggulan.delete',['unggulan' => $item->slug])}}" method="post" class="d-inline">
                                         @method('delete')
                                         @csrf
                                         <button type="submit" class="badge bg-danger border-0"><img
-                                                src="{{ asset('icon/icon_trash.png') }}" alt=""></button>
+                                                src="{{ asset('images/icon/icon_trash.svg') }}" alt=""></button>
                                     </form>
                                 </td>
                             </tr>

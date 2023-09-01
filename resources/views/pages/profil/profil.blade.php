@@ -37,7 +37,7 @@
                                         href="#v-pills-mission" role="tab" aria-controls="v-pills-mission"
                                         aria-selected="false">Maklumat</a>
                                 </div>
-                            </div>
+                        </div>
                             <div class="col-md-12 d-flex align-items-center">
 
 
