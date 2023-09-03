@@ -17,6 +17,9 @@
         .container-swiper {
             height: 20rem;
         }
+        .container-apa{
+            height: 58rem;
+        }
 
         .swiper {
             width: 100%;
@@ -131,18 +134,18 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             @foreach ($LayananUnggulan as $layanan_unggulan => $item)
-                            <div class="d-flex align-self-stretch ftco-animate">
-                                <div class="media block-6 services d-block text-center">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <img src="{{$item->icon}}" alt="" style="width: 50%; height: 50%;">
-                                        {{-- <span class="flaticon-tooth-1"></span> --}}
-                                    </div>
-                                    <div class="media-body p-2 mt-3">
-                                        <h3 class="heading">{{$item->nama}}</h3>
-                                        <p>{!! $item->deskripsi !!}</p>
+                                <div class="d-flex align-self-stretch ftco-animate">
+                                    <div class="media block-6 services d-block text-center">
+                                        <div class="icon d-flex justify-content-center align-items-center">
+                                            <img src="{{ $item->icon }}" alt="" style="width: 50%; height: 50%;">
+                                            {{-- <span class="flaticon-tooth-1"></span> --}}
+                                        </div>
+                                        <div class="media-body p-2 mt-3">
+                                            <h3 class="heading">{{ $item->nama }}</h3>
+                                            <p>{!! $item->deskripsi !!}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                         </div>
                         @endforeach
                     </div>
@@ -150,10 +153,10 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="container-wrap mt-5">
             <div class="row d-flex no-gutters">
-                <div class="col-md-6 img" style="background-image: url(images/halamanrsud.jpg);" >
+                <div class="col-md-6 img" style="background-image: url(images/halamanrsud.jpg);">
                 </div>
                 <div class="col-md-6 d-flex">
                     <div class="about-wrap">
@@ -170,7 +173,7 @@
                                         aria-selected="false"><strong>Maklumat</strong></a>
                                 </div>
                             </div>
-    
+
                             <div class="col-md-12 d-flex align-items-center">
 
                                 <div class="tab-content ftco-animate" id="v-pills-tabContent">
@@ -221,185 +224,184 @@
                 <div class="col-md-7 text-center heading-section ftco-animate">
                     <h2 class="mb-3"><strong>ARTIKEL KESEHATAN</strong></h2>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="container-swiper">
-                        <div class="swiper mySwiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="staff">
-                                        <div class="img mb-4" style="background-image: url(images/dokter.png);"></div>
-                                        <div class="info text-center">
-                                            <h3><a href="teacher-single.html">Dokter Contoh</a></h3>
-                                            <span class="position">Dokter Spesialis Paru</span>
-                                            <div class="text">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Senin</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Selasa</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Rabu</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Kamis</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Jum'at</p>08:00 - 10:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Sabtu</p>08:00 - 12:00
-                                                        </div>
-                                                    </div>
+            </div>
+            <div class="container-apa" style=>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="staff">
+                                <div class="img mb-4" style="background-image: url(images/dokter.png);"></div>
+                                <div class="info text-center">
+                                    <h3><a href="teacher-single.html">Dokter Contoh</a></h3>
+                                    <span class="position">Dokter Spesialis Paru</span>
+                                    <div class="text">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Senin</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Selasa</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Rabu</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Kamis</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Jum'at</p>08:00 - 10:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Sabtu</p>08:00 - 12:00
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="staff">
-                                        <div class="img mb-4" style="background-image: url(images/dokter.png);"></div>
-                                        <div class="info text-center">
-                                            <h3><a href="teacher-single.html">Dokter Contoh</a></h3>
-                                            <span class="position">Dokter Spesialis Paru</span>
-                                            <div class="text">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Senin</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Selasa</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Rabu</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Kamis</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Jum'at</p>08:00 - 10:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Sabtu</p>08:00 - 12:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="staff">
-                                        <div class="img mb-4" style="background-image: url(images/dokter.png);"></div>
-                                        <div class="info text-center">
-                                            <h3><a href="teacher-single.html">Dokter Contoh</a></h3>
-                                            <span class="position">Dokter Spesialis Paru</span>
-                                            <div class="text">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Senin</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Selasa</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Rabu</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Kamis</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Jum'at</p>08:00 - 10:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Sabtu</p>08:00 - 12:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="staff">
-                                        <div class="img mb-4" style="background-image: url(images/dokter.png);"></div>
-                                        <div class="info text-center">
-                                            <h3><a href="teacher-single.html">Dokter Contoh</a></h3>
-                                            <span class="position">Dokter Spesialis Paru</span>
-                                            <div class="text">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Senin</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Selasa</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Rabu</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Kamis</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Jum'at</p>08:00 - 10:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Sabtu</p>08:00 - 12:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="staff">
-                                        <div class="img mb-4" style="background-image: url(images/dokter.png);"></div>
-                                        <div class="info text-center">
-                                            <h3><a href="teacher-single.html">Dokter Contoh</a></h3>
-                                            <span class="position">Dokter Spesialis Paru</span>
-                                            <div class="text">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Senin</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Selasa</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Rabu</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Kamis</p>08:00 - 14:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Jum'at</p>08:00 - 10:00
-                                                        </div>
-                                                        <div class="d-flex justify-content-between text-dark">
-                                                            <p>Sabtu</p>08:00 - 12:00
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-        
                             </div>
-                            <div class="swiper-pagination"></div>
                         </div>
+                        <div class="swiper-slide">
+                            <div class="staff">
+                                <div class="img mb-4" style="background-image: url(images/dokter.png);"></div>
+                                <div class="info text-center">
+                                    <h3><a href="teacher-single.html">Dokter Contoh</a></h3>
+                                    <span class="position">Dokter Spesialis Paru</span>
+                                    <div class="text">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Senin</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Selasa</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Rabu</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Kamis</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Jum'at</p>08:00 - 10:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Sabtu</p>08:00 - 12:00
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="staff">
+                                <div class="img mb-4" style="background-image: url(images/dokter.png);"></div>
+                                <div class="info text-center">
+                                    <h3><a href="teacher-single.html">Dokter Contoh</a></h3>
+                                    <span class="position">Dokter Spesialis Paru</span>
+                                    <div class="text">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Senin</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Selasa</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Rabu</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Kamis</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Jum'at</p>08:00 - 10:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Sabtu</p>08:00 - 12:00
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="staff">
+                                <div class="img mb-4" style="background-image: url(images/dokter.png);"></div>
+                                <div class="info text-center">
+                                    <h3><a href="teacher-single.html">Dokter Contoh</a></h3>
+                                    <span class="position">Dokter Spesialis Paru</span>
+                                    <div class="text">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Senin</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Selasa</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Rabu</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Kamis</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Jum'at</p>08:00 - 10:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Sabtu</p>08:00 - 12:00
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="staff">
+                                <div class="img mb-4" style="background-image: url(images/dokter.png);"></div>
+                                <div class="info text-center">
+                                    <h3><a href="teacher-single.html">Dokter Contoh</a></h3>
+                                    <span class="position">Dokter Spesialis Paru</span>
+                                    <div class="text">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Senin</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Selasa</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Rabu</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Kamis</p>08:00 - 14:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Jum'at</p>08:00 - 10:00
+                                                </div>
+                                                <div class="d-flex justify-content-between text-dark">
+                                                    <p>Sabtu</p>08:00 - 12:00
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-        
-                   
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
     </section>
 
-
+    
     <section class="ftco-gallery">
         <div class="container-wrap">
             <div class="row no-gutters">
