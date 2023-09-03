@@ -45,9 +45,11 @@
                             <tr>
                                 <td>{{ $index + 1 }}</td>
                                 <td>
-                                    <div class="bunder"
-                                        style=" background: url('{{ asset('storage/' . $item->gambar) }}') no-repeat center">
-                                    </div>
+                                    {{-- storage/{{$item->gambar}} --}}
+                                    {{-- <div class="bunder"
+                                        style=" background: url('{{ asset('./storage/' . $item->gambar) }}') no-repeat center">
+                                    </div> --}}
+                                    <img src="{{asset('storage/'.$item->gambar)}}" alt="" width="100">
                                 </td>
                                 <td>{{ $item->nama }}</td>
                                 <td>{!! $item->deskripsi !!}</td>

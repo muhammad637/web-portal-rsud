@@ -11,6 +11,7 @@ use App\Http\Controllers\SpesialisController;
 use App\Http\Controllers\JadwalDokterController;
 use App\Http\Controllers\LayananUnggulanController;
 use App\Http\Controllers\BeritaDanArtikelController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IKMController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MedicalCheckUpController;
@@ -244,9 +245,7 @@ Route::get('/artikel/klik', function () {
 Route::get('berita', function () {
     return view('pages.berita-artikel.berita');
 });
-Route::get('/', function () {
-    return view('pages.home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/rawat-inap', function () {
     return view('pages.layanan.rawat-inap');
