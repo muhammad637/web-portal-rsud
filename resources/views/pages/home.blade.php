@@ -94,14 +94,16 @@
                                 <div class="form-group">
                                     <div class="select-wrap">
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                        @foreach ($Spesialis as $spesialis => $item)
                                         <select name="" id="" class="form-select form-control"
                                             aria-label="select example">
                                             <option value="" class="text-dark">Spesialis</option>
-                                            <option value="" class="text-dark">Teeth Whitening</option>
-                                            <option value="" class="text-dark">Teeth CLeaning</option>
-                                            <option value="" class="text-dark">Quality Brackets</option>
-                                            <option value="" class="text-dark">Modern Anesthetic</option>
+                                            <option value="" class="text-dark">{{$item->nama_spesialis}}</option>
+                                            <option value="" class="text-dark">{{$item->nama_spesialis}}</option>
+                                            <option value="" class="text-dark">{{$item->nama_spesialis}}</option>
+                                            <option value="" class="text-dark">{{$item->nama_spesialis}}</option>   
                                         </select>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
