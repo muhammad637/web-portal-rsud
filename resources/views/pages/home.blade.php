@@ -128,63 +128,21 @@
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            {{-- @foreach ($LayananUnggulan as $layanan_unggulan => $item) --}}
+                            @foreach ($LayananUnggulan as $layanan_unggulan => $item)
                             <div class="d-flex align-self-stretch ftco-animate">
                                 <div class="media block-6 services d-block text-center">
                                     <div class="icon d-flex justify-content-center align-items-center">
-                                        <img src="" alt="" style="width: 50%; height: 50%;">
+                                        <img src="{{$item->icon}}" alt="" style="width: 50%; height: 50%;">
                                         {{-- <span class="flaticon-tooth-1"></span> --}}
                                     </div>
                                     <div class="media-body p-2 mt-3">
-                                        <h3 class="heading"></h3>
-                                        <p>.</p>
+                                        <h3 class="heading">{{$item->nama}}</h3>
+                                        <p>{!! $item->deskripsi !!}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        {{-- @endforeach --}}
-                        <div class="swiper-slide">
-                            <div class="d-flex align-self-stretch ftco-animate">
-                                <div class="media block-6 services d-block text-center">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <img src="images/catchlab.png" alt="" style="width: 50%; height:50%;">
-                                    </div>
-                                    <div class="media-body p-2 mt-3">
-                                        <h3 class="heading">Cath Lab</h3>
-                                        <p>Pelayanan yang di lakukan di laboratorium kateterisasi jantung & angiografi untuk
-                                            menentukan
-                                            Diagnostik penyakit jantung dan pembuluh darah</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class=" d-flex align-self-stretch ftco-animate">
-                                <div class="media block-6 services d-block text-center">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <img src="images/hemodalisis.png" alt="" style="width: 50%; height:50%;">
-                                    </div>
-                                    <div class="media-body p-2 mt-3">
-                                        <h3 class="heading">Hemodalisis</h3>
-                                        <p>Hemodialisis merupakan terapi cuci darah di luar tubuh</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="d-flex align-self-stretch ftco-animate">
-                                <div class="media block-6 services d-block text-center">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <img src="images/onkologi.png" alt="" style="width: 50%; height:50%;">
-                                    </div>
-                                    <div class="media-body p-2 mt-3">
-                                        <h3 class="heading">Bedah Onkologi Kemoterapi</h3>
-                                        <p>Langkah pengobatan pada pasien kanker yang bertujuan mematikan sel-sel kanker.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
@@ -198,7 +156,6 @@
                 <div class="col-md-6 d-flex">
                     <div class="about-wrap">
                         <div class="row">
-                       @foreach ($LayananUnggulan as $layanan_unggulan => $item)
                             <div class="col-md-12 nav-link-wrap mb-5">
                                 <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist"
                                     aria-orientation="vertical">
@@ -211,7 +168,7 @@
                                         aria-selected="false"><strong>Maklumat</strong></a>
                                 </div>
                             </div>
-                            @endforeach
+    
                             <div class="col-md-12 d-flex align-items-center">
 
                                 <div class="tab-content ftco-animate" id="v-pills-tabContent">
@@ -263,46 +220,181 @@
                     <h2 class="mb-3"><strong>ARTIKEL KESEHATAN</strong></h2>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-                        <div class="staff">
-                            <div class="img mb-4" style="background-image: url(images/dehidrasi.png);"></div>
-                            <br>
-                            <br>
-                            <div class="info text-center">
-                                <div class="text">
-                                    <p>Waspada Dehidrasi pada Anak !</p>
+                    <div class="container-swiper">
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="staff">
+                                        <div class="img mb-4" style="background-image: url(images/dokter.png);"></div>
+                                        <div class="info text-center">
+                                            <h3><a href="teacher-single.html">Dokter Contoh</a></h3>
+                                            <span class="position">Dokter Spesialis Paru</span>
+                                            <div class="text">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Senin</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Selasa</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Rabu</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Kamis</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Jum'at</p>08:00 - 10:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Sabtu</p>08:00 - 12:00
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="swiper-slide">
+                                    <div class="staff">
+                                        <div class="img mb-4" style="background-image: url(images/dokter.png);"></div>
+                                        <div class="info text-center">
+                                            <h3><a href="teacher-single.html">Dokter Contoh</a></h3>
+                                            <span class="position">Dokter Spesialis Paru</span>
+                                            <div class="text">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Senin</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Selasa</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Rabu</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Kamis</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Jum'at</p>08:00 - 10:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Sabtu</p>08:00 - 12:00
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="staff">
+                                        <div class="img mb-4" style="background-image: url(images/dokter.png);"></div>
+                                        <div class="info text-center">
+                                            <h3><a href="teacher-single.html">Dokter Contoh</a></h3>
+                                            <span class="position">Dokter Spesialis Paru</span>
+                                            <div class="text">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Senin</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Selasa</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Rabu</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Kamis</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Jum'at</p>08:00 - 10:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Sabtu</p>08:00 - 12:00
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="staff">
+                                        <div class="img mb-4" style="background-image: url(images/dokter.png);"></div>
+                                        <div class="info text-center">
+                                            <h3><a href="teacher-single.html">Dokter Contoh</a></h3>
+                                            <span class="position">Dokter Spesialis Paru</span>
+                                            <div class="text">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Senin</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Selasa</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Rabu</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Kamis</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Jum'at</p>08:00 - 10:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Sabtu</p>08:00 - 12:00
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="staff">
+                                        <div class="img mb-4" style="background-image: url(images/dokter.png);"></div>
+                                        <div class="info text-center">
+                                            <h3><a href="teacher-single.html">Dokter Contoh</a></h3>
+                                            <span class="position">Dokter Spesialis Paru</span>
+                                            <div class="text">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Senin</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Selasa</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Rabu</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Kamis</p>08:00 - 14:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Jum'at</p>08:00 - 10:00
+                                                        </div>
+                                                        <div class="d-flex justify-content-between text-dark">
+                                                            <p>Sabtu</p>08:00 - 12:00
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+        
                             </div>
+                            <div class="swiper-pagination"></div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
-                        <div class="staff">
-                            <div class="img mb-4" style="background-image: url(images/udud.png);"></div>
-                            <br>
-                            <br>
-                            <div class="info text-center">
-                                <div class="text">
-                                    <p>Dampak Rokok Elektronik (Vape) pada Kesehatan Paru-Paru</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4  d-flex mb-sm-4 ftco-animate">
-                        <div class="staff">
-                            <div class="img mb-4" style="background-image: url(images/pijit.png);"></div>
-                            <br>
-                            <br>
-                            <div class="info text-center">
-                                <div class="text">
-                                    <p>Cough CPR sebagai Penanganan Henti Jantung : Mitos atau Fakta</p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
+                   
     </section>
 
 
