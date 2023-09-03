@@ -256,6 +256,7 @@ Route::get('/artikel/klik', function () {
 Route::get('berita', function () {
     return view('pages.berita-artikel.berita');
 });
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/rawat-inap', function () {
@@ -286,5 +287,4 @@ Route::get('petunjuk-umum', function () {
 
 Route::get('/home', function () {
     return view('pages.home');
-
-})->name('home');
+});
