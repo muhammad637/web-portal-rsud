@@ -54,15 +54,15 @@
                                 <td>2</td>
                                 <td>
                                     <a class="badge bg-success border-0" data-bs-toggle="modal" href="#editDokter"><img
-                                            src="{{ asset('icon/icon_folder.png') }}" alt=""></a>
+                                            src="{{ asset('images/icon/icon_folder.svg') }}" alt=""></a>
                                     <a class="badge bg-primary border-0" data-bs-toggle="modal"
-                                        href="#tarifKamar-{{ $item->id }}"><img src="{{ asset('icon/icon_pen.png') }}"
+                                        href="#tarifKamar-{{ $item->id }}"><img src="{{ asset('images/icon/icon_pen.svg') }}"
                                             alt=""></a>
                                     <form action="{{ route('admin.tarif.delete', ['tarif' => $item->id]) }}"
                                         class="d-inline" method="post">
                                         @csrf
                                         <button type="submit" class="badge bg-danger border-0">
-                                            <img src="{{ asset('icon/icon_trash.png') }}" alt="">
+                                            <img src="{{ asset('images/icon/icon_trash.svg') }}" alt="">
                                         </button>
                                     </form>
                                 </td>

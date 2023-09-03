@@ -128,20 +128,21 @@
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
+                            {{-- @foreach ($LayananUnggulan as $layanan_unggulan => $item) --}}
                             <div class="d-flex align-self-stretch ftco-animate">
                                 <div class="media block-6 services d-block text-center">
                                     <div class="icon d-flex justify-content-center align-items-center">
-                                        <img src="{{ 'images/dsa.png' }}" alt="" style="width: 50%; height: 50%;">
+                                        <img src="" alt="" style="width: 50%; height: 50%;">
                                         {{-- <span class="flaticon-tooth-1"></span> --}}
                                     </div>
                                     <div class="media-body p-2 mt-3">
-                                        <h3 class="heading">DSA</h3>
-                                        <p>Prosedur endovascular yang menjadi gold standar untuk semua tindakan pembuluh
-                                            darah otak.</p>
+                                        <h3 class="heading"></h3>
+                                        <p>.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        {{-- @endforeach --}}
                         <div class="swiper-slide">
                             <div class="d-flex align-self-stretch ftco-animate">
                                 <div class="media block-6 services d-block text-center">
@@ -197,6 +198,7 @@
                 <div class="col-md-6 d-flex">
                     <div class="about-wrap">
                         <div class="row">
+                       @foreach ($LayananUnggulan as $layanan_unggulan => $item)
                             <div class="col-md-12 nav-link-wrap mb-5">
                                 <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist"
                                     aria-orientation="vertical">
@@ -209,6 +211,7 @@
                                         aria-selected="false"><strong>Maklumat</strong></a>
                                 </div>
                             </div>
+                            @endforeach
                             <div class="col-md-12 d-flex align-items-center">
 
                                 <div class="tab-content ftco-animate" id="v-pills-tabContent">

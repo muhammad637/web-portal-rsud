@@ -58,10 +58,10 @@
                                 <td>{{ $item->nama_kategori }}</td>
                                 <td>
                                     <a class="badge bg-warning border-0" data-bs-toggle="modal"
-                                        href="#editKategori{{ $item->id }}"><img src="{{ asset('icon/icon_pen.png') }}"
+                                        href="#editKategori{{ $item->id }}"><img src="{{ asset('images/icon/icon_pen.svg') }}"
                                             alt=""></a>
                                     <a href="#" class="badge bg-danger border-0"><img
-                                            src="{{ asset('icon/icon_trash.png') }}" alt=""></a>
+                                            src="{{ asset('images/icon/icon_trash.svg') }}" alt=""></a>
                                 </td>
                             </tr>
 

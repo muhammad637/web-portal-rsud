@@ -21,10 +21,13 @@ use App\Http\Controllers\RawatInapController;
 use App\Http\Controllers\RawatJalanController;
 use App\Http\Controllers\SAKIPController;
 use App\Http\Controllers\TarifController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\UserController;
 use App\Models\BeritaDanArtikel;
 use App\Models\Persyaratan;
 use App\Models\RawatInap;
 use App\Models\SAKIP;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
 |--------------------------------------------------------------------------
@@ -222,6 +225,14 @@ Route::middleware('auth')->group(function () {
     Route::put('/admin/sakip/{sakip:id}/update', [SAKIP::class, 'sakipUpdate'])->name('admin.sakip.update');
 });
 
+Route::get('/admin/profile', [ProfilController::class, 'profile'])->name('admin.profile'); 
+Route::put('admin/profile/{user:id}/password', [ProfilController::class, 'passwordProfile'])->name('admin.profile.password');
+Route::get('/admin/user', [UserController::class, 'index'])->name('admin.user');
+Route::get('/admin/user/create', [UserController::class, 'userCreate'])->name('admin.user.create');
+Route::post('/admin/user/store', [UserController::class, 'userStore'])->name('admin.user.store');
+    
+
+
 Route::get('/profil', function () {
     return view('pages.profil.profil');
 });
@@ -275,4 +286,5 @@ Route::get('petunjuk-umum', function () {
 
 Route::get('/home', function () {
     return view('pages.home');
-});
+
+})->name('home');

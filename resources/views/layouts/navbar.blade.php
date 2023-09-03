@@ -59,10 +59,15 @@
 				<li><a class="dropdown-item" href="/sakip">Sakip</a></li>
 			</ul>
 		</li>
-
+		@if (auth()->user())
+		<li class="nav-item"><a href="/admin/dashboard" class="nav-link"><strong>Dashboard</strong></a></li>
+		@endif
 	          {{-- <li class="nav-item"><a href="" class="nav-link">Berita</a></li> --}}
 	        </ul>
+			
 	      </div>
+		  
 	    </div>
+		
 	  </nav>	
     <!-- END nav -->
