@@ -37,7 +37,7 @@
 			                <h3 class="heading"><a href="#">{{$item->judul}}
 								</a></h3>
 			                <p>{{$item->isi}}.</p>
-			                <p><a href="" class="btn btn-primary btn-outline-primary">Read more</a></p>
+			                <p><a href="{{(route('isi-berita'))}}" class="btn btn-primary btn-outline-primary">Read more</a></p>
 			              </div>
 		              </div>
 					  @endforeach

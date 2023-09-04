@@ -248,7 +248,7 @@ Route::get('/artikel/klik', function () {
 Route::get('/artikel', [BeritaDanArtikelController::class, 'Artikelindex'])->name('artikel');
 
 Route::get('/berita', [BeritaDanArtikelController::class, 'Beritaindex'])->name('berita');
-
+Route::get('/isi-berita', [BeritaDanArtikelController::class, 'IsiBeritaindex'])->name('isi-berita');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/rawat-inap', [RawatInapController::class, 'rawatInapIndex'])->name('rawat-inap');

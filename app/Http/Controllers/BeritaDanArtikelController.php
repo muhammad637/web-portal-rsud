@@ -23,6 +23,11 @@ class BeritaDanArtikelController extends Controller
     }
 
 
+    public function IsiBeritaindex(){
+        return view('pages/berita-artikel/isi-berita');
+    }
+
+
     // admin-berita
     public function berita()
     {
