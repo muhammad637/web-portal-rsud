@@ -23,8 +23,9 @@ class BeritaDanArtikelController extends Controller
     }
 
 
-    public function IsiBeritaindex(){
-        return view('pages/berita-artikel/isi-berita');
+    public function IsiBeritaindex(BeritaDanArtikel $beritaDanArtikel){
+        return view('pages/berita-artikel/isi-berita', [
+            "beritaDanArtikel" => $beritaDanArtikel ]);
     }
 
 
