@@ -1,6 +1,7 @@
 @extends('main')
 @push('link-css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    @livewireStyles
     <style>
         .ftco-section .nav-pills .nav-link.active,
         .ftco-section .nav-pills .nav-link:hover {
@@ -17,7 +18,8 @@
         .container-swiper {
             height: 20rem;
         }
-        .container-apa{
+
+        .container-apa {
             height: 58rem;
         }
 
@@ -82,32 +84,11 @@
                 </div>
                 <div class="col-md-6 color-3 p-4">
                     <h3 class="mb-2">Cari Dokter</h3>
-                    <form action="#" class="appointment-form">
-                        <div class="row">
-
-
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <div class="icon"><span class="icon-user"></span></div>
-                                    <input type="text" class="form-control" id="appointment_name"
-                                        placeholder="Nama Dokter">
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <div class="select-wrap">
-                                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                        <select name="" id="" class="form-select form-control"
-                                            aria-placeholder="Spesialis">
-                                            @foreach ($Spesialis as $spesialis)
-                                            <option value="" class="text-dark" >{{$spesialis->nama_spesialis}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                    <form action="{{route('dokter.cari')}}" class="appointment-form">
+                      
+                            @livewire('search-dokter', ['Spesialis' => $Spesialis])
+                            
+                      
                         <div class="form-group">
                             <input type="submit" value="Telusuri" class="btn btn-primary">
                         </div>
@@ -128,8 +109,8 @@
             <div class="container-swiper">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            @foreach ($LayananUnggulan as $layanan_unggulan => $item)
+                        @foreach ($LayananUnggulan as $layanan_unggulan => $item)
+                            <div class="swiper-slide">
                                 <div class="d-flex align-self-stretch ftco-animate">
                                     <div class="media block-6 services d-block text-center">
                                         <div class="icon d-flex justify-content-center align-items-center">
@@ -142,7 +123,7 @@
                                         </div>
                                     </div>
                                 </div>
-                        </div>
+                            </div>
                         @endforeach
                     </div>
                     <div class="swiper-pagination"></div>
@@ -221,20 +202,20 @@
                     <h2 class="mb-4"><strong>ARTIKEL KESEHATAN</strong></h2>
                 </div>
             </div>
-            <div class="container-apa" style=>
+            <div class="container-apa">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                         @foreach ($Artikel as $artikel)
-                        <div class="swiper-slide">
-                            <div class="staff">
-                                <div class="img mb-4" style="background-image: url({{$artikel->gambar}});"></div>
-                                <div class="info text-center">
-                                    <h3><a href="teacher-single.html">{{$artikel->judul}}</a></h3>
-                                    <span class="">{!!$artikel->isi!!}</span>
+                            <div class="swiper-slide">
+                                <div class="staff">
+                                    <div class="img mb-4" style="background-image: url({{ $artikel->gambar }});"></div>
+                                    <div class="info text-center">
+                                        <h3><a href="teacher-single.html">{{ $artikel->judul }}</a></h3>
+                                        <span class="">{!! $artikel->isi !!}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        @endforeach 
+                        @endforeach
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
@@ -242,7 +223,7 @@
         </div>
     </section>
 
-    
+
     <section class="ftco-gallery">
         <div class="container-wrap">
             <div class="row no-gutters">
@@ -277,62 +258,62 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4 ftco-animate">
-                                <div class="blog-entry">
-                                    @foreach ($Berita as $berita)
-                                    <a href="blog-single.html" class="block-20"
-                                        style="background-image: url('{{$berita->gambar}}');">
-                                    </a>
-                                    <div class="text d-flex py-4">
-                                        <div class="meta mb-3">
-                                            <div><a href="#">{{$berita->created_at}}</a></div>
-                                            <div><a href="#">Admin</a></div>
-                                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span>
-                                                    {{$berita->views}}</a></div>
-                                        </div>
-                                        <div class="desc pl-3">
-                                            <h3 class="heading"><a href="#">{{$berita->judul}}</a></h3>
+                            @foreach ($Berita as $berita)
+                                <div class="col-md-4 ftco-animate">
+                                    <div class="blog-entry">
+                                        <a href="blog-single.html" class="block-20"
+                                            style="background-image: url('{{ $berita->gambar }}');">
+                                        </a>
+                                        <div class="text d-flex py-4">
+                                            <div class="meta mb-3">
+                                                <div><a href="#">{{ $berita->created_at }}</a></div>
+                                                <div><a href="#">Admin</a></div>
+                                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span>
+                                                        {{ $berita->views }}</a></div>
+                                            </div>
+                                            <div class="desc pl-3">
+                                                <h3 class="heading"><a href="#">{{ $berita->judul }}</a></h3>
+                                            </div>
                                         </div>
                                     </div>
-                                    @endforeach
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
             </div>
         </div>
         </div>
     </section>
-@endsection
 
-@push('link-script')
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            var swiper = new Swiper(".mySwiper", {
-                breakpoints: {
-                    640: {
-                        slidesPerView: 1,
-                        // spaceBetween: 20,
+    @push('link-script')
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                var swiper = new Swiper(".mySwiper", {
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 1,
+                            // spaceBetween: 20,
+                        },
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
                     },
-                    768: {
-                        slidesPerView: 3,
-                        spaceBetween: 30,
+                    autoplay: {
+                        delay: 5000,
                     },
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 30,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
                     },
-                },
-                autoplay: {
-                    delay: 5000,
-                },
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true,
-                },
-            });
-        })
-    </script>
-@endpush
+                });
+            })
+        </script>
+        @livewireScripts
+    @endpush

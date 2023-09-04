@@ -34,19 +34,19 @@
     <script>
         var swiper = new Swiper(".mySwiper", {
             breakpoints: {
-                    640: {
-                        slidesPerView: 1,
-                        // spaceBetween: 20,
-                    },
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 30,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 30,
-                    },
+                640: {
+                    slidesPerView: 1,
+                    // spaceBetween: 20,
                 },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+            },
             autoplay: {
                 delay: 3000,
             },
@@ -92,30 +92,36 @@
             <div class="container-swiper">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="staff">
-                                @foreach ($Dokter as $index => $item)
-                                    
-                               
-                                <div class="img mb-4" style="background-image: url(images/dokter.png);"></div>
-                                <div class="info text-center">
-                                    <h3><a href="teacher-single.html">{{$item->nama}}</a></h3>
-                                    <span class="position">{{$item->spesialis->nama_spesialis}}</span>
-                                    <div class="text">
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="d-flex justify-content-between text-dark">
-                                                    @foreach ($item->jadwalDokter as $value)
-                                                    <p>{{$value->hari}}</p> {{ Carbon\Carbon::parse($value->jam_mulai_praktik)->format('H:i') }} -  {{ Carbon\Carbon::parse($value->jam_selesai_praktik)->format('H:i') }}
-                                                    @endforeach
+                        @foreach ($Dokter as $index => $item)
+                            <div class="swiper-slide">
+                                <div class="staff">
+                                    <div class="img mb-4" style="background-image: url({{ asset('images/dokter.png') }});">
+                                    </div>
+                                    <div class="info text-center">
+                                        <h3>{{ $item->nama }}</h3>
+                                        <span class="position">{{ $item->spesialis->nama_spesialis }}</span>
+                                        <div class="text">
+                                            <div class="row">
+                                                <div class="col">
+                                                    @if (count($item->jadwalDokter) > 0)
+                                                        @foreach ($item->jadwalDokter as $value)
+                                                            <div class="d-flex justify-content-between text-dark">
+                                                                <p>{{ $value->hari }}</p>
+                                                                {{ Carbon\Carbon::parse($value->jam_mulai_praktik)->format('H:i') }}
+                                                                -
+                                                                {{ Carbon\Carbon::parse($value->jam_selesai_praktik)->format('H:i') }}
+                                                            </div>
+                                                        @endforeach
+                                                    @else
+                                                        <p class="text-center" style="text-align: center"> - </p>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>

@@ -259,6 +259,7 @@ Route::get('layanan-unggulan', [LayananUnggulanController::class, 'Unggulanindex
 Route::get('rawat-jalan', [RawatJalanController::class, 'RawatJalanindex'])->name('rawat-jalan');
 Route::get('layanan-mcu',[MedicalCheckUpController::class, 'mcuindex'])->name('mcu');
 Route::get('/caridokter', [DokterController::class, 'index'])->name('dokter');
+Route::get('/caridokter/cari', [DokterController::class, 'cari'])->name('dokter.cari');
 
 Route::get('/ketersediaantempat', function () {
     return view('pages.pasien-pengunjung.ketersediaan-tempat');

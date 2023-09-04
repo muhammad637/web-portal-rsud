@@ -20,17 +20,24 @@ class DokterController extends Controller
      */
     public function index()
     {
-      
+
         $dokter = Dokter::all();
         $jadwal_dokter = JadwalDokter::all();
         $spesialis = Spesialis::all();
         return view('pages/pasien-pengunjung/dokter', [
             'Dokter' => $dokter,
-     
             'Spesialis' => $spesialis,
         ]);
 
         // return $layanan_unggulan;
+    }
+    public function cari(Request $request)
+    {
+        $dokter = Dokter::where('nama', 'like', '%' . $request->nama_dokter . '%')->where('spesialis_id',$request->spesialis_id)->get();
+        // return $dokter;
+        return view('pages/pasien-pengunjung/dokter', [
+            'Dokter' => $dokter,
+        ]);
     }
 
     public function dokter()
