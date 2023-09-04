@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alur;
+use App\Models\Persyaratan;
 use GrahamCampbell\ResultType\Success;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
@@ -23,6 +24,19 @@ class AlurController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function alurindex(){
+        return view('pages.informasi.alur-persyaratan',[
+            'Alur' => Alur::all(),
+            'Persyaratan' => Persyaratan::all()
+        ]);
+    }
+
+
+
+
+
+
     public function alur()
     {
         return view('admin.pages.informasi.alur.index', [

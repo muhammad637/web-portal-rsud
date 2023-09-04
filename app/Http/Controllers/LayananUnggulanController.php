@@ -14,6 +14,18 @@ class LayananUnggulanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function UnggulanIndex()
+    {
+        $unggulan = LayananUnggulan::all();
+        return view('pages/layanan/layanan-unggulan', [
+            'Unggulan' => $unggulan
+        ]);
+    }
+
+
+
+
     public function unggulan()
     {
         return view('admin.pages.pelayanan.layanan-unggulan.index', [

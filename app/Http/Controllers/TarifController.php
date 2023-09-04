@@ -13,6 +13,14 @@ class TarifController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function tarifindex(){
+        return view('pages.informasi.tarif', [
+            'tarifTindakan' => Tarif::where('type', 'tindakan')->get(),
+            'tarifKamar' => Tarif::where('type', 'kamar')->get()
+        ]);
+    }
+
     public function index()
     {
         return view('admin.pages.informasi.tarif.index', [

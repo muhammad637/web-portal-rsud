@@ -63,58 +63,24 @@
                         <div class="col-md-6">
                             <div class="petunjuk-umum">
                                 <div class="row align-items-center">
+                                    @foreach ($sakip as $item)
                                     <div class="col-md-2 col-lg-2  col-6">
-                                        <div class="img mb-4" style="background-image: url(images/pdf.png);">
-                                        </div>
+                                        <a class="img mb-4 d-inline-block" href="{{$item->link_file}}" style="background-image: url(images/pdf.png);">
+                                        </a>
                                     </div>
                                     <div class="col">
                                         <div class="info">
-                                            <h3>IKU Direktur 2022
+                                            <h3>{{$item->nama}}
                                             </h3>
                                             <span class="position">Ukuran 16,9 KB</span>
                                         </div>
 
                                     </div>
+                                    
                                 </div>
+                                @endforeach
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="petunjuk-umum">
-                                <div class="row align-items-center">
-                                    <div class="col-md-2 col-lg-2  col-6">
-                                        <div class="img mb-4" style="background-image: url(images/pdf.png);">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="info">
-                                            <h3>PK Direktur 2022</h3>
-                                            <span class="position">Ukuran 10,4 KB</span>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="petunjuk-umum">
-                                <div class="row align-items-center">
-                                    <div class="col-md-2 col-lg-2  col-6">
-                                        <div class="img mb-4" style="background-image: url(images/pdf.png);">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="info">
-                                            <h3>LKJIP RSUD Blambangan 2022</h3>
-                                            <span class="position">Ukuran 3,34 MB</span>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
                     </div>
                 </div>
 

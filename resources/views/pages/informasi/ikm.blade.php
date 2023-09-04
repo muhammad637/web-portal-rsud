@@ -21,7 +21,7 @@
                     <div class="col-md-7 col-sm-12 ftco-animate mb-5">
                         <p class="breadcrumbs" data-scrollax=" properties: { translateY: '70%', opacity: 1.6}"><span
                                 class="mr-2"><a href="index.html">Home</a></span> <span>Informasi</span></p>
-                        <h1 class="mb-3" data-scrollax=" properties: { translateY: '70%', opacity: .9}">LKM RSUD
+                        <h1 class="mb-3" data-scrollax=" properties: { translateY: '70%', opacity: .9}">IKM RSUD
                             Blambangan</h1>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                                 aria-orientation="vertical">
 
                                 <a class="nav-link active" id="v-pills-mission-tab" data-toggle="pill" href="#v-pills-mission"
-                                    role="tab" aria-controls="v-pills-mission" aria-selected="false">Layanan Kepuasan Masyarakat</a>
+                                    role="tab" aria-controls="v-pills-mission" aria-selected="false">Index Kepuasan Masyarakat</a>
                             </div>
                         </div>
                         <div class="col-md-12 d-flex align-items-center">
@@ -63,41 +63,23 @@
                         <div class="col-md-6">
                             <div class="petunjuk-umum">
                                 <div class="row align-items-center">
+                                    @foreach ($ikm as $item)
                                     <div class="col-md-2 col-lg-2  col-6">
-                                        <div class="img mb-4" style="background-image: url(images/pdf.png);">
-                                        </div>
+                                        <a class="img mb-4 d-inline-block" href="storage/{{$item->pdf}}" style="background-image: url(images/pdf.png);">
+                                        </a>
                                     </div>
                                     <div class="col">
                                         <div class="info">
-                                            <h3>IKM RSUD Blambangan 2022
+                                            <h3>{{$item->nama}}
                                             </h3>
                                             <span class="position">Ukuran 16,9 KB</span>
                                         </div>
 
                                     </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="petunjuk-umum">
-                                <div class="row align-items-center">
-                                    <div class="col-md-2 col-lg-2  col-6">
-                                        <div class="img mb-4" style="background-image: url(images/pdf.png);">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="info">
-                                            <h3>IKM RSUD Blambangan 2023</h3>
-                                            <span class="position">Ukuran 10,4 KB</span>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
                     </div>
                 </div>
 

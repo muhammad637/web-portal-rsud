@@ -13,6 +13,15 @@ class SAKIPController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function sakipindex(){
+        return view('pages.informasi.sakip', [
+            'sakip' => Sakip::all()
+        ]);
+    }
+
+
+
     public function sakip()
     {
         

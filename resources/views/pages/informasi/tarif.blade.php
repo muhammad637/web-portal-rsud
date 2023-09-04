@@ -51,24 +51,12 @@
                         </tr>
                     </thead>
                     <tbody class="text-center">
+                        @foreach ($tarifKamar as $item)
                         <tr>
-                         
-                            <td>Kelas I</td>
-                            <td>Rp. 525.000,00</td>
+                            <td>{{$item->nama}}</td>
+                            <td>{{$item->tarif}}</td>
                         </tr>
-                        <tr>
-                            <td>Kelas II</td>
-                            <td>Rp. 360.000,00</td>
-                        </tr>
-                        <tr>
-                            <td>Kelas III</td>
-                            <td>Rp. 300.000,00</td>
-                        </tr>
-                        <tr>
-                            <td>Utama I</td>
-                            <td>Rp. 750.000,00</td>
-                        </tr>
-    
+                        @endforeach
                     </tbody>
                 </table>
 
@@ -82,24 +70,16 @@
                         </tr>
                     </thead>
                     <tbody class="text-center">
+                        @foreach ($tarifTindakan as $item)
                         <tr>
-                         
-                            <td>Jasa Konsultasi Rawat Jalan Reguler</td>
-                            <td>Rp. 50.000,00</td>
+                       
+                             
+                        
+                            <td>{{$item->nama}}</td>
+                            <td>{{$item->tarif}}</td>
+                       
                         </tr>
-                        <tr>
-                            <td>Jasa Konsultasi Poli Non-BPJS</td>
-                            <td>Rp. 145.000,00</td>
-                        </tr>
-                        <tr>
-                            <td>Jasa Visite Dokter Spesialias - Rawat Jalan</td>
-                            <td>Rp. 200.000,00</td>
-                        </tr>
-                        <tr>
-                            <td>Jasa Konsultasi - Rawat Inap</td>
-                            <td>Rp. 400.000,00</td>
-                        </tr>
-    
+                        @endforeach
                     </tbody>
                 </table>
 

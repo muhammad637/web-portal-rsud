@@ -13,6 +13,15 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class BeritaDanArtikelController extends Controller
 {
+    //berita-portal
+    public function Beritaindex(){
+        return view('pages/berita-artikel/berita', [
+            'berita' => BeritaDanArtikel::where('jenis', 'berita')->take(5)->get(),
+            // $beritaTerbaru = BeritaDanArtikel::orderBy('tanggal', 'desc')->take(5)->get()
+            'BeritaTerbaru' => BeritaDanArtikel::orderBy('updated_at', 'desc')->take(3)->get()
+        ]);
+    }
+
 
     // admin-berita
     public function berita()
@@ -86,6 +95,21 @@ class BeritaDanArtikelController extends Controller
         );
         return redirect(route('admin.berita'))->with('success', 'berhasil update berita');
     }
+
+
+    //artikel-portal
+    public function Artikelindex(){
+        return view('pages/berita-artikel/artikel', [
+            'artikel' => BeritaDanArtikel::where('jenis', 'artikel')->take(5)->get(),
+            'kategori' => Kategori::all(),
+            // $beritaTerbaru = BeritaDanArtikel::orderBy('tanggal', 'desc')->take(5)->get()
+            'ArtikelTerbaru' => BeritaDanArtikel::where('jenis', 'artikel')
+            ->orderBy('created_at', 'desc')
+            ->take(3)
+            ->get()
+        ]);
+    }
+
 
     // admin-artikel
     public function artikel()

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokter;
+use App\Models\JadwalDokter;
 use App\Models\RawatJalan;
 use App\Models\Spesialis;
 use Illuminate\Contracts\Support\ValidatedData;
@@ -17,6 +18,21 @@ class DokterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index()
+    {
+      
+        $dokter = Dokter::all();
+        $jadwal_dokter = JadwalDokter::all();
+        $spesialis = Spesialis::all();
+        return view('pages/pasien-pengunjung/dokter', [
+            'Dokter' => $dokter,
+     
+            'Spesialis' => $spesialis,
+        ]);
+
+        // return $layanan_unggulan;
+    }
+
     public function dokter()
     {
         // return Dokter::all();

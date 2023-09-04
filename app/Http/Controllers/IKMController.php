@@ -13,6 +13,15 @@ class IKMController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function ikmindex(){
+        return view('pages.informasi.ikm', [
+            'ikm' => IKM::all()
+        ]);
+    }
+
+
     public function ikm()
     {
         

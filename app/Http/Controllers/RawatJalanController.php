@@ -10,6 +10,17 @@ use Illuminate\Support\Facades\Storage;
 class RawatJalanController extends Controller
 {
     //
+
+
+
+    public function rawatJalanindex(){
+        return view('pages.layanan.rawat-jalan', [
+            'RawatJalan' => RawatJalan::all()
+        ]);
+    }
+
+
+
     public function rawatJalan()
     {
         return view('admin.pages.pelayanan.rawat-jalan.index', [

@@ -236,44 +236,30 @@ Route::post('/admin/user/store', [UserController::class, 'userStore'])->name('ad
 Route::get('/profil', function () {
     return view('pages.profil.profil');
 });
-Route::get('alur-persyaratan', function () {
-    return view('pages.informasi.alur-persyaratan');
-});
+Route::get('/alur-persyaratan', [AlurController::class, 'alurindex'])->name('alur-persyaratan');
 
-Route::get('tarif', function () {
-    return view('pages.informasi.tarif');
-});
-Route::get('lkm', function () {
-    return view('pages.informasi.lkm');
-});
-Route::get('sakip', function () {
-    return view('pages.informasi.sakip');
-});
+Route::get('tarif', [TarifController::class, 'tarifindex'])->name('tarif');
+Route::get('ikm', [IKMController::class, 'ikmindex'])->name('ikm');
+Route::get('sakip', [SAKIPController::class, 'sakipindex'])->name('sakip');
 Route::get('/artikel/klik', function () {
     return view('pages.berita-artikel.isi-artikel');
 });
 
-Route::get('berita', function () {
-    return view('pages.berita-artikel.berita');
-});
+Route::get('/artikel', [BeritaDanArtikelController::class, 'Artikelindex'])->name('artikel');
+
+Route::get('/berita', [BeritaDanArtikelController::class, 'Beritaindex'])->name('berita');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/rawat-inap', function () {
-    return view('pages.layanan.rawat-inap');
-});
-Route::get('/layanan-unggulan', function () {
-    return view('pages.layanan.layanan-unggulan');
-});
-Route::get('/rawat-jalan', function () {
-    return view('pages.layanan.rawat-jalan');
-});
-Route::get('layanan-mcu', function () {
-    return view('pages.layanan.layanan-mcu');
-});
-Route::get('/caridokter', function () {
-    return view('pages.pasien-pengunjung.dokter');
-});
+Route::get('/rawat-inap', [RawatInapController::class, 'rawatInapIndex'])->name('rawat-inap');
+// Route::get('/rawat-inap', function () {
+//     return view('pages.layanan.rawat-inap');
+// });
+Route::get('layanan-unggulan', [LayananUnggulanController::class, 'Unggulanindex'])->name('layanan-unggulan');
+Route::get('rawat-jalan', [RawatJalanController::class, 'RawatJalanindex'])->name('rawat-jalan');
+Route::get('layanan-mcu',[MedicalCheckUpController::class, 'mcuindex'])->name('mcu');
+Route::get('/caridokter', [DokterController::class, 'index'])->name('dokter');
+
 Route::get('/ketersediaantempat', function () {
     return view('pages.pasien-pengunjung.ketersediaan-tempat');
 });

@@ -19,7 +19,10 @@
 		<section class="ftco-section">
     	<div class="container">
     		<div class="row d-md-flex">
-	    		<div class="col-md-6 ftco-animate img about-image order-md-last" style="background-image: url(images/mcu.png);">
+				@foreach ($Unggulan as $item)
+					
+				
+	    		<div class="col-md-6 ftco-animate img about-image order-md-last" style="background-image: url({{$item->gambar}});">
 	    		</div>
 	    		<div class="col-md-6 ftco-animate pr-md-5 order-md-first">
 		    		<div class="row">
@@ -27,8 +30,8 @@
 
 		              <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel" aria-labelledby="v-pills-whatwedo-tab">
 		              	<div>
-			                <h2 class="text-center" style="color: #71C9CE"><b>DSA (Katerisasi Otak)</b></h2>
-			              	<p>Gaya hidup modern dan tingkat stres yang tinggi berdampak terhadap kesehatan. Pemeriksaan kesehatan berkala penting dilakukan demi mencegah terjadinya penyakit degeneratif dan dampaknya yang fatal, menilai faktor risiko terhadap penyakit tertentu, serta untuk memantau perkembangan kesehatan Anda. Tidak semua masalah kesehatan menunjukkan gejala pada tahap awal, oleh karena itu periksakan kesehatan Anda dengan rutin agar penanganannya dapat dilakukan sejak dini. Executive Health Check Up RS menyediakan berbagai pilihan pemeriksaan kesehatan yang spesifik sesuai dengan kebutuhan Anda.</p>
+			                <h2 class="text-center" style="color: #71C9CE"><b>{{$item->nama}}</b></h2>
+			              	<p>{!!$item->deskripsi!!}.</p>
 			                
 				            </div>
 		              </div>
@@ -36,6 +39,7 @@
 		          </div>
 		        </div>
 		      </div>
+			  @endforeach
 		    </div>
     	</div>
     </section>

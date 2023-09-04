@@ -64,7 +64,11 @@
         <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel" aria-labelledby="v-pills-whatwedo-tab">
             <div class="container">
                 <div class="my-image-container">
-                    <img src="images/alur.png" class="img-center">
+                    @foreach ($Alur as $item)
+                        
+                    <p>{{$item->nama}}</p>
+                    <img src="{{$item->gambar}}" class="img-center">
+                    @endforeach
                 </div>
 
             </div>
@@ -82,40 +86,15 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Jaminan Kesehatan Nasional</td>
+                            @foreach ($Persyaratan as $index => $item)
+                                
+                    
+                            <th scope="row">{{$index + 1}}</th>
+                            <td>{{$item->jenis_penjaminan}}</td>
                             <td>
-                                <li>Kartu Indonesia JKN</li>
-                                <li>KTP / KK</li>
-                                <li>Surat Rujukan (Kecuali Masuk Melalui IGD)</li>
+                                <li>{{$item->rawat_inap}}</li>
                             </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Pembiayaan Pelayanan Kesehatan Bagi Masyarakat Miskin</td>
-                            <td>
-                                <li>Kartu Indonesia JKN</li>
-                                <li>KTP / KK</li>
-                                <li>Surat Rujukan (Kecuali Masuk Melalui IGD)</li>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>BPJS Ketenagakerjaan</td>
-                            <td>
-                                <li>Kartu Indonesia JKN</li>
-                                <li>KTP / KK</li>
-                                <li>Surat Rujukan (Kecuali Masuk Melalui IGD)</li>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>PT. Jasa Raharja</td>
-                            <td>
-                                <li>Kartu Indonesia JKN</li>
-                                <li>KTP / KK</li>
-                                <li>Surat Rujukan (Kecuali Masuk Melalui IGD)</li>
-                            </td>
+                            @endforeach
                         </tr>
     
                     </tbody>

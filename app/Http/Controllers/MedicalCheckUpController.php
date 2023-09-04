@@ -14,6 +14,13 @@ class MedicalCheckUpController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function mcuindex(){
+        return view('pages.layanan.layanan-mcu',[
+            'MCU' => MedicalCheckUp::all()
+        ]);
+    }
+
     public function mcu()
     {
         return view('admin.pages.pelayanan.mcu.index', [

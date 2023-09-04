@@ -15,6 +15,16 @@ class RawatInapController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function rawatInapIndex(){
+        $rawatInap = RawatInap::all();
+        return view('pages.layanan.rawat-inap', [
+            'RawatInap' => $rawatInap
+        ]);
+    }
+
+
+
+
     public function rawatInap()
     {
         return view('admin.pages.pelayanan.rawat-inap.index', [

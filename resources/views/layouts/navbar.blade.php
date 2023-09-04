@@ -55,7 +55,7 @@
 				<li><a class="dropdown-item" href="/alur-persyaratan">Alur dan Persyaratan</a></li>
 				<li><a class="dropdown-item" href="/tarif">Tarif</a></li>
 				<li><a class="dropdown-item" href="/petunjuk-umum">Petunjuk Umum</a></li>
-				<li><a class="dropdown-item" href="/lkm">Layanan Kepuasan Masyarakat</a></li>
+				<li><a class="dropdown-item" href="/ikm">Index Kepuasan Masyarakat</a></li>
 				<li><a class="dropdown-item" href="/sakip">Sakip</a></li>
 			</ul>
 		</li>
