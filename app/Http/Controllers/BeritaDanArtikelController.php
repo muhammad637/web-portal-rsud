@@ -14,9 +14,10 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 class BeritaDanArtikelController extends Controller
 {
     //berita-portal
-    public function Beritaindex(){
+    public function Beritaindex()
+    {
         $paginate = 10;
-        $berita = BeritaDanArtikel::where('jenis','berita')->orderBy('updated_at','desc')->paginate($paginate);
+        $berita = BeritaDanArtikel::where('jenis', 'berita')->orderBy('updated_at', 'desc')->paginate($paginate);
         return view('pages/berita-artikel/berita', [
             // 'berita' => BeritaDanArtikel::where('jenis', 'berita')->take(5)->get(),
             'berita' => $berita,
@@ -26,10 +27,14 @@ class BeritaDanArtikelController extends Controller
     }
 
 
-    public function IsiBeritaindex(BeritaDanArtikel $beritaDanArtikel){
+    public function IsiBeritaindex(BeritaDanArtikel $beritaDanArtikel)
+    {
         return view('pages/berita-artikel/isi-berita', [
-            "beritaDanArtikel" => $beritaDanArtikel ]);
+            "item" => $beritaDanArtikel,
+            'berita' => BeritaDanArtikel::where('jenis', 'berita')->orderBy('updated_at', 'desc')->limit(3)->get()
+        ]);
     }
+
 
 
     // admin-berita
@@ -88,7 +93,7 @@ class BeritaDanArtikelController extends Controller
     {
         $rule = [
             'judul' => 'required',
-            'slug' => 'required|unique:berita_dan_artikels,slug,'. $beritaDanArtikel->id,
+            'slug' => 'required|unique:berita_dan_artikels,slug,' . $beritaDanArtikel->id,
             'isi' => 'required',
         ];
 
@@ -107,17 +112,28 @@ class BeritaDanArtikelController extends Controller
 
 
     //artikel-portal
-    public function Artikelindex(){
+    public function Artikelindex()
+    {
         $paginate = 10;
         $artikel = BeritaDanArtikel::where('jenis', 'artikel')->orderBy('updated_at', 'desc')->paginate($paginate);
+        // return $artikel;
         return view('pages/berita-artikel/artikel', [
-            'artikel' =>$artikel,
+            'artikel' => $artikel,
             'kategori' => Kategori::all(),
             // $beritaTerbaru = BeritaDanArtikel::orderBy('tanggal', 'desc')->take(5)->get()
             'ArtikelTerbaru' => BeritaDanArtikel::where('jenis', 'artikel')
-            ->orderBy('created_at', 'desc')
-            ->take(3)
-            ->get()
+                ->orderBy('created_at', 'desc')
+                ->take(3)
+                ->get()
+        ]);
+    }
+
+    public function IsiArtikelindex(BeritaDanArtikel $beritaDanArtikel)
+    {
+        return view('pages/berita-artikel/isi-artikel', [
+            "item" => $beritaDanArtikel,
+            "kategori" => Kategori::all(),
+            'artikel' => BeritaDanArtikel::where('jenis', 'artikel')->orderBy('updated_at', 'desc')->limit(3)->get()
         ]);
     }
 

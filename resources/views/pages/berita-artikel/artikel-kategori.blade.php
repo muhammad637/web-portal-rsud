@@ -9,7 +9,7 @@
                     <div class="col-md-7 col-sm-12 ftco-animate mb-5">
                         <p class="breadcrumbs" data-scrollax=" properties: { translateY: '70%', opacity: 1.6}"><span
                                 class="mr-2"><a href="index.html">Beranda</a></span> <span>Artikel</span></p>
-                        <h1 class="mb-3" data-scrollax=" properties: { translateY: '70%', opacity: .9}">Artikel Kesehatan
+                        <h1 class="mb-3" data-scrollax=" properties: { translateY: '70%', opacity: .9}"> Kumpulan Artikel Kesehatan
                         </h1>
                     </div>
                 </div>

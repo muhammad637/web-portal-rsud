@@ -76,23 +76,23 @@
             <div class="container-swiper">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
+                        @foreach ($RawatJalan as $item)
                         <div class="swiper-slide">
                             <div class="d-flex align-self-stretch ftco-animate">
                                 <div class="media block-6 services d-block text-center">
-                                    @foreach ($RawatJalan as $item)
-                                        
                                     
                                     <div class="icon d-flex justify-content-center align-items-center">
                                         <img src="{{ $item->icon }}" alt="" style="width: 50%; height: 50%;">
                                         {{-- <span class="flaticon-tooth-1"></span> --}}
                                     </div>
-                                    <div class="media-body p-2 mt-5">
+                                    <div class="media-body p-2">
                                         <h3 class="heading">{{$item->nama}}</h3>
                                     </div>
-                                    @endforeach
+                                   
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>

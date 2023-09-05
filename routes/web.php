@@ -244,10 +244,12 @@ Route::get('sakip', [SAKIPController::class, 'sakipindex'])->name('sakip');
 //     return view('pages.berita-artikel.isi-artikel');
 // });
 
+Route::get('/artikel/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'IsiArtikelindex'])->name('isi-artikel');
 Route::get('/artikel', [BeritaDanArtikelController::class, 'Artikelindex'])->name('artikel');
+Route::get('/kategori/{kategori:nama_kategori}', [KategoriController::class, 'kategori'])->name('kategori-artikel');
 
 Route::get('/berita', [BeritaDanArtikelController::class, 'Beritaindex'])->name('berita');
-Route::get('/isi-berita/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'IsiBeritaindex'])->name('isi-berita');
+Route::get('/berita/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'IsiBeritaindex'])->name('isi-berita');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/rawat-inap', [RawatInapController::class, 'rawatInapIndex'])->name('rawat-inap');

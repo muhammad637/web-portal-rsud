@@ -7,10 +7,20 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use App\Models\BeritaDanArtikel;
 
 class KategoriController extends Controller
 {
     //
+    public function kategori(Kategori $kategori){
+        $artikel_kategori = $kategori->beritadanartikel->paginate(5)->get();
+        return view('pages.berita-artikel.artikel-kategori',[
+            'kategoriArtikel' => $kategori,
+            'artikel' => $artikel_kategori,
+            'kategori' => Kategori::all(),
+        ]);
+    }
+
     public function index()
     {
         $kategori = Kategori::orderBy('updated_at', 'desc')->get();
