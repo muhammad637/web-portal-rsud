@@ -241,9 +241,9 @@ Route::get('/alur-persyaratan', [AlurController::class, 'alurindex'])->name('alu
 Route::get('tarif', [TarifController::class, 'tarifindex'])->name('tarif');
 Route::get('ikm', [IKMController::class, 'ikmindex'])->name('ikm');
 Route::get('sakip', [SAKIPController::class, 'sakipindex'])->name('sakip');
-Route::get('/artikel/klik', function () {
-    return view('pages.berita-artikel.isi-artikel');
-});
+// Route::get('/artikel/klik', function () {
+//     return view('pages.berita-artikel.isi-artikel');
+// });
 
 Route::get('/artikel', [BeritaDanArtikelController::class, 'Artikelindex'])->name('artikel');
 

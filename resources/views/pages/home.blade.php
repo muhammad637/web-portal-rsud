@@ -286,9 +286,7 @@
                                     <div class="text d-flex py-4">
                                         <div class="meta mb-3">
                                             <div><a href="#">{{$berita->created_at}}</a></div>
-                                            <div><a href="#">Admin</a></div>
-                                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span>
-                                                    {{$berita->views}}</a></div>
+                                            <div><a href="#"></a></div>
                                         </div>
                                         <div class="desc pl-3">
                                             <h3 class="heading"><a href="#">{{$berita->judul}}</a></h3>
