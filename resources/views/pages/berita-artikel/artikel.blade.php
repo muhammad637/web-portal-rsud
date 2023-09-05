@@ -50,34 +50,24 @@
                     </div>
                     <div class="row mt-5">
                         <div class="col">
-                            <div class="block-27">
-                                <ul>
-                                    <li><a href="#">&lt;</a></li>
-                                    <li class="active"><span>1</span></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">&gt;</a></li>
-                                </ul>
-                            </div>
+                            {{ $artikel->links('pagination::bootstrap-4') }}
                         </div>
                     </div>
                 </div> <!-- END: col-md-8 -->
                 <div class="col-md-4 sidebar ftco-animate">
-                    <div class="sidebar-box">
+                    {{-- <div class="sidebar-box">
                         <form action="#" class="search-form">
                             <div class="form-group">
                                 <span class="icon-search" style="float: right;"></span>
                                 <input type="text" class="form-control" placeholder="Ketik kata kunci dan tekan enter">
                             </div>
                         </form>
-                    </div>
+                    </div> --}}
                     <div class="sidebar-box ftco-animate">
                         <div class="categories">
                             <h3>Katogeri</h3>
                             @foreach ($kategori as $item)
-                                <li><a href="#">{{ $item->nama_kategori }}
+                                <li><a href="#" class="text-decoration-none text-dark">{{ $item->nama_kategori }}
                                         <span>({{ count($item->beritadanArtikel) }})</span></a></li>
                             @endforeach
                         </div>
@@ -86,15 +76,15 @@
                     <div class="sidebar-box ftco-animate">
                         <h3>Artikel Terbaru</h3>
                         <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" style="background-image: url({{$item->gambar}});"></a>
+                            <a class="blog-img mr-4" style="background-image: url({{ $item->gambar }});"></a>
                             <div class="text">
-								@foreach ($ArtikelTerbaru as $item)
-									
-								@endforeach
-                                <h3 class="heading"><a href="#">{{$item->judul}}
+                                @foreach ($ArtikelTerbaru as $item)
+                                @endforeach
+                                <h3 class="heading"><a href="#">{{ $item->judul }}
                                     </a></h3>
                                 <div class="meta">
-                                    <div><a href="#"><span class="icon-calendar"></span> {{ Carbon\Carbon::parse($item->created_at)->format('d-m-y') }} </a></div>
+                                    <div><a href="#"><span class="icon-calendar"></span>
+                                            {{ Carbon\Carbon::parse($item->created_at)->format('d-m-y') }} </a></div>
                                     <div><a href="#"><span class="icon-person"></span> Admin</a></div>
                                 </div>
                             </div>

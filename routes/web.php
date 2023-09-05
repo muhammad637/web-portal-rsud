@@ -237,7 +237,6 @@ Route::get('/profil', function () {
     return view('pages.profil.profil');
 });
 Route::get('/alur-persyaratan', [AlurController::class, 'alurindex'])->name('alur-persyaratan');
-
 Route::get('tarif', [TarifController::class, 'tarifindex'])->name('tarif');
 Route::get('ikm', [IKMController::class, 'ikmindex'])->name('ikm');
 Route::get('sakip', [SAKIPController::class, 'sakipindex'])->name('sakip');
@@ -272,6 +271,4 @@ Route::get('petunjuk-umum', function () {
     return view('pages.informasi.petunjuk-umum');
 });
 
-Route::get('/home', function () {
-    return view('pages.home');
-});
+Route::get('/home', [HomeController::class, 'index']);

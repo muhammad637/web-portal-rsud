@@ -15,8 +15,11 @@ class BeritaDanArtikelController extends Controller
 {
     //berita-portal
     public function Beritaindex(){
+        $paginate = 10;
+        $berita = BeritaDanArtikel::where('jenis','berita')->orderBy('updated_at','desc')->paginate($paginate);
         return view('pages/berita-artikel/berita', [
-            'berita' => BeritaDanArtikel::where('jenis', 'berita')->take(5)->get(),
+            // 'berita' => BeritaDanArtikel::where('jenis', 'berita')->take(5)->get(),
+            'berita' => $berita,
             // $beritaTerbaru = BeritaDanArtikel::orderBy('tanggal', 'desc')->take(5)->get()
             'BeritaTerbaru' => BeritaDanArtikel::orderBy('updated_at', 'desc')->take(3)->get()
         ]);
@@ -105,8 +108,10 @@ class BeritaDanArtikelController extends Controller
 
     //artikel-portal
     public function Artikelindex(){
+        $paginate = 10;
+        $artikel = BeritaDanArtikel::where('jenis', 'artikel')->orderBy('updated_at', 'desc')->paginate($paginate);
         return view('pages/berita-artikel/artikel', [
-            'artikel' => BeritaDanArtikel::where('jenis', 'artikel')->take(5)->get(),
+            'artikel' =>$artikel,
             'kategori' => Kategori::all(),
             // $beritaTerbaru = BeritaDanArtikel::orderBy('tanggal', 'desc')->take(5)->get()
             'ArtikelTerbaru' => BeritaDanArtikel::where('jenis', 'artikel')

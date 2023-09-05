@@ -224,7 +224,7 @@
     </section>
 
 
-    <section class="ftco-gallery">
+    <section class="ftco-gallery ">
         <div class="container-wrap">
             <div class="row no-gutters">
                 <div class="col-md-3 ftco-animate">

@@ -51,11 +51,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-5">
+                   
+                   
+                  <div class="row mt-5">
+                    <div class="col">
+                        {{ $berita->links('pagination::bootstrap-4') }}
+                    </div>
+                  </div>
+                    {{-- <div class="row mt-5">
                         <div class="col">
                             <div class="block-27">
                                 <ul>
-
                                     <li><a href="#">&lt;</a></li>
                                     <li class="active"><span>1</span></li>
                                     <li><a href="#">2</a></li>
@@ -66,7 +72,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div> <!-- END: col-md-8 -->
                 <div class="col-md-4 sidebar ftco-animate">
 

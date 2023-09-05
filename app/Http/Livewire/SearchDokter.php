@@ -8,7 +8,7 @@ use Livewire\Component;
 class SearchDokter extends Component
 {
     public $Spesialis;
-    public $search = 'sa';
+    public $search = '';
     public $results;
     public $displayResult = false;
     public function updatedSearch()
