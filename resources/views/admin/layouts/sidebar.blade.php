@@ -96,7 +96,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('admin/artikel/*') ? 'active' : '' }}"
+                    <a class="sidebar-link {{ Request::is('spesialis*') ? 'active' : '' }}"
                         href="{{ route('admin.artikel') }}" aria-expanded="false">
                         <span>
                             <img src="{{asset('images/icon/icon_spesialis.svg')}}" alt="" width="25px;">
@@ -111,7 +111,7 @@
                     <strong><span class="hide-menu">Konten</span></strong>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('admin/kategori/*') ? 'active' : '' }}"
+                    <a class="sidebar-link {{ Request::is('kategori*') ? 'active' : '' }}"
                         href="{{ route('admin.kategori') }}" aria-expanded="false">
                         <span>
                            <img src="{{asset('images/icon/icon_kategori.svg')}}" alt="">
@@ -120,7 +120,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('admin/berita/*') ? 'active' : '' }}"
+                    <a class="sidebar-link {{ Request::is('berita*') ? 'active' : '' }}"
                         href="{{ route('admin.berita') }}" aria-expanded="false">
                         <span>
                            <img src="{{asset('images/icon/icon_berita.svg')}}" alt="">
@@ -129,7 +129,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item mb">
-                    <a class="sidebar-link {{ Request::is('admin/artikel/*') ? 'active' : '' }}"
+                    <a class="sidebar-link {{ Request::is('artikel*') ? 'active' : '' }}"
                         href="{{ route('admin.artikel') }}" aria-expanded="false">
                         <span>
                            <img src="{{asset('images/icon/icon_artikel.svg')}}" alt="">
@@ -142,7 +142,7 @@
                    <strong><span class="hide-menu">Informasi</span></strong>
                </li>
                <li class="sidebar-item mb">
-                   <a class="sidebar-link {{ Request::is('admin/alur/*') ? 'active' : '' }}"
+                   <a class="sidebar-link {{ Request::is('alur*') ? 'active' : '' }}"
                        href="{{ route('admin.alur') }}" aria-expanded="false">
                        <span>
                           <img src={{asset('images/icon/icon_alur.svg')}} alt="">
@@ -151,7 +151,7 @@
                    </a>
                </li>
                <li class="sidebar-item mb">
-                   <a class="sidebar-link {{ Request::is('admin/persyaratan/*') ? 'active' : '' }}"
+                   <a class="sidebar-link {{ Request::is('persyaratan*') ? 'active' : '' }}"
                        href="{{ route('admin.persyaratan') }}" aria-expanded="false">
                        <span>
                           <img src={{asset('images/icon/icon_persyaratan.svg')}} alt="">
@@ -160,7 +160,7 @@
                    </a>
                </li>
                <li class="sidebar-item mb">
-                   <a class="sidebar-link {{ Request::is('admin/tarif/*') ? 'active' : '' }}"
+                   <a class="sidebar-link {{ Request::is('tarif*') ? 'active' : '' }}"
                        href="{{ route('admin.tarif') }}" aria-expanded="false">
                        <span>
                           <img src={{asset('images/icon/icon_tarif.svg')}} alt="">
@@ -169,7 +169,7 @@
                    </a>
                </li>
                <li class="sidebar-item mb">
-                   <a class="sidebar-link {{ Request::is('admin/index-kepuasan-masyarakat/*') ? 'active' : '' }}"
+                   <a class="sidebar-link {{ Request::is('index-kepuasan-masyarakat/*') ? 'active' : '' }}"
                        href="{{ route('admin.index-kepuasan-masyarakat') }}" aria-expanded="false">
                        <span>
                           <img src={{asset('images/icon/icon_ikm.svg')}} alt="">
@@ -178,7 +178,7 @@
                    </a>
                </li>
                <li class="sidebar-item mb">
-                   <a class="sidebar-link {{ Request::is('admin/sakip/*') ? 'active' : '' }}"
+                   <a class="sidebar-link {{ Request::is('sakip*') ? 'active' : '' }}"
                        href="{{ route('admin.sakip') }}" aria-expanded="false">
                        <span>
                           <img src={{asset('images/icon/icon_sakip.svg')}} alt="">
@@ -191,7 +191,7 @@
                 <strong><span class="hide-menu">Master Data User</span></strong>
             </li>
             <li class="sidebar-item mb-5">
-                <a class="sidebar-link {{ Request::is('admin/user/*') ? 'active' : '' }}"
+                <a class="sidebar-link {{ Request::is('user*') ? 'active' : '' }}"
                     href="{{ route('admin.user') }}" aria-expanded="false">
                     <span>
                         <i class="ti ti-user"></i>
@@ -208,3 +208,4 @@
     </div>
     <!-- End Sidebar scroll-->
 </aside>
+{{-- <div class="loader"></div> --}}

@@ -1,0 +1,38 @@
+
+.gambar-container {
+    margin: 25vh auto;
+    position: relative;
+    width: 300px; /* Ganti dengan lebar yang sesuai */
+    height: 200px; /* Ganti dengan tinggi yang sesuai */
+    overflow: hidden;
+}
+
+.placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0; /* Ganti dengan warna placeholder yang sesuai */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7;
+    transition: opacity 0.75s, visibility 0.75;
+}
+
+
+.placeholder::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    animation: loading 0.75s ease-in-out infinite;
+}
+
+@keyframes loading {
+    from {
+        background-color: rgba(248, 244, 244, 0.932);
+        /* transform: rotate(0turn); */
+    }
+    to {
+        background-color: rgba(123, 255, 145, 0.507);
+        /* transform: rotate(1turn); */
+    }
+}

@@ -14,6 +14,7 @@ $(function () {
       window.location.protocol + "//" + window.location.host + "/",
       ""
     );
+    
     var element = $("ul#sidebarnav a").filter(function () {
       return this.href === url || this.href === path; // || url.href.indexOf(this.href) === 0;
     });

@@ -84,11 +84,11 @@
                 </div>
                 <div class="col-md-6 color-3 p-4">
                     <h3 class="mb-2">Cari Dokter</h3>
-                    <form action="{{route('dokter.cari')}}" class="appointment-form">
-                      
-                            @livewire('search-dokter', ['Spesialis' => $Spesialis])
-                            
-                      
+                    <form action="{{ route('dokter.cari') }}" class="appointment-form">
+
+                        @livewire('search-dokter', ['Spesialis' => $Spesialis])
+
+
                         <div class="form-group">
                             <input type="submit" value="Telusuri" class="btn btn-primary">
                         </div>
@@ -114,8 +114,8 @@
                                 <div class="d-flex align-self-stretch ftco-animate">
                                     <div class="media block-6 services d-block text-center">
                                         <div class="icon d-flex justify-content-center align-items-center">
-                                            <img src="{{ $item->icon }}" alt="" style="width: 50%; height: 50%;">
-                                            {{-- <span class="flaticon-tooth-1"></span> --}}
+                                            <img src="{{ asset('storage/' . $item->icon) }}" alt=""
+                                                style="width: 50%; height: 50%;">
                                         </div>
                                         <div class="media-body p-2 mt-3">
                                             <h3 class="heading">{{ $item->nama }}</h3>
@@ -249,73 +249,71 @@
                     </a>
                 </div>
 
-                <section class="ftco-section">
 
-                    <div class="container">
-                        <div class="row justify-content-center mb-5 pb-3">
-                            <div class="col-md-7 text-center heading-section ftco-animate">
-                                <h2 class="mb-2"><strong>BERITA</strong></h2>
-                            </div>
-                        </div>
-                        <div class="row">
-
-                            @foreach ($Berita as $berita)
-                                <div class="col-md-4 ftco-animate">
-                                    <div class="blog-entry">
-                                        <a href="blog-single.html" class="block-20"
-                                            style="background-image: url('{{ $berita->gambar }}');">
-                                        </a>
-                                        <div class="text d-flex py-4">
-                                            <div class="meta mb-3">
-                                                <div><a href="#">{{ $berita->created_at }}</a></div>
-                                                <div><a href="#">Admin</a></div>
-                                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span>
-                                                        {{ $berita->views }}</a></div>
-                                            </div>
-                                            <div class="desc pl-3">
-                                                <h3 class="heading"><a href="#">{{ $berita->judul }}</a></h3>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
+                <div class="container">
+                    <div class="row justify-content-center mb-5 pb-3">
+                        <div class="col-md-7 text-center heading-section ftco-animate">
+                            <h2 class="mb-2"><strong>BERITA</strong></h2>
                         </div>
                     </div>
+                    <div class="row">
+
+                        @foreach ($Berita as $berita)
+                            <div class="col-md-4 ftco-animate">
+                                <div class="blog-entry">
+                                    <a href="blog-single.html" class="block-20"
+                                        style="background-image: url('{{ $berita->gambar }}');">
+                                    </a>
+                                    <div class="text d-flex py-4">
+                                        <div class="meta mb-3">
+                                            <div><a href="#">{{ $berita->created_at }}</a></div>
+                                            <div><a href="#">Admin</a></div>
+                                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span>
+                                                    {{ $berita->views }}</a></div>
+                                        </div>
+                                        <div class="desc pl-3">
+                                            <h3 class="heading"><a href="#">{{ $berita->judul }}</a></h3>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
     </section>
-
-    @push('link-script')
-        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                var swiper = new Swiper(".mySwiper", {
-                    breakpoints: {
-                        640: {
-                            slidesPerView: 1,
-                            // spaceBetween: 20,
-                        },
-                        768: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-                        },
+@endsection
+@push('link-script')
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var swiper = new Swiper(".mySwiper", {
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1,
+                        // spaceBetween: 20,
                     },
-                    autoplay: {
-                        delay: 5000,
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
                     },
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
                     },
-                });
-            })
-        </script>
-        @livewireScripts
-    @endpush
+                },
+                autoplay: {
+                    delay: 5000,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+        })
+    </script>
+    @livewireScripts
+@endpush
