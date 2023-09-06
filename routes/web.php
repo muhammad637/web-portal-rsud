@@ -1,33 +1,37 @@
 <?php
 
-use App\Http\Controllers\AlurController;
+use App\Models\SAKIP;
+use App\Models\RawatInap;
+use App\Models\Persyaratan;
 use App\Models\JadwalDokter;
 use App\Models\LayananUnggulan;
+use App\Models\BeritaDanArtikel;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DokterController;
-use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\SpesialisController;
-use App\Http\Controllers\JadwalDokterController;
-use App\Http\Controllers\LayananUnggulanController;
-use App\Http\Controllers\BeritaDanArtikelController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IKMController;
+use App\Http\Controllers\AlurController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\MedicalCheckUpController;
-use App\Http\Controllers\PersyaratanController;
-use App\Http\Controllers\PetunjukUmumController;
-use App\Http\Controllers\RawatInapController;
-use App\Http\Controllers\RawatJalanController;
 use App\Http\Controllers\SAKIPController;
 use App\Http\Controllers\TarifController;
+use App\Http\Controllers\DokterController;
 use App\Http\Controllers\ProfilController;
-use App\Http\Controllers\UserController;
-use App\Models\BeritaDanArtikel;
-use App\Models\Persyaratan;
-use App\Models\RawatInap;
-use App\Models\SAKIP;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RawatInapController;
+use App\Http\Controllers\SpesialisController;
+use App\Http\Controllers\RawatJalanController;
+use App\Http\Controllers\PersyaratanController;
+use App\Http\Controllers\JadwalDokterController;
+use App\Http\Controllers\PetunjukUmumController;
+use App\Http\Controllers\KategoriKontenController;
+use App\Http\Controllers\MedicalCheckUpController;
 use Symfony\Component\HttpKernel\Profiler\Profile;
+use App\Http\Controllers\KategoriLayananController;
+use App\Http\Controllers\LayananUnggulanController;
+use App\Http\Controllers\BeritaDanArtikelController;
+use App\Http\Controllers\KontenController;
+use App\Http\Controllers\LayananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,10 +99,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
 
     // konten
-    // kategori
-    Route::get('/admin/kategori', [KategoriController::class, 'index'])->name('admin.kategori');
-    Route::post('/admin/kategori/store', [KategoriController::class, 'store'])->name('admin.kategori.store');
-    Route::put('/admin/kategori/{kategori:id}/update', [KategoriController::class, 'update'])->name('admin.kategori.update');
+
 
     // berita
     Route::get('/admin/berita', [BeritaDanArtikelController::class, 'berita'])->name('admin.berita');
@@ -119,42 +120,25 @@ Route::middleware('auth')->group(function () {
 
 
 
-    // pelayanan
+    // master data
+    // kategori
+    // konten
+    Route::resource('/admin/kategori-konten', KategoriKontenController::class);
+    // layanan
+    Route::resource('/admin/kategori-layanan', KategoriLayananController::class);
+
+    // pages
+    // layanan
+    Route::get('/admin/{kategoriLayanan:slug}', [LayananController::class, 'index'])->name('admin.layanan');
+    Route::get('/admin/{kategoriLayanan:slug}/{layanan:slug}', [LayananController::class, 'show'])->name('admin.layanan.show');
+    Route::get('/admin/{kategoriLayanan:slug}/{layanan:slug}/edit', [LayananController::class, 'edit'])->name('admin.layanan.edit');
+    Route::post('/admin/{kategoriLayanan:slug}/{layanan:slug}', [LayananController::class, 'store'])->name('admin.layanan.store');
+    Route::put('/admin/{kategoriLayanan:slug}/{layanan:slug}', [LayananController::class, 'update'])->name('admin.layanan.update');
+    Route::delete('/admin/{kategoriLayanan:slug}/{layanan:slug}', [LayananController::class, 'delete'])->name('admin.layanan.delete');
+
+    // konten
+    Route::resource('/admin/konten', KontenController::class);
     // unggulan
-    Route::get('/admin/unggulan', [LayananUnggulanController::class, 'unggulan'])->name('admin.unggulan');
-    Route::get('/admin/unggulan/create', [LayananUnggulanController::class, 'unggulanCreate'])->name('admin.unggulan.create');
-    Route::post('/admin/unggulan/store', [LayananUnggulanController::class, 'unggulanStore'])->name('admin.unggulan.store');
-    Route::get('/admin/unggulan/{unggulan:slug}', [LayananUnggulanController::class, 'unggulanShow'])->name('admin.unggulan.show');
-    Route::get('/admin/unggulan/{unggulan:slug}/edit', [LayananUnggulanController::class, 'unggulanEdit'])->name('admin.unggulan.edit');
-    Route::put('/admin/unggulan/{unggulan:slug}/update', [LayananUnggulanController::class, 'unggulanUpdate'])->name('admin.unggulan.update');
-    Route::delete('/admin/unggulan/{unggulan:slug}/delete', [LayananUnggulanController::class, 'unggulanDelete'])->name('admin.unggulan.delete');
-
-    // rawat-jalan
-    Route::get('/admin/rawat-jalan', [RawatJalanController::class, 'rawatJalan'])->name('admin.rawatJalan');
-    Route::get('/admin/rawat-jalan/create', [RawatJalanController::class, 'rawatJalanCreate'])->name('admin.rawatJalan.create');
-    Route::post('/admin/rawat-jalan/store', [RawatJalanController::class, 'rawatJalanStore'])->name('admin.rawatJalan.store');
-    Route::get('/admin/rawat-jalan/{rawatJalan:slug}', [RawatJalanController::class, 'rawatJalanShow'])->name('admin.rawatJalan.show');
-    Route::get('/admin/rawat-jalan/{rawatJalan:slug}/edit', [RawatJalanController::class, 'rawatJalanEdit'])->name('admin.rawatJalan.edit');
-    Route::put('/admin/rawat-jalan/{rawatJalan:slug}/update', [RawatJalanController::class, 'rawatJalanUpdate'])->name('admin.rawatJalan.update');
-    Route::delete('/admin/rawat-jalan/{rawatJalan:slug}/delete', [RawatJalanController::class, 'rawatJalanDelete'])->name('admin.rawatJalan.delete');
-
-    // admin-rawat-inap
-    Route::get('/admin/rawat-inap', [RawatInapController::class, 'rawatInap'])->name('admin.rawatInap');
-    Route::get('/admin/rawat-inap/create', [RawatInapController::class, 'rawatInapCreate'])->name('admin.rawatInap.create');
-    Route::post('/admin/rawat-inap/store', [RawatInapController::class, 'rawatInapStore'])->name('admin.rawatInap.store');
-    Route::get('/admin/rawat-inap/{rawatInap:slug}', [RawatInapController::class, 'rawatInapShow'])->name('admin.rawatInap.show');
-    Route::get('/admin/rawat-inap/{rawatInap:slug}/edit', [RawatInapController::class, 'rawatInapEdit'])->name('admin.rawatInap.edit');
-    Route::put('/admin/rawat-inap/{rawatInap:slug}/update', [RawatInapController::class, 'rawatInapUpdate'])->name('admin.rawatInap.update');
-    Route::delete('/admin/rawat-inap/{rawatInap:slug}/delete', [RawatInapController::class, 'rawatInapDelete'])->name('admin.rawatInap.delete');
-
-
-    Route::get('/admin/mcu', [MedicalCheckUpController::class, 'mcu'])->name('admin.mcu');
-    Route::get('/admin/mcu/create', [MedicalCheckUpController::class, 'mcuCreate'])->name('admin.mcu.create');
-    Route::post('/admin/mcu/store', [MedicalCheckUpController::class, 'mcuStore'])->name('admin.mcu.store');
-    Route::get('/admin/mcu/{mcu:slug}', [MedicalCheckUpController::class, 'mcuShow'])->name('admin.mcu.show');
-    Route::get('/admin/mcu/{mcu:slug}/edit', [MedicalCheckUpController::class, 'mcuEdit'])->name('admin.mcu.edit');
-    Route::put('/admin/mcu/{mcu:slug}/update', [MedicalCheckUpController::class, 'mcuUpdate'])->name('admin.mcu.update');
-    Route::delete('/admin/mcu/{mcu:slug}/delete', [MedicalCheckUpController::class, 'mcuDelete'])->name('admin.mcu.delete');
 
     // dokter
     // daftar-dokter
@@ -225,12 +209,12 @@ Route::middleware('auth')->group(function () {
     Route::put('/admin/sakip/{sakip:id}/update', [SAKIP::class, 'sakipUpdate'])->name('admin.sakip.update');
 });
 
-Route::get('/admin/profile', [ProfilController::class, 'profile'])->name('admin.profile'); 
+Route::get('/admin/profile', [ProfilController::class, 'profile'])->name('admin.profile');
 Route::put('admin/profile/{user:id}/password', [ProfilController::class, 'passwordProfile'])->name('admin.profile.password');
 Route::get('/admin/user', [UserController::class, 'index'])->name('admin.user');
 Route::get('/admin/user/create', [UserController::class, 'userCreate'])->name('admin.user.create');
 Route::post('/admin/user/store', [UserController::class, 'userStore'])->name('admin.user.store');
-    
+
 
 
 Route::get('/profil', function () {
@@ -258,7 +242,7 @@ Route::get('/rawat-inap', [RawatInapController::class, 'rawatInapIndex'])->name(
 // });
 Route::get('layanan-unggulan', [LayananUnggulanController::class, 'Unggulanindex'])->name('layanan-unggulan');
 Route::get('rawat-jalan', [RawatJalanController::class, 'RawatJalanindex'])->name('rawat-jalan');
-Route::get('layanan-mcu',[MedicalCheckUpController::class, 'mcuindex'])->name('mcu');
+Route::get('layanan-mcu', [MedicalCheckUpController::class, 'mcuindex'])->name('mcu');
 Route::get('/caridokter', [DokterController::class, 'index'])->name('dokter');
 Route::get('/caridokter/cari', [DokterController::class, 'cari'])->name('dokter.cari');
 

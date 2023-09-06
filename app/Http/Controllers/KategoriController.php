@@ -12,9 +12,10 @@ use App\Models\BeritaDanArtikel;
 class KategoriController extends Controller
 {
     //
-    public function kategori(Kategori $kategori){
+    public function kategori(Kategori $kategori)
+    {
         $artikel_kategori = $kategori->beritadanartikel->paginate(5)->get();
-        return view('pages.berita-artikel.artikel-kategori',[
+        return view('pages.berita-artikel.artikel-kategori', [
             'kategoriArtikel' => $kategori,
             'artikel' => $artikel_kategori,
             'kategori' => Kategori::all(),
@@ -24,7 +25,7 @@ class KategoriController extends Controller
     public function index()
     {
         $kategori = Kategori::orderBy('updated_at', 'desc')->get();
-        return view('admin.pages.konten.kategori.index', [
+        return view('admin.master-kategori.konten', [
             'kategori' => $kategori
         ]);
     }
@@ -34,11 +35,12 @@ class KategoriController extends Controller
 
         $validatedData = $request->validate(
             [
-                'nama_kategori' => 'required|unique:kategoris,nama_kategori'
+                'nama_kategori' => 'required',
+                'slug' => 'required||unique:kategoris,slug'
             ]
         );
         Kategori::create($validatedData);
-        return redirect()->back()->with('success', 'kategori berhasil ditambahkan');
+        return redirect()->back()->with('success', 'kategori-konten berhasil ditambahkan');
     }
 
     public function update(Request $request, Kategori $kategori)
@@ -47,11 +49,12 @@ class KategoriController extends Controller
         // dd($kategori);
         // return $request;
         $validatedData = $request->validate([
-            'nama_kategori' => 'required|unique:kategoris,nama_kategori,' . $kategori->id,
+            'nama_kategori' => 'required',
+            'slug' => 'required|unique:kategoris,slug,' . $kategori->id,
             // tambahkan aturan validasi lainnya jika diperlukan
         ]);
         $kategori->update($validatedData);
-        return redirect()->back()->with('success', 'kategori berhasil diupadate');
+        return redirect()->back()->with('success', 'kategori-konten berhasil diupadate');
     }
 
 

@@ -22,6 +22,7 @@
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Home</span>
                 </li>
+
                 <li class="sidebar-item">
                     <a class="sidebar-link {{ Request::is('dashboard') ? 'active' : '' }}"
                         href="{{ route('admin.dashboard') }}" aria-expanded="false">
@@ -31,48 +32,74 @@
                         <strong><span class="hide-menu">Dashboard</span></strong>
                     </a>
                 </li>
+
+                {{-- master Data --}}
                 <li class="nav-small-cap">
                     <i class="ti ti-dots-solid nav-small-cap-icon fs-5"></i>
-                    <strong><span class="hide-menu">PELAYANAN</span></strong>
+                    <strong><span class="hide-menu">Master Data</span></strong>
                 </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('unggulan*') ? 'active' : '' }}"
-                        href="{{ route('admin.unggulan') }}" aria-expanded="false">
+                <li class="sidebar-item  {{ Request::is('admin/kategori-konten*') ||  Request::is('admin/kategori-layanan*') ? 'bg-white p-2 rounded-1' : '' }}">
+                    <a class="sidebar-link d-flex justify-content-between {{ Request::is('admin/kategori-konten*') ||  Request::is('admin/kategori-layanan*') ? 'bg-white text-dark' : '' }}"
+                        data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                        aria-controls="collapseExample">
                         <span>
-                           <img src="{{asset('images/icon/icon_unggulan.svg')}}" alt="">
+                            <i class="ti ti-layout-dashboard"></i>
                         </span>
-                        <strong><span class="hide-menu">Unggulan</span></strong>
+                        <strong><span class="hide-menu"> Master kategori</span></strong>
+                        <i class="fa-solid fa-chevron-down"></i>
                     </a>
+                    <div class="collapse {{ Request::is('admin/kategori-konten*') ||  Request::is('admin/kategori-layanan*') ? 'show' : '' }}" id="collapseExample">
+                        <ul class="mt-2">
+                            <li class="">
+                                <a class="sidebar-link  {{ Request::is('admin/kategori-konten*') ? 'bg-primary text-white' : '' }} d-flex justify-content-between"
+                                    href="{{ route('kategori-konten.index') }}" aria-expanded="false">
+                                    <strong><span class="hide-menu">Konten</span></strong>
+                                    <span>
+                                        <i class="fa-solid fa-newspaper"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a class="sidebar-link {{ Request::is('admin/kategori-layanan*') ? 'bg-primary text-white' : '' }}  d-flex justify-content-between"
+                                    href="{{ route('kategori-layanan.index') }}" aria-expanded="false">
+                                    <strong><span class="hide-menu">Layanan</span></strong>
+                                    <span>
+                                        <i class="fa-solid fa-person-rays"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-                <li class="sidebar-item">
-                      <a class="sidebar-link {{ Request::is('mcu*') ? 'active' : '' }}"
-                    href="{{ route('admin.mcu') }}" aria-expanded="false">
+                <li class="sidebar-item  {{ Request::is('admin/kategori-konten*') ||  Request::is('admin/kategori-layanan*') ? 'bg-white p-2 rounded-1' : '' }}">
+                    <a class="sidebar-link d-flex  justify-content-between {{ Request::is('admin/kategori-konten*') ||  Request::is('admin/kategori-layanan*') ? 'bg-white text-dark' : '' }}"
+                        data-bs-toggle="collapse" href="#masterPages" role="button" aria-expanded="false"
+                        aria-controls="collapseExample">
                         <span>
-                          <img src="{{asset('images/icon/icon_mcu.svg')}}" alt="">
+                            <i class="ti ti-layout-dashboard"></i>
                         </span>
-                        <strong><span class="hide-menu">MCU</span></strong>
+                        <strong><span class="hide-menu"> Master pages</span></strong>
+                        <i class="fa-solid fa-chevron-down"></i>
                     </a>
+                    <div class="collapse {{ Request::is('admin/pages-artikel*') ||  Request::is('admin/pages-layanan*') ? ' p-2 show' : '' }}" id="masterPages">
+                        <ul class="mt-2">
+                            <li class="">
+                                <a class="sidebar-link  {{ Request::is('admin/kategori-konten*') ? 'bg-primary text-white' : '' }} d-flex justify-content-between"
+                                    href="{{ route('kategori-konten.index') }}" aria-expanded="false">
+                                    <strong><span class="hide-menu">Artikel</span></strong>
+                                    <span>
+                                        <i class="fa-solid fa-newspaper"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-                <li class="sidebar-item">
-                   <a class="sidebar-link {{ Request::is('rawat-inap*') ? 'active' : '' }}"
-                    href="{{ route('admin.rawatInap') }}" aria-expanded="false">
-                        <span>
-                           <img src="{{asset('images/icon/icon_rawat-inap.svg')}}" alt="">
-                        </span>
-                        <strong><span class="hide-menu">Rawat Inap</span></strong>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('rawat-jalan*') ? 'active' : '' }}"
-                        href="{{ route('admin.rawatJalan') }}" aria-expanded="false">
 
-                        <span>
-                           <img src="{{asset('images/icon/icon_rawat-jalan.svg')}}" alt="">
-                        </span>
-                        <strong><span class="hide-menu">Rawat Jalan</span></strong>
-                    </a>
-                </li>
 
+
+
+                {{-- dokter --}}
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <strong><span class="hide-menu">Dokter</span></strong>
@@ -81,7 +108,7 @@
                     <a class="sidebar-link {{ Request::is('dokter*') ? 'active' : '' }}"
                         href="{{ route('admin.dokter') }}" aria-expanded="false">
                         <span>
-                           <img src="{{asset('images/icon/icon_daftar-dokter.svg')}}" alt="">
+                            <img src="{{ asset('images/icon/icon_daftar-dokter.svg') }}" alt="">
                         </span>
                         <strong><span class="hide-menu">Daftar Dokter</span></strong>
                     </a>
@@ -90,7 +117,7 @@
                     <a class="sidebar-link {{ Request::is('spesialis*') ? 'active' : '' }}"
                         href="{{ route('admin.jadwal') }}" aria-expanded="false">
                         <span>
-                            <img src="{{asset('images/icon/icon_jadwal-dokter.svg')}}" alt="">
+                            <img src="{{ asset('images/icon/icon_jadwal-dokter.svg') }}" alt="">
                         </span>
                         <strong><span class="hide-menu">Jadwal Dokter</span></strong>
                     </a>
@@ -99,106 +126,77 @@
                     <a class="sidebar-link {{ Request::is('spesialis*') ? 'active' : '' }}"
                         href="{{ route('admin.artikel') }}" aria-expanded="false">
                         <span>
-                            <img src="{{asset('images/icon/icon_spesialis.svg')}}" alt="" width="25px;">
+                            <img src="{{ asset('images/icon/icon_spesialis.svg') }}" alt="" width="25px;">
                         </span>
                         <strong><span class="hide-menu">Spesialis</span></strong>
                     </a>
                 </li>
 
 
-                <li class="nav-small-cap">
+
+                
+                {{-- <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                    <strong><span class="hide-menu">Konten</span></strong>
+                    <strong><span class="hide-menu">Informasi</span></strong>
                 </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('kategori*') ? 'active' : '' }}"
-                        href="{{ route('admin.kategori') }}" aria-expanded="false">
+                <li class="sidebar-item mb">
+                    <a class="sidebar-link {{ Request::is('alur*') ? 'active' : '' }}"
+                        href="{{ route('admin.alur') }}" aria-expanded="false">
                         <span>
-                           <img src="{{asset('images/icon/icon_kategori.svg')}}" alt="">
+                            <img src={{ asset('images/icon/icon_alur.svg') }} alt="">
                         </span>
-                        <strong><span class="hide-menu">Kategori</span></strong>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('berita*') ? 'active' : '' }}"
-                        href="{{ route('admin.berita') }}" aria-expanded="false">
-                        <span>
-                           <img src="{{asset('images/icon/icon_berita.svg')}}" alt="">
-                        </span>
-                        <strong><span class="hide-menu">Berita</span></strong>
+                        <strong><span class="hide-menu">Alur</span></strong>
                     </a>
                 </li>
                 <li class="sidebar-item mb">
-                    <a class="sidebar-link {{ Request::is('artikel*') ? 'active' : '' }}"
-                        href="{{ route('admin.artikel') }}" aria-expanded="false">
+                    <a class="sidebar-link {{ Request::is('persyaratan*') ? 'active' : '' }}"
+                        href="{{ route('admin.persyaratan') }}" aria-expanded="false">
                         <span>
-                           <img src="{{asset('images/icon/icon_artikel.svg')}}" alt="">
+                            <img src={{ asset('images/icon/icon_persyaratan.svg') }} alt="">
                         </span>
-                        <strong><span class="hide-menu">Artikel</span></strong>
+                        <strong><span class="hide-menu">Persyaratan</span></strong>
+                    </a>
+                </li>
+                <li class="sidebar-item mb">
+                    <a class="sidebar-link {{ Request::is('tarif*') ? 'active' : '' }}"
+                        href="{{ route('admin.tarif') }}" aria-expanded="false">
+                        <span>
+                            <img src={{ asset('images/icon/icon_tarif.svg') }} alt="">
+                        </span>
+                        <strong><span class="hide-menu">Tarif</span></strong>
+                    </a>
+                </li>
+                <li class="sidebar-item mb">
+                    <a class="sidebar-link {{ Request::is('index-kepuasan-masyarakat/*') ? 'active' : '' }}"
+                        href="{{ route('admin.index-kepuasan-masyarakat') }}" aria-expanded="false">
+                        <span>
+                            <img src={{ asset('images/icon/icon_ikm.svg') }} alt="">
+                        </span>
+                        <strong><span class="hide-menu">IKM</span></strong>
+                    </a>
+                </li>
+                <li class="sidebar-item mb">
+                    <a class="sidebar-link {{ Request::is('sakip*') ? 'active' : '' }}"
+                        href="{{ route('admin.sakip') }}" aria-expanded="false">
+                        <span>
+                            <img src={{ asset('images/icon/icon_sakip.svg') }} alt="">
+                        </span>
+                        <strong><span class="hide-menu">Sakip</span></strong>
                     </a>
                 </li>
                 <li class="nav-small-cap">
-                   <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                   <strong><span class="hide-menu">Informasi</span></strong>
-               </li>
-               <li class="sidebar-item mb">
-                   <a class="sidebar-link {{ Request::is('alur*') ? 'active' : '' }}"
-                       href="{{ route('admin.alur') }}" aria-expanded="false">
-                       <span>
-                          <img src={{asset('images/icon/icon_alur.svg')}} alt="">
-                       </span>
-                       <strong><span class="hide-menu">Alur</span></strong>
-                   </a>
-               </li>
-               <li class="sidebar-item mb">
-                   <a class="sidebar-link {{ Request::is('persyaratan*') ? 'active' : '' }}"
-                       href="{{ route('admin.persyaratan') }}" aria-expanded="false">
-                       <span>
-                          <img src={{asset('images/icon/icon_persyaratan.svg')}} alt="">
-                       </span>
-                       <strong><span class="hide-menu">Persyaratan</span></strong>
-                   </a>
-               </li>
-               <li class="sidebar-item mb">
-                   <a class="sidebar-link {{ Request::is('tarif*') ? 'active' : '' }}"
-                       href="{{ route('admin.tarif') }}" aria-expanded="false">
-                       <span>
-                          <img src={{asset('images/icon/icon_tarif.svg')}} alt="">
-                       </span>
-                       <strong><span class="hide-menu">Tarif</span></strong>
-                   </a>
-               </li>
-               <li class="sidebar-item mb">
-                   <a class="sidebar-link {{ Request::is('index-kepuasan-masyarakat/*') ? 'active' : '' }}"
-                       href="{{ route('admin.index-kepuasan-masyarakat') }}" aria-expanded="false">
-                       <span>
-                          <img src={{asset('images/icon/icon_ikm.svg')}} alt="">
-                       </span>
-                       <strong><span class="hide-menu">IKM</span></strong>
-                   </a>
-               </li>
-               <li class="sidebar-item mb">
-                   <a class="sidebar-link {{ Request::is('sakip*') ? 'active' : '' }}"
-                       href="{{ route('admin.sakip') }}" aria-expanded="false">
-                       <span>
-                          <img src={{asset('images/icon/icon_sakip.svg')}} alt="">
-                       </span>
-                       <strong><span class="hide-menu">Sakip</span></strong>
-                   </a>
-               </li>
-               <li class="nav-small-cap">
-                <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                <strong><span class="hide-menu">Master Data User</span></strong>
-            </li>
-            <li class="sidebar-item mb-5">
-                <a class="sidebar-link {{ Request::is('user*') ? 'active' : '' }}"
-                    href="{{ route('admin.user') }}" aria-expanded="false">
-                    <span>
-                        <i class="ti ti-user"></i>
-                    </span>
-                    <strong><span class="hide-menu">User</span></strong>
-                </a>
-            </li>
+                    <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                    <strong><span class="hide-menu">Master Data User</span></strong>
+                </li>
+                <li class="sidebar-item mb-5">
+                    <a class="sidebar-link {{ Request::is('user*') ? 'active' : '' }}"
+                        href="{{ route('admin.user') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-user"></i>
+                        </span>
+                        <strong><span class="hide-menu">User</span></strong>
+                    </a>
+                </li> --}}
 
 
             </ul>

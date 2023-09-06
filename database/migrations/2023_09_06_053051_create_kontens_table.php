@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('layanans', function (Blueprint $table) {
+        Schema::create('kontens', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kategori_layanan_id')->constrained('kategori_layanans')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('nama');
+            $table->string('judul');
             $table->string('slug');
-            $table->string('icon')->nullable();
+            $table->text('isi');
+            $table->text('link')->nullable();
             $table->string('gambar');
-            $table->string('deskripsi');
+            $table->enum('jenis', ['berita', 'artikel']);
+            $table->integer('views')->default(0);
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('layanans');
+        Schema::dropIfExists('kontens');
     }
 };

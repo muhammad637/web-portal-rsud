@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Layanan extends Model
+class KategoriKonten extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    public function kategoriLayanan(){
-        return $this->belongsTo(KategoriLayanan::class, 'kategori_layanan_id' );
+    public function konten()
+    {
+        return $this->belongsToMany(Konten::class, 'many_many_kategori_kontent', 'kategori_konten_id','konten_id');
     }
 }

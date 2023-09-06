@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KategoriLayanan;
 use App\Models\Layanan;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class LayananController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(KategoriLayanan $kategoriLayanan)
     {
         return Layanan::all();
         //
@@ -23,7 +24,7 @@ class LayananController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(KategoriLayanan $kategoriLayanan)
     {
         //
     }
@@ -34,7 +35,7 @@ class LayananController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, KategoriLayanan $kategoriLayanan)
     {
         $validateData = $request->validate(
             [
@@ -56,7 +57,7 @@ class LayananController extends Controller
      * @param  \App\Models\Layanan  $layanan
      * @return \Illuminate\Http\Response
      */
-    public function show(Layanan $layanan)
+    public function show(KategoriLayanan $kategoriLayanan, Layanan $layanan)
     {
         return Layanan::with('nama_layanan')->where('id', $layanan)->get();
         //
@@ -68,7 +69,7 @@ class LayananController extends Controller
      * @param  \App\Models\Layanan  $layanan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Layanan $layanan)
+    public function edit(KategoriLayanan $kategoriLayanan,Layanan $layanan)
     {
         //
     }
@@ -80,7 +81,7 @@ class LayananController extends Controller
      * @param  \App\Models\Layanan  $layanan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Layanan $layanan)
+    public function update(Request $request, Layanan $layanan, KategoriLayanan $kategoriLayanan)
     {
 
         $validateData = $request->validate([
@@ -101,7 +102,7 @@ class LayananController extends Controller
      * @param  \App\Models\Layanan  $layanan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Layanan $layanan)
+    public function destroy(Layanan $layanan, KategoriLayanan $kategoriLayanan)
     {
         //
     }

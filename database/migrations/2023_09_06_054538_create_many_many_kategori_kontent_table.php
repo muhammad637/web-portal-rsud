@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('layanans', function (Blueprint $table) {
+        Schema::create('many_many_kategori_kontent', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kategori_layanan_id')->constrained('kategori_layanans')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('nama');
-            $table->string('slug');
-            $table->string('icon')->nullable();
-            $table->string('gambar');
-            $table->string('deskripsi');
+            $table->unsignedBigInteger('konten_id');
+            $table->unsignedBigInteger('kategori_konten_id');
+            $table->foreign('konten_id')->references('id')->on('kontens')->onDelete('cascade');
+            $table->foreign('kategori_konten_id')->references('id')->on('kategori_kontens')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('layanans');
+        Schema::dropIfExists('many_many_kategori_kontent');
     }
 };

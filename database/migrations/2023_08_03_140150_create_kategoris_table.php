@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('kategoris', function (Blueprint $table) {
             $table->id();
             $table->string("nama_kategori"); #nama kategori seperti kesehatan dan lain lainnya
+            $table->string('slug');
             $table->timestamps();
         });
     }
