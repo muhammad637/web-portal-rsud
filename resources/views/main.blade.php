@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/loader/loader.css') }}">
     @stack('link-css')
 </head>
 
@@ -24,9 +25,7 @@
     @include('layouts.navbar')
     @yield('content')
     @include('layouts.footer')
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-    </script>
+    <div class="loader"></div>
     @stack('link-script')
 
     <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -49,6 +48,7 @@
     {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> --}}
     {{-- <script src="{{asset('js/google-map.js')}}"></script> --}}
     <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('admin/assets/loader/loader.js') }}"></script>
 </body>
 
 </html>

@@ -18,7 +18,7 @@ class SearchDokter extends Component
             return;
         }
         $this->results = Dokter::where('nama','like','%'.$this->search. '%')->get();
-        $this->results = Dokter::all();
+        // $this->results = Dokter::all();
         $this->displayResult = count($this->results) > 0;
     }
     public function selectItem($item)
