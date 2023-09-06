@@ -36,9 +36,6 @@
                     </div>
                 </div> <!-- .col-md-8 -->
                 <div class="col-md-4 sidebar ftco-animate">
-                    <div class="sidebar-box">
-
-                    </div>
                     <div class="sidebar-box ftco-animate">
                         <div class="categories">
                             <h3>Kategori</h3>

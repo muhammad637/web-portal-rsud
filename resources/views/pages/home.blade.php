@@ -195,34 +195,37 @@
         </div>
     </section>
 
-    <section class="ftco-section">
-        <div class="container">
-            <div class="row justify-content-center mb-5 pb-5">
-                <div class="col-md-7 text-center heading-section ftco-animate">
-                    <h2 class="mb-4"><strong>ARTIKEL KESEHATAN</strong></h2>
-                </div>
-            </div>
-            <div class="container-apa">
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        @foreach ($Artikel as $artikel)
-                            <div class="swiper-slide">
-                                <div class="staff">
-                                    <div class="img mb-4" style="background-image: url({{ $artikel->gambar }});"></div>
-                                    <div class="info text-center">
-                                        <h3><a href="teacher-single.html">{{ $artikel->judul }}</a></h3>
-                                        <span class="">{!! $artikel->isi !!}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <h2 class="mb-2"><strong>ARRTIKEL</strong></h2>
             </div>
         </div>
-    </section>
+        <div class="row">
 
+            @foreach ($Berita as $berita)
+                <div class="col-md-4 ftco-animate">
+                    <div class="blog-entry">
+                        <a href="blog-single.html" class="block-20"
+                            style="background-image: url('{{ $berita->gambar }}');">
+                        </a>
+                        <div class="text d-flex py-4">
+                            <div class="meta mb-3">
+                                <div><a href="#">{{ $berita->created_at }}</a></div>
+                                <div><a href="#">Admin</a></div>
+                                <div><a href="#" class="meta-chat"><span class="icon-chat"></span>
+                                        {{ $berita->views }}</a></div>
+                            </div>
+                            <div class="desc pl-3">
+                                <h3 class="heading"><a href="#">{{ $berita->judul }}</a></h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
 
     <section class="ftco-gallery ">
         <div class="container-wrap">
@@ -250,37 +253,7 @@
                 </div>
 
 
-                <div class="container">
-                    <div class="row justify-content-center mb-5 pb-3">
-                        <div class="col-md-7 text-center heading-section ftco-animate">
-                            <h2 class="mb-2"><strong>BERITA</strong></h2>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        @foreach ($Berita as $berita)
-                            <div class="col-md-4 ftco-animate">
-                                <div class="blog-entry">
-                                    <a href="blog-single.html" class="block-20"
-                                        style="background-image: url('{{ $berita->gambar }}');">
-                                    </a>
-                                    <div class="text d-flex py-4">
-                                        <div class="meta mb-3">
-                                            <div><a href="#">{{ $berita->created_at }}</a></div>
-                                            <div><a href="#">Admin</a></div>
-                                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span>
-                                                    {{ $berita->views }}</a></div>
-                                        </div>
-                                        <div class="desc pl-3">
-                                            <h3 class="heading"><a href="#">{{ $berita->judul }}</a></h3>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>

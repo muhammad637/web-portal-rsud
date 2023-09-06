@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
+
 
 class LoginController extends Controller
 {
@@ -22,6 +24,7 @@ class LoginController extends Controller
             $credentials = $request->validate([
                 'username' => ['required'],
                 'password' => ['required'],
+                'captcha' => 'required|captcha',
             ]);
 
             if (Auth::attempt($credentials)) {
@@ -41,5 +44,6 @@ class LoginController extends Controller
         Auth::logout();
         return redirect('/login');
     }
+
 
 }
