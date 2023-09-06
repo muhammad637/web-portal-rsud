@@ -48,6 +48,14 @@
                                             </div>
                                         @enderror
                                     </div>
+                                    <div class="form-group">
+                                        <label for="captcha">Captcha</label>
+                                        <div>
+                                            {!! captcha_img() !!}
+                                            <input type="text" id="captcha" name="captcha" class="form-control" placeholder="Masukkan Captcha" required>
+                                        </div>
+                                    </div>
+                                    
                                     <button class="btn-primary btn w-100 py-8 fs-4 mb-4 rounded-2"
                                         type="submit">Login</button>
                                     {{-- <a href="./index.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign In</a> --}}

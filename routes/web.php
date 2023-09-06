@@ -266,9 +266,6 @@ Route::get('/ketersediaantempat', function () {
     return view('pages.pasien-pengunjung.ketersediaan-tempat');
 });
 
-Route::get('/informasikunjungan', function () {
-    return view('pages.pasien-pengunjung.informasi-kunjungan');
-});
 Route::get('petunjuk-umum', function () {
     return view('pages.informasi.petunjuk-umum');
 });
