@@ -6,6 +6,7 @@ use App\Models\Konten;
 use Illuminate\Http\Request;
 use App\Models\BeritaDanArtikel;
 use App\Http\Controllers\Controller;
+use App\Models\KategoriKonten;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class KontenController extends Controller
@@ -18,6 +19,10 @@ class KontenController extends Controller
     public function index()
     {
         //
+        $konten = Konten::all();
+        return view('admin.master-pages.konten.index',[
+            'konten' => $konten
+        ]);
     }
 
     /**
@@ -28,6 +33,9 @@ class KontenController extends Controller
     public function create()
     {
         //
+        return view('admin.master-pages.konten.create', [
+            "kategoriKonten" => KategoriKonten::all()
+        ]);
     }
 
     /**
@@ -39,6 +47,24 @@ class KontenController extends Controller
     public function store(Request $request)
     {
         //
+        return $request->kategori;
+        $validatedData = $request->validate(
+            [
+                'judul' => 'required',
+                'slug' => 'required|unique:berita_dan_artikels,slug',
+                'isi' => 'required',
+                'gambar' => 'required|',
+                'link_ig' => '',
+                'link_yt' => '',
+            ]
+        );
+        $validatedData['jenis'] = 'artikel';
+        //code...
+        $validatedData['gambar'] = $request->file('gambar')->store('image-konten');
+        Konten::create($validatedData);
+        $konten = Konten::where('slug', $request->slug)->first();
+        $konten->kategori()->sync($request->input('kategori'));
+        return redirect(route('konten.index'))->with('success', 'konten berhasil di tambahkan');
     }
 
     /**
@@ -88,7 +114,7 @@ class KontenController extends Controller
 
     public function slug(Request $request)
     {
-        $slug = SlugService::createSlug(BeritaDanArtikel::class, 'slug', $request->judul);
+        $slug = SlugService::createSlug(Konten::class, 'slug', $request->judul);
         return response()->json([
             "slug" => $slug
         ]);

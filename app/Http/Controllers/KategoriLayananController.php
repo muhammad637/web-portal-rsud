@@ -18,7 +18,7 @@ class KategoriLayananController extends Controller
     {
         //
         $kategoriLayanan = KategoriLayanan::orderBy('updated_at', 'desc')->get();
-        return view('admin.master-kategori.layanan', [
+        return view('admin.master-kategori.layanan.index', [
             'kategoriLayanan' => $kategoriLayanan
         ]);
     }
@@ -31,6 +31,7 @@ class KategoriLayananController extends Controller
     public function create()
     {
         //
+        return view('admin.master-kategori.layanan.create');
     }
 
     /**
@@ -42,6 +43,13 @@ class KategoriLayananController extends Controller
     public function store(Request $request)
     {
         //
+        $validatedData = $request->validate([
+            "nama" => "required",
+            "slug" => "required|unique:kategori_layanans,slug"
+        ]);
+
+        KategoriLayanan::create($validatedData);
+        return redirect(route('kategori-layanan.index'))->with('success', "kategori layanan berhasil dibuat");
     }
 
     /**
@@ -64,6 +72,9 @@ class KategoriLayananController extends Controller
     public function edit(KategoriLayanan $kategoriLayanan)
     {
         //
+        return view('admin.master-kategori.layanan.edit', [
+            "kategoriLayanan" => $kategoriLayanan,
+        ]);
     }
 
     /**
@@ -76,6 +87,13 @@ class KategoriLayananController extends Controller
     public function update(Request $request, KategoriLayanan $kategoriLayanan)
     {
         //
+        $validatedData = $request->validate([
+            "nama" => "required",
+            "slug" => "required|unique:kategori_layanans,slug," . $kategoriLayanan->id
+        ]);
+
+        $kategoriLayanan->update($validatedData);
+        return redirect()->back()->with('success', "kategori layanan berhasil diupdate");
     }
 
     /**
@@ -87,5 +105,7 @@ class KategoriLayananController extends Controller
     public function destroy(KategoriLayanan $kategoriLayanan)
     {
         //
+        $kategoriLayanan->delete();
+        return redirect()->back()->with('success', 'data berhasil dihapus');
     }
 }

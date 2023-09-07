@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->string('slug');
-            $table->text('isi');
-            $table->text('link')->nullable();
+            $table->text('deskripsi');
+            $table->text('link_yt')->nullable();
+            $table->text('link_ig')->nullable();
             $table->string('gambar');
-            $table->enum('jenis', ['berita', 'artikel']);
             $table->integer('views')->default(0);
             $table->timestamps();
         });

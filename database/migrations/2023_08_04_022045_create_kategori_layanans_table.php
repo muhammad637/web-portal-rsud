@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('kategori_layanans', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kategori_layanan');
+            $table->string('nama');
             $table->string('slug');
             $table->timestamps();
         });

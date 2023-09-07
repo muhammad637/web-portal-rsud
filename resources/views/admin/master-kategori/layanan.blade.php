@@ -12,7 +12,7 @@
 @section('content-admin')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Layanan</h5>
+            <h5 class="card-title">Kategori Layanan</h5>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TambahKategori">
                 Create <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -47,7 +47,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Kategori</th>
+                            <th>Nama Kategori Konten</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -55,11 +55,11 @@
                         @foreach ($kategoriLayanan as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
-                                <td>{{ $item->nama_kategori }}</td>
+                                <td>{{ $item->nama }}</td>
                                 <td>
                                     <a class="badge bg-warning border-0" data-bs-toggle="modal"
-                                        href="#editKategori{{ $item->id }}"><img src="{{ asset('images/icon/icon_pen.svg') }}"
-                                            alt=""></a>
+                                        href="#editKategori{{ $item->id }}"><img
+                                            src="{{ asset('images/icon/icon_pen.svg') }}" alt=""></a>
                                     <a href="#" class="badge bg-danger border-0"><img
                                             src="{{ asset('images/icon/icon_trash.svg') }}" alt=""></a>
                                 </td>
@@ -74,19 +74,24 @@
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit kategori Layanan</h1>
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit kategori</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="" method="post">
+                                        <form action="{{ route('kategori-layanan.update', ['kategori_layanan' => $item->id]) }}"
+                                            method="post">
                                             @method('put')
                                             @csrf
                                             <div class="modal-body ">
                                                 <div class="mb-3">
-                                                    <label for="nama_kategori" class="form-label">Nama Kategori</label>
-                                                    <input type="text" class="form-control" name="nama_kategori"
-                                                        id="nama_kategori"
-                                                        value="{{ old('nama_kategori', $item->nama_kategori) }}">
+                                                    <label for="nama" class="form-label">Nama Kategori</label>
+                                                    <input type="text" class="form-control" name="nama" id="nama"
+                                                        value="{{ old('nama', $item->nama) }}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="slug" class="form-label">slug</label>
+                                                    <input type="text" class="form-control" name="slug" id="slug"
+                                                        value="{{ old('slug', $item->slug) }}" readonly>
                                                 </div>
 
                                             </div>
@@ -106,6 +111,7 @@
                             <th>No</th>
                             <th>Nama Kategori</th>
                             <th>Aksi</th>
+
                         </tr>
                     </tfoot>
                 </table>
@@ -121,13 +127,21 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create kategori</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="" method="post">
+                <form action="{{ route('kategori-layanan.store') }}" method="post">
                     @csrf
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="nama_kategori" class="form-label">Nama Kategori</label>
-                            <input type="text" class="form-control" name="nama_kategori" id="nama_kategori"
-                                value="{{ old('nama_kategori') }}">
+                            <label for="nama" class="form-label">Nama Kategori Layanan</label>
+                            <input type="text" class="form-control" name="nama" id="nama"
+                                value="{{ old('nama') }}">
+                        </div>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="slug" class="form-label">Slug</label>
+                            <input type="text" class="form-control" name="slug" id="slug"
+                                value="{{ old('slug') }}" readonly>
                         </div>
 
                     </div>
@@ -138,17 +152,42 @@
                 </form>
             </div>
         </div>
+
+
+
+
     </div>
 @endsection
+
 
 @push('link-script-admin')
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-
+    <script></script>
     <script>
         $(document).ready(function() {
+            const judul = document.querySelector('#nama')
+            const slug = document.querySelector('#slug')
+
+            judul.addEventListener('input', function() {
+                fetch(`{{ route('admin.createSlug') }}?judul=` + judul.value)
+                    .then(response => response.json())
+                    .then(data => slug.value = data.slug)
+            })
             $("#example").DataTable();
+
+            $("#gambar").change(function() {
+                $("#text-preview").removeClass('d-none');
+                const selectedImage = $(this).prop("files")[0];
+                if (selectedImage && selectedImage.type.includes("image")) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        $("#displayedImage").attr("src", e.target.result);
+                    };
+                    reader.readAsDataURL(selectedImage);
+                }
+            });
         });
     </script>
 @endpush

@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\KategoriKonten;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Cviebrock\EloquentSluggable\Sluggable;
+
 
 class Konten extends Model
 {
     use HasFactory;
+    use Sluggable;
+/*  */
 
     protected $guarded = ['id'];
     public function kategori_konten()

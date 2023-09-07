@@ -44,179 +44,6 @@ use App\Http\Controllers\LayananController;
 |
 */
 
-// // admin
-// Route::get('/admin/kategori', [KategoriController::class, 'index']);
-// Route::post('/admin/kategori/store', [KategoriController::class, 'store']);
-// Route::put('/admin/kategori/update/{kategori}', [KategoriController::class, 'update'])->name('kategori.update');
-// Route::delete('/admin/kategori/destroy/{kategori}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
-
-// // kategri untuk user
-// Route::get('/admin/kategori/{kategori:nama_kategori}', [KategoriController::class, 'show'])->name('kategori.show');
-
-
-// // berita artikel admin
-// Route::get('/admin/berita', [BeritaDanArtikelController::class, 'index']);
-// Route::post('/admin/berita/store', [BeritaDanArtikelController::class, 'store']);
-// Route::get('/admin/berita/show/{slug}', [BeritaDanArtikelController::class, 'show']);
-// Route::get('/admin/berita/edit/{id}', [BeritaDanArtikelController::class, 'edit']);
-// Route::put('/admin/berita/update/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'update']);
-// Route::delete('/admin/berita/destroy/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'destroy']);
-
-
-// // spesialis 
-// Route::get('/admin/spesialis', [SpesialisController::class, 'index']);
-// Route::get('/admin/spesialis/store', [SpesialisController::class, 'store']);
-// Route::get('/admin/spesialis/update/{spesialis:id}', [SpesialisController::class, 'update']);
-
-
-// // dokter
-// Route::get('/admin/dokter', [DokterController::class, 'index']);
-// Route::post('/admin/dokter/store', [DokterController::class, 'store'])->name('dokter.store');
-// Route::get('/admin/dokter/show/{dokter:id}', [DokterController::class, 'show'])->name('dokter.show');
-// Route::patch('/admin/dokter/update/{dokter}', [DokterController::class, 'update'])->name('dokter.update');
-// Route::delete('/admin/dokter/destroy/{dokter:id}', [DokterController::class, 'delete'])->name('dokter.update');
-
-
-// // jadwal-dokter
-// Route::get('/admin/jadwal-dokter', [JadwalDokterController::class, 'index'])->name('jadwal-dokter.index');
-// Route::post('/admin/jadwal-dokter/store', [JadwalDokterController::class, 'store'])->name('jadwal-dokter.store');
-// Route::get('/admin/jadwal-dokter/show/{jadwalDokter:id}', [JadwalDokterController::class, 'show'])->name('jadwal-dokter.show');
-// Route::get('/admin/jadwal-dokter/update/{jadwalDokter:id}', [JadwalDokterController::class, 'update'])->name('jadwal-dokter.update');
-// Route::get('/admin/jadwal-dokter/destroy/{jadwalDokter:id}', [JadwalDokter::class, 'destroy'])->name('jadwal-dokter.destroy');
-
-
-// // pencarian dokter
-// Route::post('/admin/cari-dokter', [DokterController::class, 'cariDokter'])->name('cari-dokter.store');
-
-// login
-Route::get('/login', [LoginController::class, 'index'])->name('login.index')->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
-
-Route::middleware('auth')->group(function () {
-    // admin-dashboard
-    Route::get('/admin/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
-
-    // konten
-
-
-    // berita
-    Route::get('/admin/berita', [BeritaDanArtikelController::class, 'berita'])->name('admin.berita');
-    Route::get('/admin/berita/create', [BeritaDanArtikelController::class, 'beritaCreate'])->name('admin.berita.create');
-    Route::post('/admin/berita/store', [BeritaDanArtikelController::class, 'beritaStore'])->name('admin.berita.store');
-    Route::get('/admin/berita/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'beritaShow'])->name('admin.berita.show');
-    Route::get('/admin/berita/{beritaDanArtikel:slug}/edit', [BeritaDanArtikelController::class, 'beritaEdit'])->name('admin.berita.edit');
-    Route::put('/admin/berita/{beritaDanArtikel:slug}/update', [BeritaDanArtikelController::class, 'beritaUpdate'])->name('admin.berita.update');
-
-
-    // artikel
-    Route::get('/admin/artikel', [BeritaDanArtikelController::class, 'artikel'])->name('admin.artikel');
-    Route::get('/admin/artikel/create', [BeritaDanArtikelController::class, 'artikelCreate'])->name('admin.artikel.create');
-    Route::post('/admin/artikel/store', [BeritaDanArtikelController::class, 'artikelStore'])->name('admin.artikel.store');
-    Route::get('/admin/artikel/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'artikelShow'])->name('admin.artikel.show');
-    Route::get('/admin/artikel/{beritaDanArtikel:slug}/edit', [BeritaDanArtikelController::class, 'artikelEdit'])->name('admin.artikel.edit');
-    Route::put('/admin/artikel/{beritaDanArtikel:slug}/update', [BeritaDanArtikelController::class, 'artikelUpdate'])->name('admin.artikel.update');
-
-
-
-    // master data
-    // kategori
-    // konten
-    Route::resource('/admin/kategori-konten', KategoriKontenController::class);
-    // layanan
-    Route::resource('/admin/kategori-layanan', KategoriLayananController::class);
-
-    // pages
-    // layanan
-    Route::get('/admin/{kategoriLayanan:slug}', [LayananController::class, 'index'])->name('admin.layanan');
-    Route::get('/admin/{kategoriLayanan:slug}/{layanan:slug}', [LayananController::class, 'show'])->name('admin.layanan.show');
-    Route::get('/admin/{kategoriLayanan:slug}/{layanan:slug}/edit', [LayananController::class, 'edit'])->name('admin.layanan.edit');
-    Route::post('/admin/{kategoriLayanan:slug}/{layanan:slug}', [LayananController::class, 'store'])->name('admin.layanan.store');
-    Route::put('/admin/{kategoriLayanan:slug}/{layanan:slug}', [LayananController::class, 'update'])->name('admin.layanan.update');
-    Route::delete('/admin/{kategoriLayanan:slug}/{layanan:slug}', [LayananController::class, 'delete'])->name('admin.layanan.delete');
-
-    // konten
-    Route::resource('/admin/konten', KontenController::class);
-    // unggulan
-
-    // dokter
-    // daftar-dokter
-    Route::get('/admin/dokter', [DokterController::class, 'dokter'])->name('admin.dokter');
-    Route::post('/admin/dokter/store', [DokterController::class, 'dokterStore'])->name('admin.dokter.store');
-    Route::patch('/admin/dokter/{dokter}/update', [DokterController::class, 'dokterUpdate'])->name('admin.dokter.update');
-    Route::delete('/admin/dokter/{dokter:id}/destroy', [DokterController::class, 'dokterDelete'])->name('admin.dokter.delete');
-    Route::get('/admin/spesialis/search', [DokterController::class, 'search'])->name('admin.spesialis.search');
-
-    // spesialis
-    Route::get('/admin/spesialis', [SpesialisController::class, 'spesialis'])->name('admin.spesialis');
-    Route::post('/admin/spesialis/store', [SpesialisController::class, 'spesialisStore'])->name('admin.spesialis.store');
-    Route::patch('/admin/spesialis/{spesialis}/update', [SpesialisController::class, 'spesialisUpdate'])->name('admin.spesialis.update');
-    Route::delete('/admin/spesialis/{spesialis:id}/destroy', [SpesialisController::class, 'spesialisDelete'])->name('admin.spesialis.delete');
-    Route::get('/admin/spesialis/search', [SpesialisController::class, 'search'])->name('admin.spesialis.search');
-
-
-    // jadwal-dokter
-    Route::get('/admin/jadwal', [JadwalDokterController::class, 'jadwal'])->name('admin.jadwal');
-    Route::post('/admin/jadwal/store', [JadwalDokterController::class, 'jadwalStore'])->name('admin.jadwal.store');
-    Route::patch('/admin/jadwal/{dokter}/update', [JadwalDokterController::class, 'jadwalUpdate'])->name('admin.jadwal.update');
-    Route::delete('/admin/jadwal/{dokter}/destroy', [JadwalDokterController::class, 'jadwalDelete'])->name('admin.jadwal.delete');
-
-
-
-
-    Route::get('/admin/createSlug', [BeritaDanArtikelController::class, 'slug'])->name('admin.createSlug');
-
-
-
-
-
-    ///alur
-    Route::get('/admin/alur', [AlurController::class, 'alur'])->name('admin.alur');
-    Route::get('/admin/alur/create', [AlurController::class, 'alurCreate'])->name('admin.alur.create');
-    Route::post('/admin/alur/store', [AlurController::class, 'alurStore'])->name('admin.alur.store');
-    Route::get('/admin/alur/edit', [AlurController::class, 'alurEdit'])->name('admin.alur.edit');
-    Route::put('/admin/alur/update', [AlurController::class, 'alurUpdate'])->name('admin.alur.update');
-    // Route::put('/admin/alur/{alur:id}/update', [AlurController::class, 'alurUpdate'])->name('admin.alur.update');
-    // Route::head('/admin/alur/delete', [AlurController::class, 'alurDelete'])->name('admin.alur.delete');
-
-
-
-
-
-    ///persyaratan
-    Route::get('/admin/persyaratan', [PersyaratanController::class, 'persyaratan'])->name('admin.persyaratan');
-    Route::get('/admin/persyaratan/create', [PersyaratanController::class, 'persyaratanCreate'])->name('admin.pesyaratan.create');
-    Route::post('/admin/persyaratan/store', [PersyaratanController::class, 'persyaratanStore'])->name('admin.persyaratan.store');
-    Route::put('/admin/persyaratan/{persyaratan:id}/update', [PersyaratanController::class, 'persyaratanUpdate'])->name('admin.persyaratan.update');
-
-
-    ///tarif
-    Route::get('/admin/tarif', [TarifController::class, 'index'])->name('admin.tarif');
-    Route::post('/admin/tarifTindakan', [TarifController::class, 'tarifTindakan'])->name('admin.tarifTindakan.store');
-    Route::post('/admin/tarifKamar', [TarifController::class, 'tarifKamar'])->name('admin.tarifKamar.store');
-    Route::put('/admin/tarif/{tarif:id}/update', [TarifController::class, 'update'])->name('admin.tarif.update');
-    Route::delete('/admin/tarif/{tarif:id}/delete', [TarifController::class, 'destroy'])->name('admin.tarif.delete');
-    //IKM
-    Route::get('/admin/index-kepuasan-masyarakat', [IKMController::class, 'ikm'])->name('admin.index-kepuasan-masyarakat');
-    Route::get('/admin/index-kepuasan-masyarakat/create', [IKMController::class, 'ikmCreate'])->name('admin.index-kepuasan-masyarakat.create');
-    Route::post('/admin/index-kepuasan-masyarakat/store', [IKMController::class, 'ikmStore'])->name('admin.index-kepuasan-masyarakat.store');
-    Route::put('/admin/index-kepuasan-masyarakat/{ikm:id}/update', [IKMController::class, 'ikmUpdate'])->name('admin.ikm.update');
-    // SAKIP
-    Route::get('/admin/sakip', [SAKIPController::class, 'sakip'])->name('admin.sakip');
-    Route::get('/admin/sakip/create', [SAKIPController::class, 'sakipCreate'])->name('admin.sakip.create');
-    Route::post('/admin/sakip/store', [SAKIPController::class, 'sakipStore'])->name('admin.sakip.store');
-    Route::put('/admin/sakip/{sakip:id}/update', [SAKIP::class, 'sakipUpdate'])->name('admin.sakip.update');
-});
-
-Route::get('/admin/profile', [ProfilController::class, 'profile'])->name('admin.profile');
-Route::put('admin/profile/{user:id}/password', [ProfilController::class, 'passwordProfile'])->name('admin.profile.password');
-Route::get('/admin/user', [UserController::class, 'index'])->name('admin.user');
-Route::get('/admin/user/create', [UserController::class, 'userCreate'])->name('admin.user.create');
-Route::post('/admin/user/store', [UserController::class, 'userStore'])->name('admin.user.store');
-
-
-
 Route::get('/profil', function () {
     return view('pages.profil.profil');
 });
@@ -258,3 +85,90 @@ Route::get('petunjuk-umum', function () {
 });
 
 Route::get('/home', [HomeController::class, 'index']);
+
+
+// login
+Route::get('/login', [LoginController::class, 'index'])->name('login.index')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+Route::get('/admin/profile', [ProfilController::class, 'profile'])->name('admin.profile');
+Route::put('admin/profile/{user:id}/password', [ProfilController::class, 'passwordProfile'])->name('admin.profile.password');
+Route::get('/admin/user', [UserController::class, 'index'])->name('admin.user');
+Route::get('/admin/user/create', [UserController::class, 'userCreate'])->name('admin.user.create');
+Route::post('/admin/user/store', [UserController::class, 'userStore'])->name('admin.user.store');
+
+
+Route::middleware('auth')->group(function () {
+    // create slug
+    Route::get('/admin/create-slug', [KontenController::class, 'slug'])->name('admin.createSlug');
+    // admin-dashboard
+    Route::get('/admin/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+    // master data
+    // kategori
+    // konten
+    Route::resource('/admin/kategori-konten', KategoriKontenController::class);
+    // layanan
+    Route::resource('/admin/kategori-layanan', KategoriLayananController::class);
+    // pages
+    // // konten
+    Route::resource('/admin/konten', KontenController::class);
+    // layanan
+    Route::get('/admin/pages/{kategoriLayanan:slug}', [LayananController::class, 'index'])->name('admin.layanan');
+    Route::get('/admin/pages/{kategoriLayanan:slug}/create', [LayananController::class, 'create'])->name('admin.layanan.create');
+    Route::get('/admin/pages/master-kategori-layanan/show/{layanan:slug}', [LayananController::class, 'show'])->name('admin.layanan.show');
+    Route::get('/admin/pages/master-kategori-layanan/edit/{layanan:slug}', [LayananController::class, 'edit'])->name('admin.layanan.edit');
+    Route::post('/admin/pages/master-kategori-layanan/store', [LayananController::class, 'store'])->name('admin.layanan.store');
+    Route::put('/admin/pages/master-kategori-layanan/update/{layanan:slug}', [LayananController::class, 'update'])->name('admin.layanan.update');
+    Route::delete('/admin/pages/master-kategori-layanan/delete/{layanan:slug}', [LayananController::class, 'delete'])->name('admin.layanan.delete');
+    
+    // dokter
+    // spesialis
+    // Route::get('/admin/spesialis/search', [DokterController::class, 'search'])->name('admin.spesialis.search');
+    Route::get('/admin/dokter/spesialis', [SpesialisController::class, 'spesialis'])->name('admin.spesialis');
+    Route::post('/admin/dokter/spesialis/store', [SpesialisController::class, 'spesialisStore'])->name('admin.spesialis.store');
+    Route::patch('/admin/dokter/spesialis/{spesialis}/update', [SpesialisController::class, 'spesialisUpdate'])->name('admin.spesialis.update');
+    Route::delete('/admin/dokter/spesialis/{spesialis:id}/destroy', [SpesialisController::class, 'spesialisDelete'])->name('admin.spesialis.delete');
+    Route::get('/admin/dokter/spesialis/search', [SpesialisController::class, 'search'])->name('admin.spesialis.search');
+    // daftar-dokter
+    Route::get('/admin/dokter/daftar-dokter', [DokterController::class, 'dokter'])->name('admin.dokter');
+    Route::post('/admin/dokter/daftar-dokter/store', [DokterController::class, 'dokterStore'])->name('admin.dokter.store');
+    Route::patch('/admin/dokter/daftar-dokter/{dokter}/update', [DokterController::class, 'dokterUpdate'])->name('admin.dokter.update');
+    Route::delete('/admin/dokter/daftar-dokter/{dokter:id}/destroy', [DokterController::class, 'dokterDelete'])->name('admin.dokter.delete');
+    // jadwal-dokter
+    Route::get('/admin/dokter/jadwal', [JadwalDokterController::class, 'jadwal'])->name('admin.jadwal');
+    Route::post('/admin/dokter/jadwal/store', [JadwalDokterController::class, 'jadwalStore'])->name('admin.jadwal.store');
+    Route::patch('/admin/dokter/jadwal/{dokter}/update', [JadwalDokterController::class, 'jadwalUpdate'])->name('admin.jadwal.update');
+    Route::delete('/admin/dokter/jadwal/{dokter}/destroy', [JadwalDokterController::class, 'jadwalDelete'])->name('admin.jadwal.delete');
+    // informasi
+    ///alur
+    Route::get('/admin/informasi/alur', [AlurController::class, 'alur'])->name('admin.alur');
+    Route::get('/admin/informasi/alur/create', [AlurController::class, 'alurCreate'])->name('admin.alur.create');
+    Route::post('/admin/informasi/alur/store', [AlurController::class, 'alurStore'])->name('admin.alur.store');
+    Route::get('/admin/informasi/alur/edit', [AlurController::class, 'alurEdit'])->name('admin.alur.edit');
+    Route::put('/admin/informasi/alur/update', [AlurController::class, 'alurUpdate'])->name('admin.alur.update');
+    // Route::put('/admin/informasi/alur/{alur:id}/update', [AlurController::class, 'alurUpdate'])->name('admin.alur.update');
+    // Route::head('/admin/informasi/alur/delete', [AlurController::class, 'alurDelete'])->name('admin.alur.delete');
+    //persyaratan
+    Route::get('/admin/informasi/persyaratan', [PersyaratanController::class, 'persyaratan'])->name('admin.persyaratan');
+    Route::get('/admin/informasi/persyaratan/create', [PersyaratanController::class, 'persyaratanCreate'])->name('admin.pesyaratan.create');
+    Route::post('/admin/informasi/persyaratan/store', [PersyaratanController::class, 'persyaratanStore'])->name('admin.persyaratan.store');
+    Route::put('/admin/informasi/persyaratan/{persyaratan:id}/update', [PersyaratanController::class, 'persyaratanUpdate'])->name('admin.persyaratan.update');
+    ///tarif
+    Route::get('/admin/informasi/tarif', [TarifController::class, 'index'])->name('admin.tarif');
+    Route::post('/admin/informasi/tarifTindakan', [TarifController::class, 'tarifTindakan'])->name('admin.tarifTindakan.store');
+    Route::post('/admin/informasi/tarifKamar', [TarifController::class, 'tarifKamar'])->name('admin.tarifKamar.store');
+    Route::put('/admin/informasi/tarif/{tarif:id}/update', [TarifController::class, 'update'])->name('admin.tarif.update');
+    Route::delete('/admin/informasi/tarif/{tarif:id}/delete', [TarifController::class, 'destroy'])->name('admin.tarif.delete');
+    //IKM
+    Route::get('/admin/informasi/index-kepuasan-masyarakat', [IKMController::class, 'ikm'])->name('admin.index-kepuasan-masyarakat');
+    Route::get('/admin/informasi/index-kepuasan-masyarakat/create', [IKMController::class, 'ikmCreate'])->name('admin.index-kepuasan-masyarakat.create');
+    Route::post('/admin/informasi/index-kepuasan-masyarakat/store', [IKMController::class, 'ikmStore'])->name('admin.index-kepuasan-masyarakat.store');
+    Route::put('/admin/informasi/index-kepuasan-masyarakat/{ikm:id}/update', [IKMController::class, 'ikmUpdate'])->name('admin.ikm.update');
+    // SAKIP
+    Route::get('/admin/informasi/sakip', [SAKIPController::class, 'sakip'])->name('admin.sakip');
+    Route::get('/admin/informasi/sakip/create', [SAKIPController::class, 'sakipCreate'])->name('admin.sakip.create');
+    Route::post('/admin/informasi/sakip/store', [SAKIPController::class, 'sakipStore'])->name('admin.sakip.store');
+    Route::put('/admin/informasi/sakip/{sakip:id}/update', [SAKIP::class, 'sakipUpdate'])->name('admin.sakip.update');
+});

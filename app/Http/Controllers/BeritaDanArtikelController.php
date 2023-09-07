@@ -219,10 +219,11 @@ class BeritaDanArtikelController extends Controller
     // createSlug
     public function slug(Request $request)
     {
+        return 'testing';
         $slug = SlugService::createSlug(BeritaDanArtikel::class, 'slug', $request->judul);
-        return response()->json([
-            "slug" => $slug
-        ]);
-        return "testing";
+        // return response()->json([
+        //     "slug" => $slug
+        // ]);
+        return $slug;
     }
 }
