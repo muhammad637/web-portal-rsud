@@ -1,13 +1,6 @@
 @extends('admin.pages.main')
 @push('link-css-admin')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
-    <style>
-        .bunder {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-    </style>
 @endpush
 @section('content-admin')
     <div class="row">
@@ -16,7 +9,7 @@
                 <div class="card-body p-3">
                     <strong>
                         <p class="text-sm mb-0 text-uppercase font-weight-bold ms-2" style="color: #25C42B;">Jumlah
-                            Berita</p>
+                            Pelayanan</p>
                     </strong>
                     <div class="row align-items-center mt-2">
                         <div class="col-8">
@@ -25,7 +18,7 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <h5 style="font-size: 30px; color:#25C42B">15</h5>
+                            <h5 style="font-size: 30px; color:#25C42B">{{ $jumlahKategoriLayanan }}</h5>
                         </div>
                     </div>
                 </div>
@@ -36,7 +29,7 @@
                 <div class="card-body p-3">
                     <strong>
                         <p class="text-sm mb-0 text-uppercase font-weight-bold ms-2" style="color: #4889FF;">Jumlah
-                            Artikel</p>
+                            Konten</p>
                     </strong>
                     <div class="row align-items-center mt-2">
                         <div class="col-8">
@@ -45,7 +38,7 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <h5 style="font-size: 30px; color: #4889FF;">15</h5>
+                            <h5 style="font-size: 30px; color: #4889FF;">{{ $jumlahKonten }}</h5>
                         </div>
                     </div>
                 </div>
@@ -56,7 +49,7 @@
                 <div class="card-body p-3">
                     <strong>
                         <p class="text-sm mb-0 text-uppercase font-weight-bold ms-2" style="color: #FB2626;">Jumlah
-                            Berita</p>
+                            Kategori Konten</p>
                     </strong>
                     <div class="row align-items-center mt-2">
                         <div class="col-8">
@@ -65,7 +58,7 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <h5 style="font-size: 30px; color:#FB2626;">15</h5>
+                            <h5 style="font-size: 30px; color:#FB2626;">{{ $jumlahKategoriKonten }}</h5>
                         </div>
                     </div>
                 </div>
@@ -84,16 +77,19 @@
                             <th>Jenis</th>
                         </tr>
                     </thead>
+
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <div class="bunder" style="">
-                                </div>
-                            </td>
-                            <td></td>
-                            
-                        </tr>
+                        @foreach ($layanan as $item)
+                            <tr>
+                                <td> {{ $loop->iteration }} </td>
+                                <td>{{ $item->nama }}
+                                </td>
+                                <td>
+                                    {{ $item->kategoriLayanan->nama }}
+                                </td>
+
+                            </tr>
+                        @endforeach
                         {{-- @endforeach --}}
                     </tbody>
                     <tfoot>
@@ -120,16 +116,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <div class="bunder" style="">
-                                </div>
-                            </td>
-                            <td></td>
-                            
-                        </tr>
-                        {{-- @endforeach --}}
+                        @foreach ($konten as $item)
+                            <tr>
+                                <td> {{ $loop->iteration }} </td>
+                                <td>{{ $item->slug }}
+                                </td>
+                                <td>
+                                    {{ $item->kategori_konten }}
+                                </td>
+
+                            </tr>
+                        @endforeach
                     </tbody>
                     <tfoot>
                         <tr>

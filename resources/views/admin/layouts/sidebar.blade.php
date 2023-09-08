@@ -39,12 +39,12 @@
                 </li>
                 {{-- master kategori --}}
                 <li
-                    class="sidebar-item  {{ Request::is('admin/kategori-konten*') || Request::is('admin/kategori-layanan*') ? 'bg-white p-2 rounded-1' : '' }}">
-                    <a class="sidebar-link d-flex justify-content-between {{ Request::is('admin/kategori-konten*') || Request::is('admin/kategori-layanan*') ? 'bg-white text-dark p-0' : '' }}"
+                    class="sidebar-item  {{ Request::is('admin/kategori-konten*') || Request::is('admin/kategori-layanan*') ? '' : '' }}">
+                    <a class="sidebar-link d-flex justify-content-between {{ Request::is('admin/kategori-konten*') || Request::is('admin/kategori-layanan*') ? '' : '' }}"
                         data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
                         aria-controls="collapseExample">
                         <span>
-                            <i class="ti ti-layout-dashboard"></i>
+                            <i class="fas fa-project-diagram"></i>
                         </span>
                         <strong><span class="hide-menu"> Kategori</span></strong>
                         <i class="fa-solid fa-chevron-down"></i>
@@ -66,7 +66,7 @@
                                     href="{{ route('kategori-layanan.index') }}" aria-expanded="false">
                                     <strong><span class="hide-menu">Layanan</span></strong>
                                     <span>
-                                        <i class="fa-solid fa-person-rays"></i>
+                                       <i class="fas fa-sitemap"></i>
                                     </span>
                                 </a>
                             </li>
@@ -75,17 +75,17 @@
                 </li>
                 {{-- master pages --}}
                 <li
-                    class="sidebar-item  {{ Request::is('admin/konten*') || Request::is('admin/pages*') ? 'bg-white p-2 rounded-1' : '' }}">
-                    <a class="sidebar-link d-flex  justify-content-between {{ Request::is('admin/konten*') || Request::is('admin/pages*') ? 'bg-white text-dark p-0' : '' }}"
+                    class="sidebar-item  {{ Request::is('admin/konten*') || Request::is('admin/pages*') ? '' : '' }}">
+                    <a class="sidebar-link d-flex  justify-content-between {{ Request::is('admin/konten*') || Request::is('admin/pages*') ? '' : '' }}"
                         data-bs-toggle="collapse" href="#masterPages" role="button" aria-expanded="false"
                         aria-controls="collapseExample">
                         <span>
-                            <i class="ti ti-layout-dashboard"></i>
+                           <i class="fas fa-file-alt"></i>
                         </span>
                         <strong><span class="hide-menu"> Pages</span></strong>
                         <i class="fa-solid fa-chevron-down"></i>
                     </a>
-                    <div class="collapse {{ Request::is('admin/konten*') || Request::is('admin/pages*') ? ' p-2 show' : '' }}"
+                    <div class="collapse {{ Request::is('admin/konten*') || Request::is('admin/pages*') ? '  show' : '' }}"
                         id="masterPages">
                         <ul class="mt-2">
                             <li class="">
@@ -102,17 +102,17 @@
                     </div>
                 </li>
                 {{-- master dokter --}}
-                <li class="sidebar-item  {{ Request::is('admin/dokter*') ? 'bg-white p-2 rounded-1' : '' }}">
-                    <a class="sidebar-link d-flex  justify-content-between {{ Request::is('admin/dokter*') ? 'bg-white text-dark p-0' : '' }}"
+                <li class="sidebar-item  {{ Request::is('admin/dokter*') ? '' : '' }}">
+                    <a class="sidebar-link d-flex  justify-content-between {{ Request::is('admin/dokter*') ? '' : '' }}"
                         data-bs-toggle="collapse" href="#masterDokter" role="button" aria-expanded="false"
                         aria-controls="collapseExample">
                         <span>
-                            <i class="ti ti-layout-dashboard"></i>
+                           <i class="fas fa-user-md"></i>
                         </span>
                         <strong><span class="hide-menu">Dokter</span></strong>
                         <i class="fa-solid fa-chevron-down"></i>
                     </a>
-                    <div class="collapse {{ Request::is('admin/dokter*') ? ' p-2 show' : '' }}" id="masterDokter">
+                    <div class="collapse {{ Request::is('admin/dokter*') ? '  show' : '' }}" id="masterDokter">
                         <ul class="mt-2">
                             <li>
                                 <a class="sidebar-link {{ Request::is('admin/dokter/spesialis*') ? 'bg-primary text-white' : '' }} d-flex justify-content-between"
@@ -132,7 +132,7 @@
                                 <a class="sidebar-link {{ Request::is('spesialis*') ? 'bg-primary text-white' : '' }} d-flex justify-content-between"
                                     href="{{ route('admin.jadwal') }}" aria-expanded="false">
                                     <strong><span class="hide-menu">Jadwal Dokter</span></strong>
-                                    <i class="fas fa-clipboard-list"></i>
+                                   <i class="fas fa-calendar-alt"></i>
                                 </a>
                             </li>
 
@@ -141,17 +141,17 @@
                 </li>
                 {{-- master informasi --}}
                 <li
-                    class="sidebar-item  {{ Request::is('admin/informasi*')  ? 'bg-white p-2 rounded-1' : '' }}">
-                    <a class="sidebar-link d-flex  justify-content-between {{ Request::is('admin/informasi*')  ? 'bg-white text-dark p-0' : '' }}"
+                    class="sidebar-item  {{ Request::is('admin/informasi*')  ? '' : '' }}">
+                    <a class="sidebar-link d-flex  justify-content-between {{ Request::is('admin/informasi*')  ? '' : '' }}"
                         data-bs-toggle="collapse" href="#masterInformasi" role="button" aria-expanded="false"
                         aria-controls="collapseExample">
                         <span>
-                            <i class="ti ti-layout-dashboard"></i>
+                          <i class="fas fa-info"></i>
                         </span>
                         <strong><span class="hide-menu">Informasi</span></strong>
                         <i class="fa-solid fa-chevron-down"></i>
                     </a>
-                    <div class="collapse {{ Request::is('admin/informasi*')  ? ' p-2 show' : '' }}"
+                    <div class="collapse {{ Request::is('admin/informasi*')  ? 'show' : '' }}"
                         id="masterInformasi">
                         <ul class="mt-2">
                             <li>
@@ -159,7 +159,7 @@
                                     href="{{ route('admin.alur') }}" aria-expanded="false">
                                     <strong><span class="hide-menu">Alur</span></strong>
                                     <span>
-                                        <img src={{ asset('images/icon/icon_alur.svg') }} alt="">
+                                        <i class="fas fa-pen-nib"></i>
                                     </span>
                                 </a>
                             </li>
@@ -168,7 +168,7 @@
                                     href="{{ route('admin.persyaratan') }}" aria-expanded="false">
                                     <strong><span class="hide-menu">Persyaratan</span></strong>
                                     <span>
-                                        <img src={{ asset('images/icon/icon_persyaratan.svg') }} alt="">
+                                       <i class="far fa-file"></i>
                                     </span>
                                 </a>
                             </li>
@@ -177,7 +177,7 @@
                                     href="{{ route('admin.tarif') }}" aria-expanded="false">
                                     <strong><span class="hide-menu">Tarif</span></strong>
                                     <span>
-                                        <img src={{ asset('images/icon/icon_tarif.svg') }} alt="">
+                                       <i class="fas fa-dollar-sign"></i>
                                     </span>
                                 </a>
                             </li>
@@ -186,7 +186,7 @@
                                     href="{{ route('admin.index-kepuasan-masyarakat') }}" aria-expanded="false">
                                     <strong><span class="hide-menu">IKM</span></strong>
                                     <span>
-                                        <img src={{ asset('images/icon/icon_ikm.svg') }} alt="">
+                                       <i class="fas fa-chart-bar"></i>
                                     </span>
                                 </a>
                             </li>
@@ -195,7 +195,7 @@
                                     href="{{ route('admin.sakip') }}" aria-expanded="false">
                                     <strong><span class="hide-menu">Sakip</span></strong>
                                     <span>
-                                        <img src={{ asset('images/icon/icon_sakip.svg') }} alt="">
+                                       <i class="far fa-envelope"></i>
                                     </span>
                                 </a>
                             </li>
@@ -203,17 +203,17 @@
                     </div>
                 </li>
                 {{-- master User --}}
-                <li class="sidebar-item  {{ Request::is('admin/user*') ? 'bg-white p-2 rounded-1' : '' }}">
-                    <a class="sidebar-link d-flex  justify-content-between {{ Request::is('admin/user*') ? 'bg-white text-dark p-0' : '' }}"
+                <li class="sidebar-item  {{ Request::is('admin/user*') ? '' : '' }}">
+                    <a class="sidebar-link d-flex  justify-content-between {{ Request::is('admin/user*') ? '' : '' }}"
                         data-bs-toggle="collapse" href="#masterUser" role="button" aria-expanded="false"
                         aria-controls="collapseExample">
                         <span>
-                            <i class="ti ti-layout-dashboard"></i>
+                           <i class="fas fa-users"></i>
                         </span>
-                        <strong><span class="hide-menu">User</span></strong>
+                        <strong><span class="hide-menu">Users</span></strong>
                         <i class="fa-solid fa-chevron-down"></i>
                     </a>
-                    <div class="collapse {{ Request::is('admin/user*') ? ' p-2 show' : '' }}" id="masterUser">
+                    <div class="collapse {{ Request::is('admin/user*') ? '  show' : '' }}" id="masterUser">
                         <ul class="mt-2 mb-5">
                             <li>
                                 <a class="sidebar-link {{ Request::is('admin/user*') ? 'bg-primary text-white' : '' }}"

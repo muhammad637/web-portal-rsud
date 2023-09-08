@@ -63,9 +63,14 @@
                     <trix-editor input="deskripsi"></trix-editor>
                 </div>
                 <div class="mb-3">
-                    <label for="link" class="form-label">link Embed Youtube</label>
-                    <input type="text" class="form-control @error('link') is-invalid @enderror" name="link"
-                        id="link" value="{{ old('link') }}">
+                    <label for="link_yt" class="form-label">link Embed Youtube</label>
+                    <input type="text" class="form-control @error('link_yt') is-invalid @enderror" name="link_yt"
+                        id="link_yt" value="{{ old('link_yt') }}">
+                </div>
+                <div class="mb-3">
+                    <label for="link_ig" class="form-label">link Embed Instagram</label>
+                    <input type="text" class="form-control @error('link_ig') is-invalid @enderror" name="link_ig"
+                        id="link_ig" value="{{ old('link_ig') }}">
                 </div>
                 <p class="form-label">Kategori</p>
                 <div class="row mb-3">
@@ -73,7 +78,7 @@
                     @foreach ($kategoriKonten as $item)
                     <div class="col-md-6">
                         <input type="checkbox" name="kategori[]" value="{{ $item->id }}" id="{{$item->id}}">
-                        <label for="{{$item->id}}"> {{ $item->nama_kategori }}</label>
+                        <label for="{{$item->id}}"> {{ $item->nama }}</label>
                     </div>
                     @endforeach
                 </div>

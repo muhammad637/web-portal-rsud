@@ -47,12 +47,12 @@ class KontenController extends Controller
     public function store(Request $request)
     {
         //
-        return $request->kategori;
+        // return $request->all();
         $validatedData = $request->validate(
             [
                 'judul' => 'required',
                 'slug' => 'required|unique:berita_dan_artikels,slug',
-                'isi' => 'required',
+                'deskripsi' => 'required',
                 'gambar' => 'required|',
                 'link_ig' => '',
                 'link_yt' => '',
@@ -61,9 +61,8 @@ class KontenController extends Controller
         $validatedData['jenis'] = 'artikel';
         //code...
         $validatedData['gambar'] = $request->file('gambar')->store('image-konten');
-        Konten::create($validatedData);
-        $konten = Konten::where('slug', $request->slug)->first();
-        $konten->kategori()->sync($request->input('kategori'));
+        $konten = Konten::create($validatedData);
+        $konten->kategori_konten()->sync($request->input('kategori'));
         return redirect(route('konten.index'))->with('success', 'konten berhasil di tambahkan');
     }
 

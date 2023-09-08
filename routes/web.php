@@ -93,11 +93,7 @@ Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
-Route::get('/admin/profile', [ProfilController::class, 'profile'])->name('admin.profile');
-Route::put('admin/profile/{user:id}/password', [ProfilController::class, 'passwordProfile'])->name('admin.profile.password');
-Route::get('/admin/user', [UserController::class, 'index'])->name('admin.user');
-Route::get('/admin/user/create', [UserController::class, 'userCreate'])->name('admin.user.create');
-Route::post('/admin/user/store', [UserController::class, 'userStore'])->name('admin.user.store');
+
 
 
 Route::middleware('auth')->group(function () {
@@ -122,7 +118,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/pages/master-kategori-layanan/store', [LayananController::class, 'store'])->name('admin.layanan.store');
     Route::put('/admin/pages/master-kategori-layanan/update/{layanan:slug}', [LayananController::class, 'update'])->name('admin.layanan.update');
     Route::delete('/admin/pages/master-kategori-layanan/delete/{layanan:slug}', [LayananController::class, 'delete'])->name('admin.layanan.delete');
-    
+
     // dokter
     // spesialis
     // Route::get('/admin/spesialis/search', [DokterController::class, 'search'])->name('admin.spesialis.search');
@@ -171,4 +167,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/informasi/sakip/create', [SAKIPController::class, 'sakipCreate'])->name('admin.sakip.create');
     Route::post('/admin/informasi/sakip/store', [SAKIPController::class, 'sakipStore'])->name('admin.sakip.store');
     Route::put('/admin/informasi/sakip/{sakip:id}/update', [SAKIP::class, 'sakipUpdate'])->name('admin.sakip.update');
+
+    // master user
+    Route::get('/admin/profile', [ProfilController::class, 'profile'])->name('admin.profile');
+    Route::put('admin/profile/{user:id}/password', [ProfilController::class, 'passwordProfile'])->name('admin.profile.password');
+    Route::get('/admin/user', [UserController::class, 'index'])->name('admin.user');
+    Route::get('/admin/user/create', [UserController::class, 'userCreate'])->name('admin.user.create');
+    Route::post('/admin/user/store', [UserController::class, 'userStore'])->name('admin.user.store');
 });

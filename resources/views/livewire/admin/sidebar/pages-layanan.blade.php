@@ -5,7 +5,7 @@
                 href="{{ route('admin.layanan', ['kategoriLayanan' => $value->slug]) }}" aria-expanded="false">
                 <strong><span class="hide-menu">{{ $value->nama }}</span></strong>
                 <span>
-                    <i class="fa-solid fa-newspaper"></i>
+                    <i class="fa-solid fa-person-rays"></i>
                 </span>
             </a>
         </li>
