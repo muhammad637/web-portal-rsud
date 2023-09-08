@@ -20,61 +20,62 @@
                 <p class="total" style="color: #169BE6">TOTAL TEMPAT TIDUR : <span class="text-dark">1.766</span></p> 
             </div>
             <br>
-        <table class="table table-bordered text-center">
-            <thead style="background-color: #2470A0; color: white;">
-                <tr>
-                    <th scope="col">NAMA RUANGAN</th>
-                    <th scope="col">KELAS</th>
-                    <th scope="col">JUMLAH</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="td-color">BANGSAL 8 LT.1</td>
-                    <td>KLS1</td>
-                    <td>xxx</td>
-                </tr>
-                <tr>
-                    <td class="td-color">BANGSAL 7 LT.1</td>
-                    <td>KLS2</td>
-                    <td>xxx</td>
-                </tr>
-                <tr>
-                    <td class="td-color">BANGSAL 6 LT.2</td>
-                    <td>KLS3</td>
-                    <td>xxx</td>
-                </tr>
-                <tr>
-                    <td class="td-color">BANGSAL 5 LT.2</td>
-                    <td>KLS3</td>
-                    <td>xxx</td>
-                </tr>
-                <tr>
-                    <td class="td-color">BANGSAL 4 LT.3</td>
-                    <td>KLSVIP</td>
-                    <td>xxx</td>
-                </tr>
-                <tr>
-                    <td class="td-color">BANGSAL 3 LT.3</td>
-                    <td>KLSVIP</td>
-                    <td>xxx</td>
-                </tr>
-                <tr>
-                    <td class="td-color">BANGSAL 2 LT.3</td>
-                    <td>KLSVVIP</td>
-                    <td>xxx</td>
-                </tr>
-                <tr>
-                    <td class="td-color">BANGSAL 1 LT.3</td>
-                    <td>KLSVVIP</td>
-                    <td>xxx</td>
-                </tr>
+            <table class="table table-bordered text-center">
+                <thead style="background-color: #2470A0; color: white;">
+                    <tr>
+                        <th scope="col">NAMA RUANGAN</th>
+                        <th scope="col">KELAS</th>
+                        <th scope="col">JUMLAH</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td-color">BANGSAL 8 LT.1</td>
+                        <td>KLS1</td>
+                        <td>xxx</td>
+                    </tr>
+                    <tr>
+                        <td class="td-color">BANGSAL 7 LT.1</td>
+                        <td>KLS2</td>
+                        <td>xxx</td>
+                    </tr>
+                    <tr>
+                        <td class="td-color">BANGSAL 6 LT.2</td>
+                        <td>KLS3</td>
+                        <td>xxx</td>
+                    </tr>
+                    <tr>
+                        <td class="td-color">BANGSAL 5 LT.2</td>
+                        <td>KLS3</td>
+                        <td>xxx</td>
+                    </tr>
+                    <tr>
+                        <td class="td-color">BANGSAL 4 LT.3</td>
+                        <td>KLSVIP</td>
+                        <td>xxx</td>
+                    </tr>
+                    <tr>
+                        <td class="td-color">BANGSAL 3 LT.3</td>
+                        <td>KLSVIP</td>
+                        <td>xxx</td>
+                    </tr>
+                    <tr>
+                        <td class="td-color">BANGSAL 2 LT.3</td>
+                        <td>KLSVVIP</td>
+                        <td>xxx</td>
+                    </tr>
+                    <tr>
+                        <td class="td-color">BANGSAL 1 LT.3</td>
+                        <td>KLSVVIP</td>
+                        <td>xxx</td>
+                    </tr>
+                    
+                </tbody>
                 
-            </tbody>
-            
-        </table>
+            </table>
       
         </div>
+        
     </div>
 </section>
 @endsection

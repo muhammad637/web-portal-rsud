@@ -51,8 +51,14 @@
                                     <div class="form-group">
                                         <label for="captcha">Captcha</label>
                                         <div>
-                                            {!! captcha_img() !!}
-                                            <input type="text" id="captcha" name="captcha" class="form-control" placeholder="Masukkan Captcha" required>
+                                            <span>
+                                            {!! captcha_img('math') !!}
+                                            </span>
+                                            <button type="button" class="btn btn-danger" class="reload" id="reload">
+                                                &#x21bb;
+                                            </button>
+                                            
+                                            <input  id="captcha" type="text"  name="captcha" class="form-control" placeholder="Masukkan Captcha" required>
                                         </div>
                                     </div>
                                     
@@ -69,6 +75,17 @@
     </div>
     <script src="{{ asset('./admin/assets/libs/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('./admin/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script type="text/javascript">
+        $('#reload').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'reload-captcha',
+                success: function (data) {
+                    $(".captcha span").html(data.captcha);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
