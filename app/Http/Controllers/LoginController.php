@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
-
+use App\Rules\ReCaptcha;
 
 
 class LoginController extends Controller
@@ -25,7 +25,7 @@ class LoginController extends Controller
             $credentials = $request->validate([
                 'username' => ['required'],
                 'password' => ['required'],
-                'captcha' => 'required|captcha',
+                'g-recaptcha-response' => ['required', new ReCaptcha]
             ]);
 
             if (Auth::attempt($credentials)) {
@@ -37,7 +37,7 @@ class LoginController extends Controller
             return redirect()->back()->withErrors([
                 'username' => 'invalid username',
                 'password' => 'invalid Password',
-                'captcha' => 'invalid captcha',
+                'g-recaptcha-response' => ['required', new ReCaptcha]
             ]);
         
     }
