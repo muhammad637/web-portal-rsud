@@ -48,9 +48,9 @@
                                             </div>
                                         @enderror
                                     </div>
-                                            <div class="form-group">
+                                            <div class="mb-4">
                                                 <strong>ReCaptcha:</strong>
-                                                <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
+                                                {!! app('captcha')->display($attributes = [], $options = ['data-theme' => 'dark', 'data-type' => 'audio']) !!}
                                                 @if ($errors->has('g-recaptcha-response'))
                                                     <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
                                                 @endif

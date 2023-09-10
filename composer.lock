@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf4e2923b71cf9e0d1deef1cc2b46e86",
+    "content-hash": "ef5cc762600562aadfc21bb87c7d2dbf",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -195,6 +195,78 @@
                 }
             ],
             "time": "2023-01-15T23:15:59+00:00"
+        },
+        {
+            "name": "buzz/laravel-google-captcha",
+            "version": "v2.3.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thinhbuzz/laravel-google-captcha.git",
+                "reference": "645a87e5dc607de2bc2a93d9c9e90db1f730adb4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thinhbuzz/laravel-google-captcha/zipball/645a87e5dc607de2bc2a93d9c9e90db1f730adb4",
+                "reference": "645a87e5dc607de2bc2a93d9c9e90db1f730adb4",
+                "shasum": ""
+            },
+            "require": {
+                "google/recaptcha": "1.*",
+                "illuminate/support": "5.*|6.*|7.*|8.*|9.*|10.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Buzz\\LaravelGoogleCaptcha\\CaptchaServiceProvider"
+                    ],
+                    "aliases": {
+                        "Captcha": "Buzz\\LaravelGoogleCaptcha\\CaptchaFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Buzz\\LaravelGoogleCaptcha\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ThinhBuzz",
+                    "email": "mr.thinhbuzz@gmail.com",
+                    "homepage": "https://www.facebook.com/thinh.buzz"
+                }
+            ],
+            "description": "Google captcha for Laravel",
+            "homepage": "https://github.com/thinhbuzz/laravel-google-captcha",
+            "keywords": [
+                "captcha",
+                "google captcha",
+                "laravel",
+                "laravel 10",
+                "laravel 5",
+                "laravel 6",
+                "laravel 7",
+                "laravel 8",
+                "laravel 9",
+                "laravel10",
+                "laravel5",
+                "laravel6",
+                "laravel7",
+                "laravel8",
+                "laravel9",
+                "recaptcha"
+            ],
+            "support": {
+                "issues": "https://github.com/thinhbuzz/laravel-google-captcha/issues",
+                "source": "https://github.com/thinhbuzz/laravel-google-captcha/tree/v2.3.5"
+            },
+            "time": "2023-02-14T15:20:08+00:00"
         },
         {
             "name": "cocur/slugify",
@@ -1305,90 +1377,6 @@
             "time": "2023-08-27T10:19:19+00:00"
         },
         {
-            "name": "intervention/image",
-            "version": "2.7.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Intervention/image.git",
-                "reference": "04be355f8d6734c826045d02a1079ad658322dad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/04be355f8d6734c826045d02a1079ad658322dad",
-                "reference": "04be355f8d6734c826045d02a1079ad658322dad",
-                "shasum": ""
-            },
-            "require": {
-                "ext-fileinfo": "*",
-                "guzzlehttp/psr7": "~1.1 || ^2.0",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "~0.9.2",
-                "phpunit/phpunit": "^4.8 || ^5.7 || ^7.5.15"
-            },
-            "suggest": {
-                "ext-gd": "to use GD library based image processing.",
-                "ext-imagick": "to use Imagick based image processing.",
-                "intervention/imagecache": "Caching extension for the Intervention Image library"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.4-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Intervention\\Image\\ImageServiceProvider"
-                    ],
-                    "aliases": {
-                        "Image": "Intervention\\Image\\Facades\\Image"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Intervention\\Image\\": "src/Intervention/Image"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Oliver Vogel",
-                    "email": "oliver@intervention.io",
-                    "homepage": "https://intervention.io/"
-                }
-            ],
-            "description": "Image handling and manipulation library with support for Laravel integration",
-            "homepage": "http://image.intervention.io/",
-            "keywords": [
-                "gd",
-                "image",
-                "imagick",
-                "laravel",
-                "thumbnail",
-                "watermark"
-            ],
-            "support": {
-                "issues": "https://github.com/Intervention/image/issues",
-                "source": "https://github.com/Intervention/image/tree/2.7.2"
-            },
-            "funding": [
-                {
-                    "url": "https://paypal.me/interventionio",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/Intervention",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-05-21T17:30:32+00:00"
-        },
-        {
             "name": "laravel/framework",
             "version": "v9.52.15",
             "source": {
@@ -2309,79 +2297,6 @@
                 }
             ],
             "time": "2023-08-11T04:02:34+00:00"
-        },
-        {
-            "name": "mews/captcha",
-            "version": "3.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mewebstudio/captcha.git",
-                "reference": "7aee0e80bcf7eb17fc0d574244e384e56ae2af77"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mewebstudio/captcha/zipball/7aee0e80bcf7eb17fc0d574244e384e56ae2af77",
-                "reference": "7aee0e80bcf7eb17fc0d574244e384e56ae2af77",
-                "shasum": ""
-            },
-            "require": {
-                "ext-gd": "*",
-                "illuminate/config": "~5|^6|^7|^8|^9|^10",
-                "illuminate/filesystem": "~5|^6|^7|^8|^9|^10",
-                "illuminate/hashing": "~5|^6|^7|^8|^9|^10",
-                "illuminate/session": "~5|^6|^7|^8|^9|^10",
-                "illuminate/support": "~5|^6|^7|^8|^9|^10",
-                "intervention/image": "~2.5",
-                "php": "^7.2|^8.1"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.0",
-                "phpunit/phpunit": "^8.5|^9.5.10"
-            },
-            "type": "package",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Mews\\Captcha\\CaptchaServiceProvider"
-                    ],
-                    "aliases": {
-                        "Captcha": "Mews\\Captcha\\Facades\\Captcha"
-                    }
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "Mews\\Captcha\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Muharrem ERİN",
-                    "email": "me@mewebstudio.com",
-                    "homepage": "https://github.com/mewebstudio",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Laravel 5/6/7/8/9/10 Captcha Package",
-            "homepage": "https://github.com/mewebstudio/captcha",
-            "keywords": [
-                "captcha",
-                "laravel5 Security",
-                "laravel6 Captcha",
-                "laravel6 Security"
-            ],
-            "support": {
-                "issues": "https://github.com/mewebstudio/captcha/issues",
-                "source": "https://github.com/mewebstudio/captcha/tree/3.3.2"
-            },
-            "time": "2023-07-15T15:07:48+00:00"
         },
         {
             "name": "monolog/monolog",
