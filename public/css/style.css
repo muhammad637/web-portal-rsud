@@ -9539,6 +9539,7 @@ h5,
 }
 
 .ftco-navbar-light {
+
     background: white !important;
     position: absolute;
     /* top: 20px; */
@@ -9548,12 +9549,14 @@ h5,
     z-index: 3;
 }
 @media (min-width: 992px) {
+
     .ftco-navbar-light {
         padding: 15px 0;
     }
 }
 @media (max-width: 991.98px) {
     .ftco-navbar-light {
+
         background: #000 !important;
         position: relative;
         top: 0;

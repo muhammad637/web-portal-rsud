@@ -49,7 +49,6 @@
     {{-- <script src="{{asset('js/google-map.js')}}"></script> --}}
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('admin/assets/loader/loader.js') }}"></script>
-    @stack('link-script')
 </body>
 
 </html>

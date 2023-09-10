@@ -48,6 +48,31 @@
                                             </div>
                                         @enderror
                                     </div>
+                                            <div class="mb-4">
+                                                <strong>ReCaptcha:</strong>
+                                                {!! app('captcha')->display($attributes = [], $options = ['data-theme' => 'dark', 'data-type' => 'audio']) !!}
+                                                @if ($errors->has('g-recaptcha-response'))
+                                                    <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
+                                                @endif
+                                            </div>  
+                                            {{-- <div class="g-recaptcha"
+                                            data-sitekey="6LckmhIoAAAAAI-Avx-0YrN_ozyoXMPyhMreCMqn"
+                                            data-callback='onSubmit'
+                                            data-action='submit'>Submit</div> --}}
+                                      {{-- <div class="form-group">
+                                        <label for="captcha">Captcha</label>
+                                        <div>
+                                            <span>
+                                            {!! captcha_img('math') !!}
+                                            </span>
+                                            <button type="button" class="btn btn-danger" class="reload" id="reload">
+                                                &#x21bb;
+                                            </button>
+                                            
+                                            <input  id="captcha" type="text"  name="captcha" class="form-control" placeholder="Masukkan Captcha" required>
+                                        </div>
+                                    </div>
+                                     --}}
                                     <button class="btn-primary btn w-100 py-8 fs-4 mb-4 rounded-2"
                                         type="submit">Login</button>
                                     {{-- <a href="./index.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign In</a> --}}
@@ -61,6 +86,17 @@
     </div>
     <script src="{{ asset('./admin/assets/libs/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('./admin/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script type="text/javascript">
+        $('#reload').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'reload-captcha',
+                success: function (data) {
+                    $(".captcha span").html(data.captcha);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

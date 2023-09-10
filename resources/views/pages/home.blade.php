@@ -229,7 +229,6 @@
             </div>
         </div>
     </section>
-
     {{-- artikel --}}
     <section class="ftco-section">
         <div class="container">
