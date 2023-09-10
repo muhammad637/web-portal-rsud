@@ -17,7 +17,7 @@ class Konten extends Model
     protected $guarded = ['id'];
     public function kategori_konten()
     {
-        return $this->belongsToMany(KategoriKonten::class,'many_many_kategori_kontent', 'kategori_konten_id', 'konten_id');
+        return $this->belongsToMany(KategoriKonten::class,'many_many_kategori_kontent',  'konten_id', 'kategori_konten_id');
     }
     public function sluggable(): array
     {

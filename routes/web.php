@@ -32,6 +32,7 @@ use App\Http\Controllers\LayananUnggulanController;
 use App\Http\Controllers\BeritaDanArtikelController;
 use App\Http\Controllers\KontenController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\PortalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,57 +44,63 @@ use App\Http\Controllers\LayananController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/profil', function () {
-    return view('pages.profil.profil');
+// HOME
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index']);
+// PROFILE
+Route::get('/profil', [PortalController::class, 'profil'])->name('profil');
+// PASIEN DAN PENGUNJUNG
+Route::group(['prefix' => 'pasien-dan-pegunjung'],function(){
+    Route::get('/daftar-dokter', [DokterController::class, 'index'])->name('pasien-dan-pengunjung.dokter');
+    Route::get('/daftar-dokter/cari', [DokterController::class, 'cari'])->name('pasien-dan-pengunjung.dokter.cari');
+    Route::get('/ketersediaan-kamar', [PortalController::class, 'ketersediaanKamar'])->name('pasien-dan-pengunjung.ketersediaanKamar');
+    Route::get('/informasikunjungan', [PortalController::class, 'informasiKunjungan'])->name('pasien-dan-pengunjung.informasiKunjungan');
 });
-Route::get('/alur-persyaratan', [AlurController::class, 'alurindex'])->name('alur-persyaratan');
-Route::get('tarif', [TarifController::class, 'tarifindex'])->name('tarif');
-Route::get('ikm', [IKMController::class, 'ikmindex'])->name('ikm');
-Route::get('sakip', [SAKIPController::class, 'sakipindex'])->name('sakip');
+// BERITA
+Route::group(['prefix'=>'berita'],function(){
+    Route::get('/', [PortalController::class, 'konten'])->name('berita.index');
+    Route::get('/{konten:slug}', [PortalController::class, 'isiKonten'])->name('berita.show');
+});
+Route::get('/kategori-berita/{kategoriKonten:slug}', [PortalController::class, 'kategoriKonten'])->name('kategori-berita.index');
+// LAYANAN
+Route::group(['prefix' => 'layanan'],function(){
+    Route::get('/{kategoriLayanan:slug}', [PortalController::class, 'layanan'])->name('layanan.index');
+    Route::get('/kategori-layanan/{layanan:slug}', [PortalController::class, 'layananShow'])->name('layanan.show');
+});
+// INFORMASI
+Route::group(['prefix' => 'informasi'],function(){
+    Route::get('/alur-persyaratan', [AlurController::class, 'alurindex'])->name('informasi.alur-persyaratan');
+    Route::get('/tarif', [TarifController::class, 'tarifindex'])->name('informasi.tarif');
+    Route::get('/ikm', [IKMController::class, 'ikmindex'])->name('informasi.ikm');
+    Route::get('/sakip', [SAKIPController::class, 'sakipindex'])->name('informasi.sakip');
+    Route::get('/petunjuk-umum', [PortalController::class, 'petunjukUmum'])->name('informasi.petunjukUmum');
+});
+
 // Route::get('/artikel/klik', function () {
 //     return view('pages.berita-artikel.isi-artikel');
 // });
 
-Route::get('/artikel/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'IsiArtikelindex'])->name('isi-artikel');
-Route::get('/artikel', [BeritaDanArtikelController::class, 'Artikelindex'])->name('artikel');
-Route::get('/kategori/{kategori:nama_kategori}', [KategoriController::class, 'kategori'])->name('kategori-artikel');
+// Route::get('/artikel/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'IsiArtikelindex'])->name('isi-artikel');
+// Route::get('/artikel', [BeritaDanArtikelController::class, 'Artikelindex'])->name('artikel');
+// Route::get('/kategori/{kategori:nama_kategori}', [KategoriController::class, 'kategori'])->name('kategori-artikel');
 
-Route::get('/berita', [BeritaDanArtikelController::class, 'Beritaindex'])->name('berita');
-Route::get('/berita/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'IsiBeritaindex'])->name('isi-berita');
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/berita', [BeritaDanArtikelController::class, 'Beritaindex'])->name('berita');
+// Route::get('/berita/{beritaDanArtikel:slug}', [BeritaDanArtikelController::class, 'IsiBeritaindex'])->name('isi-berita');
 
-Route::get('/rawat-inap', [RawatInapController::class, 'rawatInapIndex'])->name('rawat-inap');
+
+// Route::get('/rawat-inap', [RawatInapController::class, 'rawatInapIndex'])->name('rawat-inap');
 // Route::get('/rawat-inap', function () {
 //     return view('pages.layanan.rawat-inap');
 // });
-Route::get('layanan-unggulan', [LayananUnggulanController::class, 'Unggulanindex'])->name('layanan-unggulan');
-Route::get('rawat-jalan', [RawatJalanController::class, 'RawatJalanindex'])->name('rawat-jalan');
-Route::get('layanan-mcu', [MedicalCheckUpController::class, 'mcuindex'])->name('mcu');
-Route::get('/caridokter', [DokterController::class, 'index'])->name('dokter');
-Route::get('/caridokter/cari', [DokterController::class, 'cari'])->name('dokter.cari');
-
-Route::get('/ketersediaantempat', function () {
-    return view('pages.pasien-pengunjung.ketersediaan-tempat');
-});
-
-Route::get('/informasikunjungan', function () {
-    return view('pages.pasien-pengunjung.informasi-kunjungan');
-});
-Route::get('petunjuk-umum', function () {
-    return view('pages.informasi.petunjuk-umum');
-});
-
-Route::get('/home', [HomeController::class, 'index']);
+// Route::get('layanan-unggulan', [LayananUnggulanController::class, 'Unggulanindex'])->name('layanan-unggulan');
+// Route::get('rawat-jalan', [RawatJalanController::class, 'RawatJalanindex'])->name('rawat-jalan');
+// Route::get('layanan-mcu', [MedicalCheckUpController::class, 'mcuindex'])->name('mcu');
 
 
 // login
 Route::get('/login', [LoginController::class, 'index'])->name('login.index')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
-
-
 
 
 Route::middleware('auth')->group(function () {
@@ -109,15 +116,16 @@ Route::middleware('auth')->group(function () {
     Route::resource('/admin/kategori-layanan', KategoriLayananController::class);
     // pages
     // // konten
-    Route::resource('/admin/konten', KontenController::class);
+    // Route::resource('/admin/konten', KontenController::class);
+    Route::get('/admin/konten',[KontenController::class,'index'])->name('admin.konten.index');
+    Route::get('/admin/konten/create',[KontenController::class,'create'])->name('admin.konten.create');
+    Route::post('/admin/konten',[KontenController::class,'store'])->name('admin.konten.store');
+    Route::get('/admin/konten/{konten:slug}',[KontenController::class,'show'])->name('admin.konten.show');
+    Route::get('/admin/konten/{konten:slug}/edit',[KontenController::class,'edit'])->name('admin.konten.edit');
+    Route::put('/admin/konten/{konten:slug}',[KontenController::class,'update'])->name('admin.konten.update');
+    Route::delete('/admin/konten/{konten:slug}',[KontenController::class,'destroy'])->name('admin.konten.delete');
     // layanan
-    Route::get('/admin/pages/{kategoriLayanan:slug}', [LayananController::class, 'index'])->name('admin.layanan');
-    Route::get('/admin/pages/{kategoriLayanan:slug}/create', [LayananController::class, 'create'])->name('admin.layanan.create');
-    Route::get('/admin/pages/master-kategori-layanan/show/{layanan:slug}', [LayananController::class, 'show'])->name('admin.layanan.show');
-    Route::get('/admin/pages/master-kategori-layanan/edit/{layanan:slug}', [LayananController::class, 'edit'])->name('admin.layanan.edit');
-    Route::post('/admin/pages/master-kategori-layanan/store', [LayananController::class, 'store'])->name('admin.layanan.store');
-    Route::put('/admin/pages/master-kategori-layanan/update/{layanan:slug}', [LayananController::class, 'update'])->name('admin.layanan.update');
-    Route::delete('/admin/pages/master-kategori-layanan/delete/{layanan:slug}', [LayananController::class, 'delete'])->name('admin.layanan.delete');
+   
 
     // dokter
     // spesialis
@@ -174,4 +182,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/user', [UserController::class, 'index'])->name('admin.user');
     Route::get('/admin/user/create', [UserController::class, 'userCreate'])->name('admin.user.create');
     Route::post('/admin/user/store', [UserController::class, 'userStore'])->name('admin.user.store');
+
+    Route::get('/admin/pages/{kategoriLayanan:slug}', [LayananController::class, 'index'])->name('admin.layanan');
+    Route::get('/admin/pages/{kategoriLayanan:slug}/create', [LayananController::class, 'create'])->name('admin.layanan.create');
+    Route::get('/admin/pages/master-kategori-layanan/show/{layanan:slug}', [LayananController::class, 'show'])->name('admin.layanan.show');
+    Route::get('/admin/pages/master-kategori-layanan/edit/{layanan:slug}', [LayananController::class, 'edit'])->name('admin.layanan.edit');
+    Route::post('/admin/pages/master-kategori-layanan/store', [LayananController::class, 'store'])->name('admin.layanan.store');
+    Route::put('/admin/pages/master-kategori-layanan/update/{layanan:slug}', [LayananController::class, 'update'])->name('admin.layanan.update');
+    Route::delete('/admin/pages/master-kategori-layanan/delete/{layanan:slug}', [LayananController::class, 'delete'])->name('admin.layanan.delete');
 });

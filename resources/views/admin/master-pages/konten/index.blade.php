@@ -13,7 +13,8 @@
     <div class="card">
         <div class="card-body">
             <h1 class="fw-bold">Artikel</h1>
-            <a href="{{ route('konten.create') }}" class="btn btn-primary text-decoration-none"> Create  <i class="fa-solid fa-square-plus"></i>
+            <a href="{{ route('admin.konten.create') }}" class="btn btn-primary text-decoration-none"> Create <i
+                    class="fa-solid fa-square-plus"></i>
             </a>
             @if (session()->has('success'))
                 <div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
@@ -46,13 +47,18 @@
                                 <td>{{ $item->slug }}</td>
                                 <td>{{ Carbon\Carbon::parse($item->created_at)->format('d-M-Y') }}</td>
                                 <td>
-                                    <a href="#" class="badge bg-success"><img
-                                            src="{{ asset('icon/icon_folder.png') }}" alt=""></a>
-                                    <a href="{{ route('konten.edit', ['beritaDanArtikel' => $item->slug]) }}"
-                                        class="badge bg-warning"><img src="{{ asset('images/icon/icon_pen.svg') }}"
-                                            alt=""></a>
-                                    <a href="#" class="badge bg-danger"><img src="{{ asset('images/icon/icon_trash.svg') }}"
-                                            alt=""></a>
+
+                                    <a href="{{ route('berita.show', ['konten' => $item->slug]) }}" target="_blank"
+                                        class="btn btn-success py-1 px-2 "><i class="fas fa-eye"></i></a>
+                                    <a href="{{ route('admin.konten.edit', ['konten' => $item->slug]) }}"
+                                        class="btn btn-warning py-1 px-2 "><i class="fas fa-pen"></i></a>
+                                    <form action="{{ route('admin.konten.delete', ['konten' => $item->slug]) }}"
+                                        enctype="multipart/form-data" method="post" class="d-inline">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn btn-danger py-1 px-2 text-decoration-none"><i
+                                                class="far fa-trash-alt"></i></button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

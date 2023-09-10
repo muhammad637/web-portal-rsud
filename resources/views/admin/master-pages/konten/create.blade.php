@@ -14,7 +14,7 @@
     <div class="card">
         <div class="card-body">
             <h1 class="text-center text-capitalize fw-bold">form upload Konten</h1>
-            <form action="{{ route('konten.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.konten.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="" class="form-label">Title</label>
@@ -83,7 +83,7 @@
                     @endforeach
                 </div>
                     
-                <a class="btn btn-warning" href="{{ route('konten.index') }}">Kembali</a>
+                <a class="btn btn-warning" href="{{ route('admin.konten.index') }}">Kembali</a>
                 <button class="btn btn-primary " type="submit">Kirim</button>
             </form>
         </div>

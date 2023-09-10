@@ -15,6 +15,7 @@
             bordeR: 1px solid #71C9CE;
         }
 
+
         .container-swiper {
             height: 20rem;
         }
@@ -84,7 +85,7 @@
                 </div>
                 <div class="col-md-6 color-3 p-4">
                     <h3 class="mb-2">Cari Dokter</h3>
-                    <form action="{{ route('dokter.cari') }}" class="appointment-form">
+                    <form action="{{ route('pasien-dan-pengunjung.dokter.cari') }}" class="appointment-form">
 
                         @livewire('search-dokter', ['Spesialis' => $Spesialis])
 
@@ -99,7 +100,7 @@
     </section>
 
     {{-- layanan unggulan --}}
-    <section class="ftco-section ftco-services">
+    <section class=" ftco-services">
         <div class="container">
             <div class="row justify-content-center mb-5 pb-5">
                 <div class="col-md-7 text-center heading-section ftco-animate">
@@ -130,10 +131,44 @@
                 </div>
             </div>
         </div>
+    </section>
+    {{-- galeri --}}
+    <section class="ftco-gallery ">
+        <div class="container-wrap">
+            <div class="row no-gutters">
+                <div class="col-md-3 ftco-animate">
+                    <a href="#" class="gallery img d-flex align-items-center"
+                        style="background-image: url(images/6.jpg); background-size: cover;">
+                    </a>
+                </div>
+                <div class="col-md-3 ftco-animate">
+                    <a href="#" class="gallery img d-flex align-items-center"
+                        style="background-image: url(images/suntik.jpg); background-size: cover;">
+                    </a>
+                </div>
+                <div class="col-md-3 ftco-animate">
+                    <a href="#" class="gallery img d-flex align-items-center"
+                        style="background-image: url(images/pp.jpeg); background-size: cover;">
+                    </a>
+                </div>
+                <div class="col-md-3 ftco-animate">
+                    <a href="#" class="gallery img d-flex align-items-center"
+                        style="background-image: url(images/dokter.jpeg); background-size:cover;">
 
+                    </a>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+    {{-- sejarah --}}
+    <section class="ftco-section">
         <div class="container-wrap mt-5">
             <div class="row d-flex no-gutters">
-                <div class="col-md-6 img" style="background-image: url(images/halamanrsud.jpg);">
+                <div class="col-md-6 ftco-animate img home-sejarah-image  fadeInUp ftco-animated" id="#col-tes"
+                    style="background-image: url(images/halamanrsud.jpg);">
                 </div>
                 <div class="col-md-6 d-flex">
                     <div class="about-wrap">
@@ -195,92 +230,37 @@
         </div>
     </section>
 
+    {{-- artikel --}}
     <section class="ftco-section">
         <div class="container">
-            <div class="row justify-content-center mb-5 pb-5">
+            <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 text-center heading-section ftco-animate">
-                    <h2 class="mb-4"><strong>ARTIKEL KESEHATAN</strong></h2>
+                    <h2 class="mb-2"><strong>BERITA</strong></h2>
                 </div>
             </div>
-            <div class="container-apa">
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        @foreach ($Artikel as $artikel)
-                            <div class="swiper-slide">
-                                <div class="staff">
-                                    <div class="img mb-4" style="background-image: url({{ $artikel->gambar }});"></div>
-                                    <div class="info text-center">
-                                        <h3><a href="teacher-single.html">{{ $artikel->judul }}</a></h3>
-                                        <span class="">{!! $artikel->isi !!}</span>
-                                    </div>
+            <div class="row">
+
+                @foreach ($Berita as $berita)
+                    <div class="col-md-4 ftco-animate">
+                        <div class="blog-entry">
+                            <a href="blog-single.html" class="block-20"
+                                style="background-image: url('{{ $berita->gambar }}');">
+                            </a>
+                            <div class="text d-flex py-4">
+                                <div class="meta mb-3">
+                                    <div><a href="#">{{ $berita->created_at }}</a></div>
+                                    <div><a href="#">Admin</a></div>
+                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span>
+                                            {{ $berita->views }}</a></div>
                                 </div>
+                                <div class="desc pl-3">
+                                    <h3 class="heading"><a href="#">{{ $berita->judul }}</a></h3>
+                                </div>
+
                             </div>
-                        @endforeach
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="ftco-gallery ">
-        <div class="container-wrap">
-            <div class="row no-gutters">
-                <div class="col-md-3 ftco-animate">
-                    <a href="#" class="gallery img d-flex align-items-center"
-                        style="background-image: url(images/6.jpg); background-size: cover;">
-                    </a>
-                </div>
-                <div class="col-md-3 ftco-animate">
-                    <a href="#" class="gallery img d-flex align-items-center"
-                        style="background-image: url(images/suntik.jpg); background-size: cover;">
-                    </a>
-                </div>
-                <div class="col-md-3 ftco-animate">
-                    <a href="#" class="gallery img d-flex align-items-center"
-                        style="background-image: url(images/pp.jpeg); background-size: cover;">
-                    </a>
-                </div>
-                <div class="col-md-3 ftco-animate">
-                    <a href="#" class="gallery img d-flex align-items-center"
-                        style="background-image: url(images/dokter.jpeg); background-size:cover;">
-
-                    </a>
-                </div>
-
-
-                <div class="container">
-                    <div class="row justify-content-center mb-5 pb-3">
-                        <div class="col-md-7 text-center heading-section ftco-animate">
-                            <h2 class="mb-2"><strong>BERITA</strong></h2>
                         </div>
                     </div>
-                    <div class="row">
-
-                        @foreach ($Berita as $berita)
-                            <div class="col-md-4 ftco-animate">
-                                <div class="blog-entry">
-                                    <a href="blog-single.html" class="block-20"
-                                        style="background-image: url('{{ $berita->gambar }}');">
-                                    </a>
-                                    <div class="text d-flex py-4">
-                                        <div class="meta mb-3">
-                                            <div><a href="#">{{ $berita->created_at }}</a></div>
-                                            <div><a href="#">Admin</a></div>
-                                            <div><a href="#" class="meta-chat"><span class="icon-chat"></span>
-                                                    {{ $berita->views }}</a></div>
-                                        </div>
-                                        <div class="desc pl-3">
-                                            <h3 class="heading"><a href="#">{{ $berita->judul }}</a></h3>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

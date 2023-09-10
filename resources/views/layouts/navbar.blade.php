@@ -1,3 +1,7 @@
+@push('link-css')
+    @livewireStyles
+@endpush
+
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
 
@@ -11,41 +15,31 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="/profil" class="nav-link"><strong>Profil</strong></a></li>
+                <li class="nav-item"><a href="{{ route('profil') }}" class="nav-link"><strong>Profil</strong></a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false"><strong>
                             Pasien & Pengunjung</strong>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/caridokter">Dokter</a></li>
-                        <li><a class="dropdown-item" href="/ketersediaantempat">Ketersediaan Kamar</a></li>
-                        <li><a class="dropdown-item" href="/informasikunjungan">Informasi Kunjungan</a></li>
+                        <li><a class="dropdown-item" href="{{ route('pasien-dan-pengunjung.dokter') }}">Dokter</a></li>
+                        <li><a class="dropdown-item"
+                                href="{{ route('pasien-dan-pengunjung.ketersediaanKamar') }}">Ketersediaan Kamar</a>
+                        </li>
+                        <li><a class="dropdown-item"
+                                href="{{ route('pasien-dan-pengunjung.informasiKunjungan') }}">Informasi Kunjungan</a>
+                        </li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false"><strong>
-                            Berita</strong>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/berita">Berita</a></li>
-                        <li><a class="dropdown-item" href="/artikel">Artikel</a></li>
-                    </ul>
+                <li class="nav-item"><a href="{{ route('berita.index') }}" class="nav-link"><strong>Berita</strong></a>
                 </li>
-                {{-- <li class="nav-item"><a href="" class="nav-link">Pasien & Pengunjung</a></li> --}}
-                {{-- <li class="nav-item"><a href="" class="nav-link">Layanan</a></li>
-		 --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false"><strong>
                             Layanan</strong>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/layanan-unggulan">Layanan Unggulan</a></li>
-                        <li><a class="dropdown-item" href="/rawat-inap">Layanan Rawat Inap</a></li>
-                        <li><a class="dropdown-item" href="/rawat-jalan">Layanan Rawat Jalan</a></li>
-                        <li><a class="dropdown-item" href="/layanan-mcu">Layanan Medical Check Up</a></li>
+                        @livewire('navbar-layanans')
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -54,15 +48,18 @@
                             Informasi</strong>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/alur-persyaratan">Alur dan Persyaratan</a></li>
-                        <li><a class="dropdown-item" href="/tarif">Tarif</a></li>
-                        <li><a class="dropdown-item" href="/petunjuk-umum">Petunjuk Umum</a></li>
-                        <li><a class="dropdown-item" href="/ikm">Index Kepuasan Masyarakat</a></li>
-                        <li><a class="dropdown-item" href="/sakip">Sakip</a></li>
+                        <li><a class="dropdown-item" href="{{ route('informasi.alur-persyaratan') }}">Alur dan
+                                Persyaratan</a></li>
+                        <li><a class="dropdown-item" href="{{ route('informasi.tarif') }}">Tarif</a></li>
+                        <li><a class="dropdown-item" href="{{ route('informasi.ikm') }}">Petunjuk Umum</a></li>
+                        <li><a class="dropdown-item" href="{{ route('informasi.sakip') }}">Index Kepuasan
+                                Masyarakat</a></li>
+                        <li><a class="dropdown-item" href="{{ route('informasi.petunjukUmum') }}">Sakip</a></li>
                     </ul>
                 </li>
                 @if (auth()->user())
-                    <li class="nav-item"><a href="/admin/dashboard" class="nav-link"><strong>Dashboard</strong></a></li>
+                    <li class="nav-item"><a href="{{ route('admin.dashboard') }}"
+                            class="nav-link"><strong>Dashboard</strong></a></li>
                 @endif
                 {{-- <li class="nav-item"><a href="" class="nav-link">Berita</a></li> --}}
             </ul>
@@ -73,3 +70,7 @@
 
 </nav>
 <!-- END nav -->
+
+@push('link-script')
+    @livewireScripts
+@endpush

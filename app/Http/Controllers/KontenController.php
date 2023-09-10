@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Konten;
 use Illuminate\Http\Request;
+use App\Models\KategoriKonten;
 use App\Models\BeritaDanArtikel;
 use App\Http\Controllers\Controller;
-use App\Models\KategoriKonten;
+use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class KontenController extends Controller
@@ -63,7 +64,7 @@ class KontenController extends Controller
         $validatedData['gambar'] = $request->file('gambar')->store('image-konten');
         $konten = Konten::create($validatedData);
         $konten->kategori_konten()->sync($request->input('kategori'));
-        return redirect(route('konten.index'))->with('success', 'konten berhasil di tambahkan');
+        return redirect(route('admin.konten.index'))->with('success', 'konten berhasil di tambahkan');
     }
 
     /**
@@ -86,6 +87,11 @@ class KontenController extends Controller
     public function edit(Konten $konten)
     {
         //
+        // return "testing";
+        return view('admin.master-pages.konten.edit', [
+            'konten' => $konten,
+            'kategoriKonten' => KategoriKonten::all()
+        ]);
     }
 
     /**
@@ -98,6 +104,23 @@ class KontenController extends Controller
     public function update(Request $request, Konten $konten)
     {
         //
+        $rule = [
+            'judul' => 'required',
+            'slug' => 'required|unique:berita_dan_artikels,slug,' . $konten->id,
+            'deskripsi' => 'required',
+        ];
+        $validatedData = $request->validate($rule);
+        $gambar = $konten->gambar;
+        if ($request->gambar) {
+            Storage::delete($konten->gambar);
+            $gambar = $request->file('gambar')->store('image-konten');
+        }
+        $updatedData = array_merge(['gambar' => $gambar], $validatedData);
+        $konten->update(
+            $updatedData
+        );
+        $konten->kategori_konten()->sync($request->input('kategori'));
+        return redirect(route('admin.konten.index'))->with('success', 'berhasil update berita');
     }
 
     /**
@@ -109,6 +132,10 @@ class KontenController extends Controller
     public function destroy(Konten $konten)
     {
         //
+        Storage::delete($konten->gambar);
+        $konten->delete();
+        return redirect(route('admin.konten.index'))->with('success', 'berhasil hapus berita');
+
     }
 
     public function slug(Request $request)

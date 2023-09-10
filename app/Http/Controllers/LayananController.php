@@ -79,8 +79,7 @@ class LayananController extends Controller
         ];
         $layanan = Layanan::create($postLayanan);
         // return $layanan;
-        return redirect(route('admin.layanan'))->with('success', 'data layanan pages  berhasil ditambahkan');
-
+        return redirect(route('admin.layanan', ['kategoriLayanan' => $layanan->kategoriLayanan->slug]))->with('success', 'data layanan pages  berhasil ditambahkan');
     }
 
     /**

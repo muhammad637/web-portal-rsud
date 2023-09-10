@@ -90,8 +90,8 @@
                         <ul class="mt-2">
                             <li class="">
                                 <a class="sidebar-link  {{ Request::is('admin/konten*') ? 'bg-primary text-white ' : '' }} d-flex justify-content-between"
-                                    href="{{ route('konten.index') }}" aria-expanded="false">
-                                    <strong><span class="hide-menu">Konten</span></strong>
+                                    href="{{ route('admin.konten.index') }}" aria-expanded="false">
+                                    <strong><span class="hide-menu">Berita</span></strong>
                                     <span>
                                         <i class="fa-solid fa-newspaper"></i>
                                     </span>

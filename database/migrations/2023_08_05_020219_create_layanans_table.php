@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('icon')->nullable();
             $table->string('gambar');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }

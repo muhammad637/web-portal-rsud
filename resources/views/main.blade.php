@@ -26,7 +26,7 @@
     @yield('content')
     @include('layouts.footer')
     <div class="loader"></div>
-    @stack('link-script')
+    
 
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
@@ -49,6 +49,7 @@
     {{-- <script src="{{asset('js/google-map.js')}}"></script> --}}
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('admin/assets/loader/loader.js') }}"></script>
+    @stack('link-script')
 </body>
 
 </html>
