@@ -229,6 +229,10 @@
             </div>
         </div>
     </section>
+<<<<<<< HEAD
+=======
+
+>>>>>>> e9ec9f9a88cbfae81d2ba7575a5a3dd7ed3c060a
     {{-- artikel --}}
     <section class="ftco-section">
         <div class="container">
@@ -260,6 +264,10 @@
                         </div>
                     </div>
                 @endforeach
+<<<<<<< HEAD
+=======
+
+>>>>>>> e9ec9f9a88cbfae81d2ba7575a5a3dd7ed3c060a
             </div>
         </div>
     </section>

@@ -49,6 +49,17 @@
     {{-- <script src="{{asset('js/google-map.js')}}"></script> --}}
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('admin/assets/loader/loader.js') }}"></script>
+<<<<<<< HEAD
+=======
+    @stack('link-script')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+        function recaptchaCallback(response) {
+          console.log(response);
+        }
+      </script>
+>>>>>>> e9ec9f9a88cbfae81d2ba7575a5a3dd7ed3c060a
 </body>
 
 </html>

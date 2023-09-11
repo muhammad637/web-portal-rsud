@@ -1,4 +1,7 @@
 @extends('admin.pages.main')
+@section('breadcrumb')
+    <li class="breadcrumb-item">Dashboard</li>
+@endsection
 @push('link-css-admin')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
 @endpush
@@ -140,6 +143,7 @@
         </div>
     </div>
 @endsection
+
 @push('link-script-admin')
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>

@@ -84,6 +84,7 @@ class PortalController extends Controller
     }
     public function layananShow(Layanan $layanan)
     {
+        // return $layanan;
         return view('pages.layanan.show',[
             'layanan' => $layanan
         ]);

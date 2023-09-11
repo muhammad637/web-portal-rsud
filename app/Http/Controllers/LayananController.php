@@ -68,7 +68,6 @@ class LayananController extends Controller
         }
         $gambar = $request->file('gambar')->store('image-layanan');
         $validatedData['gambar'] = $request->file('gambar')->store('image-layanan');
-        $validatedData['icon'] = $request->file('icon')->store('icon-layanan');
         $postLayanan = [
             'kategori_layanan_id' => $request->kategori_layanan_id,
             'nama' => $request->nama,

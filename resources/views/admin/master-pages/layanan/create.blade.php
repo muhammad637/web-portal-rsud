@@ -38,6 +38,7 @@
                         </div>
                     @enderror
                 </div>
+                 @if ($kategoriLayanan->slug == 'layanan-rawat-jalan' || $kategoriLayanan->slug == 'layanan-unggulan') 
                 <div class="mb-3">
                     <p class="d-none" id="text-preview-icon">preview icon</p>
                     <img id="displayedIcon" class="img-fluid w-50" src="{{ old('icon') }}" alt="icon yang Dipilih">
@@ -53,10 +54,12 @@
                         </div>
                     @enderror
                 </div>
+                   @endif
                 <div class="mb-3">
                     <p class="d-none" id="text-preview">preview gambar</p>
                     <img id="displayedImage" class="img-fluid w-50" src="{{ old('gambar') }}" alt="Gambar yang Dipilih">
                 </div>
+             
                 <div class="mb-3">
                     <label for="" class="form-label">gambar</label>
                     <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar"

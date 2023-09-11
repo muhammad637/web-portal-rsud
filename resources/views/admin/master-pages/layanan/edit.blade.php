@@ -38,6 +38,7 @@
                         </div>
                     @enderror
                 </div>
+                @if ($layanan->kategoriLayanan->slug == 'layanan-rawat-jalan' || $layanan->kategoriLayanan->slug == 'layanan-unggulan')    
                 <div class="mb-3">
                     <p class="d-none" id="text-preview-icon">preview icon</p>
                     <img id="displayedIcon" class="img-fluid w-50"
@@ -54,6 +55,7 @@
                         </div>
                     @enderror
                 </div>
+                @endif
                 <div class="mb-3">
                     <p class="d-none" id="text-preview">preview gambar</p>
                     <img id="displayedImage" class="img-fluid w-50"

@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokter;
-use App\Models\JadwalDokter;
-use App\Models\RawatJalan;
+use App\Models\Layanan;
 use App\Models\Spesialis;
-use Illuminate\Contracts\Support\ValidatedData;
+use App\Models\RawatJalan;
+use App\Models\JadwalDokter;
 use Illuminate\Http\Request;
+use App\Models\KategoriLayanan;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Contracts\Support\ValidatedData;
 use Symfony\Contracts\Service\Attribute\Required;
 
 class DokterController extends Controller
@@ -22,11 +25,13 @@ class DokterController extends Controller
     {
 
         $dokter = Dokter::all();
-        $jadwal_dokter = JadwalDokter::all();
         $spesialis = Spesialis::all();
+        // $layananRawatJalan = KategoriLayanan::where('slug','like', "%rawat-jalan%")->get();
+        // return $layananRawatJalan;
         return view('pages/pasien-pengunjung/dokter', [
             'Dokter' => $dokter,
             'Spesialis' => $spesialis,
+            // 'layanan' => $layananRawatJalan
         ]);
 
         // return $layanan_unggulan;
@@ -47,8 +52,12 @@ class DokterController extends Controller
     public function dokter()
     {
         // return Dokter::all();
+       
+        // return ;
         return view('admin.pages.dokter.daftar-dokter', [
             'dokter' => Dokter::orderBy('updated_at', 'desc')->get(),
+            'layanan' => KategoriLayanan::where('slug', 'like', '%rawat-jalan%')->first()->layanan,
+            'spesialis' => Spesialis::all()
         ]);
         // return Dokter::all();
         //
@@ -82,13 +91,13 @@ class DokterController extends Controller
             ]
         );
         $spesialis =  Spesialis::where('nama_spesialis', $request->nama_spesialis)->first();
-        $rawatJalan =  RawatJalan::where('nama', $request->nama_rawat_jalan)->first();
+        $layanan =  Layanan::where('nama', $request->nama_rawat_jalan)->first();
         $validatedData['gambar'] = $request->file('gambar')->store('gambar-dokter');
         Dokter::create([
             'nama' => $validatedData['nama'],
             'gambar' => $validatedData['gambar'],
             'spesialis_id' => $spesialis->id,
-            'rawatJalan_id' => $rawatJalan->id
+            'layanan_id' => $layanan->id
         ]);
 
         return redirect()->back()->with('success', 'dokter berhasil ditambahkan');
@@ -167,56 +176,6 @@ class DokterController extends Controller
         return redirect()->back()->with('success', 'dokter berhasil dihapus');
     }
 
-    public function cariDokter(Request $request)
-    {
-        // Validasi input
-        $request->validate([
-            'nama_dokter' => 'nullable|string',  // nullable artinya input boleh kosong
-            'nama_spesialis' => 'nullable|string', // nullable artinya input boleh kosong
-            'hari_jadwal' => 'nullable|string', // nullable artinya input boleh kosong
-            'jam_mulai' => 'nullable|string', // nullable artinya input boleh kosong
-            'jam_selesai_praktik' => 'nullable|string', // nullable artinya input boleh kosong
-        ]);
-
-        // Ambil input dari form
-        $namaDokter = $request->input('nama_dokter');
-        $namaSpesialis = $request->input('nama_spesialis');
-        $hariJadwal = $request->input('hari_jadwal');
-        $jamMulai = $request->input('jam_mulai');
-        $jamSelesaiPraktik = $request->input('jam_selesai_praktik');
-
-        // Query pencarian dokter
-        $query = Dokter::query();
-
-        if (!empty($namaDokter)) {
-            $query->where('nama', 'LIKE', '%' . $namaDokter . '%');
-        }
-
-        if (!empty($namaSpesialis)) {
-            $query->whereHas('spesialis', function ($subquery) use ($namaSpesialis) {
-                $subquery->where('nama_spesialis', $namaSpesialis);
-            });
-        }
-
-        if (!empty($hariJadwal)) {
-            $query->whereHas('jadwalDokter', function ($subquery) use ($hariJadwal) {
-                $subquery->where('hari', $hariJadwal);
-            });
-        }
-
-        if (!empty($jamMulai) && !empty($jamSelesaiPraktik)) {
-            $query->whereHas('jadwalDokter', function ($subquery) use ($jamMulai, $jamSelesaiPraktik) {
-                $subquery->whereBetween('jam_mulai_praktik', [$jamMulai, $jamSelesaiPraktik])
-                    ->orWhereBetween('jam_selesai_praktik', [$jamMulai, $jamSelesaiPraktik]);
-            });
-        }
-
-        // Ambil hasil pencarian
-        $dokter = $query->get();
-
-        // Kirim hasil pencarian ke view
-        return  ['dokter' => $dokter];
-    }
 
     public function search(Request $request)
     {

@@ -95,7 +95,7 @@
                         @foreach ($Dokter as $index => $item)
                             <div class="swiper-slide">
                                 <div class="staff">
-                                    <div class="img mb-4" style="background-image: url({{ asset('images/dokter.png') }});">
+                                    <div class="img mb-4" style="background-image: url('{{ asset('storage/'. $item->gambar) }}');">
                                     </div>
                                     <div class="info text-center">
                                         <h3>{{ $item->nama }}</h3>

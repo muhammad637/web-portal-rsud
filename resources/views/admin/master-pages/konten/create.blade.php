@@ -13,7 +13,7 @@
 @section('content-admin')
     <div class="card">
         <div class="card-body">
-            <h1 class="text-center text-capitalize fw-bold">form upload Konten</h1>
+            <h1 class="text-center text-capitalize fw-bold">form upload Berita</h1>
             <form action="{{ route('admin.konten.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
@@ -63,12 +63,12 @@
                     <trix-editor input="deskripsi"></trix-editor>
                 </div>
                 <div class="mb-3">
-                    <label for="link_yt" class="form-label">link Embed Youtube</label>
+                    <label for="link_yt" class="form-label">link Youtube <span class="text-success"> *optional</span></label>
                     <input type="text" class="form-control @error('link_yt') is-invalid @enderror" name="link_yt"
                         id="link_yt" value="{{ old('link_yt') }}">
                 </div>
                 <div class="mb-3">
-                    <label for="link_ig" class="form-label">link Embed Instagram</label>
+                    <label for="link_ig" class="form-label">link Instagram <span class="text-success"> *optional</span></label>
                     <input type="text" class="form-control @error('link_ig') is-invalid @enderror" name="link_ig"
                         id="link_ig" value="{{ old('link_ig') }}">
                 </div>

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('dokters', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('spesialis_id')->constrained('spesialis')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('rawatJalan_id')->constrained('rawat_jalans')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('spesialis_id')->constrained('spesialis')->onUpdate('cascade')->onDelete('cascade')->nullable();
+            $table->foreignId('layanan_id')->constrained('layanans')->onUpdate('cascade')->onDelete('cascade')->nullable();
             $table->string('nama');
             $table->string('gambar')->nullable();
             $table->timestamps();

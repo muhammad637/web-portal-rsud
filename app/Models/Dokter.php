@@ -21,6 +21,6 @@ class Dokter extends Model
     }
     public function RawatJalan()
     {
-        return $this->belongsTo(RawatJalan::class, 'rawatJalan_id');
+        return $this->belongsTo(Layanan::class, 'layanan_id');
     }
 }

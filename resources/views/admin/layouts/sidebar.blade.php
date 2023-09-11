@@ -91,7 +91,7 @@
                             <li class="">
                                 <a class="sidebar-link  {{ Request::is('admin/konten*') ? 'bg-primary text-white ' : '' }} d-flex justify-content-between"
                                     href="{{ route('admin.konten.index') }}" aria-expanded="false">
-                                    <strong><span class="hide-menu">Berita</span></strong>
+                                    <strong><span class="hide-menu">Berita  </span></strong>
                                     <span>
                                         <i class="fa-solid fa-newspaper"></i>
                                     </span>

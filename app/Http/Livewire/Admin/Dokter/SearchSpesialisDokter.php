@@ -27,7 +27,7 @@ class SearchSpesialisDokter extends Component
             $this->displayResult = false;
             return;
         }
-        $this->results = Spesialis::all();
+        $this->results = Spesialis::where('nama_spesialis' , 'like', "%".$this->search."%")->get();
         $this->displayResult = count($this->results) > 0;
     }
 

@@ -1,6 +1,7 @@
 @extends('admin.pages.main')
 @push('link-css-admin')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     @livewireStyles
 @endpush
 @section('content-admin')
@@ -41,6 +42,7 @@
                 <table id="example" class="table  table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
+
                             <th>No</th>
                             <th>Nama</th>
                             <th>Gambar</th>
@@ -61,8 +63,8 @@
                                 <td>{{ $item->RawatJalan->nama }} </td>
                                 <td>
                                     <a class="badge bg-warning border-0" data-bs-toggle="modal"
-                                        href="#editDokter{{ $item->id }}"><img src="{{ asset('images/icon/icon_pen.svg') }}"
-                                            alt=""></a>
+                                        href="#editDokter{{ $item->id }}"><img
+                                            src="{{ asset('images/icon/icon_pen.svg') }}" alt=""></a>
                                     <form action="{{ route('admin.dokter.delete', ['dokter' => $item->id]) }}"
                                         class="d-inline" method="post">
                                         <button type="submit" class="badge bg-danger border-0">
@@ -132,30 +134,40 @@
     <div class="modal fade " id="TambahDokter" tabindex="-1" aria-labelledby="TambahKategoriLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create Dokter</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="{{ route('admin.dokter.store') }}" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="NamaDokter" class="form-label">Nama Dokter</label>
-                            <input type="text" class="form-control" id="NamaDokter" aria-describedby="NamaDokter"
-                                required name="nama">
-                        </div>
-                        <div class="mb-3">
-                            @livewire('admin.dokter.preview-gambar')
-                        </div>
-                        @livewire('admin.dokter.search-spesialis-dokter')
-                        @livewire('admin.dokter.search-rawat-jalan')
+                @if (count($layanan) > 0 && count($spesialis) > 0)
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create Dokter</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <form action="{{ route('admin.dokter.store') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="NamaDokter" class="form-label">Nama Dokter</label>
+                                <input type="text" class="form-control" id="NamaDokter" aria-describedby="NamaDokter"
+                                    required name="nama">
+                            </div>
+                            <div class="mb-3">
+                                @livewire('admin.dokter.preview-gambar')
+                            </div>
+                            @livewire('admin.dokter.search-spesialis-dokter')
+                            @livewire('admin.dokter.search-rawat-jalan')
+                        </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                @else
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create Dokter</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                </form>
+                    <div class="modal-body">
+                        <h1>Daftar Sepsialis atau Daftar Layanan Rawat Jalan Masih Kosong</h1>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
@@ -165,9 +177,11 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         $(document).ready(function() {
             $("#example").DataTable();
+            $('.select2').select2();
         });
     </script>
     @livewireScripts

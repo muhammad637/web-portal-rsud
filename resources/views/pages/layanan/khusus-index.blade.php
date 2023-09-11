@@ -31,9 +31,8 @@
 
         @media (min-width: 1024px) {
             .container-swiper {
-                height: 40rem;
+                height: 30rem;
             }
-
             /* Aturan lainnya sesuai kebutuhan */
             .swiper-slide {
                 text-align: center;
@@ -45,9 +44,6 @@
                 height: calc((100% - 30px) / 2) !important;
             }
         }
-
-
-
         .swiper-slide img {
             display: block;
             width: 100%;
@@ -90,7 +86,7 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-5">
                 <div class="col-md-7 text-center heading-section ftco-animate">
-                    <h2 class="mb-2" style=><strong>LAYANAN UNGGULAN</strong></h2>
+                    <h2 class="mb-2 text-uppercase"><strong>{{$kategoriLayanan->nama}}</strong></h2>
                 </div>
             </div>
             <div class="container-swiper">
@@ -98,6 +94,22 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="d-flex align-self-stretch ftco-animate">
+                                <a href="#">
+                                    <div class="media block-6 services d-block text-center">
+                                        <div class="icon d-flex justify-content-center align-items-center">
+                                            <img src="{{ asset('images/poli/icon _cancer-ribbon.png') }}" alt=""
+                                                style="width: 50%; height: 50%;">
+                                        </div>
+                                        <div class="media-body p-2 mt-3">
+                                            <h3 class="heading">Lorem.</h3>
+                                            
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="d-flex align-self-stretch ftco-animate">
                                 <div class="media block-6 services d-block text-center">
                                     <div class="icon d-flex justify-content-center align-items-center">
                                         <img src="{{ asset('images/poli/icon _cancer-ribbon.png') }}" alt=""
@@ -105,8 +117,7 @@
                                     </div>
                                     <div class="media-body p-2 mt-3">
                                         <h3 class="heading">Lorem.</h3>
-                                        <p class="deskripsi" id="deskripsi">Lorem ipsum dolor sit amet consectetur
-                                            adipisicing elit. Iusto, nihil!</p>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +131,7 @@
                                     </div>
                                     <div class="media-body p-2 mt-3">
                                         <h3 class="heading">Lorem.</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, nihil!</p>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +145,7 @@
                                     </div>
                                     <div class="media-body p-2 mt-3">
                                         <h3 class="heading">Lorem.</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, nihil!</p>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +159,7 @@
                                     </div>
                                     <div class="media-body p-2 mt-3">
                                         <h3 class="heading">Lorem.</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, nihil!</p>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -162,21 +173,7 @@
                                     </div>
                                     <div class="media-body p-2 mt-3">
                                         <h3 class="heading">Lorem.</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, nihil!</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="d-flex align-self-stretch ftco-animate">
-                                <div class="media block-6 services d-block text-center">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <img src="{{ asset('images/poli/icon _cancer-ribbon.png') }}" alt=""
-                                            style="width: 50%; height: 50%;">
-                                    </div>
-                                    <div class="media-body p-2 mt-3">
-                                        <h3 class="heading">Lorem.</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, nihil!</p>
+                                        
                                     </div>
                                 </div>
                             </div>
