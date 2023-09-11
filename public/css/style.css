@@ -9550,6 +9550,7 @@ h5,
     z-index: 3;
 }
 @media (min-width: 992px) {
+
     .ftco-navbar-light {
         padding: 15px 0;
     }
@@ -9574,6 +9575,7 @@ h5,
     }
 }
 @media (max-width: 991.98px) {
+
     .ftco-navbar-light .navbar-nav {
         padding-bottom: 20px;
     }
@@ -9602,6 +9604,7 @@ h5,
     color: var(--gray);
 }
 .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu {
+
     border: none;
     background: #fff;
     -webkit-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);

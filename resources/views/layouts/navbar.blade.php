@@ -3,7 +3,13 @@
 @endpush
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-    <div class="container">
+	    <div class="container">
+		
+	      <a class="navbar-brand" href="{{(route('home'))}}"><img src="{{ asset('images/navbar/logo.png') }}" alt="" style="width: 50px;"><span class="d-sm-inline d-none" style="font-weight: normal;">
+			 RSUD<strong> Blambangan</strong></span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="true" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
 
         <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('images/navbar/logo.png') }}" alt=""
                 style="width: 50px;"><span class="d-sm-inline d-none" style="font-weight: normal;">
@@ -74,3 +80,4 @@
 @push('link-script')
     @livewireScripts
 @endpush
+

@@ -208,3 +208,4 @@ Route::middleware('auth')->group(function () {
     // create slug
     
 });
+
