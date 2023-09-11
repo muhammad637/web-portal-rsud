@@ -21,9 +21,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 ftco-animate">
-                    <h2 class="mb-3">{{ $isiKonten->judul }}
+                    <h2 class="font-size-2 font-weight-bold">{{ $isiKonten->judul }}
                     </h2>
-                    <div><a class="text-dark"><span class="icon-calendar text-dark"></span>
+                    <div class="mb-2"><a class="text-dark"><span class="icon-calendar text-dark"></span>
                             {{ Carbon\Carbon::parse($isiKonten->created_at)->format('D, d M Y') }}</a>
                     </div>
 
@@ -32,9 +32,29 @@
                     </p>
                     {!! $isiKonten->deskripsi !!}
                     <div class="mt-2">
-                        {!! $isiKonten->link_yt !!}
-                        {!! $isiKonten->link_ig !!}
                     </div>
+                    @if (isset($isiKonten->link_yt) || isset($isiKonten->link_yt))
+                        <span class="text-center  font-weight-bold d-block text-uppercase">
+                            Selengkapnya
+                        </span>
+                    @endif
+                    <div class="row justify-conten-center align-items-center">
+                        @if (isset($isiKonten->link_yt))
+                            <div class="col-lg-8 mb-4 col-md-12">
+                                @include('pages.berita.youtube', ['linkYT' => $isiKonten->link_yt])
+                            </div>
+                        @endif
+                        @if (isset($isiKonten->link_ig))
+                            <div class="col-lg-4 col-md-12">
+
+                                @include('pages.berita.instagram', ['linkIG' => $isiKonten->link_ig])
+                            </div>
+                        @endif
+
+                    </div>
+                    {{-- youtube --}}
+                    {{-- {!! $isiKonten->link_ig !!} --}}
+                    {{-- instagram --}}
                 </div> <!-- .col-md-8 -->
                 <div class="col-md-4 sidebar ftco-animate">
                     <div class="sidebar-box">
@@ -44,7 +64,8 @@
                         <div class="categories">
                             <h3>Kategori</h3>
                             @foreach ($kategoriKonten as $value)
-                                <li><a href="{{ route('kategori-berita.index', ['kategoriKonten' => $value->slug]) }}" class="text-dark">{{ $value->nama }}
+                                <li><a href="{{ route('kategori-berita.index', ['kategoriKonten' => $value->slug]) }}"
+                                        class="text-dark">{{ $value->nama }}
                                         <span>({{ count($value->konten) }})</span>
                                     </a></li>
                             @endforeach
@@ -78,7 +99,8 @@
                                 <p>--</p>
                             @endif
                             @foreach ($isiKonten->kategori_konten as $item_kategori)
-                                <a href="{{route('kategori-berita.index',['kategoriKonten' => $item_kategori->slug])}}" class="tag-cloud-link">{{ $item_kategori->nama }}</a>
+                                <a href="{{ route('kategori-berita.index', ['kategoriKonten' => $item_kategori->slug]) }}"
+                                    class="tag-cloud-link">{{ $item_kategori->nama }}</a>
                             @endforeach
                         </div>
                     </div>

@@ -21,7 +21,7 @@ class KontenController extends Controller
     {
         //
         $konten = Konten::all();
-        return view('admin.master-pages.konten.index',[
+        return view('admin.master-pages.konten.index', [
             'konten' => $konten
         ]);
     }
@@ -115,10 +115,23 @@ class KontenController extends Controller
             Storage::delete($konten->gambar);
             $gambar = $request->file('gambar')->store('image-konten');
         }
-        $updatedData = array_merge(['gambar' => $gambar], $validatedData);
+        $linkYT = '';
+        $linkIG = '';
+        if (isset($request->link_yt)) {
+            $linkYT = $request->link_yt;
+        }
+        if (isset($request->link_ig)) {
+            $linkIG = $request->link_ig;
+        }
+        $updatedData = array_merge([
+            'gambar' => $gambar,
+            'link_yt' => $linkYT,
+            'link_ig' => $linkIG,
+        ], $validatedData);
         $konten->update(
             $updatedData
         );
+
         $konten->kategori_konten()->sync($request->input('kategori'));
         return redirect(route('admin.konten.index'))->with('success', 'berhasil update berita');
     }
@@ -135,7 +148,6 @@ class KontenController extends Controller
         Storage::delete($konten->gambar);
         $konten->delete();
         return redirect(route('admin.konten.index'))->with('success', 'berhasil hapus berita');
-
     }
 
     public function slug(Request $request)

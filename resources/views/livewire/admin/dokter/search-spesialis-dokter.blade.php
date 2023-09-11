@@ -1,3 +1,5 @@
+@push('link-css-admin')
+@endpush
 <div>
     <div class="mb-3">
         <div class="position-relative">
@@ -20,3 +22,9 @@
         </div>
     </div>
 </div>
+
+@push('link-script-admin')
+    <script>
+        alert('oke')
+    </script>
+@endpush

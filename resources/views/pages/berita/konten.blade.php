@@ -17,7 +17,6 @@
             </div>
         </div>
     </section>
-
     <section class="ftco-section">
         <div class="container">
             <div class="row">
@@ -37,10 +36,9 @@
                                             <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 9
                                             </div>
                                         </div>
-                                        <div class="desc pl-sm-3 pl-md-5">
+                                        <div class=" pl-sm-3 pl-md-5 deskripsi">
                                             <h3 class="heading">{{ $item->judul }}
                                             </h3>
-                                            <p>{{ $item->judul }}.</p>
                                             <p><a href="{{ route('berita.show', ['konten' => $item->slug]) }}"
                                                     class="btn btn-primary btn-outline-primary">Read more</a>
                                             </p>
@@ -57,14 +55,6 @@
                     </div>
                 </div> <!-- END: col-md-8 -->
                 <div class="col-md-4 sidebar ftco-animate">
-                    {{-- <div class="sidebar-box">
-                        <form action="#" class="search-form">
-                            <div class="form-group">
-                                <span class="icon-search" style="float: right;"></span>
-                                <input type="text" class="form-control" placeholder="Ketik kata kunci dan tekan enter">
-                            </div>
-                        </form>
-                    </div> --}}
                     <div class="sidebar-box ftco-animate">
                         <div class="categories">
                             <h3>Katogeri</h3>
@@ -74,26 +64,42 @@
                             @endforeach
                         </div>
                     </div>
-
                     <div class="sidebar-box ftco-animate">
                         <h3>Berita Terbaru</h3>
                         @foreach ($kontenTerbaru as $item)
-                        <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4"
-                                style="background-image: url('{{ asset('storage/' . $item->gambar) }}');"></a>
-                            <div class="text">
-                                <h3 class="heading"><a href="#">{{ $item->judul }}
-                                </a></h3>
-                                <div class="meta">
-                                    <div><a href="#"><span class="icon-calendar"></span>
-                                        {{ Carbon\Carbon::parse($item->created_at)->format('d-m-y') }} </a></div>
+                            <div class="block-21 mb-4 d-flex">
+                                <a class="blog-img mr-4"
+                                    style="background-image: url('{{ asset('storage/' . $item->gambar) }}');"></a>
+                                <div class="text">
+                                    <h3 class="heading"><a href="#">{{ $item->judul }}
+                                        </a></h3>
+                                    <div class="meta">
+                                        <div><a href="#"><span class="icon-calendar"></span>
+                                                {{ Carbon\Carbon::parse($item->created_at)->format('d-m-y') }} </a></div>
                                         <div><a href="#"><span class="icon-person"></span> Admin</a></div>
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
+                        @endforeach
                     </div>
                 </div>
             </div>
     </section>
 @endsection
+@push('link-script')
+    <script>
+       let deskripsis = document.querySelectorAll("h3.heading");
+            deskripsis.forEach((content) => {
+                // console.log(content.children[0])
+                // const text = content.children[0].textContent;
+                const text = content.textContent;
+                const words = text.split(" ");
+                console.log(words)
+                // const trunc = words.slice(0,10).join(' ');
+                if (words.length > 10) {
+                //   content.textContent = trunc +"....";
+                  console.log(words.length)
+                }
+            });
+    </script>
+@endpush

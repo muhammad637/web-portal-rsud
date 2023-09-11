@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Admin\Dokter;
 
+use App\Models\KategoriLayanan;
+use App\Models\Layanan;
 use App\Models\RawatJalan;
 use Livewire\Component;
 
@@ -22,11 +24,13 @@ class SearchRawatJalan extends Component
     }
     public function updatedSearch()
     {
+        $layanan = KategoriLayanan::where('slug', 'like', '%rawat-jalan%')->first();
         if (empty($this->search)) {
             $this->displayResult = false;
-            return;
+            return ;
         }
-        $this->results = RawatJalan::all();
+       
+        $this->results = Layanan::where('kategori_layanan_id', $layanan->id)->where('nama', 'like','%' . $this->search . '%')->get();
         $this->displayResult = count($this->results) > 0;
     }
     public function render()

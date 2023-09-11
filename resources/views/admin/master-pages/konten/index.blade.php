@@ -12,7 +12,7 @@
 @section('content-admin')
     <div class="card">
         <div class="card-body">
-            <h1 class="fw-bold">Artikel</h1>
+            <h1 class="fw-bold">Berita</h1>
             <a href="{{ route('admin.konten.create') }}" class="btn btn-primary text-decoration-none"> Create <i
                     class="fa-solid fa-square-plus"></i>
             </a>
