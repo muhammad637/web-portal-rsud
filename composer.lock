@@ -1818,8 +1818,7 @@
             "time": "2023-08-15T14:27:00+00:00"
         },
         {
-<<<<<<< HEAD
-=======
+
 
             "name": "laravel/ui",
             "version": "v4.2.2",
@@ -1883,7 +1882,7 @@
             "time": "2023-05-09T19:47:28+00:00"
         },
         {
->>>>>>> e9ec9f9a88cbfae81d2ba7575a5a3dd7ed3c060a
+
             "name": "league/commonmark",
             "version": "2.4.1",
             "source": {
@@ -1893,10 +1892,6 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-
-=======
->>>>>>> e9ec9f9a88cbfae81d2ba7575a5a3dd7ed3c060a
                 "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/3669d6d5f7a47a93c08ddff335e6d945481a1dd5",
                 "reference": "3669d6d5f7a47a93c08ddff335e6d945481a1dd5",
                 "shasum": ""
@@ -3720,10 +3715,6 @@
             ],
             "support": {
                 "source": "https://github.com/symfony/console/tree/v6.0.19"
-<<<<<<< HEAD
-
-=======
->>>>>>> e9ec9f9a88cbfae81d2ba7575a5a3dd7ed3c060a
             },
             "funding": [
                 {
@@ -5304,10 +5295,6 @@
                 }
             ],
             "time": "2023-01-01T08:36:10+00:00"
-<<<<<<< HEAD
-
-=======
->>>>>>> e9ec9f9a88cbfae81d2ba7575a5a3dd7ed3c060a
         },
         {
             "name": "symfony/routing",
@@ -5882,10 +5869,6 @@
             ],
             "support": {
                 "source": "https://github.com/symfony/var-dumper/tree/v6.0.19"
-<<<<<<< HEAD
-
-=======
->>>>>>> e9ec9f9a88cbfae81d2ba7575a5a3dd7ed3c060a
             },
             "funding": [
                 {

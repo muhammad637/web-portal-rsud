@@ -9541,10 +9541,6 @@ h5,
 }
 
 .ftco-navbar-light {
-<<<<<<< HEAD
-
-=======
->>>>>>> e9ec9f9a88cbfae81d2ba7575a5a3dd7ed3c060a
     background: white !important;
     position: absolute;
     /* top: 20px; */
@@ -9561,10 +9557,6 @@ h5,
 }
 @media (max-width: 991.98px) {
     .ftco-navbar-light {
-<<<<<<< HEAD
-
-=======
->>>>>>> e9ec9f9a88cbfae81d2ba7575a5a3dd7ed3c060a
         background: #000 !important;
         position: relative;
         top: 0;
@@ -9583,10 +9575,6 @@ h5,
     }
 }
 @media (max-width: 991.98px) {
-<<<<<<< HEAD
-=======
-
->>>>>>> e9ec9f9a88cbfae81d2ba7575a5a3dd7ed3c060a
     .ftco-navbar-light .navbar-nav {
         padding-bottom: 20px;
     }
@@ -9615,10 +9603,6 @@ h5,
     color: var(--gray);
 }
 .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu {
-<<<<<<< HEAD
-=======
-
->>>>>>> e9ec9f9a88cbfae81d2ba7575a5a3dd7ed3c060a
     border: none;
     background: #fff;
     -webkit-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);

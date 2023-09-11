@@ -206,7 +206,6 @@ Route::middleware('auth')->group(function () {
         });
     });
     // create slug
-<<<<<<< HEAD
     Route::get('/admin/create-slug', [KontenController::class, 'slug'])->name('admin.createSlug');
     // admin-dashboard
     Route::get('/admin/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
@@ -293,8 +292,4 @@ Route::middleware('auth')->group(function () {
     Route::put('/admin/pages/master-kategori-layanan/update/{layanan:slug}', [LayananController::class, 'update'])->name('admin.layanan.update');
     Route::delete('/admin/pages/master-kategori-layanan/delete/{layanan:slug}', [LayananController::class, 'delete'])->name('admin.layanan.delete');
 });
-=======
-    
-});
 
->>>>>>> e9ec9f9a88cbfae81d2ba7575a5a3dd7ed3c060a

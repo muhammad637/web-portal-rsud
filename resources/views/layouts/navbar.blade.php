@@ -10,17 +10,8 @@
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="true" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
-<<<<<<< HEAD
-=======
 
->>>>>>> e9ec9f9a88cbfae81d2ba7575a5a3dd7ed3c060a
-        <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('images/navbar/logo.png') }}" alt=""
-                style="width: 50px;"><span class="d-sm-inline d-none" style="font-weight: normal;">
-                RSUD<strong> Blambangan</strong></span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-            aria-controls="ftco-nav" aria-expanded="true" aria-label="Toggle navigation">
-            <span class="oi oi-menu"></span> Menu
-        </button>
+       
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
@@ -83,7 +74,3 @@
 @push('link-script')
     @livewireScripts
 @endpush
-<<<<<<< HEAD
-=======
-
->>>>>>> e9ec9f9a88cbfae81d2ba7575a5a3dd7ed3c060a
