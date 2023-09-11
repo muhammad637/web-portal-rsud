@@ -74,4 +74,3 @@
 @push('link-script')
     @livewireScripts
 @endpush
-

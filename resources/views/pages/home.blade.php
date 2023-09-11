@@ -48,13 +48,13 @@
 @endpush
 @section('content')
     <section class="home-slider owl-carousel">
-        <div class="slider-item" style="background-image: url('images/bg1.jpg');">
+        <div class="slider-item" style="background-image: url('images/bg1.webp');">
             <div class="overlay"></div>
         </div>
-        <div class="slider-item" style="background-image: url('images/bg3.jpg');">
+        <div class="slider-item" style="background-image: url('images/bg3.webp');">
             <div class="overlay"></div>
         </div>
-        <div class="slider-item" style="background-image: url('images/bg2.jpg');">
+        <div class="slider-item" style="background-image: url('images/bg2.webp');">
             <div class="overlay"></div>
         </div>
 
@@ -138,22 +138,22 @@
             <div class="row no-gutters">
                 <div class="col-md-3 ftco-animate">
                     <a href="#" class="gallery img d-flex align-items-center"
-                        style="background-image: url(images/6.jpg); background-size: cover;">
+                        style="background-image: url(images/6.webp); background-size: cover;">
                     </a>
                 </div>
                 <div class="col-md-3 ftco-animate">
                     <a href="#" class="gallery img d-flex align-items-center"
-                        style="background-image: url(images/suntik.jpg); background-size: cover;">
+                        style="background-image: url(images/suntik.webp); background-size: cover;">
                     </a>
                 </div>
                 <div class="col-md-3 ftco-animate">
                     <a href="#" class="gallery img d-flex align-items-center"
-                        style="background-image: url(images/pp.jpeg); background-size: cover;">
+                        style="background-image: url(images/pp.webp); background-size: cover;">
                     </a>
                 </div>
                 <div class="col-md-3 ftco-animate">
                     <a href="#" class="gallery img d-flex align-items-center"
-                        style="background-image: url(images/dokter.jpeg); background-size:cover;">
+                        style="background-image: url(images/dokter.webp); background-size:cover;">
 
                     </a>
                 </div>
@@ -229,7 +229,6 @@
             </div>
         </div>
     </section>
-
     {{-- artikel --}}
     <section class="ftco-section">
         <div class="container">
@@ -261,7 +260,6 @@
                         </div>
                     </div>
                 @endforeach
-
             </div>
         </div>
     </section>
