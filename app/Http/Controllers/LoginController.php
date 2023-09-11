@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use App\Rules\ReCaptcha;
+
+
 
 
 
@@ -15,31 +20,37 @@ class LoginController extends Controller
 
     public function index(){
         // return 'view';
-        return view('admin.pages.login');
+        // element attributes
+    $attributes = [
+    'data-theme' => 'dark',
+    'data-type' => 'audio',
+    ];
+    return view('admin.pages.login',compact('attributes'));
     }
 
-    public function authenticate(Request $request){
-
-        // return $request->all();
-            //code...
-            $credentials = $request->validate([
+    public function authenticate(Request $request)
+    {
+        {
+            $validated = $request->validate([
                 'username' => ['required'],
                 'password' => ['required'],
-                'captcha' => 'required|captcha',
+                'g-recaptcha-response' => 'required|captcha'
             ]);
-
-            if (Auth::attempt($credentials)) {
-                $request->session()->regenerate();
-                // return $request->all();
-                return redirect()->intended(route('admin.dashboard'));
+    
+            $find_user = User::where('username', $validated['username'])->first();
+            if (!$find_user) {
+                // return error user not found
             }
-
-            return redirect()->back()->withErrors([
-                'username' => 'invalid username',
-                'password' => 'invalid Password',
-                'captcha' => 'invalid captcha',
-            ]);
-        
+    
+            if (!Hash::check($validated['password'], $find_user->password)) {
+                // return error user wrong password
+            }
+    
+            Auth::login($find_user);
+            $request->session()->regenerate();
+            // return $request->all();
+            return redirect()->intended(route('admin.dashboard'));
+        }
     }
 
     public function logout(){

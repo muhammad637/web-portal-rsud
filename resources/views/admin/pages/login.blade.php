@@ -48,7 +48,18 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="form-group">
+                                            <div class="mb-4">
+                                                <strong>ReCaptcha:</strong>
+                                                {!! app('captcha')->display($attributes = [], $options = ['data-theme' => 'dark', 'data-type' => 'audio']) !!}
+                                                @if ($errors->has('g-recaptcha-response'))
+                                                    <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
+                                                @endif
+                                            </div>  
+                                            {{-- <div class="g-recaptcha"
+                                            data-sitekey="6LckmhIoAAAAAI-Avx-0YrN_ozyoXMPyhMreCMqn"
+                                            data-callback='onSubmit'
+                                            data-action='submit'>Submit</div> --}}
+                                      {{-- <div class="form-group">
                                         <label for="captcha">Captcha</label>
                                         <div>
                                             <span>
@@ -61,7 +72,7 @@
                                             <input  id="captcha" type="text"  name="captcha" class="form-control" placeholder="Masukkan Captcha" required>
                                         </div>
                                     </div>
-                                    
+                                     --}}
                                     <button class="btn-primary btn w-100 py-8 fs-4 mb-4 rounded-2"
                                         type="submit">Login</button>
                                     {{-- <a href="./index.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign In</a> --}}

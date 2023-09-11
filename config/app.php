@@ -181,7 +181,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Mews\Captcha\CaptchaServiceProvider::class,
+        'Buzz\LaravelGoogleCaptcha\CaptchaServiceProvider',
 
         /*
          * Package Service Providers...
@@ -212,8 +212,8 @@ return [
 
     'aliases' => 
     Facade::defaultAliases()->merge([
-        'Captcha' => Mews\Captcha\Facades\Captcha::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Captcha' => '\Buzz\LaravelGoogleCaptcha\CaptchaFacade'
     ])->toArray(),
     
 

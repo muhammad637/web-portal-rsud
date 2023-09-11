@@ -255,3 +255,4 @@ Route::get('petunjuk-umum', function () {
 });
 
 Route::get('/home', [HomeController::class, 'index']);
+
