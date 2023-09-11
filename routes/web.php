@@ -254,5 +254,5 @@ Route::get('petunjuk-umum', function () {
     return view('pages.informasi.petunjuk-umum');
 });
 
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index']);  
 
