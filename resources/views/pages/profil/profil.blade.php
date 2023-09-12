@@ -1,7 +1,7 @@
 @extends('main')
 @section('content')
     <section class="home-slider owl-carousel">
-        <div class="slider-item bread-item" style="background-image: url('images/bg1.jpg');"
+        <div class="slider-item bread-item" style="background-image: url('{{asset('images/bg1.jpg')}}');"
             data-stellar-background-ratio="0.5">
             <div class="overlay"></div>
             <div class="container" data-scrollax-parent="true">
@@ -21,7 +21,7 @@
         <div class="container">
             <div class="row d-md-flex">
                 <div class="col-md-6 ftco-animate img about-image order-md-last"
-                    style="background-image: url(images/halamanrsud.jpg);">
+                    style="background-image: url({{asset('images/halamanrsud.jpg')}});">
                 </div>
                 <div class="col-md-6 ftco-animate pr-md-5 order-md-first">
                     <div class="row">
@@ -83,7 +83,7 @@
     <section class="ftco-section-2">
         <div class="container-wrap">
             <div class="row d-flex no-gutters">
-                <div class="col-md-6 img home-sejarah-image" style="background-image: url(images/vvip.jpg);">
+                <div class="col-md-6 img home-sejarah-image" style="background-image: url('{{asset('images/vvip.jpg')}}');">
                 </div>
                 <div class="col-md-6 d-flex">
                     <div class="about-wrap">

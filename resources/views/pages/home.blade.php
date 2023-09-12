@@ -100,7 +100,7 @@
     </section>
 
     {{-- layanan unggulan --}}
-    <section class=" ftco-services">
+    <section class=" ftco-services mt-5">
         <div class="container">
             <div class="row justify-content-center mb-5 pb-5">
                 <div class="col-md-7 text-center heading-section ftco-animate">
@@ -133,7 +133,7 @@
         </div>
     </section>
     {{-- galeri --}}
-    <section class="ftco-gallery ">
+    <section class="ftco-gallery my-5">
         <div class="container-wrap">
             <div class="row no-gutters">
                 <div class="col-md-3 ftco-animate">
@@ -193,7 +193,6 @@
                                     <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel"
                                         aria-labelledby="v-pills-whatwedo-tab">
                                         <div>
-
                                             <p>Berdiri sejak tahun 1930 sebagai Pusat Kesehatan Sederhana jaman Belanda,
                                                 yang hanya melayani Pelayanan Kesehatan Dasar dan Penyakit Menular hingga
                                                 sekarang berkembang menjadi Rumah Sakit Kelas B Pemerintah dan lulus
@@ -203,7 +202,6 @@
                                                 menyajikan pelayanan yang modern dan berkelas</p>
                                         </div>
                                     </div>
-
                                     <div class="tab-pane fade" id="v-pills-mission" role="tabpanel"
                                         aria-labelledby="v-pills-mission-tab">
                                         <div>

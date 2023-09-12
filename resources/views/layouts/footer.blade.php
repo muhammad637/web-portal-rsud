@@ -33,8 +33,8 @@
             <div class="col-md-4 pr-md-4">
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">Artikel Terbaru</h2>
-
-                    <div class="block-21 mb-4 d-flex">
+                  @livewire('artikel-terbaru')
+                    {{-- <div class="block-21 mb-4 d-flex">
                         <a class="blog-img mr-4" style="background-image: url('{{ asset('images/wkwkwk.jpg') }}');"></a>
                         <div class="text">
                             <h3 class="heading"><a href="#">7 Manfaat Tertawa Bagi Kesehatan, Redakan .....</a>
@@ -45,7 +45,7 @@
                                 <div><a href="#"><span class="icon-chat"></span> 59</a></div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="col-md-3">
