@@ -60,7 +60,7 @@
 @section('content')
     <section class="home-slider owl-carousel">
         <div class="slider-item bread-item"
-            style="background-image: url({{ asset('./bg_11.jpg') }}); background-size:cover; background-position:center;"
+            style="background-image: url({{ asset('./bg_11.webp') }}); background-size:cover; background-position:center;"
             data-stellar-background-ratio=".01">
             <div class="overlay"></div>
             <div class="container" data-scrollax-parent="true">
