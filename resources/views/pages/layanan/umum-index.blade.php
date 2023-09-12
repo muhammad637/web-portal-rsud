@@ -83,7 +83,7 @@
                 <div class="container-fluid mb-5">
                     <div class="row  justify-content-center" style="background: #7bcecc;">
                         <div class="col-md-7 col-sm-12 px-0">
-                            <div class="bg-white">
+                            <div class="">
                                 <div class="text-center">
                                     <img src="{{ asset('storage/' . $item->gambar) }}" class="img-fluid"    
                                         alt="testing">

@@ -16,8 +16,8 @@ class AlurController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   
- 
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -25,8 +25,9 @@ class AlurController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function alurindex(){
-        return view('pages.informasi.alur-persyaratan',[
+    public function alurindex()
+    {
+        return view('pages.informasi.alur-persyaratan', [
             'Alur' => Alur::all(),
             'Persyaratan' => Persyaratan::all()
         ]);
@@ -42,7 +43,6 @@ class AlurController extends Controller
         return view('admin.pages.informasi.alur.index', [
             'alur' => Alur::orderBy('updated_at', 'desc')->get()
         ]);
-        
     }
 
     public function alurCreate()
@@ -64,16 +64,15 @@ class AlurController extends Controller
                 'nama' => 'required',
                 'gambar' => 'required'
             ]
-            );
-            
-            $validatedData['gambar'] = $request->file('gambar')->store('gambar-alur');
-            Alur::create([
-                'nama' => $validatedData['nama'],
-                'gambar' => $validatedData['gambar']
-                
-            ]);
-            return redirect(route('admin.alur'))->with('succes', 'alur berhasil ditambahkan');
-           
+        );
+
+        $validatedData['gambar'] = $request->file('gambar')->store('gambar-alur');
+        return $validatedData['gambar'];
+        Alur::create([
+            'nama' => $validatedData['nama'],
+            'gambar' => $validatedData['gambar']
+        ]);
+        return redirect(route('admin.alur'))->with('succes', 'alur berhasil ditambahkan');
     }
 
     /**
@@ -117,14 +116,14 @@ class AlurController extends Controller
                 'nama' => 'required',
                 'gambar' => ''
             ]
-            );
-            if ($request->gambar != null) {
-                Storage::delete($alur->gambar);
-                $validatedData['gambar'] = $request->file('gambar')->store('image-alur');
-            }
-            $alur->update($validatedData);
-            // return $mcu;
-            return redirect(route('admin.alur'))->with('success', 'pelayanan rawat jalan berhasil diupdate');
+        );
+        if ($request->gambar != null) {
+            Storage::delete($alur->gambar);
+            $validatedData['gambar'] = $request->file('gambar')->store('image-alur');
+        }
+        $alur->update($validatedData);
+        // return $mcu;
+        return redirect(route('admin.alur'))->with('success', 'pelayanan rawat jalan berhasil diupdate');
     }
 
     public function alurDelete(Alur $alur)

@@ -24,7 +24,5 @@
 </div>
 
 @push('link-script-admin')
-    <script>
-        alert('oke')
-    </script>
+ 
 @endpush

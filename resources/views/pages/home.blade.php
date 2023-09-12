@@ -232,26 +232,24 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 text-center heading-section ftco-animate">
-                    <h2 class="mb-2"><strong>BERITA</strong></h2>
+                    <h2 class="mb-2"><strong>ARTIKEL</strong></h2>
                 </div>
             </div>
             <div class="row">
 
-                @foreach ($Berita as $berita)
+                @foreach ($artikel as $item)
                     <div class="col-md-4 ftco-animate">
                         <div class="blog-entry">
-                            <a href="blog-single.html" class="block-20"
-                                style="background-image: url('{{ 'storage/'.$berita->gambar }}');">
+                            <a href="{{route('berita.show',['konten' => $item->slug])}}" class="block-20"
+                                style="background-image: url('{{ 'storage/'.$item->gambar }}');">
                             </a>
                             <div class="text d-flex py-4">
                                 <div class="meta mb-3">
-                                    <div><a href="#">{{ $berita->created_at }}</a></div>
-                                    <div><a href="#">Admin</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span>
-                                            {{ $berita->views }}</a></div>
+                                    <div><a href="{{route('berita.show',['konten' => $item->slug])}}">{{ Carbon\Carbon::parse($item->created_at)->format('d-M-Y') }}</a></div>
+                                    <div><a href="{{route('berita.show',['konten' => $item->slug])}}">Admin</a></div>
                                 </div>
                                 <div class="desc pl-3">
-                                    <h3 class="heading"><a href="#">{{ $berita->judul }}</a></h3>
+                                    <h3 class="heading"><a href="{{route('berita.show',['konten' => $item->slug])}}">{{ $item->judul }}</a></h3>
                                 </div>
 
                             </div>

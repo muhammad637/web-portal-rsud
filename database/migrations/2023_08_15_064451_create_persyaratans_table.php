@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('persyaratans', function (Blueprint $table) {
             $table->id();
             $table->string('jenis_penjaminan');
-            $table->string('rawat_inap');
+            $table->text('rawat_inap');
             $table->timestamps();
         });
     }

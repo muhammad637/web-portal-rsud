@@ -124,8 +124,13 @@
                                 <td> {{ $loop->iteration }} </td>
                                 <td>{{ $item->slug }}
                                 </td>
+                                
                                 <td>
-                                    {{ $item->kategori_konten }}
+
+                                    @foreach ($item->kategori_konten as $value)
+                                    {{ $value->nama }}     
+                                    @endforeach
+                                   
                                 </td>
 
                             </tr>

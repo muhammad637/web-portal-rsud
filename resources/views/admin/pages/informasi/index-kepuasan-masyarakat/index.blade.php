@@ -101,8 +101,8 @@
                                                         value="{{ old('nama', $item->nama) }}">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="pdf" class="form-label">Upload File</label>
-                                                    <input type="file" class="form-control" name="pdf" id="pdf"
+                                                    <label for="pdf" class="form-label">Link File</label>
+                                                    <input type="text" class="form-control" name="pdf" id="pdf"
                                                         value="{{ old('pdf') }}">
                                                 </div>
 
@@ -148,8 +148,8 @@
                                 value="{{ old('nama') }}">
                         </div>
                         <div class="mb-3">
-                            <label for="pdf" class="form-label">Upload File</label>
-                            <input type="file" class="form-control" name="pdf" id="pdf"
+                            <label for="pdf" class="form-label">Link File</label>
+                            <input type="text" class="form-control" name="pdf" id="pdf"
                                 value="{{ old('pdf') }}">
                         </div>
 

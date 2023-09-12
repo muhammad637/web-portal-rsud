@@ -57,7 +57,6 @@ class IKMController extends Controller
                 
             ]
             );
-            $validateData['pdf'] = $request->file('pdf')->store('pdf-ikm');
             Ikm::create([
                 'nama' => $validateData['nama'],
                 'pdf' => $validateData['pdf']
@@ -112,11 +111,6 @@ class IKMController extends Controller
                 'pdf' => ''
             ]
             );
-            if ($request->pdf != null){
-                Storage::delete($ikm->pdf);
-                $validateData['pdf'] = 
-                $request->file('pdf')->store('pdf-ikm');
-            }
             $ikm->update($validateData);
             return redirect(route('admin.index-kepuasan-masyarakat'))->with('succes', 'ikm berhasil diupdate');
     }

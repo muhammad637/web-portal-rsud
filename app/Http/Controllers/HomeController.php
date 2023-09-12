@@ -7,6 +7,9 @@ namespace App\Http\Controllers;
 use App\Models\LayananUnggulan;
 use App\Models\Spesialis;
 use App\Models\BeritaDanArtikel;
+use App\Models\KategoriLayanan;
+use App\Models\Konten;
+use App\Models\Layanan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,11 +19,15 @@ class HomeController extends Controller
     {
         $spesialis = Spesialis::all();
         // return $spesialis;
-        $layanan_unggulan = LayananUnggulan::all();
+        $layanan_unggulan = KategoriLayanan::where('slug', 'like', '%unggulan%')->first();
+        if($layanan_unggulan){
+            $layanan = $layanan_unggulan->layanan;
+        }else{
+            $layanan = [];
+        }
         return view('pages.home', [
-            'Artikel' => BeritaDanArtikel::where('jenis', 'artikel')->get(),
-            'Berita' => BeritaDanArtikel::where('jenis', 'berita')->orderBy('updated_at','desc')->limit(3)->get(),
-            'LayananUnggulan' => $layanan_unggulan,
+            'artikel' => Konten::orderBy('created_at','desc')->limit(3)->get(),
+            'LayananUnggulan' => $layanan,
             'Spesialis' => $spesialis
         ]);
         // return $layanan_unggulan;

@@ -92,92 +92,24 @@
             <div class="container-swiper">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
+                        @foreach ($kategoriLayanan->layanan as $item)    
                         <div class="swiper-slide">
                             <div class="d-flex align-self-stretch ftco-animate">
-                                <a href="#">
+                                <a href="{{route('layanan.show',['layanan' => $item->slug])}}">
                                     <div class="media block-6 services d-block text-center">
                                         <div class="icon d-flex justify-content-center align-items-center">
-                                            <img src="{{ asset('images/poli/icon _cancer-ribbon.png') }}" alt=""
+                                            <img src="{{ asset('storage/'.$item->icon) }}" alt=""
                                                 style="width: 50%; height: 50%;">
                                         </div>
                                         <div class="media-body p-2 mt-3">
-                                            <h3 class="heading">Lorem.</h3>
+                                            <h3 class="heading">{{$item->nama}}</h3>
                                             
                                         </div>
                                     </div>
                                 </a>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="d-flex align-self-stretch ftco-animate">
-                                <div class="media block-6 services d-block text-center">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <img src="{{ asset('images/poli/icon _cancer-ribbon.png') }}" alt=""
-                                            style="width: 50%; height: 50%;">
-                                    </div>
-                                    <div class="media-body p-2 mt-3">
-                                        <h3 class="heading">Lorem.</h3>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="d-flex align-self-stretch ftco-animate">
-                                <div class="media block-6 services d-block text-center">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <img src="{{ asset('images/poli/icon _cancer-ribbon.png') }}" alt=""
-                                            style="width: 50%; height: 50%;">
-                                    </div>
-                                    <div class="media-body p-2 mt-3">
-                                        <h3 class="heading">Lorem.</h3>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="d-flex align-self-stretch ftco-animate">
-                                <div class="media block-6 services d-block text-center">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <img src="{{ asset('images/poli/icon _cancer-ribbon.png') }}" alt=""
-                                            style="width: 50%; height: 50%;">
-                                    </div>
-                                    <div class="media-body p-2 mt-3">
-                                        <h3 class="heading">Lorem.</h3>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="d-flex align-self-stretch ftco-animate">
-                                <div class="media block-6 services d-block text-center">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <img src="{{ asset('images/poli/icon _cancer-ribbon.png') }}" alt=""
-                                            style="width: 50%; height: 50%;">
-                                    </div>
-                                    <div class="media-body p-2 mt-3">
-                                        <h3 class="heading">Lorem.</h3>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="d-flex align-self-stretch ftco-animate">
-                                <div class="media block-6 services d-block text-center">
-                                    <div class="icon d-flex justify-content-center align-items-center">
-                                        <img src="{{ asset('images/poli/icon _cancer-ribbon.png') }}" alt=""
-                                            style="width: 50%; height: 50%;">
-                                    </div>
-                                    <div class="media-body p-2 mt-3">
-                                        <h3 class="heading">Lorem.</h3>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
 
                     </div>
                     <div class="swiper-pagination"></div>

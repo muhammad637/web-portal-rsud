@@ -3,9 +3,10 @@
     @if (count($artikel))
         @foreach ($artikel as $item)
             <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url('{{ asset('images/wkwkwk.jpg') }}');"></a>
+                <a class="blog-img mr-4" style="background-image: url('{{ asset('storage/' . $item->gambar) }}');"></a>
                 <div class="text">
-                    <h3 class="heading"><a href="#">{{ $item->nama }}</a>
+                    <h3 class="heading"><a
+                            href="{{ route('berita.show', ['konten' => $item->slug]) }}">{{ $item->judul }}</a>
                     </h3>
                     <div class="meta">
                         <div><a href="#"><span class="icon-calendar"></span>

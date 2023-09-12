@@ -51,8 +51,8 @@ class KontenController extends Controller
         // return $request->all();
         $validatedData = $request->validate(
             [
-                'judul' => 'required',
-                'slug' => 'required|unique:berita_dan_artikels,slug',
+                'judul' => 'required|max:255',
+                'slug' => 'required|unique:berita_dan_artikels,slug|max:255',
                 'deskripsi' => 'required',
                 'gambar' => 'required|',
                 'link_ig' => '',
@@ -105,8 +105,8 @@ class KontenController extends Controller
     {
         //
         $rule = [
-            'judul' => 'required',
-            'slug' => 'required|unique:berita_dan_artikels,slug,' . $konten->id,
+            'judul' => 'required|max:255',
+            'slug' => 'required|max:255|unique:berita_dan_artikels,slug,' . $konten->id,
             'deskripsi' => 'required',
         ];
         $validatedData = $request->validate($rule);

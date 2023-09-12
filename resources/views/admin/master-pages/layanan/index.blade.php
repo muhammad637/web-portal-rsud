@@ -45,7 +45,7 @@
                                 <td>{!! $item->deskripsi !!}</td>
                                 <td>{{ Carbon\Carbon::parse($item->created_at)->format('d-M-Y') }}</td>
                                 <td>
-                                    <a href="#" class="badge bg-success"><img
+                                    <a href="{{route('layanan.show',['layanan' => $item     ->slug])}}" class="badge bg-success"><img
                                             src="{{ asset('images/icon/icon_folder.svg') }}" alt=""></a>
                                     <a href="{{ route('admin.layanan.edit', ['layanan' => $item->slug,]) }}"
                                         class="badge bg-warning"><img src="{{ asset('images/icon/icon_pen.svg') }}"

@@ -31,7 +31,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item"><a href="{{ route('berita.index') }}" class="nav-link"><strong>Berita</strong></a>
+                <li class="nav-item"><a href="{{ route('berita.index') }}" class="nav-link"><strong>Artikel</strong></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -51,10 +51,10 @@
                         <li><a class="dropdown-item" href="{{ route('informasi.alur-persyaratan') }}">Alur dan
                                 Persyaratan</a></li>
                         <li><a class="dropdown-item" href="{{ route('informasi.tarif') }}">Tarif</a></li>
-                        <li><a class="dropdown-item" href="{{ route('informasi.ikm') }}">Petunjuk Umum</a></li>
-                        <li><a class="dropdown-item" href="{{ route('informasi.sakip') }}">Index Kepuasan
+                        <li><a class="dropdown-item" href="{{ route('informasi.petunjukUmum') }}">Petunjuk Umum</a></li>
+                        <li><a class="dropdown-item" href="{{ route('informasi.ikm') }}">Index Kepuasan
                                 Masyarakat</a></li>
-                        <li><a class="dropdown-item" href="{{ route('informasi.petunjukUmum') }}">Sakip</a></li>
+                        <li><a class="dropdown-item" href="{{ route('informasi.sakip') }}">Sakip</a></li>
                     </ul>
                 </li>
                 @if (auth()->user())

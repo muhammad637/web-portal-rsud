@@ -45,7 +45,7 @@ class PersyaratanController extends Controller
         //
         $validatedData = $request->validate(
             [
-                'jenis_penjaminan' => 'required',
+                'jenis_penjaminan' => 'required|unique:persyaratans,jenis_penjaminan',
                 'rawat_inap' => 'required'
             ]
             );
@@ -93,7 +93,7 @@ class PersyaratanController extends Controller
     {
         $validatedData = $request->validate(
             [
-                'jenis_penjaminan' => 'required',
+                'jenis_penjaminan' => 'required|unique:persyaratans,jenis_penjaminan,' .$persyaratan->id,
                 'rawat_inap' => 'required'
             ]
             );
@@ -104,7 +104,7 @@ class PersyaratanController extends Controller
 
     public function persyaratanDelete(Persyaratan $persyaratan)
     {
-        Persyaratan::delete($persyaratan->jenis_penjamin);
+        $persyaratan->delete();
         return redirect(route('admin.persyaratan'))->with('success', 'persyaratan berhasil dihapus');
     }
 
@@ -114,8 +114,9 @@ class PersyaratanController extends Controller
      * @param  \App\Models\Persyaratan  $persyaratan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Persyaratan $persyaratan)
+    public function persyaratanDestroy(Persyaratan $persyaratan)
     {
         //
+
     }
 }

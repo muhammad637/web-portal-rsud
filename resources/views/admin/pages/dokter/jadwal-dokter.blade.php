@@ -56,37 +56,40 @@
                     <tbody>
                         @if (count($jadwalDokter) > 0)
                             @foreach ($dokter as $index => $item)
-                                <tr>
-                                    <td>{{ $index + 1 }}</td>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>
-                                        @if (count($item->jadwalDokter) == 0)
-                                            -
-                                        @endif
-                                        <ul class="">
-                                            @foreach ($item->jadwalDokter as $value)
-                                                <li class="list-group-item ">
-                                                    hari {{ $value->hari }} :
-                                                    {{ Carbon\Carbon::parse($value->jam_mulai_praktik)->format('H:i') }} -
-                                                    {{ Carbon\Carbon::parse($value->jam_selesai_praktik)->format('H:i') }}
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        @if (count($item->jadwalDokter) > 0)
-                                            <a class="badge bg-warning border-0" data-bs-toggle="modal"
-                                            href="#editJadwal-{{ $item->id }}"><img
-                                                src="{{ asset('images/icon/icon_pen.svg') }}" alt=""></a>
-                                        <a class="badge bg-danger border-0" data-bs-toggle="modal"
-                                            href="#hapusJadwal-{{ $item->id }}"><img
-                                                src="{{ asset('images/icon/icon_trash.svg') }}" alt=""></a>
-                                        @else
-                                            -
-                                        @endif
-                                        
-                                    </td>
-                                </tr>
+                                @if (count($item->jadwalDokter) > 0)
+                                    <tr>
+                                        <td>{{ $index + 1 }}</td>
+                                        <td>{{ $item->nama }}</td>
+                                        <td>
+                                            @if (count($item->jadwalDokter) == 0)
+                                                -
+                                            @endif
+                                            <ul class="">
+                                                @foreach ($item->jadwalDokter as $value)
+                                                    <li class="list-group-item ">
+                                                        hari {{ $value->hari }} :
+                                                        {{ Carbon\Carbon::parse($value->jam_mulai_praktik)->format('H:i') }}
+                                                        -
+                                                        {{ Carbon\Carbon::parse($value->jam_selesai_praktik)->format('H:i') }}
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            @if (count($item->jadwalDokter) > 0)
+                                                <a class="badge bg-warning border-0" data-bs-toggle="modal"
+                                                    href="#editJadwal-{{ $item->id }}"><img
+                                                        src="{{ asset('images/icon/icon_pen.svg') }}" alt=""></a>
+                                                <a class="badge bg-danger border-0" data-bs-toggle="modal"
+                                                    href="#hapusJadwal-{{ $item->id }}"><img
+                                                        src="{{ asset('images/icon/icon_trash.svg') }}" alt=""></a>
+                                            @else
+                                                -
+                                            @endif
+
+                                        </td>
+                                    </tr>
+                                @endif
 
 
 

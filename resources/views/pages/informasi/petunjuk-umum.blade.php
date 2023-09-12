@@ -65,10 +65,23 @@
             <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel"
                 aria-labelledby="v-pills-whatwedo-tab">
                 <div class="container">
-                    <div class="my-image-container">
-                        <img src="images/tata-tertib.png" class="img-center">
-                    </div>
+                    <div class="col-md-6">
+                        <div class="petunjuk-umum">
+                            <div class="row align-items-center">
+                                <div class="col-md-2 col-lg-2  col-6">
+                                    <div class="img mb-4" style="background-image: url('{{ asset('images/pdf.png') }}');">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="info">
+                                        <h3>Hak, Kewajiban dan Tanggung Jawab Serta Tata Tertib Rumah Sakitt</h3>
+                                        <span class="position">Ukuran 10,4 KB</span>
+                                    </div>
 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -79,7 +92,8 @@
                             <div class="petunjuk-umum">
                                 <div class="row align-items-center">
                                     <div class="col-md-2 col-lg-2  col-6">
-                                        <div class="img mb-4" style="background-image: url(images/pdf.png);">
+                                        <div class="img mb-4"
+                                            style="background-image: url('{{ asset('images/pdf.png') }}');">
                                         </div>
                                     </div>
                                     <div class="col">
@@ -97,7 +111,8 @@
                             <div class="petunjuk-umum">
                                 <div class="row align-items-center">
                                     <div class="col-md-2 col-lg-2  col-6">
-                                        <div class="img mb-4" style="background-image: url(images/pdf.png);">
+                                        <div class="img mb-4"
+                                            style="background-image: url('{{ asset('images/pdf.png') }}');">
                                         </div>
                                     </div>
                                     <div class="col">
@@ -129,7 +144,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                 
+
                                     <td>Instalasi Promosi Kesehatan Rumah Sakit (PKRS)</td>
                                     <td>
                                         <li>Telepon : (0333) 26372819</li>
@@ -142,11 +157,11 @@
                                 </tr>
                                 <tr>
                                     <td>Instalasi Gawat Darurat (IGD) 24 Jam</td>
-                                    <td>sdr.i Susi  (031) 829366</td>
+                                    <td>sdr.i Susi (031) 829366</td>
                                 </tr>
                                 <tr>
                                     <td>Instalasi Rawat Jalan (Jam Kerja)</td>
-                                    <td>sdr.i Dewi  (031) 829366</td>
+                                    <td>sdr.i Dewi (031) 829366</td>
                                 </tr>
                                 <tr>
                                     <td>Pengaduan Publik (Jam Kerja)</td>
@@ -156,48 +171,48 @@
                                     <td>Hotsline BPJS</td>
                                     <td>(031) 829366</td>
                                 </tr>
-            
+
                             </tbody>
                         </table>
-        
+
                     </div>
                 </div>
 
             </div>
             <div class="tab-pane fade show " id="v-pills-whatwedo" role="tabpanel"
-            aria-labelledby="v-pills-whatwedo-tab">
-            <div class="container">
-                <table class="table table-bordered">
-                    <thead class="text-center" style="background-color: #2470A0; color: white">
-                        <tr>
-                            <th scope="col">Jenis Kamar</th>
-                            <th scope="col">Tarif</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-center">
-                        <tr>
-                         
-                            <td>Kelas I</td>
-                            <td>Rp. 525.000,00</td>
-                        </tr>
-                        <tr>
-                            <td>Kelas II</td>
-                            <td>Rp. 360.000,00</td>
-                        </tr>
-                        <tr>
-                            <td>Kelas III</td>
-                            <td>Rp. 300.000,00</td>
-                        </tr>
-                        <tr>
-                            <td>Utama I</td>
-                            <td>Rp. 750.000,00</td>
-                        </tr>
-    
-                    </tbody>
-                </table>
+                aria-labelledby="v-pills-whatwedo-tab">
+                <div class="container">
+                    <table class="table table-bordered">
+                        <thead class="text-center" style="background-color: #2470A0; color: white">
+                            <tr>
+                                <th scope="col">Jenis Kamar</th>
+                                <th scope="col">Tarif</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr>
 
+                                <td>Kelas I</td>
+                                <td>Rp. 525.000,00</td>
+                            </tr>
+                            <tr>
+                                <td>Kelas II</td>
+                                <td>Rp. 360.000,00</td>
+                            </tr>
+                            <tr>
+                                <td>Kelas III</td>
+                                <td>Rp. 300.000,00</td>
+                            </tr>
+                            <tr>
+                                <td>Utama I</td>
+                                <td>Rp. 750.000,00</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
             </div>
-        </div>
         </div>
     </div>
 @endsection

@@ -1,17 +1,17 @@
 @extends('main')
 @section('content')
     <style>
-    .my-image-container > .img-center{
-        max-width: 300%;
-    }
-    @media (max-width: 575.98px) {
-        .my-image-container > .img-center{
-            
-            max-width: 100%;
+        .my-image-container>.img-center {
+            max-width: 300%;
         }
-    }
-  
-</style>
+
+        @media (max-width: 575.98px) {
+            .my-image-container>.img-center {
+
+                max-width: 100%;
+            }
+        }
+    </style>
     <section class="home-slider owl-carousel">
         <div class="slider-item bread-item" style="background-image: url({{ asset('./bg_11.webp') }});"
             data-stellar-background-ratio="0.5">
@@ -21,7 +21,8 @@
                     <div class="col-md-7 col-sm-12 ftco-animate mb-5">
                         <p class="breadcrumbs" data-scrollax=" properties: { translateY: '70%', opacity: 1.6}"><span
                                 class="mr-2"><a href="index.html">Home</a></span> <span>Informasi</span></p>
-                        <h1 class="mb-3" data-scrollax=" properties: { translateY: '70%', opacity: .9}" style="text-shadow: 2px 2px 4px #000;">Alur & Persyaratan RSUD
+                        <h1 class="mb-3" data-scrollax=" properties: { translateY: '70%', opacity: .9}"
+                            style="text-shadow: 2px 2px 4px #000;">Alur & Persyaratan RSUD
                             Blambangan</h1>
                     </div>
                 </div>
@@ -59,49 +60,47 @@
     </section>
     <br>
     <div class="container" style="margin-top: -9rem">
-    <div class="tab-content ftco-animate" id="v-pills-tabContent">
+        <div class="tab-content ftco-animate" id="v-pills-tabContent">
 
-        <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel" aria-labelledby="v-pills-whatwedo-tab">
-            <div class="container">
-                <div class="my-image-container">
-                    @foreach ($Alur as $item)
-                        
-                    <p>{{$item->nama}}</p>
-                    <img src="{{$item->gambar}}" class="img-center">
-                    @endforeach
+            <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel"
+                aria-labelledby="v-pills-whatwedo-tab">
+                <div class="container">
+                    <div class="my-image-container">
+                        @foreach ($Alur as $item)
+                            {{-- <p>{{ $item->nama }}</p> --}}
+                            <img src="{{ asset('storage/' . $item->gambar) }}" class="img-fluid ">
+                        @endforeach
+                    </div>
+
                 </div>
-
             </div>
-        </div>
 
-        <div class="tab-pane fade" id="v-pills-mission" role="tabpanel" aria-labelledby="v-pills-mission-tab">
-            <div>
-                <table class="table table-bordered">
-                    <thead class="text-center" style="background-color: #2470A0; color: white">
-                        <tr>
-                            <th scope="col">NO</th>
-                            <th scope="col">Jenis Penjaminan</th>
-                            <th scope="col">Rawat Inap</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
+            <div class="tab-pane fade" id="v-pills-mission" role="tabpanel" aria-labelledby="v-pills-mission-tab">
+                <div>
+                    <table class="table table-bordered">
+                        <thead class="text-center" style="background-color: #2470A0; color: white">
+                            <tr>
+                                <th scope="col">NO</th>
+                                <th scope="col">Jenis Penjaminan</th>
+                                <th scope="col">Rawat Inap</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             @foreach ($Persyaratan as $index => $item)
-                                
-                    
-                            <th scope="row">{{$index + 1}}</th>
-                            <td>{{$item->jenis_penjaminan}}</td>
-                            <td>
-                                <li>{{$item->rawat_inap}}</li>
-                            </td>
+                                <tr>
+                                    <th scope="col">{{ $index + 1 }}</th>
+                                    <td>{{ $item->jenis_penjaminan }}</td>
+                                    <td>
+                                        {!! $item->rawat_inap !!}
+                                    </td>
+                                </tr>
                             @endforeach
-                        </tr>
-    
-                    </tbody>
-                </table>
-            </div>
-        </div>
 
-    </div>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
     </div>
 @endsection

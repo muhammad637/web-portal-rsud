@@ -23,10 +23,10 @@
                 <div class="ftco-footer-widget mb-4 ml-md-5">
                     <h2 class="ftco-heading-2">Tautan</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">Profil</a></li>
-                        <li><a href="#" class="py-2 d-block">Pasien & Kunjungan</a></li>
-                        <li><a href="#" class="py-2 d-block">Layanan</a></li>
-                        <li><a href="#" class="py-2 d-block">Berita</a></li>
+                        <li><a href="{{route('profil')}}" class="py-2 d-block">Profil</a></li>
+                        <li><a href="{{route('pasien-dan-pengunjung.informasiKunjungan')}}" class="py-2 d-block">Pasien & Kunjungan</a></li>
+                        {{-- <li><a href="#" class="py-2 d-block">Layanan</a></li> --}}
+                        <li><a href="{{route('berita.index')}}" class="py-2 d-block">Artikel</a></li>
                     </ul>
                 </div>
             </div>

@@ -38,9 +38,9 @@ class DokterController extends Controller
     }
     public function cari(Request $request)
     {
-        if($request->spesialis_id == null){
-            $dokter = Dokter::where('nama', 'like', '%' . $request->nama_dokter . '%')->orWhere('spesialis_id',$request->spesialis_id)->get();
-        }else{
+        if ($request->spesialis_id == null) {
+            $dokter = Dokter::where('nama', 'like', '%' . $request->nama_dokter . '%')->orWhere('spesialis_id', $request->spesialis_id)->get();
+        } else {
             $dokter = Dokter::where('nama', 'like', '%' . $request->nama_dokter . '%')->where('spesialis_id', $request->spesialis_id)->get();
         }
         // return $dokter;
@@ -52,11 +52,15 @@ class DokterController extends Controller
     public function dokter()
     {
         // return Dokter::all();
-       
-        // return ;
+        $rawatJalan = KategoriLayanan::where('slug', 'like', '%rawat-jalan%')->first();
+        if ($rawatJalan == null) {
+            $layanan = [];
+        } else {
+            $layanan = $rawatJalan->layanan;
+        }
         return view('admin.pages.dokter.daftar-dokter', [
             'dokter' => Dokter::orderBy('updated_at', 'desc')->get(),
-            'layanan' => KategoriLayanan::where('slug', 'like', '%rawat-jalan%')->first()->layanan,
+            'layanan' => $layanan,
             'spesialis' => Spesialis::all()
         ]);
         // return Dokter::all();
@@ -71,6 +75,7 @@ class DokterController extends Controller
     public function create()
     {
         //
+       
     }
 
     /**

@@ -57,7 +57,7 @@ Route::group(['prefix' => 'pasien-dan-pegunjung'],function(){
     Route::get('/informasikunjungan', [PortalController::class, 'informasiKunjungan'])->name('pasien-dan-pengunjung.informasiKunjungan');
 });
 // BERITA
-Route::group(['prefix'=>'berita'],function(){
+Route::group(['prefix'=>'artikel'],function(){
     Route::get('/', [PortalController::class, 'konten'])->name('berita.index');
     Route::get('/{konten:slug}', [PortalController::class, 'isiKonten'])->name('berita.show');
 });
@@ -122,6 +122,7 @@ Route::middleware('auth')->group(function () {
             });
             Route::group(['prefix' => 'daftar-dokter'], function(){
                 Route::get('/', [DokterController::class, 'dokter'])->name('admin.dokter');
+                Route::get('/create', [DokterController::class, 'create'])->name('admin.dokter.create');
                 Route::post('/store', [DokterController::class, 'dokterStore'])->name('admin.dokter.store');
                 Route::patch('/{dokter}/update', [DokterController::class, 'dokterUpdate'])->name('admin.dokter.update');
                 Route::delete('/{dokter:id}/destroy', [DokterController::class, 'dokterDelete'])->name('admin.dokter.delete');
@@ -168,7 +169,9 @@ Route::middleware('auth')->group(function () {
             });
             Route::group(['prefix' => "persyaratan"],function(){
                 Route::get('/', [PersyaratanController::class, 'persyaratan'])->name('admin.persyaratan');
-                Route::get('/create', [PersyaratanController::class, 'persyaratanCreate'])->name('admin.pesyaratan.create');
+                Route::get('/create', [PersyaratanController::class, 'persyaratanCreate'])->name('admin.persyaratan.create');
+                Route::get('/edit/{persyaratan}', [PersyaratanController::class, 'persyaratanEdit'])->name('admin.persyaratan.edit');
+                Route::get('/delete/{persyaratan:id}', [PersyaratanController::class, 'persyaratanDelete'])->name('admin.persyaratan.destroy');
                 Route::post('/store', [PersyaratanController::class, 'persyaratanStore'])->name('admin.persyaratan.store');
                 Route::put('/{persyaratan:id}/update', [PersyaratanController::class, 'persyaratanUpdate'])->name('admin.persyaratan.update');
             });
