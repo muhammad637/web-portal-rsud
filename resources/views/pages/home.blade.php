@@ -243,7 +243,7 @@
                     <div class="col-md-4 ftco-animate">
                         <div class="blog-entry">
                             <a href="blog-single.html" class="block-20"
-                                style="background-image: url('{{ $berita->gambar }}');">
+                                style="background-image: url('{{ 'storage/'.$berita->gambar }}');">
                             </a>
                             <div class="text d-flex py-4">
                                 <div class="meta mb-3">
