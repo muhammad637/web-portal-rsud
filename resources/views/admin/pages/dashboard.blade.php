@@ -76,7 +76,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Pelayanan</th>
+                            <th>Nama Layanan</th>
                             <th>Jenis</th>
                         </tr>
                     </thead>
@@ -98,7 +98,7 @@
                     <tfoot>
                         <tr>
                             <th>No</th>
-                            <th>Nama Pelayanan</th>
+                            <th>Nama Layanan</th>
                             <th>Jenis</th>
                         </tr>
                     </tfoot>
@@ -114,7 +114,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Pelayanan</th>
+                            <th>Nama Layanan</th>
                             <th>Jenis</th>
                         </tr>
                     </thead>

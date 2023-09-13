@@ -64,7 +64,8 @@
                                         @method('delete')
                                         @csrf
                                         <button class="btn btn-danger py-1 px-2 text-decoration-none"><i
-                                            class="far fa-trash-alt"></i></button>
+                                            class="far fa-trash-alt" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"></i></button>
+
                                     </form>
                                 </td>
                             </tr>

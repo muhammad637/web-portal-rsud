@@ -48,6 +48,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Nama</th>
                             <th>Dokumen</th>
                             <th>Aksi</th>
                         </tr>
@@ -59,15 +60,18 @@
                                 <td>{{ $index + 1 }}</td>
                                 <td>
                                     <label for="">{{ $item->nama }}</label><br>
-                                    {{ $item->pdf }}
+                                    
                                 </td>
+                                <td>{{ $item->pdf }}</td>
                                 <td>
                                     <a class="btn btn-success py-1 px-2 " data-bs-toggle="modal" href="#editikm"><i class="fas fa-eye"></i></a>
                                     <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
                                         href="#editikm-{{ $item->id }}"><i class="fas fa-pen"></i></a>
 
                                     <form action="" class="d-inline" method="post">
-                                        <button type="submit" class="btn btn-danger py-1 px-2 text-decoration-none">
+
+                                        <button type="submit" class="btn btn-danger py-1 px-2 text-decoration-none"onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+
                                             @method('delete')
                                             @csrf
                                             <i class="far fa-trash-alt"></i>

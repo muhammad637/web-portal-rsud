@@ -7,7 +7,7 @@
           <div class="row slider-text align-items-end">
             <div class="col-md-7 col-sm-12 ftco-animate mb-5">
               <p class="breadcrumbs" data-scrollax=" properties: { translateY: '70%', opacity: 1.6}"><span class="mr-2"><a href="{{route('home')}}">Beranda</a></span><span>PASIEN & PENGUNJUNG</span></p>
-              <h1 class="mb-3" data-scrollax=" properties: { translateY: '70%', opacity: .9}" style="text-shadow: 2px 2px 4px #000;">Ketersediaan Kamar Tidur</h1>
+              <h1 class="mb-3" data-scrollax=" properties: { translateY: '70%', opacity: .9}" style="text-shadow: 2px 2px 4px #000;"> Jumlah Ketersediaan Kamar Tidur</h1>
             </div>
           </div>
         </div>

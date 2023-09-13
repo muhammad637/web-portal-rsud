@@ -67,7 +67,6 @@ class AlurController extends Controller
         );
 
         $validatedData['gambar'] = $request->file('gambar')->store('gambar-alur');
-        return $validatedData['gambar'];
         Alur::create([
             'nama' => $validatedData['nama'],
             'gambar' => $validatedData['gambar']

@@ -61,7 +61,8 @@
                                 <td>
                                     <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
                                         href="#editAlur{{ $item->id }}"><i class="fas fa-pen"></i></a>
-                                    <a href="#" class="btn btn-danger py-1 px-2 text-decoration-none"><i class="far fa-trash-alt"></i></a>
+                                    <a href="#" class="btn btn-danger py-1 px-2 text-decoration-none" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="far fa-trash-alt"></i></a>
+
                                 </td>
                             </tr>
 

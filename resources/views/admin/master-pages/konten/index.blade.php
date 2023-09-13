@@ -56,7 +56,10 @@
                                         enctype="multipart/form-data" method="post" class="d-inline">
                                         @csrf
                                         @method('delete')
-                                        <button class="btn btn-danger py-1 px-2 text-decoration-none"><i class="far fa-trash-alt"></i></button>
+
+                                        <button type="submit" class="btn btn-danger py-1 px-2" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash"></i></button>
+                                        {{-- <button class="btn btn-danger py-1 px-2 text-decoration-none"><i
+                                                class="far fa-trash-alt"></i></button> --}}
                                     </form>
                                 </td>
                             </tr>

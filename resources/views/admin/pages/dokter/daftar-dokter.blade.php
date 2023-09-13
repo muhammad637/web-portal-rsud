@@ -66,10 +66,11 @@
                                         href="#editDokter{{ $item->id }}"><i class="fas fa-pen"></i></a>
                                     <form action="{{ route('admin.dokter.delete', ['dokter' => $item->id]) }}"
                                         class="d-inline" method="post">
+                                        <button type="submit" class="badge bg-danger border-0"
+                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
                                             @method('delete')
                                             @csrf
-                                            <button class="btn btn-danger py-1 px-2 text-decoration-none"><i
-                                                class="far fa-trash-alt"></i></button>
+                                            <i class="far fa-trash-alt"></i>
                                         </button>
                                     </form>
                                 </td>

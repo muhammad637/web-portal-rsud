@@ -80,7 +80,8 @@
                                                 <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
                                                     href="#editJadwal-{{ $item->id }}"><i class="fas fa-pen"></i></a>
                                                 <a class="btn btn-danger py-1 px-2 text-decoration-none" data-bs-toggle="modal"
-                                                    href="#hapusJadwal-{{ $item->id }}"><i class="far fa-trash-alt"></i></a>
+                                                    href="#hapusJadwal-{{ $item->id }}" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="far fa-trash-alt"></i></a>
+
                                             @else
                                                 -
                                             @endif
