@@ -48,6 +48,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Nama</th>
                             <th>Dokumen</th>
                             <th>Aksi</th>
                         </tr>
@@ -59,8 +60,9 @@
                                 <td>{{ $index + 1 }}</td>
                                 <td>
                                     <label for="">{{ $item->nama }}</label><br>
-                                    {{ $item->pdf }}
+                                    
                                 </td>
+                                <td>{{ $item->pdf }}</td>
                                 <td>
                                     <a class="badge bg-success border-0" data-bs-toggle="modal" href="#editikm"><img
                                             src="{{ asset('images/icon/icon_eyes.svg') }}" alt=""></a>
