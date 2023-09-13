@@ -59,7 +59,7 @@
                                         class="badge bg-warning"><img src="{{ asset('images/icon/icon_pen.svg') }}"
                                             alt=""></a>
                                     <a href="#" class="badge bg-danger"><img src="{{ asset('images/icon/icon_trash.svg') }}"
-                                            alt=""></a>
+                                            alt="" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"></a>
                                 </td>
                             </tr>
                         @endforeach

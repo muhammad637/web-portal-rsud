@@ -52,7 +52,7 @@
                                     <a class="badge bg-warning border-0" 
                                         href="{{route('admin.persyaratan.edit',['persyaratan' => $item->id])}}"><img
                                             src="{{ asset('images/icon/icon_pen.svg') }}" alt=""></a>
-                                    <a href="{{route('admin.persyaratan.destroy',['persyaratan' => $item->id])}}" class="badge bg-danger border-0"><img
+                                    <a href="{{route('admin.persyaratan.destroy',['persyaratan' => $item->id])}}" class="badge bg-danger border-0" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><img
                                             src="{{ asset('images/icon/icon_trash.svg') }}" alt=""></a>
                                 </td>
                             </tr>
