@@ -13,7 +13,7 @@
 @section('content-admin')
     <div class="card">
         <div class="card-body">
-            <h1 class="text-center text-capitalize fw-bold">form edit layanan {{ $layanan->kategoriLayanan->nama }} pages {{$layanan->nama}}</h1>
+            <h1 class="text-center text-capitalize fw-bold">form edit {{ $layanan->kategoriLayanan->nama }} {{$layanan->nama}}</h1>
             <form action="{{ route('admin.layanan.update', ['layanan' => $layanan->slug]) }}" method="post"
                 enctype="multipart/form-data">
                 @method('put')

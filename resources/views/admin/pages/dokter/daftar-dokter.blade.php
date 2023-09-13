@@ -8,7 +8,7 @@
     <div class="card">
         <div class="card-body">
 
-            <h5 class="card-title">Card Daftar Dokter</h5>
+            <h1 class="fw-bold">Daftar Dokter</h1>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TambahDokter">
                 Create <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -62,15 +62,14 @@
                                 <td>{{ $item->spesialis->nama_spesialis }} </td>
                                 <td>{{ $item->RawatJalan->nama }} </td>
                                 <td>
-                                    <a class="badge bg-warning border-0" data-bs-toggle="modal"
-                                        href="#editDokter{{ $item->id }}"><img
-                                            src="{{ asset('images/icon/icon_pen.svg') }}" alt=""></a>
+                                    <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
+                                        href="#editDokter{{ $item->id }}"><i class="fas fa-pen"></i></a>
                                     <form action="{{ route('admin.dokter.delete', ['dokter' => $item->id]) }}"
                                         class="d-inline" method="post">
-                                        <button type="submit" class="badge bg-danger border-0">
                                             @method('delete')
                                             @csrf
-                                            <img src="{{ asset('images/icon/icon_trash.svg') }}" alt="">
+                                            <button class="btn btn-danger py-1 px-2 text-decoration-none"><i
+                                                class="far fa-trash-alt"></i></button>
                                         </button>
                                     </form>
                                 </td>
@@ -106,8 +105,8 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                    data-bs-dismiss="modal">Tutup</button>
+                                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                             </div>
                                         </form>
                                     </div>

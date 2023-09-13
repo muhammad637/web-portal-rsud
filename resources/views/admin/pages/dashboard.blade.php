@@ -12,7 +12,7 @@
                 <div class="card-body p-3">
                     <strong>
                         <p class="text-sm mb-0 text-uppercase font-weight-bold ms-2" style="color: #25C42B;">Jumlah
-                            Pelayanan</p>
+                            Layanan</p>
                     </strong>
                     <div class="row align-items-center mt-2">
                         <div class="col-8">
@@ -70,7 +70,7 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <h1 class="fw-bold">History Update Pelayanan</h1>
+            <h1 class="fw-bold">History Update Layanan</h1>
             <div class="table-responsive mt-5">
                 <table id="example" class="table  table-striped table-bordered   " style="width:100%">
                     <thead>
