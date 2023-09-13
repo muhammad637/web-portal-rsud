@@ -9,6 +9,7 @@
         }
     </style>
 @endpush
+
 @section('content-admin')
     <div class="card">
         <div class="card-body">

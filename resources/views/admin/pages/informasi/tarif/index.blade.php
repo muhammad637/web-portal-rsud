@@ -4,6 +4,9 @@
     @livewireStyles
 @endpush
 @section('content-admin')
+@section('breadcrumb')
+    <li class="breadcrumb-item">Tarif</li>
+@endsection
     <div class="card">
         <div class="card-body">
 

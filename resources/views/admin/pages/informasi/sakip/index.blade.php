@@ -10,6 +10,9 @@
     </style>
 @endpush
 @section('content-admin')
+@section('breadcrumb')
+    <li class="breadcrumb-item">Sakip</li>
+@endsection
     <div class="card">
         <div class="card-body">
 

@@ -10,6 +10,9 @@
     </style>
 @endpush
 @section('content-admin')
+@section('breadcrumb')
+    <li class="breadcrumb-item">Persyaratan</li>
+@endsection
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Card persyaratan</h5>

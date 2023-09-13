@@ -5,6 +5,9 @@
     @livewireStyles
 @endpush
 @section('content-admin')
+@section('breadcrumb')
+    <li class="breadcrumb-item">Daftar Dokter</li>
+@endsection
     <div class="card">
         <div class="card-body">
 

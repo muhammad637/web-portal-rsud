@@ -10,6 +10,9 @@
     </style>
 @endpush
 @section('content-admin')
+@section('breadcrumb')
+    <li class="breadcrumb-item">Master Layanan {{$kategoriLayanan->nama}}</li>
+@endsection
     <div class="card">
         <div class="card-body">
             <h1 class="fw-bold">{{ $kategoriLayanan->nama }}</h1>
