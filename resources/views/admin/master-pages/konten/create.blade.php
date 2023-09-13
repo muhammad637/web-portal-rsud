@@ -13,11 +13,11 @@
 @section('content-admin')
     <div class="card">
         <div class="card-body">
-            <h1 class="text-center text-capitalize fw-bold">form upload Berita</h1>
+            <h1 class="text-center text-capitalize fw-bold">form upload Artikel</h1>
             <form action="{{ route('admin.konten.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                    <label for="" class="form-label">Title</label>
+                    <label for="" class="form-label">Judul</label>
                     <input type="text" class="form-control @error('judul') is-invalid @enderror" name="judul"
                         id="judul">
                     @error('judul')
@@ -41,7 +41,7 @@
                     <img id="displayedImage" class="img-fluid w-50" src="{{ old('gambar') }}" alt="Gambar yang Dipilih">
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">gambar</label>
+                    <label for="" class="form-label">Gambar</label>
                     <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar"
                         id="gambar" id="gambar" accept="image/*" value="{{ old('gambar') }}">
                     @error('gambar')
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="deskripsi" class="form-label">deskripsi Berita</label>
+                    <label for="deskripsi" class="form-label">Deskripsi Artikel</label>
                     @error('deskripsi')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -63,12 +63,12 @@
                     <trix-editor input="deskripsi"></trix-editor>
                 </div>
                 <div class="mb-3">
-                    <label for="link_yt" class="form-label">link Youtube <span class="text-success"> *optional</span></label>
+                    <label for="link_yt" class="form-label">Link Youtube <span class="text-success"> *optional</span></label>
                     <input type="text" class="form-control @error('link_yt') is-invalid @enderror" name="link_yt"
                         id="link_yt" value="{{ old('link_yt') }}">
                 </div>
                 <div class="mb-3">
-                    <label for="link_ig" class="form-label">link Instagram <span class="text-success"> *optional</span></label>
+                    <label for="link_ig" class="form-label">Link Instagram <span class="text-success"> *optional</span></label>
                     <input type="text" class="form-control @error('link_ig') is-invalid @enderror" name="link_ig"
                         id="link_ig" value="{{ old('link_ig') }}">
                 </div>

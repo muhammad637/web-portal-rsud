@@ -15,7 +15,7 @@
 @endsection
     <div class="card">
         <div class="card-body">
-            <h1 class="fw-bold">Berita</h1>
+            <h1 class="fw-bold">Artikel</h1>
             <a href="{{ route('admin.konten.create') }}" class="btn btn-primary text-decoration-none"> Create <i
                     class="fa-solid fa-square-plus"></i>
             </a>
@@ -59,6 +59,7 @@
                                         enctype="multipart/form-data" method="post" class="d-inline">
                                         @csrf
                                         @method('delete')
+
                                         <button type="submit" class="btn btn-danger py-1 px-2" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash"></i></button>
                                         {{-- <button class="btn btn-danger py-1 px-2 text-decoration-none"><i
                                                 class="far fa-trash-alt"></i></button> --}}
@@ -69,7 +70,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Nama Berita</th>
+                            <th>Nama Artikel</th>
                             <th>Gambar</th>
                             <th>excerpt</th>
                             <th>tanggal dibuat</th>

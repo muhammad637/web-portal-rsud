@@ -16,7 +16,7 @@
     <div class="card">
         <div class="card-body">
 
-            <h5 class="card-title">Card Informasi IKM</h5>
+            <h1 class="fw-bold">Informasi IKM</h1>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Tambahikm">
                 Create <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -67,17 +67,17 @@
                                 </td>
                                 <td>{{ $item->pdf }}</td>
                                 <td>
-                                    <a class="badge bg-success border-0" data-bs-toggle="modal" href="#editikm"><img
-                                            src="{{ asset('images/icon/icon_eyes.svg') }}" alt=""></a>
-                                    <a class="badge bg-primary border-0" data-bs-toggle="modal"
-                                        href="#editikm-{{ $item->id }}"><img src="{{ asset('images/icon/icon_pen.svg') }}"
-                                            alt=""></a>
+                                    <a class="btn btn-success py-1 px-2 " data-bs-toggle="modal" href="#editikm"><i class="fas fa-eye"></i></a>
+                                    <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
+                                        href="#editikm-{{ $item->id }}"><i class="fas fa-pen"></i></a>
 
                                     <form action="" class="d-inline" method="post">
-                                        <button type="submit" class="badge bg-danger border-0" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+
+                                        <button type="submit" class="btn btn-danger py-1 px-2 text-decoration-none"onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+
                                             @method('delete')
                                             @csrf
-                                            <img src="{{ asset('images/icon/icon_trash.svg') }}" alt="">
+                                            <i class="far fa-trash-alt"></i>
                                         </button>
                                     </form>
                                 </td>
@@ -114,8 +114,8 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                    data-bs-dismiss="modal">Tutup</button>
+                                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                             </div>
                                         </form>
                                     </div>
@@ -140,7 +140,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create ikm</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create IKM</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="{{ route('admin.index-kepuasan-masyarakat.store') }}" method="post"
@@ -160,8 +160,8 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Tambah</button>
                     </div>
                 </form>
             </div>

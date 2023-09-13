@@ -144,7 +144,7 @@ class LayananController extends Controller
         ];
         // return $update;
         // Layanan::create($validateData);
-        return redirect(route('admin.layanan'))->with('success', 'data layanan pages  berhasil diupdate');
+        return redirect(route('admin.layanan',['kategoriLayanan' => $layanan->kategoriLayanan->slug]))->with('success', 'data layanan pages  berhasil diupdate');
         //
     }
 

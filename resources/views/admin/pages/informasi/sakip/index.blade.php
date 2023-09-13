@@ -16,7 +16,7 @@
     <div class="card">
         <div class="card-body">
 
-            <h5 class="card-title">Card Informasi SAKIP</h5>
+            <h1 class="fw-bold">Informasi SAKIP</h1>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Tambahsakip">
                 Create <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -65,17 +65,17 @@
                                     {{ $item->link_file }}
                                 </td>
                                 <td>
-                                    <a class="badge bg-success border-0" data-bs-toggle="modal" href="#editsakip"><img
-                                            src="{{ asset('images/icon/icon_eyes.svg') }}" alt=""></a>
-                                    <a class="badge bg-primary border-0" data-bs-toggle="modal"
-                                        href="#editsakip-{{ $item->id }}"><img src="{{ asset('images/icon/icon_pen.svg') }}"
-                                            alt=""></a>
+                                    <a class="btn btn-success py-1 px-2" data-bs-toggle="modal" href="#editsakip"><i class="fas fa-eye"></i></a>
+                                    <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
+                                        href="#editsakip-{{ $item->id }}"><i class="fas fa-pen"></i>
 
                                     <form action="" class="d-inline" method="post">
-                                        <button type="submit" class="badge bg-danger border-0">
-                                            @method('delete')
-                                            @csrf
-                                            <img src="{{ asset('images/icon/icon_trash.svg') }}" alt="" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                        @method('delete')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger py-1 px-2 text-decoration-none" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+
+                                            <i class="far fa-trash-alt"></i>
+
                                         </button>
                                     </form>
                                 </td>

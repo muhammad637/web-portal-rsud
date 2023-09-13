@@ -15,7 +15,7 @@
 @endsection
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Card Alur</h5>
+            <h1 class="fw-bold">Informasi Alur</h1>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TambahAlur">
                 Create <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -62,11 +62,10 @@
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->gambar}}</td>
                                 <td>
-                                    <a class="badge bg-warning border-0" data-bs-toggle="modal"
-                                        href="#editAlur{{ $item->id }}"><img src="{{ asset('images/icon/icon_pen.svg') }}"
-                                            alt=""></a>
-                                    <a href="#" class="badge bg-danger border-0" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><img
-                                            src="{{ asset('images/icon/icon_trash.svg') }}" alt=""></a>
+                                    <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
+                                        href="#editAlur{{ $item->id }}"><i class="fas fa-pen"></i></a>
+                                    <a href="#" class="btn btn-danger py-1 px-2 text-decoration-none" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="far fa-trash-alt"></i></a>
+
                                 </td>
                             </tr>
 

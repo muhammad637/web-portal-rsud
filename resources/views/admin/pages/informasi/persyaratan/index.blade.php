@@ -15,7 +15,7 @@
 @endsection
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Card persyaratan</h5>
+            <h1 class="fw-bold">Informasi Persyaratan</h1>
             <a href="{{ route('admin.persyaratan.create') }}" class="btn btn-primary">Create <i
                     class="fas fa-plus-circle"></i></a>
 
@@ -52,11 +52,11 @@
                                 <td>{{ $item->jenis_penjaminan }}</td>
                                 <td>{!! $item->rawat_inap !!}</td>
                                 <td>
-                                    <a class="badge bg-warning border-0" 
-                                        href="{{route('admin.persyaratan.edit',['persyaratan' => $item->id])}}"><img
-                                            src="{{ asset('images/icon/icon_pen.svg') }}" alt=""></a>
-                                    <a href="{{route('admin.persyaratan.destroy',['persyaratan' => $item->id])}}" class="badge bg-danger border-0" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><img
-                                            src="{{ asset('images/icon/icon_trash.svg') }}" alt=""></a>
+
+                                    <a class="btn btn-warning py-1 px-2" 
+                                        href="{{route('admin.persyaratan.edit',['persyaratan' => $item->id])}}"><i class="fas fa-pen"></i></a>
+                                    <a href="{{route('admin.persyaratan.destroy',['persyaratan' => $item->id])}}" class="btn btn-danger py-1 px-2 text-decoration-none" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="far fa-trash-alt"></i>
+
                                 </td>
                             </tr>
 

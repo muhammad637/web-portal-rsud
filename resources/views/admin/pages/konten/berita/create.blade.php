@@ -13,7 +13,7 @@
 @section('content-admin')
     <div class="card">
         <div class="card-body">
-            <h1 class="text-center text-capitalize fw-bold">form upload berita</h1>
+            <h1 class="text-center text-capitalize fw-bold">form upload artikel</h1>
             <form action="{{ route('admin.berita.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
