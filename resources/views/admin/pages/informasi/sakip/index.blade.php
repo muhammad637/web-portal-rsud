@@ -72,7 +72,7 @@
                                         <button type="submit" class="badge bg-danger border-0">
                                             @method('delete')
                                             @csrf
-                                            <img src="{{ asset('images/icon/icon_trash.svg') }}" alt="">
+                                            <img src="{{ asset('images/icon/icon_trash.svg') }}" alt="" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
                                         </button>
                                     </form>
                                 </td>

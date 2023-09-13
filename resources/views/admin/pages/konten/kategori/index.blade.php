@@ -61,7 +61,7 @@
                                         href="#editKategori{{ $item->id }}"><img src="{{ asset('images/icon/icon_pen.svg') }}"
                                             alt=""></a>
                                     <a href="#" class="badge bg-danger border-0"><img
-                                            src="{{ asset('images/icon/icon_trash.svg') }}" alt=""></a>
+                                            src="{{ asset('images/icon/icon_trash.svg') }}" alt="" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"></a>
                                 </td>
                             </tr>
 

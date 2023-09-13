@@ -64,8 +64,9 @@
                                         method="post" class="d-inline">
                                         @method('delete')
                                         @csrf
-                                        <button type="submit" class="badge bg-danger border-0"><img
-                                                src="{{ asset('images/icon/icon_trash.svg') }}" alt=""></button>
+                                        <button type="submit" class="btn btn-danger py-1 px-2" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash"></i></button>
+                                        {{-- <button type="submit" class="badge bg-danger border-0"><img
+                                                src="{{ asset('images/icon/icon_trash.svg') }}" alt=""></button> --}}
                                     </form>
                                 </td>
                             </tr>

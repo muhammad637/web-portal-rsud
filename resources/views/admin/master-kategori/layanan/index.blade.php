@@ -53,8 +53,7 @@
                                         class="d-inline" method="post">
                                         @method('delete')
                                         @csrf
-                                        <button type="submit" class="btn btn-danger border-none px-3 py-1"><i
-                                                class="fas fa-trash"></i></button>
+                                        <button type="submit" class="btn btn-danger py-1 px-2" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

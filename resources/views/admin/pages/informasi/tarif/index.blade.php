@@ -61,7 +61,7 @@
                                     <form action="{{ route('admin.tarif.delete', ['tarif' => $item->id]) }}"
                                         class="d-inline" method="post">
                                         @csrf
-                                        <button type="submit" class="badge bg-danger border-0">
+                                        <button type="submit" class="badge bg-danger border-0" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
                                             <img src="{{ asset('images/icon/icon_trash.svg') }}" alt="">
                                         </button>
                                     </form>

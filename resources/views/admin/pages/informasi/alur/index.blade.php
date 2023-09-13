@@ -62,7 +62,7 @@
                                     <a class="badge bg-warning border-0" data-bs-toggle="modal"
                                         href="#editAlur{{ $item->id }}"><img src="{{ asset('images/icon/icon_pen.svg') }}"
                                             alt=""></a>
-                                    <a href="#" class="badge bg-danger border-0"><img
+                                    <a href="#" class="badge bg-danger border-0" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><img
                                             src="{{ asset('images/icon/icon_trash.svg') }}" alt=""></a>
                                 </td>
                             </tr>
