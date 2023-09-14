@@ -142,7 +142,7 @@ class LayananController extends Controller
             'gambar' => $gambar,
             'deskripsi' => $request->deskripsi
         ];
-        // return $update;
+        $layanan->update($update);
         // Layanan::create($validateData);
         return redirect(route('admin.layanan',['kategoriLayanan' => $layanan->kategoriLayanan->slug]))->with('success', 'data layanan pages  berhasil diupdate');
         //

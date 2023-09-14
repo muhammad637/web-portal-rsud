@@ -43,7 +43,7 @@
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <div class="card pt-3 px-2">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+                           
                             @yield('breadcrumb')
                         </ol>
                     </div>

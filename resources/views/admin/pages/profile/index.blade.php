@@ -9,6 +9,9 @@
         }
     </style>
 @endpush
+@section('breadcrumb')
+    <li class="breadcrumb-item">Profil</li>
+@endsection
 @section('content-admin')
     <section class="section profile font-poppins">
         <div class="row">

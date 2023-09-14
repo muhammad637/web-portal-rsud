@@ -11,6 +11,7 @@
 @endpush
 @section('content-admin')
 @section('breadcrumb')
+    <li class="breadcrumb-item">Informasi</li>
     <li class="breadcrumb-item">Persyaratan</li>
 @endsection
     <div class="card">

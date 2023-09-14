@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('dokters', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('spesialis_id')->constrained('spesialis')->onUpdate('cascade')->onDelete('cascade')->nullable();
-            $table->foreignId('layanan_id')->constrained('layanans')->onUpdate('cascade')->onDelete('cascade')->nullable();
+            $table->unsignedBigInteger('spesialis_id')->nullable();
+            $table->foreign('spesialis_id')->references('id')->on('spesialis')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('layanan_id')->nullable();
+            $table->foreign('layanan_id')->references('id')->on('layanans')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('tipe_dokter')->nullable();
             $table->string('nama');
             $table->string('gambar')->nullable();
             $table->timestamps();

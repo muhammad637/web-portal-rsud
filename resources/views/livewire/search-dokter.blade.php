@@ -3,17 +3,21 @@
     <div class="col-sm-12">
         <div class="form-group">
             <div class="icon"><span class="icon-user"></span></div>
-            <input type="text" class="form-control" wire:model='search' placeholder="Masukkan Nama Dokter..." required
+            <input type="text" class="form-control" wire:model='search' placeholder="Masukkan Nama Poli / Klinik ..."
                 name="nama_dokter">
             @if ($results)
                 <ul class="dropdown-menu {{ $displayResult ? 'd-block' : 'd-none' }}" style="max-height: 10rem;">
                     @foreach ($results as $item)
-                        <li>
-                            <a class="dropdown-item d-flex gap-2 align-items-center" href="#"
-                                wire:click="selectItem('{{ $item->nama }}')">
-                                {{ $item->nama }}
-                            </a>
-                        </li>
+                        @foreach ($results as $item)
+                            @foreach ($item->dokter as $value)
+                                <li>
+                                    <a class="dropdown-item d-flex gap-2 align-items-center" href="#"
+                                        wire:click="selectItem('{{ $value->nama }}')">
+                                        {{ $item->nama }} - {{ $value->nama }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        @endforeach
                     @endforeach
                 </ul>
 

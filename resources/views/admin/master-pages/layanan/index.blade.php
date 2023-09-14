@@ -51,12 +51,11 @@
                                     <a href="{{route('layanan.show',['layanan' => $item     ->slug])}}" 
                                         class="btn btn-success py-1 px-2 "><i class="fas fa-eye"></i></a>
                                     <a href="{{ route('admin.layanan.edit', ['layanan' => $item->slug,]) }}"
-                                        class="btn btn-warning py-1 px-2 "><i class="fas fa-pen"></i></a>
+                                        class="btn btn-warning py-1 px-2"><i class="fas fa-pen"></i></a>
                                     <form action="{{ route('admin.layanan.delete', ['layanan' => $item->slug]) }}"
                                         method="post" class="d-inline">
                                         @method('delete')
                                         @csrf
-
                                         <button type="submit" class="btn btn-danger py-1 px-2" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash"></i></button>
                                         {{-- <button type="submit" class="badge bg-danger border-0"><img
                                                 src="{{ asset('images/icon/icon_trash.svg') }}" alt=""></button> --}}
