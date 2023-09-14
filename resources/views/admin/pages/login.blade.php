@@ -24,6 +24,12 @@
                                     <img src="{{ asset('./RSUD-logo1.png') }}" width="180" alt="">
                                 </a>
                                 <p class="text-center">Login ke Dashboard Portal</p>
+                                @if (session()->has('error'))
+                                <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
+                                    <span>{{ session()->get('error') }}</span>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
                                 <form action="{{ route('login') }}" method="post">
                                     @csrf
                                     <div class="mb-3">
@@ -49,12 +55,17 @@
                                         @enderror
                                     </div>
                                             <div class="mb-4">
-                                                <strong>ReCaptcha:</strong>
+                                                <strong>Captcha : </strong>
                                                 {!! app('captcha')->display($attributes = [], $options = ['data-theme' => 'dark', 'data-type' => 'audio']) !!}
                                                 @if ($errors->has('g-recaptcha-response'))
                                                     <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
                                                 @endif
                                             </div>  
+                                            @error('status')
+                                            <div class="invalid-feedback">
+                                                {{$message}}
+                                            </div>
+                                            @enderror
                                             {{-- <div class="g-recaptcha"
                                             data-sitekey="6LckmhIoAAAAAI-Avx-0YrN_ozyoXMPyhMreCMqn"
                                             data-callback='onSubmit'

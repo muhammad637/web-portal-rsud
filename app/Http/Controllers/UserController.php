@@ -45,5 +45,37 @@ class UserController extends Controller
             ]);
             return redirect(route('admin.user'))->with('succes', 'user berhasil ditambahkan');
     }
+
+    public function nonaktif(User $user){
+        
+        $status = 'nonaktif';
+        $user->update(['status' => $status]);
+        return redirect()->back()->with('success', 'akun berhasil dinonaktifkan');
+    }
+
+    public function aktif(User $user){
+        $status = 'aktif';
+        $user->update(['status' => $status]);
+        return redirect()->back()->with('success', 'akun berhasil diaktifkan');
+    }
+
+    public function edit(User $user){
+        return view('admin.pages.user.edit');
+    }
+
+    public function userUpdate(Request $request, User $user){
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'username' => 'required',
+            'password' => 'required|min:8'
+        ]);
+        if ($validatedData['password']  == null) {
+            $validatedData['password'] = $user->password;
+        } else {
+            $validatedData['password'] = Hash::make($validatedData['password']);
+        }
+        $user->update($validatedData);
+        return redirect()->route('admin.user')->with('success', 'Profil berhasil diperbarui.');
+    }
     //
 }
