@@ -4,7 +4,8 @@
 @endpush
 @section('content-admin')
 @section('breadcrumb')
-    <li class="breadcrumb-item">Kategori Layanan</li>
+    <li class="breadcrumb-item">Master kategori</li>
+    <li class="breadcrumb-item">Layanan</li>
 @endsection
     <div class="card">
         <div class="card-body">

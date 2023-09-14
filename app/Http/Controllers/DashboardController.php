@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dokter;
 use App\Models\Konten;
 use App\Models\Layanan;
 use Illuminate\Http\Request;
@@ -14,18 +15,21 @@ class DashboardController extends Controller
     //
     public function dashboard()
     {
-        $konten = Konten::orderBy('updated_at', 'desc')->limit(5)->get();
+        $dokter = Dokter::orderBy('updated_at', 'desc')->limit(5)->get();
         $layanan = Layanan::orderBy('updated_at', 'desc')->limit(5)->get();
-        $jumlahKategoriLayanan = count(KategoriLayanan::all());
-        $jumlahKategoriKonten = count(KategoriKonten::all());
-        $jumlahLayanan = count(Layanan::all());
-        $jumlahKonten = count(Konten::all());
+        $jumlahDokter = count(Dokter::all());
+        $JumlahArtikel = count(KategoriKonten::all());
+        $kategoriLayanan = KategoriLayanan::where('slug', 'like', '%rawat-jalan%')->first();
+        // Poli atau klinik
+        $jumlahLayanan = count(Layanan::where('kategori_layanan_id', $kategoriLayanan)->get());
+        // return $jumlahLayanan;
         return view('admin.pages.dashboard', [
-            'konten' => $konten,
+            'dokter' => $dokter,
+            'kategoriLayanan' => $kategoriLayanan,
             'layanan' => $layanan,
-            'jumlahKategoriLayanan' => $jumlahKategoriLayanan,
-            'jumlahKategoriKonten' => $jumlahKategoriKonten,
-            'jumlahKonten' => $jumlahKonten,
+            'rawatjalan' => 'layanan-rawat-jalan',
+            'jumlahDokter' => $jumlahDokter,
+            'jumlahArtikel' => $JumlahArtikel,
             'jumlahLayanan' => $jumlahLayanan,
         ]);
     }

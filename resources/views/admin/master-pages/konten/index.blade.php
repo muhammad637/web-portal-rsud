@@ -11,7 +11,8 @@
 @endpush
 @section('content-admin')
 @section('breadcrumb')
-    <li class="breadcrumb-item">Berita</li>
+    <li class="breadcrumb-item">Master Pages</li>
+    <li class="breadcrumb-item">Artikel</li>
 @endsection
     <div class="card">
         <div class="card-body">

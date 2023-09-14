@@ -8,8 +8,10 @@
         }
     </style>
 @endpush
-
-
+@section('breadcrumb')
+    <li class="breadcrumb-item">Master Pages</li>
+    <li class="breadcrumb-item">Artikel</li>
+@endsection
 @section('content-admin')
     <div class="card">
         <div class="card-body">

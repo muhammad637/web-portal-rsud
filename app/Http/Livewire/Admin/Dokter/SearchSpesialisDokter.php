@@ -8,14 +8,18 @@ use Livewire\Component;
 class SearchSpesialisDokter extends Component
 {
     public $search;
+    public $tipe_dokter;
+    public $tipeDokterFormEdit;
     public $spesialisFormEdit;
     public $results = [];
     public $displayResult = false;
 
-    public function mount()
+    public function mount($tipeDokterFormEdit = null, $spesialisFormEdit = null)
     {
-        if ($this->spesialisFormEdit != null) {
-            $this->displayResult = false;
+        $this->tipe_dokter = $tipeDokterFormEdit;
+        $this->spesialisFormEdit = $spesialisFormEdit;
+        if ($this->tipeDokterFormEdit == 'spesialis') {
+            $this->displayResult = true;
             $this->search = $this->spesialisFormEdit;
             return;
         }
@@ -27,7 +31,7 @@ class SearchSpesialisDokter extends Component
             $this->displayResult = false;
             return;
         }
-        $this->results = Spesialis::where('nama_spesialis' , 'like', "%".$this->search."%")->get();
+        $this->results = Spesialis::where('nama_spesialis', 'like', "%" . $this->search . "%")->get();
         $this->displayResult = count($this->results) > 0;
     }
 
