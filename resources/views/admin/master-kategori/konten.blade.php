@@ -13,7 +13,7 @@
 @section('content-admin')
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Kategori Konten</h5>
+            <h1 class="fw-bold">Kategori Artikel</h1>
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TambahKategori">
                 Create <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -48,7 +48,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Kategori Konten</th>
+                            <th>Nama Kategori Artikel</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -58,9 +58,8 @@
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $item->nama }}</td>
                                 <td>
-                                    <a class="badge bg-warning border-0" data-bs-toggle="modal"
-                                        href="#editKategori{{ $item->id }}"><img
-                                            src="{{ asset('images/icon/icon_pen.svg') }}" alt=""></a>
+                                    <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
+                                        href="#editKategori{{ $item->id }}"><i class="fas fa-pen"></a>
                                     <a href="#" class="badge bg-danger border-0"><img
                                             src="{{ asset('images/icon/icon_trash.svg') }}" alt=""></a>
                                 </td>
@@ -70,7 +69,7 @@
                     <tfoot>
                         <tr>
                             <th>No</th>
-                            <th>Nama Kategori</th>
+                            <th>Nama Kategori Artikel</th>
                             <th>Aksi</th>
                         </tr>
                     </tfoot>

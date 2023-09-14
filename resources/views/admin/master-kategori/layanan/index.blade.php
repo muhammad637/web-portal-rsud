@@ -49,9 +49,8 @@
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ count($item->layanan) }}</td>
                                 <td>
-                                    <a class="badge bg-warning border-0" 
-                                        href="{{ route('kategori-layanan.edit', ['kategori_layanan' => $item->id]) }}"><img
-                                            src="{{ asset('images/icon/icon_pen.svg') }}" alt=""></a>
+                                    <a class="btn btn-warning py-1 px-2" 
+                                        href="{{ route('kategori-layanan.edit', ['kategori_layanan' => $item->id]) }}"><i class="fas fa-pen"></i></a>
                                     <form action="{{ route('kategori-layanan.destroy', ['kategori_layanan' => $item->id]) }}"
                                         class="d-inline" method="post">
                                         @method('delete')

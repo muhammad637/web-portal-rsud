@@ -8,7 +8,7 @@
 @endsection
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Kategori Konten</h5>
+            <h1 class="fw-bold">Kategori Artikel</h1>
             <!-- Button trigger modal -->
             <a href="{{ route('kategori-konten.create') }}" class="btn btn-primary">
                 Create <i class="fas fa-plus-circle"></i>
@@ -37,7 +37,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Kategori Konten</th>
+                            <th>Nama Kategori Artikel</th>
                             <th>Jumlah</th>
                             <th>Aksi</th>
                         </tr>
@@ -49,9 +49,8 @@
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ count($item->konten) }}</td>
                                 <td>
-                                    <a class="badge bg-warning border-0" 
-                                        href="{{ route('kategori-konten.edit', ['kategori_konten' => $item->id]) }}"><img
-                                            src="{{ asset('images/icon/icon_pen.svg') }}" alt=""></a>
+                                    <a class="btn btn-warning py-1 px-2" 
+                                        href="{{ route('kategori-konten.edit', ['kategori_konten' => $item->id]) }}"><i class="fas fa-pen"></i></a>
                                     <form action="{{ route('kategori-konten.destroy', ['kategori_konten' => $item->id]) }}"
                                         class="d-inline" method="post">
                                         @method('delete')
@@ -65,7 +64,7 @@
                     <tfoot>
                         <tr>
                             <th>No</th>
-                            <th>Nama Kategori</th>
+                            <th>Nama Kategori Artikel</th>
                             <th>Jumlah</th>
                             <th>Aksi</th>
                         </tr>
