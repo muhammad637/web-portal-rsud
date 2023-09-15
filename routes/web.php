@@ -161,6 +161,7 @@ Route::middleware('auth')->group(function () {
             Route::group(['prefix' => '/profile'], function () {
                 Route::get('/', [ProfilController::class, 'profile'])->name('admin.profile');
                 Route::put('/{user:id}/password', [ProfilController::class, 'passwordProfile'])->name('admin.profile.password');
+                Route::put('/{user:id}/edit', [ProfilController::class, 'updateProfile'])->name('admin.profile.update');
                 
             });
             Route::get('/', [UserController::class, 'index'])->name('admin.user');
