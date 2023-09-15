@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main',['title'=>'Informasi IKM'])
 @section('content')
     <style>
         .my-image-container>.img-center {

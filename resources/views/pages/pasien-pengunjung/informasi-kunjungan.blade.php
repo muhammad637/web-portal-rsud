@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main', ['title'=>'Informasi Kunjungan'])
 @section('content')
 @include('pages.partials.hero',['title' => 'Informasi Kunjungan RSUD Blambangan','menu' => 'pasien & pengunjung'])
 		

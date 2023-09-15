@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main',['title'=>'Alur dan Persyaratan'])
 @section('content')
     <style>
         .my-image-container>.img-center {
