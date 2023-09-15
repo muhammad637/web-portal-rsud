@@ -128,11 +128,15 @@ class LayananController extends Controller
         $gambar = $layanan->gambar;
         if ($request->hasFile('icon')) {
             # code...
-            Storage::delete($layanan->icon);
+            // if (Storage::exists($layanan->icon)) {
+            //     Storage::delete($layanan->icon);
+            // }
             $icon = $request->file('icon')->store('icon-layanan');
         }
         if ($request->hasFile('gambar')) {
-            Storage::delete($layanan->gambar);
+            // if (Storage::exists($layanan->icon)) {
+            //     Storage::delete($layanan->icon);
+            // }
             $gambar = $request->file('gambar')->store('image-layanan');
         }
         $update = [
@@ -144,7 +148,7 @@ class LayananController extends Controller
         ];
         $layanan->update($update);
         // Layanan::create($validateData);
-        return redirect(route('admin.layanan',['kategoriLayanan' => $layanan->kategoriLayanan->slug]))->with('success', 'data layanan pages  berhasil diupdate');
+        return redirect(route('admin.layanan', ['kategoriLayanan' => $layanan->kategoriLayanan->slug]))->with('success', 'data layanan pages  berhasil diupdate');
         //
     }
 

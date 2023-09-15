@@ -29,7 +29,6 @@
             @endif
         </div>
     </div>
-    {{ $search }}
 </div>
 @push('link-script-admin')
 @endpush
