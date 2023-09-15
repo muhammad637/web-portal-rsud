@@ -40,17 +40,24 @@ class LoginController extends Controller
             $find_user = User::where('username', $validated['username'])->first();
             if (!$find_user) {
                 // return error user not found
+            
+
+                return redirect()->back();
             }
     
             if (!Hash::check($validated['password'], $find_user->password)) {
-                // return error user wrong password
+                // return error user wrong password,
+                return redirect()->back();
             }
-    
+            if ($find_user->status == 'nonaktif'){
+                return redirect()->back()->with('error', 'akun anda tidak aktif, silahkan hubungi orang pusat!!!');
+              }
             Auth::login($find_user);
             $request->session()->regenerate();
             // return $request->all();
             return redirect()->intended(route('admin.dashboard'));
-        }
+             
+        }   
     }
 
     public function logout(){
