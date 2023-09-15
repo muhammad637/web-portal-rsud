@@ -75,19 +75,21 @@
                             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                 <!-- Profile Edit Form -->
-                                <form action="/user/{{ auth()->user()->id }}" method="POST">
+                                <form action="{{ route('admin.profile.update', ['user' => auth()->user()->id]) }}" method="POST">
+                                    @method('put')
                                     @csrf
+                                    
                                     <div class="row mb-3">
                                         <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="username" type="text" class="form-control" id="username"
+                                            <input for="username" name="username" type="text" class="form-control" id="username"
                                                 value="{{ auth()->user()->username }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="nama" class="col-md-4 col-lg-3 col-form-label">Nama Lengkap</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input name="nama" type="text" class="form-control" id="nama"
+                                            <input for="name" name="name" type="text" class="form-control" id="nama"
                                                 value="{{ auth()->user()->name }}">
                                         </div>
                                     </div>

@@ -33,6 +33,17 @@ class ProfilController extends Controller
             return redirect('/login')->with('sucess', 'password berhasil diupdate');
         }
     }
+
+
+    public function updateProfile(Request $request, User $user){
+        $validateData = $request->validate(
+            [
+            'username' => 'required',
+            'name' => 'required'
+        ]);
+        $user->update($validateData);;
+        return redirect()->back()->with('success', 'profile berhasil diupdate');
+    }
 }
 
 
