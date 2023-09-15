@@ -1,22 +1,6 @@
 @extends('main')
 @section('content')
-    <section class="home-slider owl-carousel">
-        <div class="slider-item bread-item" style="background-image: url({{ asset('./bg_11.webp') }});"
-            data-stellar-background-ratio="0.5">
-            <div class="overlay"></div>
-            <div class="container" data-scrollax-parent="true">
-                <div class="row slider-text align-items-end">
-                    <div class="col-md-7 col-sm-12 ftco-animate mb-5">
-                        <p class="breadcrumbs" data-scrollax=" properties: { translateY: '70%', opacity: 1.6}"><span
-                                class="mr-2"><a href="index.html">Beranda</a></span> <span>Berita</span></p>
-                        <h1 class="mb-3" data-scrollax=" properties: { translateY: '70%', opacity: .9}">Berita Seputar
-                            RSUD
-                        </h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+@include('pages.partials.hero',['title' => 'Kumpulan Artikel RSUD Blambangan','menu' => 'Artikel'])
     <section class="ftco-section">
         <div class="container">
             <div class="row">
@@ -55,10 +39,12 @@
                 <div class="col-md-4 sidebar ftco-animate">
                     <div class="sidebar-box ftco-animate">
                         <div class="categories">
-                            <h3>Katogeri</h3>
-                            @foreach ($kategoriKonten as $item)
-                                <li><a href="#" class="text-decoration-none text-dark">{{ $item->nama }}
-                                        <span>({{ count($item->konten) }})</span></a></li>
+                            <h3>Kategori</h3>
+                            @foreach ($kategoriKonten as $value)
+                                <li><a href="{{ route('kategori-berita.index', ['kategoriKonten' => $value->slug]) }}"
+                                        class="text-dark">{{ $value->nama }}
+                                        <span>({{ count($value->konten) }})</span>
+                                    </a></li>
                             @endforeach
                         </div>
                     </div>

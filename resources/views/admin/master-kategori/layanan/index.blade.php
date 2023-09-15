@@ -8,7 +8,7 @@
 @endsection
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Kategori Layanan</h5>
+            <h1 class="fw-bold">Kategori Layanan</h1>
             <!-- Button trigger modal -->
             <a href="{{ route('kategori-layanan.create') }}" class="btn btn-primary">
                 Create <i class="fas fa-plus-circle"></i>
