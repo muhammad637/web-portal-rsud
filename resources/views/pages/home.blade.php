@@ -57,7 +57,6 @@
         <div class="slider-item" style="background-image: url('images/bg2.webp');">
             <div class="overlay"></div>
         </div>
-
     </section>
 
     <section class="ftco-intro">

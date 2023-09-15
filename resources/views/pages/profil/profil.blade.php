@@ -1,7 +1,6 @@
 @extends('main')
 @section('content')
     <section class="home-slider owl-carousel">
-
         <div class="slider-item bread-item" style="background-image: url({{ asset('./bg_11.webp') }});"
             data-stellar-background-ratio="0.5">
             <div class="overlay"></div>

@@ -24,7 +24,7 @@
         <div class="form-group">
             <div class="select-wrap">
                 <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                <select name="spesialis_id" id="" class="form-select form-control" aria-placeholder="Spesialis" wire:model="spesialis_id">
+                <select name="spesialis_id" id="" class="form-select form-control" aria-placeholder="Spesialis">
                     <option value="" class="text-dark">Pilih Spesialis</option>
                     @foreach ($Spesialis as $spesialis)
                         <option value="{{ $spesialis->id }}" class="text-dark">{{ $spesialis->nama_spesialis }}</option>
