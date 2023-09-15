@@ -44,14 +44,16 @@ class JadwalDokterController extends Controller
     public function jadwalStore(Request $request)
     {
         //
-        // return $request->all();
+        $haris =  $request->hari;
         $dokter = Dokter::where('nama', $request->nama_dokter)->first();
-        JadwalDokter::create([
-            'dokter_id' => $dokter->id,
-            'hari' => $request->hari,
-            'jam_mulai_praktik' => $request->jam_mulai_praktik,
-            'jam_selesai_praktik' => $request->jam_selesai_praktik
-        ]);
+        foreach($haris as $hari){
+            JadwalDokter::create([
+                'dokter_id' => $dokter->id,
+                'hari' => $hari,
+                'jam_mulai_praktik' => $request->jam_mulai_praktik,
+                'jam_selesai_praktik' => $request->jam_selesai_praktik
+            ]);
+        }
         return redirect()->back()->with('success', 'jadwal dokter berhasil ditambahkan');
     }
 
@@ -107,12 +109,17 @@ class JadwalDokterController extends Controller
     public function jadwalDelete(Request $request, Dokter $dokter)
     {
         //
-        $jadwalDokter = JadwalDokter::where('dokter_id', $dokter->id)
-            ->where('hari', $request->hari)
-            ->get()
-            ->first()
-            ->delete();
-        $jadwalDokter;
+        $haris = $request->hari;
+        // return $haris;
+        foreach ($haris as  $hari) {
+            # code...
+            $jadwalDokter = JadwalDokter::where('dokter_id', $dokter->id)
+                ->where('hari', $hari)
+                ->get()
+                ->first()
+                ->delete();
+            $jadwalDokter;
+        }
         return redirect()->back()->with('success', 'berhasil delete jadwal dokter');
     }
 }

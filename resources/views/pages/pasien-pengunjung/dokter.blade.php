@@ -82,7 +82,7 @@
                                     </div>
                                     <div class="info text-center">
                                         <h3>{{ $item->nama }}</h3>
-                                        <span class="position" style="font-size: 20px;">{{ $item->spesialis->nama_spesialis }}</span>
+                                        <span class="position" style="font-size: 20px;">Dokter {{$item->tipe_dokter == 'spesialis' ? '' : 'umum' }}  {{ $item->spesialis->nama_spesialis ?? null}}</span>
                                         <div class="text">
                                             <div class="row">
                                                 <div class="col">

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Dokter;
+use App\Models\Layanan;
 use Livewire\Component;
 
 class SearchDokter extends Component
@@ -17,8 +18,10 @@ class SearchDokter extends Component
             $this->results = [];
             return;
         }
-        $this->results = Dokter::where('nama','like','%'.$this->search. '%')->get();
-        // $this->results = Dokter::all();
+        $this->results = Layanan::where('nama', 'like', '%' . $this->search . '%')->get();
+        // $this->results = Layanan::with(['dokter' => function($query){
+        //     $query->where('nama', 'like','%'.$this->search. '%');
+        // }])->get();
         $this->displayResult = count($this->results) > 0;
     }
     public function selectItem($item)

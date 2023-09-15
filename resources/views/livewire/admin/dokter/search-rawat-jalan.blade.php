@@ -1,7 +1,7 @@
 <div>
     <div class="mb-3">
         <div class="position-relative">
-            <label for="" class="form-label">Nama Rawat Jalan</label>
+            <label for="" class="form-label">Nama layanan Rawat Jalan / Poli</label>
             <input wire:model="search" type="text" class="form-control" autocomplete="false" placeholder="Search..."
                 name="nama_rawat_jalan" required>
             @if ($results)

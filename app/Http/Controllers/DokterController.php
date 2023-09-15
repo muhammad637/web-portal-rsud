@@ -24,7 +24,7 @@ class DokterController extends Controller
     public function index()
     {
 
-        $dokter = Dokter::all();
+        $dokter = Dokter::orderBy('updated_at', 'desc')->get();
         $spesialis = Spesialis::all();
         // $layananRawatJalan = KategoriLayanan::where('slug','like', "%rawat-jalan%")->get();
         // return $layananRawatJalan;
@@ -53,13 +53,19 @@ class DokterController extends Controller
     {
         // return Dokter::all();
         $rawatJalan = KategoriLayanan::where('slug', 'like', '%rawat-jalan%')->first();
+        // $dokter = Dokter::orderBy('updated_at', 'desc')->get();
+        // $dokter = Dokter::with(['RawatJalan' => function($query){
+        //     $query->where('slug','poli-gigi');
+        // }])->get();
+        // return $dokter;
+        $dokter = Dokter::all();
         if ($rawatJalan == null) {
             $layanan = [];
         } else {
             $layanan = $rawatJalan->layanan;
         }
         return view('admin.pages.dokter.daftar-dokter', [
-            'dokter' => Dokter::orderBy('updated_at', 'desc')->get(),
+            'dokter' => $dokter,
             'layanan' => $layanan,
             'spesialis' => Spesialis::all()
         ]);
@@ -75,7 +81,7 @@ class DokterController extends Controller
     public function create()
     {
         //
-       
+
     }
 
     /**
@@ -86,24 +92,32 @@ class DokterController extends Controller
      */
     public function dokterStore(Request $request)
     {
+        // return $request->all();
 
         $validatedData = $request->validate(
             [
-                'nama' => 'required',
-                'nama_spesialis' => 'required',
+                'nama' => 'required|unique:dokters,nama',
+                'tipe_dokter' => 'required',
+                'nama_spesialis' => '',
                 'nama_rawat_jalan' => 'required',
                 'gambar' => 'required'
             ]
         );
-        $spesialis =  Spesialis::where('nama_spesialis', $request->nama_spesialis)->first();
         $layanan =  Layanan::where('nama', $request->nama_rawat_jalan)->first();
         $validatedData['gambar'] = $request->file('gambar')->store('gambar-dokter');
-        Dokter::create([
+        $dokter = Dokter::create([
             'nama' => $validatedData['nama'],
             'gambar' => $validatedData['gambar'],
-            'spesialis_id' => $spesialis->id,
-            'layanan_id' => $layanan->id
+            'layanan_id' => $layanan->id,
+            'tipe_dokter' => $request->tipe_dokter
         ]);
+        $spesialis = '';
+        if ($request->nama_spesialis) {
+            # code...
+            $spesialis =  Spesialis::where('nama_spesialis', $request->nama_spesialis)->first();
+            $dokter->update(['spesialis_id' => $spesialis->id]);
+        }
+
 
         return redirect()->back()->with('success', 'dokter berhasil ditambahkan');
 
@@ -145,24 +159,31 @@ class DokterController extends Controller
         $request->validate(
             [
                 'nama' => 'required',
-                'nama_spesialis' => 'required',
                 'nama_rawat_jalan' => 'required'
             ]
         );
-        $spesialis =  Spesialis::where('nama_spesialis', $request->nama_spesialis)->first();
-        $rawatJalan =  RawatJalan::where('nama', $request->nama_rawat_jalan)->first();
+        $rawatJalan =  Layanan::where('nama', $request->nama_rawat_jalan)->first();
         $gambar = $dokter->gambar;
         if ($request->gambar) {
             Storage::delete($dokter->gambar);
             $gambar = $request->file('gambar')->store('gambar-dokter');
         }
-        // $merging = array_merge(['gambar' => $gambar], $validatedData);
+        $spesialis =  Spesialis::where('nama_spesialis', 'like', '%' . $request->nama_spesialis . '%')->first();
+        if ($request->tipe_dokter == 'umum') {
+            $dokter->update([
+                'spesialis_id' => null,
+            ]);
+        } else {
+            $dokter->update([
+                'spesialis_id' => $spesialis->id,
+            ]);
+        }
         $dokter->update([
             'nama' => $request->nama,
             'gambar' => $gambar,
-            'spesialis_id' => $spesialis->id,
-            'rawatJalan_id' => $rawatJalan->id
+            'rawatJalan_id' => $rawatJalan->id,
         ]);
+        // $merging = array_merge(['gambar' => $gambar], $validatedData);
         return redirect()->back()->with('success', 'dokter berhasil diupdate');
         //
     }

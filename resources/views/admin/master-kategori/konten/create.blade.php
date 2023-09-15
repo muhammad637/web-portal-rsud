@@ -1,6 +1,10 @@
 @extends('admin.pages.main')
 @push('link-css-admin')
 @endpush
+@section('breadcrumb')
+    <li class="breadcrumb-item">Master Kategori</li>
+    <li class="breadcrumb-item">Artikel</li>
+@endsection
 @section('content-admin')
     <div class="card">
         <div class="card-body">

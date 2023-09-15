@@ -9,18 +9,21 @@
     </style>
 @endpush
 
+@section('breadcrumb')
+    <li class="breadcrumb-item">Informasi</li>
+    <li class="breadcrumb-item">Persyaratan</li>
+@endsection
 
 @section('content-admin')
     <div class="card">
         <div class="card-body">
             <h1 class="text-center text-capitalize fw-bold">form upload Persyaratan</h1>
-            <form action="{{ route('admin.persyaratan.store') }}" method="post"
-               >
+            <form action="{{ route('admin.persyaratan.store') }}" method="post">
                 @csrf
                 <div class="mb-3">
                     <label for="" class="form-label">Jenis Penjaminan</label>
-                    <input type="text" class="form-control @error('jenis_penjaminan') is-invalid @enderror" name="jenis_penjaminan"
-                        id="jenis_penjaminan" value="{{ old('jenis_penjaminan') }}">
+                    <input type="text" class="form-control @error('jenis_penjaminan') is-invalid @enderror"
+                        name="jenis_penjaminan" id="jenis_penjaminan" value="{{ old('jenis_penjaminan') }}">
                     @error('jenis_penjaminan')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -39,8 +42,7 @@
                     <trix-editor input="rawat_inap"></trix-editor>
                 </div>
 
-                <a class="btn btn-warning"
-                    href="{{ route('admin.persyaratan') }}">Kembali</a>
+                <a class="btn btn-warning" href="{{ route('admin.persyaratan') }}">Kembali</a>
                 <button class="btn btn-primary " type="submit">Kirim</button>
             </form>
         </div>

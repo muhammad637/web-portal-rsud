@@ -10,6 +10,9 @@
     </style>
 @endpush
 @section('content-admin')
+@section('breadcrumb')
+    <li class="breadcrumb-item">Master Layanan {{$kategoriLayanan->nama}}</li>
+@endsection
     <div class="card">
         <div class="card-body">
             <h1 class="fw-bold">{{ $kategoriLayanan->nama }}</h1>
@@ -45,7 +48,8 @@
                                 <td>{!! $item->deskripsi !!}</td>
                                 <td>{{ Carbon\Carbon::parse($item->created_at)->format('d-M-Y') }}</td>
                                 <td>
-                                    <a href="{{route('layanan.show',['layanan' => $item     ->slug])}}" class="btn btn-success py-1 px-2"><i class="fas fa-eye"></i></a>
+                                    <a href="{{route('layanan.show',['layanan' => $item     ->slug])}}" 
+                                        class="btn btn-success py-1 px-2 "><i class="fas fa-eye"></i></a>
                                     <a href="{{ route('admin.layanan.edit', ['layanan' => $item->slug,]) }}"
                                         class="btn btn-warning py-1 px-2"><i class="fas fa-pen"></i></a>
                                     <form action="{{ route('admin.layanan.delete', ['layanan' => $item->slug]) }}"
