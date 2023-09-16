@@ -39,7 +39,7 @@ class DokterController extends Controller
     public function cari(Request $request)
     {
         if ($request->spesialis_id == null) {
-            $dokter = Dokter::where('nama', 'like', '%' . $request->nama_dokter . '%')->orWhere('spesialis_id', $request->spesialis_id)->get();
+            $dokter = Dokter::where('nama', 'like', '%' . $request->nama_dokter . '%')->get();
         } else {
             $dokter = Dokter::where('nama', 'like', '%' . $request->nama_dokter . '%')->where('spesialis_id', $request->spesialis_id)->get();
         }

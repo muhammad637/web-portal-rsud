@@ -48,11 +48,10 @@
 
                     @foreach ($tarifKamar as $index => $item)
                         <tr>
-                            <td>1</td>
-                            <td>2</td>
+                            <td>{{$item->nama}}</td>
+                            <td>{{$item->tarif}}</td>
                             <td>
-                                <a class="btn btn-success py-1 px-2 " data-bs-toggle="modal" href="#editDokter"><i
-                                        class="fas fa-eye"></i></a>
+                                
                                 <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
                                     href="#tarifKamar-{{ $item->id }}"><i class="fas fa-pen"></i></a>
                                 <form action="{{ route('admin.tarif.delete', ['tarif' => $item->id]) }}"
@@ -68,7 +67,7 @@
                         </tr>
                         <!-- Modal edit -->
                         <!-- Modal edit tarifKamar-->
-                        <div class="modal fade " id="tarifTindakan-{{ $item->id }}" tabindex="-1"
+                        <div class="modal fade " id="tarifKamar-{{ $item->id }}" tabindex="-1"
                             aria-labelledby="TambahKategoriLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -158,21 +157,19 @@
 
                     @foreach ($tarifTindakan as $index => $item)
                         <tr>
-                            <td>1</td>
-                            <td>1</td>
+                            <td>{{$item->nama}}</td>
+                            <td>{{$item->tarif}}</td>
                             <td>
-                                <a class="badge bg-success border-0" data-bs-toggle="modal" href="#editDokter"><img
-                                        src="{{ asset('icon/icon_folder.png') }}" alt=""></a>
-                                <button class="badge bg-primary border-0" data-bs-toggle="modal"
-                                    data-bs-target="#tarifTindakan-{{ $item->id }}"><img
-                                        src="{{ asset('icon/icon_pen.png') }}" alt=""></button>
+                                
+                                <button class="badge bg-warning border-0" data-bs-toggle="modal"
+                                    data-bs-target="#tarifTindakan-{{ $item->id }}">edit</button>
 
                                 <form action="{{ route('admin.tarif.delete', ['tarif' => $item->id]) }}"
                                     class="d-inline" method="post">
                                     <button type="submit" class="badge bg-danger border-0">
                                         @method('delete')
                                         @csrf
-                                        <img src="{{ asset('icon/icon_trash.png') }}" alt="">
+                                       delete
                                     </button>
                                 </form>
                             </td>
