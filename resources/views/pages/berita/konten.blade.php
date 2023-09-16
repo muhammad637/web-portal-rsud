@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main', ['title'=> 'Artikel '])
 @section('content')
 @include('pages.partials.hero',['title' => 'Kumpulan Artikel RSUD Blambangan','menu' => 'Artikel'])
     <section class="ftco-section">

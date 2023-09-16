@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main', ['title'=> $isiKonten->judul])
 @section('content')
 @include('pages.partials.hero',['title' => 'Kumpulan Artikel RSUD Blambangan','menu' => 'Artikel'])
 

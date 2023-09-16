@@ -1,4 +1,4 @@
-@extends('admin.pages.main')
+@extends('admin.pages.main', ['sloot' => 'Dashboard'])
 @section('breadcrumb')
     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
     <li class="breadcrumb-item">Dashboard</li>
