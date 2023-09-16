@@ -62,7 +62,7 @@
                                         @if (count($item->jadwalDokter) == 0)
                                             -
                                         @endif
-                                        <ul class="">
+                                        <ul class="">          
                                             @foreach ($item->jadwalDokter as $value)
                                                 <li class="list-group-item ">
                                                     hari {{ $value->hari }} :

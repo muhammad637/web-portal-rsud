@@ -216,7 +216,7 @@
                     <div class="collapse {{ Request::is('admin/user*') ? '  show' : '' }}" id="masterUser">
                         <ul class="mt-2 mb-5">
                             <li>
-                                <a class="sidebar-link {{ Request::is('admin/user*') ? 'bg-primary text-white' : '' }}"
+                                <a class="sidebar-link d-flex justify-content-between {{ Request::is('admin/user*') ? 'bg-primary text-white' : '' }}"
                                     href="{{ route('admin.user') }}" aria-expanded="false">
                                     <strong><span class="hide-menu">User</span></strong>
                                     <span>

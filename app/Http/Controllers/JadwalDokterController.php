@@ -18,10 +18,12 @@ class JadwalDokterController extends Controller
      */
     public function jadwal()
     {
+        $urutanHari = ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'];
         // return Dokter::all();
         return view('admin.pages.dokter.jadwal-dokter', [
             'jadwalDokter' => JadwalDokter::orderBy('updated_at', 'desc')->get(),
-            'dokter' => Dokter::orderBy('updated_at', 'desc')->get()
+            'dokter' => Dokter::orderBy('updated_at', 'desc')->get(),
+            'urutanHari' => $urutanHari,
         ]);
     }
 
@@ -44,17 +46,29 @@ class JadwalDokterController extends Controller
     public function jadwalStore(Request $request)
     {
         //
+        // $tes =  new JadwalDokter;
         $haris =  $request->hari;
+        // return $tes->rules();
         $dokter = Dokter::where('nama', $request->nama_dokter)->first();
-        foreach($haris as $hari){
-            JadwalDokter::create([
-                'dokter_id' => $dokter->id,
-                'hari' => $hari,
-                'jam_mulai_praktik' => $request->jam_mulai_praktik,
-                'jam_selesai_praktik' => $request->jam_selesai_praktik
-            ]);
+        $urutanHari = ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'];
+        // Urutkan hari berdasarkan urutan yang telah ditentukan
+        if ($haris) {
+            # code...
+            usort($haris, function ($a, $b) use ($urutanHari) {
+                return array_search($a, $urutanHari) - array_search($b, $urutanHari);
+            }); 
+            foreach ($haris as $hari) {
+                JadwalDokter::create([
+                    'dokter_id' => $dokter->id,
+                    'hari' => $hari,
+                    'jam_mulai_praktik' => $request->jam_mulai_praktik,
+                    'jam_selesai_praktik' => $request->jam_selesai_praktik
+                ]);
+                return redirect()->back()->with('success', 'jadwal dokter berhasil ditambahkan');
+            }
+        } else {
+            return redirect()->back()->with('success', 'jadwal hari kosong');
         }
-        return redirect()->back()->with('success', 'jadwal dokter berhasil ditambahkan');
     }
 
     /**
