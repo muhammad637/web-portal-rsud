@@ -1,4 +1,4 @@
-@extends('admin.pages.main')
+@extends('admin.pages.main', ['sloot' => 'Daftar Dokter'])
 @push('link-css-admin')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -66,7 +66,7 @@
                                     href="#editDokter{{ $item->id }}"><i class="fas fa-pen"></i></a>
                                 <form action="{{ route('admin.dokter.delete', ['dokter' => $item->id]) }}"
                                     class="d-inline" method="post">
-                                    <button type="submit" class="badge bg-danger border-0"
+                                    <button type="submit" class="btn btn-danger py-1 px-2"
                                         onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
                                         @method('delete')
                                         @csrf

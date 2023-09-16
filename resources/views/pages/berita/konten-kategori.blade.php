@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main',  ['title'=> 'Artikel '.$kategoriKonten->nama])
 @section('content')
 @include('pages.partials.hero',['title' => 'Kumpulan Berita '.$kategoriKonten->nama,'menu' => 'Artikel'])
 
