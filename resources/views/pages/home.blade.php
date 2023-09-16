@@ -119,12 +119,12 @@
                                         </div>
                                         <div class="media-body p-2 mt-3">
                                             <h3 class="heading">{{ $item->nama }}</h3>
-                                            <p>{!! $item->deskripsi !!}</p>
+                                            <p style="font-size: 10%;">{!! $item->deskripsi !!}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                    @endforeach
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
