@@ -1,4 +1,4 @@
-@extends('admin.pages.main')
+@extends('admin.pages.main', ['sloot' => 'Tambah Kategori Artikel']))
 @push('link-css-admin')
 @endpush
 @section('breadcrumb')
