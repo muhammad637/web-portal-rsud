@@ -162,12 +162,11 @@ Route::middleware('auth')->group(function () {
                 Route::get('/', [ProfilController::class, 'profile'])->name('admin.profile');
                 Route::put('/{user:id}/password', [ProfilController::class, 'passwordProfile'])->name('admin.profile.password');
                 Route::put('/{user:id}/edit', [ProfilController::class, 'updateProfile'])->name('admin.profile.update');
-                
             });
             Route::get('/', [UserController::class, 'index'])->name('admin.user');
-            Route::get('/create', [UserController::class, 'userCreate'])->name('admin.user.create');
+            // Route::get('/create', [UserController::class, 'userCreate'])->name('admin.user.create');
             Route::post('/store', [UserController::class, 'userStore'])->name('admin.user.store');
-            Route::post('/edit', [UserController::class, 'userEdit'])->name('admin.user.edit');
+            // Route::post('/edit', [UserController::class, 'userEdit'])->name('admin.user.edit');
             Route::post('/{user:id}/update', [UserController::class, 'userUpdate'])->name('admin.user.update');
             Route::put('/{user:id}/nonaktif', [UserController::class, 'nonaktif'])->name('admin.user.nonaktif');
             Route::put('/{user:id}/aktif', [UserController::class, 'aktif'])->name('admin.user.aktif');

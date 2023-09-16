@@ -18,10 +18,13 @@ class SearchDokter extends Component
             $this->results = [];
             return;
         }
-        $this->results = Layanan::where('nama', 'like', '%' . $this->search . '%')->get();
-        // $this->results = Layanan::with(['dokter' => function($query){
-        //     $query->where('nama', 'like','%'.$this->search. '%');
-        // }])->get();
+        // $this->results = Layanan::where('nama', 'like', '%' . $this->search . '%')->get();
+        $this->results = Dokter::where(function ($query) {
+            $query->where('nama', 'like', '%' . $this->search . '%')
+                ->orWhereHas('Rawatjalan', function ($subquery) {
+                    $subquery->where('nama', 'like', '%' . $this->search . '%');
+                });
+        })->get();
         $this->displayResult = count($this->results) > 0;
     }
     public function selectItem($item)

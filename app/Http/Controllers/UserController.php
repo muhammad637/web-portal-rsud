@@ -40,7 +40,8 @@ class UserController extends Controller
             User::create([
                 'name' => $validatedData['name'],
                 'username' => $validatedData['username'],
-                'password' => $validatedData['password']
+                'password' => $validatedData['password'],
+                'status' => 'aktif'
                 
             ]);
             return redirect(route('admin.user'))->with('succes', 'user berhasil ditambahkan');

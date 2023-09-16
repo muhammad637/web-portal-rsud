@@ -83,7 +83,8 @@ class SpesialisController extends Controller
      * @param  \App\Models\Spesialis  $spesialis
      * @return \Illuminate\Http\Response
      */
-    public function spesilaisUpdate(Request $request, Spesialis $spesialis)
+
+    public function spesialisUpdate(Request $request, Spesialis $spesialis)
     {
         // return $request;
         $validatedData = $request->validate(
@@ -91,7 +92,6 @@ class SpesialisController extends Controller
                 'nama_spesialis' => 'required|unique:spesialis,nama_spesialis,' . $spesialis->id,
             ]
         );
-        // return $validatedData;
         $spesialis->update($validatedData);
         return redirect()->back()->with('success','nama spesialis berhasil di update');
         //

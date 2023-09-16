@@ -84,7 +84,7 @@
                                     </div>
                                     <form action="{{ route('admin.spesialis.update', ['spesialis' => $item->id]) }}"
                                         method="post">
-                                        @method('put')
+                                        @method('patch')
                                         @csrf
                                         <div class="modal-body ">
                                             <div class="mb-3">

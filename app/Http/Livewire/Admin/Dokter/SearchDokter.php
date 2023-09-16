@@ -19,7 +19,7 @@ class SearchDokter extends Component
             $this->gambarDokter = null;
             return;
         }
-        $this->results = Dokter::all();
+        $this->results = Dokter::where('nama', 'like', '%' . $this->search . '%')->get();
         $this->displayResult = count($this->results) > 0;
     }
     public function render()

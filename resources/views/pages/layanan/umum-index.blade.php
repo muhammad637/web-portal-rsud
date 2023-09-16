@@ -1,5 +1,6 @@
 @extends('main', ['title' =>  $kategoriLayanan->nama])
 @section('content')
+
 @include('pages.partials.hero',['title' =>  $kategoriLayanan->nama.' RSUD Blambangan','menu' => 'Layanan'])
 
     {{-- <section class="ftco-section">

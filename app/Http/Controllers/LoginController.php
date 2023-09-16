@@ -40,8 +40,6 @@ class LoginController extends Controller
             $find_user = User::where('username', $validated['username'])->first();
             if (!$find_user) {
                 // return error user not found
-            
-
                 return redirect()->back();
             }
     
