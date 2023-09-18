@@ -26,9 +26,6 @@
                         <li><a class="dropdown-item"
                                 href="{{ route('pasien-dan-pengunjung.ketersediaanKamar') }}">Jumlah Kamar</a>
                         </li>
-                        <li><a class="dropdown-item"
-                                href="{{ route('pasien-dan-pengunjung.informasiKunjungan') }}">Informasi Kunjungan</a>
-                        </li>
                     </ul>
                 </li>
                 <li class="nav-item"><a href="{{ route('berita.index') }}" class="nav-link"><strong>Artikel</strong></a>

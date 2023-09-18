@@ -66,7 +66,6 @@
     <script src="{{ asset('./admin/assets/libs/simplebar/dist/simplebar.js') }}"></script> --}}
     {{-- <script src="{{ asset('./admin/assets/js/dashboard.js') }}"></script> --}}
     @stack('link-script-admin')
-    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     <script>
         $(document).ready(function() {
             $("#show-password").click(function() {
