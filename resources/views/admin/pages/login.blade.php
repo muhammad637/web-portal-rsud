@@ -36,7 +36,7 @@
                                         <label for="username" class="form-label">Username</label>
                                         <input type="text"
                                             class="form-control @error('username') is-invalid @enderror" id="username"
-                                            aria-describedby="emailHelp" name="username">
+                                            aria-describedby="username" name="username">
                                         @error('username')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -46,13 +46,17 @@
                                     <div class="mb-4">
                                         <label for="password" class="form-label">Password</label>
                                         <input type="password"
-                                            class="form-control @error('username') is-invalid @enderror" id="password"
+                                            class="form-control @error('password') is-invalid @enderror" id="password"
                                             name="password">
                                         @error('password')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
+                                    </div>
+                                    <div class="form-check form-switch mb-4">
+                                        <input class="form-check-input" name="remember" type="checkbox" id="show-password">
+                                        <label class="form-check-label" for="show-password">show password</label>
                                     </div>
                                             <div class="mb-4">
                                                 <strong>Captcha : </strong>
@@ -104,6 +108,20 @@
                 url: 'reload-captcha',
                 success: function (data) {
                     $(".captcha span").html(data.captcha);
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#show-password").click(function() {
+                var passwordField = $("#password");
+                var fieldType = passwordField.attr("type");
+    
+                if (fieldType === "password") {
+                    passwordField.attr("type", "text");
+                } else {
+                    passwordField.attr("type", "password");
                 }
             });
         });

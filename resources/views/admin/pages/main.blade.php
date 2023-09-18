@@ -66,6 +66,46 @@
     <script src="{{ asset('./admin/assets/libs/simplebar/dist/simplebar.js') }}"></script> --}}
     {{-- <script src="{{ asset('./admin/assets/js/dashboard.js') }}"></script> --}}
     @stack('link-script-admin')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#show-password").click(function() {
+                var passwordField = $("#password");
+                var fieldType = passwordField.attr("type");
+    
+                if (fieldType === "password") {
+                    passwordField.attr("type", "text");
+                } else {
+                    passwordField.attr("type", "password");
+                }
+            });
+        });
+    </script>
+     <script>
+        $(document).ready(function() {
+            $("#show-password").click(function() {
+                var passwordField = $("#oldpassword");
+                var fieldType = passwordField.attr("type");
+    
+                if (fieldType === "password") {
+                    passwordField.attr("type", "text");
+                } else {
+                    passwordField.attr("type", "password");
+                }
+                var newpasswordField = $("#newpassword");
+                var newfieldType = newpasswordField.attr("type");
+    
+                if (newfieldType === "password") {
+                    newpasswordField.attr("type", "text");
+                } else {
+                    newpasswordField.attr("type", "password");
+                }
+            });
+            
+        });
+    </script>
+    
+    
 </body>
 
 </html>

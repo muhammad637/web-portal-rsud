@@ -20,9 +20,9 @@ class KontenController extends Controller
     public function index()
     {
         //
-        $konten = Konten::all();
+        
         return view('admin.master-pages.konten.index', [
-            'konten' => $konten
+            'konten' => Konten::orderBy('updated_at', 'desc')->get(),
         ]);
     }
 

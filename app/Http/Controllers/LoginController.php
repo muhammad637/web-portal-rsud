@@ -45,7 +45,7 @@ class LoginController extends Controller
     
             if (!Hash::check($validated['password'], $find_user->password)) {
                 // return error user wrong password,
-                return redirect()->back();
+                return redirect()->back()->with('error', 'silahkan cek kembali username dan password anda');
             }
             if ($find_user->status == 'nonaktif'){
                 return redirect()->back()->with('error', 'akun anda tidak aktif, silahkan hubungi orang pusat!!!');
