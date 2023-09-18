@@ -24,10 +24,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ route('pasien-dan-pengunjung.dokter') }}">Dokter</a></li>
                         <li><a class="dropdown-item"
-                                href="{{ route('pasien-dan-pengunjung.ketersediaanKamar') }}">Jumlah Ketersediaan Kamar</a>
-                        </li>
-                        <li><a class="dropdown-item"
-                                href="{{ route('pasien-dan-pengunjung.informasiKunjungan') }}">Informasi Kunjungan</a>
+                                href="{{ route('pasien-dan-pengunjung.ketersediaanKamar') }}">Jumlah Kamar</a>
                         </li>
                     </ul>
                 </li>
