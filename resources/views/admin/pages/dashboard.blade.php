@@ -1,6 +1,8 @@
 @extends('admin.pages.main', ['sloot' => 'Dashboard'])
 @section('breadcrumb')
-    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+    <li class="breadcrumb-item">
+        <a href="{{ route('admin.dashboard') }}">Home</a>
+    </li>
     <li class="breadcrumb-item">Dashboard</li>
 @endsection
 @push('link-css-admin')
@@ -31,7 +33,7 @@
             </a>
         </div>
         <div class="col">
-            <a href="{{route('admin.konten.index')}}">
+            <a href="{{ route('admin.konten.index') }}">
                 <div class="card">
                     <div class="card-body p-3">
                         <strong>
@@ -53,7 +55,7 @@
             </a>
         </div>
         <div class="col">
-            <a href="{{route('admin.dokter')}}">
+            <a href="{{ route('admin.dokter') }}">
                 <div class="card">
                     <div class="card-body p-3">
                         <strong>
@@ -67,7 +69,7 @@
                                 </div>
                             </div>
                             <div class="col-4">
-                                <h5 style="font-size: 30px; color:#FB2626;">{{$jumlahDokter}}</h5>
+                                <h5 style="font-size: 30px; color:#FB2626;">{{ $jumlahDokter }}</h5>
                             </div>
                         </div>
                     </div>
@@ -131,7 +133,13 @@
                                 <td> {{ $loop->iteration }} </td>
                                 <td>{{ $item->nama }}
                                 </td>
-                                <td>{{ $item->rawatJalan }}</td>
+                                <td>
+                                    @if (count($item->rawatJalan) > 0)
+                                        @foreach ($item->rawatJalan as $value)
+                                            <button class="badge bg-info border-0">{{ $value->nama }}</button>
+                                        @endforeach
+                                    @endif
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

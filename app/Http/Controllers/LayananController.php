@@ -20,7 +20,8 @@ class LayananController extends Controller
 
         // return $layanan;
         return view('admin.master-pages.layanan.index', [
-            'kategoriLayanan' => KategoriLayanan::orderBy('updated_at', 'desc')->get(),
+            'kategoriLayanan' => $kategoriLayanan,
+            'layanan' => Layanan::where('kategori_layanan_id', $kategoriLayanan->id)->orderBy('updated_at','desc')->get()
         ]);
         //
     }
@@ -105,7 +106,6 @@ class LayananController extends Controller
             'layanan' => $layanan
         ]);
     }
-
     /**
      * Update the specified resource in storage.
      *
