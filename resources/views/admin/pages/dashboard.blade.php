@@ -123,7 +123,6 @@
                             <th>No</th>
                             <th>Nama Dokter</th>
                             <th>Poli</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -132,7 +131,7 @@
                                 <td> {{ $loop->iteration }} </td>
                                 <td>{{ $item->nama }}
                                 </td>
-                                <td>{{ $item->rawatJalan->nama }}</td>
+                                <td>{{ $item->rawatJalan }}</td>
                             </tr>
                         @endforeach
                     </tbody>

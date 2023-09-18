@@ -16,9 +16,6 @@
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tarifKamar">
             Create <i class="fas fa-plus-circle"></i>
         </button>
-
-
-
         @if (session()->has('successKamar'))
             <div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
                 <span>{{ session()->get('successKamar') }}</span>

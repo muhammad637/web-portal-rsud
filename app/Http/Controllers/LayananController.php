@@ -99,7 +99,7 @@ class LayananController extends Controller
      * @param  \App\Models\Layanan  $layanan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Layanan $layanan, KategoriLayanan $kategoriLayanan)
+    public function edit(Layanan $layanan)
     {
         return view('admin.master-pages.layanan.edit', [
             'layanan' => $layanan
