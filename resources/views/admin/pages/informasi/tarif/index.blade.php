@@ -120,7 +120,7 @@
 <div class="card">
     <div class="card-body">
 
-        <h5 class="card-title">Card Informasi Tarif Tindakan</h5>
+        <h1 class="fw-bold">Informasi Tarif Tindakan</h1>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tarifTindakan">
             Create <i class="fas fa-plus-circle"></i>
