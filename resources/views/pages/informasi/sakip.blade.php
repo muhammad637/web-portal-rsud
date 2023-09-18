@@ -57,7 +57,6 @@
                                         <div class="info">
                                             <h3>{{$item->nama}}
                                             </h3>
-                                            <span class="position">Ukuran 16,9 KB</span>
                                         </div>
 
                                     </div>
