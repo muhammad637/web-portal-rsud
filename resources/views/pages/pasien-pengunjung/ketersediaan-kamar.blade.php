@@ -1,6 +1,6 @@
 @extends('main', ['title'=>'Informasi Kamar'])
 @section('content')
-@include('pages.partials.hero',['title' => 'Informasi Kamar RSUD Blambangan','menu' => 'pasien & pengunjung'])
+@include('pages.partials.hero',['title' => 'Jumlah Kamar RSUD Blambangan','menu' => 'pasien & pengunjung'])
     <div class="card">
         <div class="container">
             <br>
