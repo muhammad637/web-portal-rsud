@@ -62,8 +62,7 @@
                             </td>
                             <td>{{ $item->pdf }}</td>
                             <td>
-                                <a class="btn btn-success py-1 px-2 " data-bs-toggle="modal" href="#editikm"><i
-                                        class="fas fa-eye"></i></a>
+
                                 <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
                                     href="#editikm-{{ $item->id }}"><i class="fas fa-pen"></i></a>
 

@@ -50,14 +50,13 @@
                                 <div class="row align-items-center">
                                     @foreach ($sakip as $item)
                                     <div class="col-md-2 col-lg-2  col-6">
-                                        <a class="img mb-4 d-inline-block" href="{{$item->link_file}}" style="background-image: url(images/pdf.png);">
+                                        <a class="img mb-4 d-inline-block" href="{{$item->link_file}}" style="background-image: url('{{ asset('images/pdf.png') }}');">
                                         </a>
                                     </div>
                                     <div class="col">
                                         <div class="info">
                                             <h3>{{$item->nama}}
                                             </h3>
-                                            <span class="position">Ukuran 16,9 KB</span>
                                         </div>
 
                                     </div>

@@ -47,26 +47,14 @@
     <br>
     <div class="container mb-5" style="margin-top: -9rem;">
         <div class="tab-content ftco-animate" id="v-pills-tabContent">
+
             <div class="tab-pane fade show active" id="v-pills-whatwedo" role="tabpanel"
                 aria-labelledby="v-pills-whatwedo-tab">
-                <div class="container">
-                    <div class="col-md-6">
-                        <div class="petunjuk-umum">
-                            <div class="row align-items-center">
-                                <div class="col-md-2 col-lg-2  col-6">
-                                    <div class="img mb-4" style="background-image: url('{{ asset('images/pdf.png') }}');">
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="info">
-                                        <h3>Hak, Kewajiban dan Tanggung Jawab Serta Tata Tertib Rumah Sakitt</h3>
-                                        <span class="position">Ukuran 10,4 KB</span>
-                                    </div>
+                 <div class="container">
+                    <div class="my-image-container">
+                        <img src="{{ asset('images/tatatertib.webp') }}" class="img-fluid ">
+                </div>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -77,9 +65,8 @@
                             <div class="petunjuk-umum">
                                 <div class="row align-items-center">
                                     <div class="col-md-2 col-lg-2  col-6">
-                                        <div class="img mb-4"
-                                            style="background-image: url('{{ asset('images/pdf.png') }}');">
-                                        </div>
+                                        <a class="img mb-4 d-inline-block" href="index.html" style="background-image: url('{{ asset('images/pdf.png') }}');">
+                                    </a>
                                     </div>
                                     <div class="col">
                                         <div class="info">
@@ -96,9 +83,9 @@
                             <div class="petunjuk-umum">
                                 <div class="row align-items-center">
                                     <div class="col-md-2 col-lg-2  col-6">
-                                        <div class="img mb-4"
+                                        <a class="img mb-4 d-inline-block" href="index.html"
                                             style="background-image: url('{{ asset('images/pdf.png') }}');">
-                                        </div>
+                                    </a>
                                     </div>
                                     <div class="col">
                                         <div class="info">
