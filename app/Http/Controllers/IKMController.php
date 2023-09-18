@@ -26,7 +26,7 @@ class IKMController extends Controller
     {
         
         return view('admin.pages.informasi.index-kepuasan-masyarakat.index', [
-            'ikm' => Ikm::orderBy('updated_at', 'desc')->get()
+            'ikm' => IKM::orderBy('updated_at', 'desc')->get()
         ]);
         //
     }
