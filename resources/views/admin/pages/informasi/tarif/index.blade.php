@@ -160,16 +160,16 @@
                             <td>{{$item->nama}}</td>
                             <td>{{$item->tarif}}</td>
                             <td>
-                                
-                                <button class="badge bg-warning border-0" data-bs-toggle="modal"
-                                    data-bs-target="#tarifTindakan-{{ $item->id }}">edit</button>
+                                <button class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
+                                    data-bs-target="#tarifTindakan-{{ $item->id }}"><i class="fas fa-pen"></i></button>
 
                                 <form action="{{ route('admin.tarif.delete', ['tarif' => $item->id]) }}"
                                     class="d-inline" method="post">
-                                    <button type="submit" class="badge bg-danger border-0">
+                                    <button type="submit" class="btn btn-denger py-1 px-2">
                                         @method('delete')
                                         @csrf
-                                       delete
+
+                                        <i class="far fa-trash-alt"></i>
                                     </button>
                                 </form>
                             </td>
