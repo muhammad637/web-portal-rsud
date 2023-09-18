@@ -161,18 +161,17 @@
                             <td>1</td>
                             <td>1</td>
                             <td>
-                                <a class="badge bg-success border-0" data-bs-toggle="modal" href="#editDokter"><img
-                                        src="{{ asset('icon/icon_folder.png') }}" alt=""></a>
-                                <button class="badge bg-primary border-0" data-bs-toggle="modal"
-                                    data-bs-target="#tarifTindakan-{{ $item->id }}"><img
-                                        src="{{ asset('icon/icon_pen.png') }}" alt=""></button>
+                                <a class="btn btn-success py-1 px-2" data-bs-toggle="modal" href="#editDokter"><i
+                                    class="fas fa-eye"></i></a>
+                                <button class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
+                                    data-bs-target="#tarifTindakan-{{ $item->id }}"><i class="fas fa-pen"></i></button>
 
                                 <form action="{{ route('admin.tarif.delete', ['tarif' => $item->id]) }}"
                                     class="d-inline" method="post">
-                                    <button type="submit" class="badge bg-danger border-0">
+                                    <button type="submit" class="btn btn-denger py-1 px-2">
                                         @method('delete')
                                         @csrf
-                                        <img src="{{ asset('icon/icon_trash.png') }}" alt="">
+                                        <i class="far fa-trash-alt"></i>
                                     </button>
                                 </form>
                             </td>

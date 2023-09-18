@@ -51,7 +51,7 @@
                             <td>{{ $item->nama }}</td>
                             <td>{{ count($item->konten) }}</td>
                             <td>
-                                <a class="badge bg-warning border-0"
+                                <a class="btn btn-warning py-1 px-2"
                                     href="{{ route('kategori-konten.edit', ['kategori_konten' => $item->id]) }}"><img
                                         src="{{ asset('images/icon/icon_pen.svg') }}" alt=""></a>
                                 <form action="{{ route('kategori-konten.destroy', ['kategori_konten' => $item->id]) }}"
