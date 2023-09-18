@@ -58,23 +58,25 @@
                             <td>{{ $index + 1 }}</td>
                             <td>
                                 <label for="">{{ $item->nama }}</label><br>
-                                {{ $item->link_file }}
+                               
+                            </td>
+                            <td>
+                                <label for=""> {{ $item->link_file }}</label>
                             </td>
                             <td>
                                 <a class="btn btn-success py-1 px-2" data-bs-toggle="modal" href="#editsakip"><i
                                         class="fas fa-eye"></i></a>
                                 <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
                                     href="#editsakip-{{ $item->id }}"><i class="fas fa-pen"></i>
-
-                                    <form action="" class="d-inline" method="post">
+                                <form action="" class="d-inline" method="post">
                                         @method('delete')
                                         @csrf
-                                        <button type="submit" class="btn btn-danger py-1 px-2 text-decoration-none"
+                                <a type="submit" class="btn btn-danger py-1 px-2 text-decoration-none"
                                             onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
 
-                                            <i class="far fa-trash-alt"></i>
+                                <i class="far fa-trash-alt"></i>
 
-                                        </button>
+                                </a>
                                     </form>
                             </td>
                         </tr>
