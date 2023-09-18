@@ -39,7 +39,7 @@ class DokterController extends Controller
     public function cari(Request $request)
     {
         if ($request->spesialis_id == null) {
-            $dokter = Dokter::where('nama', 'like', '%' . $request->nama_dokter . '%')->orWhere('spesialis_id', $request->spesialis_id)->get();
+            $dokter = Dokter::where('nama', 'like', '%' . $request->nama_dokter . '%')->get();
         } else {
             $dokter = Dokter::where('nama', 'like', '%' . $request->nama_dokter . '%')->where('spesialis_id', $request->spesialis_id)->get();
         }
@@ -78,10 +78,16 @@ class DokterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function dokterCreate()
     {
         //
-
+        $rawatJalan = KategoriLayanan::where('slug', 'like', '%rawat-jalan%')->first();
+        return view(
+            'admin.pages.dokter.daftar-dokter.create',
+            [
+                'layanan' => $rawatJalan->layanan
+            ]
+        );
     }
 
     /**
@@ -93,28 +99,25 @@ class DokterController extends Controller
     public function dokterStore(Request $request)
     {
         // return $request->all();
-
         $validatedData = $request->validate(
             [
                 'nama' => 'required|unique:dokters,nama',
                 'tipe_dokter' => 'required',
                 'nama_spesialis' => '',
-                'nama_rawat_jalan' => 'required',
                 'gambar' => 'required'
             ]
         );
-        $layanan =  Layanan::where('nama', $request->nama_rawat_jalan)->first();
         $validatedData['gambar'] = $request->file('gambar')->store('gambar-dokter');
         $dokter = Dokter::create([
             'nama' => $validatedData['nama'],
             'gambar' => $validatedData['gambar'],
-            'layanan_id' => $layanan->id,
             'tipe_dokter' => $request->tipe_dokter
         ]);
+        $dokter->rawatJalan()->sync($request->rawatJalan);
         $spesialis = '';
         if ($request->nama_spesialis) {
             # code...
-            $spesialis =  Spesialis::where('nama_spesialis', $request->nama_spesialis)->first();
+            $spesialis =  Spesialis::where('nama_spesialis', 'like', '%' . $request->nama_spesialis . '%')->first();
             $dokter->update(['spesialis_id' => $spesialis->id]);
         }
 
@@ -135,16 +138,25 @@ class DokterController extends Controller
         // return Dokter::where('id', $dokter)->get();
         return $dokter;
     }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Dokter  $dokter
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dokter $dokter)
+    public function dokterEdit(Dokter $dokter)
     {
-        //
+        $layanan_id = $dokter->rawatJalan->pluck('id')->toArray();
+        // return $layanan_id;
+        $rawatJalan = KategoriLayanan::where('slug', 'like', '%rawat-jalan%')->first();
+        return view(
+            'admin.pages.dokter.daftar-dokter.edit',
+            [
+                'layanan' => $rawatJalan->layanan,
+                'dokter' => $dokter,
+                'layanan_id' => $layanan_id
+            ]
+        );
     }
 
     /**
@@ -159,10 +171,9 @@ class DokterController extends Controller
         $request->validate(
             [
                 'nama' => 'required',
-                'nama_rawat_jalan' => 'required'
             ]
         );
-        $rawatJalan =  Layanan::where('nama', $request->nama_rawat_jalan)->first();
+        // return $request->all();
         $gambar = $dokter->gambar;
         if ($request->gambar) {
             Storage::delete($dokter->gambar);
@@ -181,10 +192,11 @@ class DokterController extends Controller
         $dokter->update([
             'nama' => $request->nama,
             'gambar' => $gambar,
-            'rawatJalan_id' => $rawatJalan->id,
+            'tipe_dokter' => $request->tipe_dokter,
         ]);
+        $dokter->rawatJalan()->sync($request->rawatJalan);
         // $merging = array_merge(['gambar' => $gambar], $validatedData);
-        return redirect()->back()->with('success', 'dokter berhasil diupdate');
+        return redirect(route('admin.dokter'))->with('success', 'dokter berhasil diupdate');
         //
     }
 

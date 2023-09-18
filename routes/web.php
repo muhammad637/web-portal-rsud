@@ -102,7 +102,8 @@ Route::middleware('auth')->group(function () {
             });
             Route::group(['prefix' => 'daftar-dokter'], function () {
                 Route::get('/', [DokterController::class, 'dokter'])->name('admin.dokter');
-                Route::get('/create', [DokterController::class, 'create'])->name('admin.dokter.create');
+                Route::get('/create', [DokterController::class, 'dokterCreate'])->name('admin.dokter.create');
+                Route::get('/{dokter:id}/edit', [DokterController::class, 'dokterEdit'])->name('admin.dokter.edit');
                 Route::post('/store', [DokterController::class, 'dokterStore'])->name('admin.dokter.store');
                 Route::patch('/{dokter}/update', [DokterController::class, 'dokterUpdate'])->name('admin.dokter.update');
                 Route::delete('/{dokter:id}/destroy', [DokterController::class, 'dokterDelete'])->name('admin.dokter.delete');

@@ -9,12 +9,14 @@
                 <ul class="dropdown-menu {{ $displayResult ? 'd-block' : 'd-none' }}"
                     style="max-height: 10rem; overflow:auto; max-width:100%;">
                     @foreach ($results as $item)
+                    @foreach ($item->rawatJalan as $value)
                             <li>
                                 <a class="dropdown-item d-flex gap-2 align-items-center" href="#"
                                     wire:click="selectItem('{{ $item->nama }}')">
-                                    {{ $item->RawatJalan->nama }} - {{ $item->nama }}
+                                    {{ $value->nama }} - {{ $item->nama }}
                                 </a>
                             </li>
+                    @endforeach
                     @endforeach
                 </ul>
             @endif

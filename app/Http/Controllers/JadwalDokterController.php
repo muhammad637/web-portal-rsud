@@ -64,8 +64,8 @@ class JadwalDokterController extends Controller
                     'jam_mulai_praktik' => $request->jam_mulai_praktik,
                     'jam_selesai_praktik' => $request->jam_selesai_praktik
                 ]);
-                return redirect()->back()->with('success', 'jadwal dokter berhasil ditambahkan');
             }
+            return redirect()->back()->with('success', 'jadwal dokter berhasil ditambahkan');
         } else {
             return redirect()->back()->with('success', 'jadwal hari kosong');
         }

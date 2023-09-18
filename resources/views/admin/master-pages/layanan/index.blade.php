@@ -11,7 +11,8 @@
 @endpush
 @section('content-admin')
 @section('breadcrumb')
-    <li class="breadcrumb-item">Master Layanan {{$kategoriLayanan->nama}}</li>
+    <li class="breadcrumb-item">Master Layanan </li>
+    <li class="breadcrumb-item">{{$kategoriLayanan->nama}}</li>
 @endsection
     <div class="card">
         <div class="card-body">

@@ -19,7 +19,7 @@
         <h5 class="card-title">Card Master User</h5>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Tambahuser">
-            Create Admin Disini <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            Create  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                 fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
                 <path
                     d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z" />
@@ -65,7 +65,7 @@
                             <td>{{ $user->username }}</td>
                             <td>{{ $user->status }}</td>
                             <td>
-                                <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
+                                <a class="badge bg-warning border-0" data-bs-toggle="modal"
                                     href="#editUser-{{ $user->id }}"><i class="fas fa-pen"></i></a>
                                 @if ($user->status == 'aktif')
                                     <form action="{{ route('admin.user.nonaktif', ['user' => $user->id]) }}"
@@ -74,17 +74,17 @@
                                             onclick="return confirm('Apakah Anda yakin ingin mengupdate status user ini?')">
                                             @method('put')
                                             @csrf
-                                            <i class="far fa-trash-alt"></i>
+                                            <i class="fa-regular fa-circle-xmark"></i>
                                         </button>
                                     </form>
                                 @else
                                     <form action="{{ route('admin.user.aktif', ['user' => $user->id]) }}"
                                         class="d-inline" method="post">
-                                        <button type="submit" class="badge bg-danger border-0"
+                                        <button type="submit" class="badge bg-success border-0"
                                             onclick="return confirm('Apakah Anda yakin ingin mengupdate status user ini?')">
                                             @method('put')
                                             @csrf
-                                            <i class="far fa-trash-alt"></i>
+                                            <i class="far fa-check-circle"></i>
                                         </button>
                                     </form>
                                 @endif
@@ -117,7 +117,7 @@
                                                     id="username" value="{{ $user->username }}">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="password" class="form-label">Password</label>
+                                                <label for="password" class="form-label">Reset Password</label>
                                                 <input type="password" class="form-control" name="password"
                                                     id="password">
                                             </div>

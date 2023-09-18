@@ -24,14 +24,13 @@
                         </span>
                     @endif
                     <div class="row justify-conten-center align-items-center">
-                        @if (isset($isiKonten->link_yt))
+                        @if (isset($isiKonten->link_yt) && $isiKonten->link_yt != null)
                             <div class="col-lg-8 mb-4 col-md-12">
                                 @include('pages.berita.youtube', ['linkYT' => $isiKonten->link_yt])
                             </div>
                         @endif
-                        @if (isset($isiKonten->link_ig))
+                        @if (isset($isiKonten->link_ig) && $isiKonten->link_ig != null)
                             <div class="col-lg-4 col-md-12">
-
                                 @include('pages.berita.instagram', ['linkIG' => $isiKonten->link_ig])
                             </div>
                         @endif
