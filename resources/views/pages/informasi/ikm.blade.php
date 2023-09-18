@@ -49,7 +49,8 @@
                             <div class="petunjuk-umum">
                                 <div class="row align-items-center">
                                     @foreach ($ikm as $item)
-                                    <div class="col-md-2 col-lg-2  col-6">
+            
+                                    <div class="col-md-2 col-lg-2 col-6">
                                         <a class="img mb-4 d-inline-block" href="{{$item->pdf}}" style="background-image: url('{{ asset('images/pdf.png') }}');">
                                         </a>
                                     </div>
@@ -58,7 +59,6 @@
                                             <h3>{{$item->nama}}
                                             </h3>
                                         </div>
-
                                     </div>
                                     @endforeach
                                 </div>

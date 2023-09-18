@@ -146,7 +146,8 @@ Route::middleware('auth')->group(function () {
                 Route::get('/', [SAKIPController::class, 'sakip'])->name('admin.sakip');
                 Route::get('/create', [SAKIPController::class, 'sakipCreate'])->name('admin.sakip.create');
                 Route::post('/store', [SAKIPController::class, 'sakipStore'])->name('admin.sakip.store');
-                Route::put('/{sakip:id}/update', [SAKIP::class, 'sakipUpdate'])->name('admin.sakip.update');
+                Route::put('/{sakip:id}/update', [SAKIPController::class, 'sakipUpdate'])->name('admin.sakip.update');
+                Route::delete('/{sakip:id}/delete', [SAKIPController::class, 'sakipDelete'])->name('admin.sakip.delete');
             });
             Route::group(['prefix' => "persyaratan"], function () {
                 Route::get('/', [PersyaratanController::class, 'persyaratan'])->name('admin.persyaratan');
