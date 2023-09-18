@@ -65,7 +65,7 @@
                             <div class="petunjuk-umum">
                                 <div class="row align-items-center">
                                     <div class="col-md-2 col-lg-2  col-6">
-                                        <a class="img mb-4 d-inline-block" href="index.html" style="background-image: url('{{ asset('images/pdf.png') }}');">
+                                        <a class="img mb-4 d-inline-block" href="#" style="background-image: url('{{ asset('images/pdf.png') }}');">
                                     </a>
                                     </div>
                                     <div class="col">
@@ -83,7 +83,7 @@
                             <div class="petunjuk-umum">
                                 <div class="row align-items-center">
                                     <div class="col-md-2 col-lg-2  col-6">
-                                        <a class="img mb-4 d-inline-block" href="index.html"
+                                        <a class="img mb-4 d-inline-block" href="#"
                                             style="background-image: url('{{ asset('images/pdf.png') }}');">
                                     </a>
                                     </div>
