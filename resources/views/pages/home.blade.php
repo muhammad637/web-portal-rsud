@@ -204,17 +204,8 @@
                                     <div class="tab-pane fade" id="v-pills-mission" role="tabpanel"
                                         aria-labelledby="v-pills-mission-tab">
                                         <div>
-                                            <p>Maklumat sejak tahun 1930 sebagai Pusat Kesehatan Sederhana jaman Belanda,
-                                                yang hanya
-                                                melayani Pelayanan Kesehatan Dasar dan Penyakit Menular hingga sekarang
-                                                berkembang
-                                                menjadi Rumah Sakit Kelas B Pemerintah dan lulus Akreditasi PARIPURNA KARS
-                                                2012
-                                                Kini telah menjadi Pusat Rujukan Spesialis di kabupaten Banyuwangi, RSUD
-                                                Blambangan
-                                                selalu berbenah dalam hal pelayanan kesehatan sehingga dapat menyajikan
-                                                pelayanan yang
-                                                modern dan berkelas</p>
+                                            <p>
+                                                “Dengan ini, kami seluruh penyelenggara Rumah Sakit Umum Daerah Blambangan menyatakan sanggup menyelenggarakan pelayanan sesuai standar pelayanan yang telah ditetapkan dan apabila tidak menepati janji, siap menerima sanksi sesuai peraturan perundang-undangan yang berlaku”</p>
                                         </div>
                                     </div>
 
