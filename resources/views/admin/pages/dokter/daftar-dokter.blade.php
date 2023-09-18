@@ -74,7 +74,7 @@
                                 {{-- <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
                                     href="#editDokter{{ $item->id }}"><i class="fas fa-pen"></i></a> --}}
                                     {{-- <a href=""></a> --}}
-                                    <a href="{{route('admin.dokter.edit',['dokter' => $item->id])}}" class="btn-warning btn"><i class="fas fa-pen"></i></a>
+                                    <a href="{{route('admin.dokter.edit',['dokter' => $item->id])}}" class="btn btn-warning py-1 px-2"><i class="fas fa-pen"></i></a>
                                 <form action="{{ route('admin.dokter.delete', ['dokter' => $item->id]) }}"
                                     class="d-inline" method="post">
                                     <button type="submit" class="btn btn-danger py-1 px-2"
