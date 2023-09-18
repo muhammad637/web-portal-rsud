@@ -45,25 +45,26 @@
             <div class="tab-pane active" id="v-pills-mission" role="" aria-labelledby="v-pills-mission-tab">
                 <div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="petunjuk-umum">
-                                <div class="row align-items-center">
-                                    @foreach ($ikm as $item)
-                                    <div class="col-md-2 col-lg-2  col-6">
-                                        <a class="img mb-4 d-inline-block" href="{{$item->pdf}}" style="background-image: url('{{ asset('images/pdf.png') }}');">
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <div class="info">
-                                            <h3>{{$item->nama}}
-                                            </h3>
+                        @foreach ($ikm as $item)                        
+                            <div class="col-md-6">
+                                <a href="{{$item->pdf}}" target="_blank">
+                                <div class="petunjuk-umum" >
+                                    <div class="row align-items-center">                                    
+                                        <div class="col-md-2 col-lg-2 col-6">
+                                            <div class="img mb-4 d-inline-block" style="background-image: url('{{ asset('images/pdf.png') }}');">
+                                            </div>
                                         </div>
-
+                                        <div class="col">
+                                            <div class="info d-inline-block" >
+                                                <h3>{{$item->nama}}
+                                                </h3>
+                                            </div>
+                                        </div>
                                     </div>
-                                    @endforeach
                                 </div>
-                            </div>
-                        </div>
+                            </a>
+                            </div>                        
+                        @endforeach
                     </div>
                 </div>
 

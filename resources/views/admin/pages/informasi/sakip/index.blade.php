@@ -60,8 +60,7 @@
                                 {{ $item->link_file }}
                             </td>
                             <td>
-                                <a class="btn btn-success py-1 px-2" data-bs-toggle="modal" href="#editsakip"><i
-                                        class="fas fa-eye"></i></a>
+                                
                                 <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
                                     href="#editsakip-{{ $item->id }}"><i class="fas fa-pen"></i>
 

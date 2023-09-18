@@ -45,13 +45,14 @@
             <div class="tab-pane active" id="v-pills-mission" role="" aria-labelledby="v-pills-mission-tab">
                 <div>
                     <div class="row">
+                        @foreach ($sakip as $item)
                         <div class="col-md-6">
+                            <a href="{{$item->link_file}}" target="_blank">
                             <div class="petunjuk-umum">
                                 <div class="row align-items-center">
-                                    @foreach ($sakip as $item)
                                     <div class="col-md-2 col-lg-2  col-6">
-                                        <a class="img mb-4 d-inline-block" href="{{$item->link_file}}" style="background-image: url('{{ asset('images/pdf.png') }}');">
-                                        </a>
+                                        <div class="img mb-4 d-inline-block"  style="background-image: url('{{ asset('images/pdf.png') }}');">
+                                        </div>
                                     </div>
                                     <div class="col">
                                         <div class="info">
@@ -62,9 +63,10 @@
                                     </div>
                                     
                                 </div>
-                                @endforeach
                             </div>
+                            </a>
                         </div>
+                        @endforeach
                     </div>
                 </div>
 

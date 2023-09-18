@@ -16,7 +16,7 @@ class SAKIPController extends Controller
 
     public function sakipindex(){
         return view('pages.informasi.sakip', [
-            'sakip' => Sakip::all()
+            'sakip' => SAKIP::all()
         ]);
     }
 
@@ -26,7 +26,7 @@ class SAKIPController extends Controller
     {
         
         return view('admin.pages.informasi.sakip.index', [
-            'sakip' => Sakip::orderBy('updated_at', 'desc')->get()
+            'sakip' => SAKIP::orderBy('updated_at', 'desc')->get()
         ]);
         //
     }
