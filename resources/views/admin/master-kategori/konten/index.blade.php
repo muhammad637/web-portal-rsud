@@ -52,8 +52,7 @@
                             <td>{{ count($item->konten) }}</td>
                             <td>
                                 <a class="btn btn-warning py-1 px-2"
-                                    href="{{ route('kategori-konten.edit', ['kategori_konten' => $item->id]) }}"><img
-                                        src="{{ asset('images/icon/icon_pen.svg') }}" alt=""></a>
+                                    href="{{ route('kategori-konten.edit', ['kategori_konten' => $item->id]) }}"><i class="fas fa-pen"></i></a>
                                 <form action="{{ route('kategori-konten.destroy', ['kategori_konten' => $item->id]) }}"
                                     class="d-inline" method="post">
                                     @method('delete')
