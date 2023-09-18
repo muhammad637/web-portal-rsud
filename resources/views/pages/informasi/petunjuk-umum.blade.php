@@ -65,14 +65,14 @@
                             <div class="petunjuk-umum">
                                 <div class="row align-items-center">
                                     <div class="col-md-2 col-lg-2  col-6">
-                                        <a class="img mb-4 d-inline-block" href="index.html" style="background-image: url('{{ asset('images/pdf.png') }}');">
+                                        <a class="img mb-4 d-inline-block" href="#" style="background-image: url('{{ asset('images/pdf.png') }}');">
                                     </a>
                                     </div>
                                     <div class="col">
                                         <div class="info">
                                             <h3>Undang-Undang Republik Indonesia Nomor 44 Tahun 2009 Tentang Rumah Sakit
                                             </h3>
-                                            <span class="position">Ukuran 177 KB</span>
+                                            
                                         </div>
 
                                     </div>
@@ -83,14 +83,14 @@
                             <div class="petunjuk-umum">
                                 <div class="row align-items-center">
                                     <div class="col-md-2 col-lg-2  col-6">
-                                        <a class="img mb-4 d-inline-block" href="index.html"
+                                        <a class="img mb-4 d-inline-block" href="#"
                                             style="background-image: url('{{ asset('images/pdf.png') }}');">
                                     </a>
                                     </div>
                                     <div class="col">
                                         <div class="info">
                                             <h3>Hak, Kewajiban dan Tanggung Jawab Serta Tata Tertib Rumah Sakitt</h3>
-                                            <span class="position">Ukuran 10,4 KB</span>
+                                           
                                         </div>
 
                                     </div>
