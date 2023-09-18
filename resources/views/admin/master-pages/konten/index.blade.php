@@ -71,10 +71,10 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Nama Artikel</th>
+                            <th>No</th>
                             <th>Gambar</th>
+                            <th>Nama Artikel</th>
                             <th>excerpt</th>
-                            <th>tanggal dibuat</th>
                             <th>tanggal dibuat</th>
                             <th>Aksi</th>
                         </tr>
