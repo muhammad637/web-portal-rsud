@@ -17,7 +17,7 @@ class IKMController extends Controller
 
     public function ikmindex(){
         return view('pages.informasi.ikm', [
-            'ikm' => IKM::all()
+            'ikm' => Konten::orderBy('updated_at', 'desc')->get(),
         ]);
     }
 

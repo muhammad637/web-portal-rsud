@@ -20,7 +20,7 @@ class LayananController extends Controller
 
         // return $layanan;
         return view('admin.master-pages.layanan.index', [
-            'kategoriLayanan' => $kategoriLayanan
+            'kategoriLayanan' => KategoriLayanan::orderBy('updated_at', 'desc')->get(),
         ]);
         //
     }

@@ -123,7 +123,12 @@
                                             Lama</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="password" type="password" class="form-control"
-                                                id="currentPassword">
+                                                id="oldpassword">
+                                                
+                                                    {{-- <button type="button" id="show-password" class="btn btn-outline-secondary">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                 --}}
                                         </div>
                                     </div>
 
@@ -131,8 +136,12 @@
                                         <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Password
                                             Baru</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <input type="password" class="form-control" id="newPassword" name="newPassword">
+                                            <input type="password" class="form-control" id="newpassword" name="newPassword">
                                         </div>
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" name="remember" type="checkbox" id="show-password">
+                                        <label class="form-check-label" for="show-password">show password</label>
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-primary">Change Password</button>

@@ -19,12 +19,12 @@
                 <tbody>
                     <tr>
                         <td class="td-color">ICU</td>
-                        <td></td>
+                        <td>Itensif</td>
                         <td>12</td>
                     </tr>
                     <tr>
                         <td class="td-color">ICCU</td>
-                        <td></td>
+                        <td>Itensif</td>
                         <td>12</td>
                     </tr>
                     <tr>
