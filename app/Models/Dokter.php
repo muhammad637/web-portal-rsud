@@ -19,8 +19,13 @@ class Dokter extends Model
     {
         return $this->hasMany(JadwalDokter::class);
     }
-    public function RawatJalan()
+    // public function RawatJalan()
+    // {
+    //     return $this->belongsTo(Layanan::class, 'layanan_id');
+    // }
+
+    public function rawatJalan()
     {
-        return $this->hasMany(Layanan::class, 'layanan_id');
+        return $this->belongsToMany(Layanan::class, 'dokter_layanans', 'dokter_id', 'layanan_id');
     }
 }

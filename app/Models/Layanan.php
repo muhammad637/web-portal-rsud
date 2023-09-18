@@ -14,7 +14,9 @@ class Layanan extends Model
     public function kategoriLayanan(){
         return $this->belongsTo(KategoriLayanan::class, 'kategori_layanan_id' );
     }
+
     public function dokter(){
-        return $this->hasMany(Dokter::class);
+        return $this->belongsToMany(Dokter::class,'dokter_layanans','layanan_id','dokter_id');
     }
+    
 }

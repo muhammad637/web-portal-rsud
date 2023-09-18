@@ -93,7 +93,7 @@ class KategoriLayananController extends Controller
         ]);
 
         $kategoriLayanan->update($validatedData);
-        return redirect()->back()->with('success', "kategori layanan berhasil diupdate");
+        return redirect(route('kategori-layanan.index'))->with('success', "kategori layanan berhasil diupdate");
     }
 
     /**

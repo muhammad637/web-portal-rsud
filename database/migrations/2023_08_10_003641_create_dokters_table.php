@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('spesialis_id')->nullable();
             $table->foreign('spesialis_id')->references('id')->on('spesialis')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('layanan_id')->nullable();
-            $table->foreign('layanan_id')->references('id')->on('layanans')->onDelete('cascade')->onUpdate('cascade');
+            // $table->unsignedBigInteger('layanan_id')->nullable();
+            // $table->foreign('layanan_id')->references('id')->on('layanans')->onDelete('cascade')->onUpdate('cascade');
             $table->string('tipe_dokter')->nullable();
             $table->string('nama');
             $table->string('gambar')->nullable();

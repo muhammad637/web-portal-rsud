@@ -14,9 +14,14 @@
     <div class="card-body">
         <h1 class="fw-bold">Daftar Dokter</h1>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TambahDokter">
-            Create <i class="fas fa-plus-circle"></i>
-        </button>
+        @if (count($layanan) > 0 && count($spesialis) > 0)
+            <a href="{{ route('admin.dokter.create') }}" class="btn btn-primary"> Create <i
+                    class="fas fa-plus-circle"></i></a>
+        @else
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#TambahDokter">
+                Create <i class="fas fa-plus-circle"></i>
+            </button>
+        @endif
 
 
 
@@ -58,11 +63,18 @@
                             <td><img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->gambar }}"
                                     width="200"> </td>
                             <td>Dokter {{ $item->tipe_dokter }} {{ $item->spesialis ? ' - ' : '' }}
-                              <b>  {{ $item->spesialis->nama_spesialis ?? null }} </b></td>
-                            <td>{{ $item->RawatJalan->nama }} </td>
+                                <b> {{ $item->spesialis->nama_spesialis ?? null }} </b>
+                            </td>
                             <td>
-                                <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
-                                    href="#editDokter{{ $item->id }}"><i class="fas fa-pen"></i></a>
+                                @foreach ($item->rawatJalan as $value)
+                                    <i class="badge bg-info "> {{ $value->nama }}</i>
+                                @endforeach
+                            </td>
+                            <td>
+                                {{-- <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
+                                    href="#editDokter{{ $item->id }}"><i class="fas fa-pen"></i></a> --}}
+                                    {{-- <a href=""></a> --}}
+                                    <a href="{{route('admin.dokter.edit',['dokter' => $item->id])}}" class="btn-warning btn"><i class="fas fa-pen"></i></a>
                                 <form action="{{ route('admin.dokter.delete', ['dokter' => $item->id]) }}"
                                     class="d-inline" method="post">
                                     <button type="submit" class="btn btn-danger py-1 px-2"
@@ -77,7 +89,7 @@
 
 
                         <!-- Modal edit -->
-                        <div class="modal fade " id="editDokter{{ $item->id }}" tabindex="-1"
+                        {{-- <div class="modal fade " id="editDokter{{ $item->id }}" tabindex="-1"
                             aria-labelledby="EditDokterLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -112,7 +124,7 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     @endforeach
                 </tbody>
                 <tfoot>
@@ -131,7 +143,7 @@
 </div>
 
 <!-- Modal create -->
-<div class="modal fade " id="TambahDokter" tabindex="-1" aria-labelledby="TambahKategoriLabel" aria-hidden="true">
+{{-- <div class="modal fade " id="TambahDokter" tabindex="-1" aria-labelledby="TambahKategoriLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             @if (count($layanan) > 0 && count($spesialis) > 0)
@@ -170,7 +182,7 @@
             @endif
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
 
 @push('link-script-admin')
