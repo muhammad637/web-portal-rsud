@@ -168,9 +168,10 @@
 
                                 <form action="{{ route('admin.tarif.delete', ['tarif' => $item->id]) }}"
                                     class="d-inline" method="post">
-                                    <button type="submit" class="btn btn-denger py-1 px-2">
                                         @method('delete')
                                         @csrf
+                                        <button type="submit" class="btn btn-danger py-1 px-2 text-decoration-none"
+                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
                                         <i class="far fa-trash-alt"></i>
                                     </button>
                                 </form>
