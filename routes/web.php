@@ -185,7 +185,7 @@ Route::middleware('auth')->group(function () {
             Route::delete('/{konten:slug}', [KontenController::class, 'destroy'])->name('admin.konten.delete');
         });
         // layanan
-        Route::group(["perfix" => 'pages'], function () {
+        Route::group(["prefix" => 'pages'], function () {
             Route::get('/{kategoriLayanan:slug}', [LayananController::class, 'index'])->name('admin.layanan');
             Route::get('/{kategoriLayanan:slug}/create', [LayananController::class, 'create'])->name('admin.layanan.create');
             Route::get('/master-kategori-layanan/show/{layanan:slug}', [LayananController::class, 'show'])->name('admin.layanan.show');
