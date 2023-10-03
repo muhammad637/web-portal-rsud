@@ -93,23 +93,44 @@
 	carousel();
 
 
-	$('nav .dropdown').hover(function(){
+	// $('nav .dropdown').hover(function(){
+	// 	var $this = $(this);
+	// 	// 	 timer;
+	// 	// clearTimeout(timer);
+	// 	$this.addClass('show');
+	// 	$this.find('> a').attr('aria-expanded', true);
+	// 	// $this.find('.dropdown-menu').addClass('animated-fast fadeInUp show');
+	// 	$this.find('.dropdown-menu').addClass('show');
+	// }, function(){
+	// 	var $this = $(this);
+	// 	// timer;
+	// 	// timer = setTimeout(function(){
+	// 		// $this.removeClass('show');
+	// 		$this.find('> a').attr('aria-expanded', false);
+	// 		// $this.find('.dropdown-menu').removeClass('animated-fast fadeInUp show');
+	// 		$this.find('.dropdown-menu').removeClass('show');
+	// 	// }, 100);
+	// });
+	$('nav .dropdown').click(function () {
 		var $this = $(this);
-		// 	 timer;
-		// clearTimeout(timer);
-		$this.addClass('show');
-		$this.find('> a').attr('aria-expanded', true);
-		// $this.find('.dropdown-menu').addClass('animated-fast fadeInUp show');
-		$this.find('.dropdown-menu').addClass('show');
-	}, function(){
-		var $this = $(this);
-		// timer;
-		// timer = setTimeout(function(){
-			// $this.removeClass('show');
+
+		// Menghapus kelas 'show' dari semua dropdown yang ada
+		$('nav .dropdown').not($this).removeClass('show');
+		$('nav .dropdown').not($this).find('> a').attr('aria-expanded', false);
+		$('nav .dropdown').not($this).find('.dropdown-menu').removeClass('show');
+
+		// Mengecek apakah dropdown yang diklik sudah terbuka atau belum
+		if ($this.hasClass('show')) {
+			// Jika sudah terbuka, tutup dropdown
+			$this.removeClass('show');
 			$this.find('> a').attr('aria-expanded', false);
-			// $this.find('.dropdown-menu').removeClass('animated-fast fadeInUp show');
 			$this.find('.dropdown-menu').removeClass('show');
-		// }, 100);
+		} else {
+			// Jika belum terbuka, buka dropdown
+			$this.addClass('show');
+			$this.find('> a').attr('aria-expanded', true);
+			$this.find('.dropdown-menu').addClass('show');
+		}
 	});
 
 

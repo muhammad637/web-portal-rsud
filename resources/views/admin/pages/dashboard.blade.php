@@ -119,7 +119,7 @@
         <div class="card-body">
             <h1 class="fw-bold">History Update data Dokter</h1>
             <div class="table-responsive mt-5">
-                <table id="example-2" class="table  table-striped table-bordered   " style="width:100%">
+                <table id="example-2" class="table   table-bordered   " style="width:100%">
                     <thead>
                         <tr>
                             <th>No</th>

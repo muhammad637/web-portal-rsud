@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/assets/loader/loader.css') }}">
-    @stack('link-css')
+    @stack('link-css')    
 </head>
 
 <body>
@@ -27,7 +27,7 @@
     @yield('content')
     @include('layouts.footer')
     <div class="loader"></div>
-    
+ 
 
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>

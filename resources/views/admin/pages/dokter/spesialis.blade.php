@@ -41,7 +41,7 @@
             </div>
         @endif
         <div class="table-responsive mt-5">
-            <table id="example" class="table  table-striped table-bordered" style="width:100%">
+            <table id="example" class="table  table-bordered" style="width:100%">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -106,13 +106,7 @@
                         </div>
                     @endforeach
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Spesialis</th>
-                        <th>Aksi</th>
-                    </tr>
-                </tfoot>
+               
             </table>
         </div>
     </div>

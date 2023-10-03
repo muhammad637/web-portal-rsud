@@ -42,7 +42,7 @@
             </div>
         @endif
         <div class="table-responsive mt-5">
-            <table id="example" class="table  table-striped table-bordered" style="width:100%">
+            <table id="example" class="table   table-bordered" style="width:100%">
                 <thead>
                     <tr>
 
@@ -67,76 +67,29 @@
                             </td>
                             <td>
                                 @foreach ($item->rawatJalan as $value)
-                                    <i class="badge bg-info "> {{ $value->nama }}</i>
+                                    <i class="badge bg-info m-1"> {{ $value->nama }}</i>
                                 @endforeach
                             </td>
                             <td>
-                                {{-- <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
-                                    href="#editDokter{{ $item->id }}"><i class="fas fa-pen"></i></a> --}}
-                                    {{-- <a href=""></a> --}}
-                                    <a href="{{route('admin.dokter.edit',['dokter' => $item->id])}}" class="btn btn-warning py-1 px-2"><i class="fas fa-pen"></i></a>
-                                <form action="{{ route('admin.dokter.delete', ['dokter' => $item->id]) }}"
-                                    class="d-inline" method="post">
-                                    <button type="submit" class="btn btn-danger py-1 px-2"
-                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
-                                        @method('delete')
-                                        @csrf
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
+                                <div class="d-flex gap-1">
 
-
-                        <!-- Modal edit -->
-                        {{-- <div class="modal fade " id="editDokter{{ $item->id }}" tabindex="-1"
-                            aria-labelledby="EditDokterLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit Dokter</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <form action="{{ route('admin.dokter.update', ['dokter' => $item->id]) }}"
-                                        method="post" enctype="multipart/form-data">
-                                        @method('patch')
-                                        @csrf
-                                        <div class="modal-body">
-                                            <div class="mb-3">
-                                                <label for="NamaDokter" class="form-label">Nama Dokter</label>
-                                                <input type="text" class="form-control" id="NamaDokter"
-                                                    aria-describedby="NamaDokter" required name="nama"
-                                                    value="{{ old('nama', $item->nama) }}">
-                                            </div>
-                                            <div class="mb-3">
-                                                @livewire('admin.dokter.preview-gambar', ['gambarFormEdit' => $item->gambar])
-                                            </div>
-                                            @livewire('admin.dokter.search-spesialis-dokter', ['tipeDokterFormEdit' => $item->tipe_dokter, 'spesialisFormEdit' => $item->spesialis->nama_spesialis ?? null])
-
-                                            @livewire('admin.dokter.search-rawat-jalan', ['rawatJalanFormEdit' => $item->Rawatjalan->nama])
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Tutup</button>
-                                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                                        </div>
+                                    <a href="{{ route('admin.dokter.edit', ['dokter' => $item->id]) }}"
+                                        class="btn btn-warning py-1 px-2"><i class="fas fa-pen"></i></a>
+                                    <form action="{{ route('admin.dokter.delete', ['dokter' => $item->id]) }}"
+                                        class="d-inline" method="post">
+                                        <button type="submit" class="btn btn-danger py-1 px-2"
+                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                            @method('delete')
+                                            @csrf
+                                            <i class="far fa-trash-alt"></i>
+                                        </button>
                                     </form>
                                 </div>
-                            </div>
-                        </div> --}}
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>Gambar</th>
-                        <th>Tipe Dokter</th>
-                        <th>Poli</th>
-                        <th>Aksi</th>
-                    </tr>
-                </tfoot>
+               
             </table>
         </div>
     </div>

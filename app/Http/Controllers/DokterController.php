@@ -122,7 +122,7 @@ class DokterController extends Controller
         }
 
 
-        return redirect()->back()->with('success', 'dokter berhasil ditambahkan');
+        return redirect()->route('admin.dokter')->with('success', 'dokter berhasil ditambahkan');
 
         //
     }

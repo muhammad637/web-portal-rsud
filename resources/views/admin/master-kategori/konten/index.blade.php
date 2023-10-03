@@ -35,7 +35,7 @@
                 </div>
             @endif
         <div class="table-responsive mt-5">
-            <table id="example" class="table  table-striped table-bordered" style="width:100%">
+            <table id="example" class="table  table-bordered" style="width:100%">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -51,16 +51,20 @@
                             <td>{{ $item->nama }}</td>
                             <td>{{ count($item->konten) }}</td>
                             <td>
-                                <a class="btn btn-warning py-1 px-2"
-                                    href="{{ route('kategori-konten.edit', ['kategori_konten' => $item->id]) }}"><i class="fas fa-pen"></i></a>
-                                <form action="{{ route('kategori-konten.destroy', ['kategori_konten' => $item->id]) }}"
-                                    class="d-inline" method="post">
-                                    @method('delete')
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger py-1 px-2"
-                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
-                                            class="fas fa-trash"></i></button>
-                                </form>
+                                <div class="d-flex gap-1">
+                                    <a class="btn btn-success py-1 px-2" target="_blank"
+                                        href="{{ route('kategori-berita.index', ['kategoriKonten' => $item->slug]) }}"><i class="fas fa-eye"></i></a>
+                                    <a class="btn btn-warning py-1 px-2"
+                                        href="{{ route('kategori-konten.edit', ['kategori_konten' => $item->id]) }}"><i class="fas fa-pen"></i></a>
+                                    <form action="{{ route('kategori-konten.destroy', ['kategori_konten' => $item->id]) }}"
+                                        class="d-inline" method="post">
+                                        @method('delete')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger py-1 px-2"
+                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
+                                                class="fas fa-trash"></i></button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach

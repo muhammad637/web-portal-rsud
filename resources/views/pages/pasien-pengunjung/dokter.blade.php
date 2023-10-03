@@ -81,7 +81,7 @@
                                     <div class="img mb-4" style="background-image: url('{{ asset('storage/'. $item->gambar) }}');">
                                     </div>
                                     <div class="info text-center">
-                                        <h3>{{ $item->nama }}</h3>
+                                        <h3 class="text-uppercase">{{ $item->nama }}</h3>
                                         <span class="position" style="font-size: 20px;">Dokter {{$item->tipe_dokter == 'spesialis' ? '' : 'umum' }}  {{ $item->spesialis->nama_spesialis ?? null}}</span>
                                         <div class="text">
                                             <div class="row">

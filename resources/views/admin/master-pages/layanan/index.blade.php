@@ -27,11 +27,11 @@
                 </div>
             @endif
             <div class="table-responsive mt-5">
-                <table id="example" class="table  table-striped table-bordered   " style="width:100%">
+                <table id="example" class="table   table-bordered   " style="width:100%">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Gambar</th>
+                            
                             <th>Nama</th>
                             <th>deskripsi</th>
                             <th>tanggal dibuat</th>
@@ -42,15 +42,13 @@
                         @foreach ($layanan as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
-                                <td>
-                                    <img src="{{ asset('storage/' . $item->gambar) }}" alt="" width="200">
-                                </td>
+                                
                                 <td>{{ $item->nama }}</td>
                                 <td>{!! $item->deskripsi !!}</td>
                                 <td>{{ Carbon\Carbon::parse($item->created_at)->format('d-M-Y') }}</td>
                                 <td>
                                     <a href="{{route('layanan.show',['layanan' => $item     ->slug])}}" 
-                                        class="btn btn-success py-1 px-2 "><i class="fas fa-eye"></i></a>
+                                        class="btn btn-success py-1 px-2 " target="_blank"><i class="fas fa-eye"></i></a>
                                     <a href="{{ route('admin.layanan.edit', ['layanan' => $item->slug,]) }}"
                                         class="btn btn-warning py-1 px-2"><i class="fas fa-pen"></i></a>
                                     <form action="{{ route('admin.layanan.delete', ['layanan' => $item->slug]) }}"
@@ -65,16 +63,7 @@
                             </tr>
                         @endforeach
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>No</th>
-                            <th>Gambar</th>
-                            <th>Nama</th>
-                            <th>deskripsi</th>
-                            <th>tanggal dibuat</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </tfoot>
+                    
                 </table>
             </div>
         </div>
