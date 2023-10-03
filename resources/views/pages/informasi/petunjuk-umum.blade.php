@@ -54,7 +54,6 @@
                     <div class="my-image-container">
                         <img src="{{ asset('images/tatatertib.webp') }}" class="img-fluid ">
                 </div>
-
                 </div>
             </div>
 
