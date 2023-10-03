@@ -146,7 +146,8 @@ Route::middleware('auth')->group(function () {
                 Route::get('/', [SAKIPController::class, 'sakip'])->name('admin.sakip');
                 Route::get('/create', [SAKIPController::class, 'sakipCreate'])->name('admin.sakip.create');
                 Route::post('/store', [SAKIPController::class, 'sakipStore'])->name('admin.sakip.store');
-                Route::put('/{sakip:id}/update', [SAKIP::class, 'sakipUpdate'])->name('admin.sakip.update');
+                Route::put('/{sakip:id}/update', [SAKIPController::class, 'sakipUpdate'])->name('admin.sakip.update');
+                Route::delete('/{sakip:id}/delete', [SAKIPController::class, 'sakipDelete'])->name('admin.sakip.delete');
             });
             Route::group(['prefix' => "persyaratan"], function () {
                 Route::get('/', [PersyaratanController::class, 'persyaratan'])->name('admin.persyaratan');
@@ -184,7 +185,7 @@ Route::middleware('auth')->group(function () {
             Route::delete('/{konten:slug}', [KontenController::class, 'destroy'])->name('admin.konten.delete');
         });
         // layanan
-        Route::group(["perfix" => 'pages'], function () {
+        Route::group(["prefix" => 'pages'], function () {
             Route::get('/{kategoriLayanan:slug}', [LayananController::class, 'index'])->name('admin.layanan');
             Route::get('/{kategoriLayanan:slug}/create', [LayananController::class, 'create'])->name('admin.layanan.create');
             Route::get('/master-kategori-layanan/show/{layanan:slug}', [LayananController::class, 'show'])->name('admin.layanan.show');

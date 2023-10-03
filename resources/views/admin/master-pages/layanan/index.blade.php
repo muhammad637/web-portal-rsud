@@ -39,7 +39,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($kategoriLayanan->layanan as $index => $item)
+                        @foreach ($layanan as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
                                 <td>

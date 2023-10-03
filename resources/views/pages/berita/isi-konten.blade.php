@@ -16,7 +16,7 @@
                         <img src="{{ asset('storage/' . $isiKonten->gambar) }}" alt="" class="img-fluid">
                     </p>
                     {!! $isiKonten->deskripsi !!}
-                    <div class="mt-2">
+                    <div class="mt-5">
                     </div>
                     @if (isset($isiKonten->link_yt) || isset($isiKonten->link_yt))
                         <span class="text-center  font-weight-bold d-block text-uppercase">
@@ -25,12 +25,12 @@
                     @endif
                     <div class="row justify-conten-center align-items-center">
                         @if (isset($isiKonten->link_yt) && $isiKonten->link_yt != null)
-                            <div class="col-lg-8 mb-4 col-md-12">
+                            <div class="col-lg-12 mb-4 col-md-12 mx-auto">
                                 @include('pages.berita.youtube', ['linkYT' => $isiKonten->link_yt])
                             </div>
                         @endif
                         @if (isset($isiKonten->link_ig) && $isiKonten->link_ig != null)
-                            <div class="col-lg-4 col-md-12">
+                            <div class=" col-md-12 col-lg-5 mx-auto">
                                 @include('pages.berita.instagram', ['linkIG' => $isiKonten->link_ig])
                             </div>
                         @endif

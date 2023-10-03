@@ -121,8 +121,10 @@ class SAKIPController extends Controller
      * @param  \App\Models\SAKIP  $sakip
      * @return \Illuminate\Http\Response
      */
-    public function destroy(sakip $iKM)
+    public function sakipDelete(sakip $sakip)
     {
         //
+        $sakip->delete();
+        return redirect()->back()->with('success', 'data berhasil dihapus');
     }
 }

@@ -67,7 +67,10 @@
                                 
                                 <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
                                     href="#editsakip-{{ $item->id }}"><i class="fas fa-pen"></i>
-                                <form action="" class="d-inline" method="post">
+                                </a>
+
+                                    <form action="{{route('admin.sakip.delete',['sakip' => $item->id])}}" class="d-inline" method="post">
+
                                         @method('delete')
                                         @csrf
                                 <a type="submit" class="btn btn-danger py-1 px-2 text-decoration-none"

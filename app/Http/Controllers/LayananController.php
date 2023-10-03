@@ -20,7 +20,8 @@ class LayananController extends Controller
 
         // return $layanan;
         return view('admin.master-pages.layanan.index', [
-            'kategoriLayanan' => KategoriLayanan::orderBy('updated_at', 'desc')->get(),
+            'kategoriLayanan' => $kategoriLayanan,
+            'layanan' => Layanan::where('kategori_layanan_id', $kategoriLayanan->id)->orderBy('updated_at','desc')->get()
         ]);
         //
     }
@@ -99,13 +100,12 @@ class LayananController extends Controller
      * @param  \App\Models\Layanan  $layanan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Layanan $layanan, KategoriLayanan $kategoriLayanan)
+    public function edit(Layanan $layanan)
     {
         return view('admin.master-pages.layanan.edit', [
             'layanan' => $layanan
         ]);
     }
-
     /**
      * Update the specified resource in storage.
      *

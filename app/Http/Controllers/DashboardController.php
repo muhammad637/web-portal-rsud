@@ -18,7 +18,7 @@ class DashboardController extends Controller
         $dokter = Dokter::orderBy('updated_at', 'desc')->limit(5)->get();
         $layanan = Layanan::orderBy('updated_at', 'desc')->limit(5)->get();
         $jumlahDokter = count(Dokter::all());
-        $JumlahArtikel = count(KategoriKonten::all());
+        $JumlahArtikel = count(Konten::all());
         $kategoriLayanan = KategoriLayanan::where('slug', 'like', '%rawat-jalan%')->first();
         // Poli atau klinik
         $jumlahLayanan = count(Layanan::where('kategori_layanan_id', $kategoriLayanan)->get());

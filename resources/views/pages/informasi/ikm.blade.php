@@ -4,7 +4,6 @@
         .my-image-container>.img-center {
             max-width: 300%;
         }
-
         @media (max-width: 575.98px) {
             .my-image-container>.img-center {
 
@@ -28,12 +27,7 @@
                             </div>
                         </div>
                         <div class="col-md-12 d-flex align-items-center">
-
-
-
-
                         </div>
-
                     </div>
                 </div>
             </div>
