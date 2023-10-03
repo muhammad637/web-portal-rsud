@@ -1,4 +1,14 @@
 @extends('main', ['title'=>'Profil RSUD'])
+@section('meta')
+    <meta name="description"
+        content=" sebagai Pusat Kesehatan Sederhana jaman Belanda,
+                                            yang hanya
+                                            melayani Pelayanan Kesehatan Dasar dan Penyakit Menular hingga sekarang
+                                            berkembang
+                                            menjadi Rumah Sakit Kelas B Pemerintah dan lulus Akreditasi PARIPURNA KARS
+                                            2012">
+    <meta name="keywords" content="RSUD,Kesehatan,Rumah Sakit">
+@endsection
 @section('content')
 
 @include('pages.partials.hero',['title' => 'Profil RSUD Blambangan','menu' => 'profil'])

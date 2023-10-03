@@ -1,4 +1,16 @@
-@extends('main', ['title'=>'Home'])
+@extends('main', ['title' => 'Home'])
+@section('meta')
+    <meta name="title" content="Home | RSUD BLAMBANGAN">
+    <meta name="description"
+        content="Berdiri sejak tahun 1930 sebagai Pusat Kesehatan Sederhana jaman Belanda,
+                                                yang hanya melayani Pelayanan Kesehatan Dasar dan Penyakit Menular hingga
+                                                sekarang berkembang menjadi Rumah Sakit Kelas B Pemerintah dan lulus
+                                                Akreditasi PARIPURNA KARS 2012
+                                                Kini telah menjadi Pusat Rujukan Spesialis di kabupaten Banyuwangi, RSUD
+                                                Blambangan selalu berbenah dalam hal pelayanan kesehatan sehingga dapat
+                                                menyajikan pelayanan yang modern dan berkelas">
+    <meta name="keywords" content="RSUD,Kesehatan,Rumah Sakit">
+@endsection
 @push('link-css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     @livewireStyles
@@ -47,7 +59,6 @@
     </style>
 @endpush
 @section('content')
-
     <section class="home-slider owl-carousel">
         <div class="slider-item" style="background-image: url('images/bg1.webp');">
             <div class="overlay"></div>
@@ -126,7 +137,7 @@
                                     </div>
                                 </div>
                             </div>
-                    @endforeach
+                        @endforeach
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
@@ -207,7 +218,10 @@
                                         aria-labelledby="v-pills-mission-tab">
                                         <div>
                                             <p>
-                                                “Dengan ini, kami seluruh penyelenggara Rumah Sakit Umum Daerah Blambangan menyatakan sanggup menyelenggarakan pelayanan sesuai standar pelayanan yang telah ditetapkan dan apabila tidak menepati janji, siap menerima sanksi sesuai peraturan perundang-undangan yang berlaku”</p>
+                                                “Dengan ini, kami seluruh penyelenggara Rumah Sakit Umum Daerah Blambangan
+                                                menyatakan sanggup menyelenggarakan pelayanan sesuai standar pelayanan yang
+                                                telah ditetapkan dan apabila tidak menepati janji, siap menerima sanksi
+                                                sesuai peraturan perundang-undangan yang berlaku”</p>
                                         </div>
                                     </div>
 
@@ -233,16 +247,20 @@
                 @foreach ($artikel as $item)
                     <div class="col-md-4 ftco-animate">
                         <div class="blog-entry">
-                            <a href="{{route('berita.show',['konten' => $item->slug])}}" class="block-20"
-                                style="background-image: url('{{ 'storage/'.$item->gambar }}');">
+                            <a href="{{ route('berita.show', ['konten' => $item->slug]) }}" class="block-20"
+                                style="background-image: url('{{ 'storage/' . $item->gambar }}');">
                             </a>
                             <div class="text d-flex py-4">
                                 <div class="meta mb-3">
-                                    <div><a href="{{route('berita.show',['konten' => $item->slug])}}">{{ Carbon\Carbon::parse($item->created_at)->format('d-M-Y') }}</a></div>
-                                    <div><a href="{{route('berita.show',['konten' => $item->slug])}}">Admin</a></div>
+                                    <div><a
+                                            href="{{ route('berita.show', ['konten' => $item->slug]) }}">{{ Carbon\Carbon::parse($item->created_at)->format('d-M-Y') }}</a>
+                                    </div>
+                                    <div><a href="{{ route('berita.show', ['konten' => $item->slug]) }}">Admin</a></div>
                                 </div>
                                 <div class="desc pl-3">
-                                    <h3 class="heading"><a href="{{route('berita.show',['konten' => $item->slug])}}">{{ $item->judul }}</a></h3>
+                                    <h3 class="heading"><a
+                                            href="{{ route('berita.show', ['konten' => $item->slug]) }}">{{ $item->judul }}</a>
+                                    </h3>
                                 </div>
 
                             </div>
@@ -252,7 +270,6 @@
             </div>
         </div>
     </section>
-
 @endsection
 @push('link-script')
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>

@@ -1,4 +1,9 @@
 @extends('main', ['title'=>'Daftar Dokter'])
+@section('meta')
+    <meta name="description"
+        content="Dokter yang baik bisa menyembuhkan penyakit; dokter yang hebat menyembuhkan pasien yang terkena penyakit.">
+    <meta name="keywords" content="RSUD,Kesehatan,Rumah Sakit">
+@endsection
 @push('link-css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <style>
@@ -67,8 +72,7 @@
             <div class="row justify-content-center mb-5 ">
                 <div class="col-md-7 text-center heading-section ftco-animate">
                     <h2 class="mb-3">Dokter RSUD Blambangan</h2>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a
-                        paradisematic country, in which roasted parts of sentences</p>
+                    <p>Dokter yang baik bisa menyembuhkan penyakit; dokter yang hebat menyembuhkan pasien yang terkena penyakit. Sir William Osler</p>
                 </div>
             </div>
 

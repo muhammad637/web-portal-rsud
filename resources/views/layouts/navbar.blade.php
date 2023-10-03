@@ -12,15 +12,12 @@
             aria-controls="ftco-nav" aria-expanded="true" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
-
-
-
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="{{ route('profil') }}" class="nav-link"><strong>Profil</strong></a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false"><strong>
+                    <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" style="cursor: pointer"><strong>
                             Pasien & Pengunjung</strong>
                     </a>
                     <ul class="dropdown-menu">
@@ -33,8 +30,8 @@
                 <li class="nav-item"><a href="{{ route('berita.index') }}" class="nav-link"><strong>Artikel</strong></a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false"><strong>
+                    <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" style="cursor: pointer;"><strong>
                             Layanan</strong>
                     </a>
                     <ul class="dropdown-menu">
@@ -42,8 +39,8 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false"><strong>
+                    <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" style="cursor: pointer;"><strong>
                             Informasi</strong>
                     </a>
                     <ul class="dropdown-menu">
