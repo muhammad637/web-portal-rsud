@@ -125,4 +125,9 @@ class IKMController extends Controller
     {
         //
     }
+
+    public function ikmDelete(IKM $ikm){
+        $ikm->delete();
+        return redirect()->back()->with('success','data berhasil dihapus');
+    }
 }

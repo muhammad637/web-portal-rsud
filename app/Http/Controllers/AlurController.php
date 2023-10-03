@@ -128,6 +128,7 @@ class AlurController extends Controller
     public function alurDelete(Alur $alur)
     {
         Storage::delete($alur->gambar);
+        $alur->delete();
         return redirect(route('admin.alur'))->with('success', 'alur berhasil dihapus');
     }
 

@@ -1,4 +1,4 @@
-@extends('main', ['title'=>'Daftar Dokter'])
+@extends('main', ['title' => 'Daftar Dokter'])
 @section('meta')
     <meta name="description"
         content="Dokter yang baik bisa menyembuhkan penyakit; dokter yang hebat menyembuhkan pasien yang terkena penyakit.">
@@ -7,10 +7,10 @@
 @push('link-css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <style>
-        .container-swiper {
+        /* .container-swiper {
             height: 48rem;
-        }
-
+            padding: 0;
+        } */
         .swiper {
             width: 100%;
             height: 100%;
@@ -63,35 +63,52 @@
     </script>
 @endpush
 @section('content')
-@include('pages.partials.hero',['title' => 'Daftar Dokter RSUD Blambangan','menu' => 'pasien & pengunjung'])
-
-
+    @include('pages.partials.hero', [
+        'title' => 'Daftar Dokter RSUD Blambangan',
+        'menu' => 'pasien & pengunjung',
+    ])
     <section class="ftco-section">
         <div class="container">
 
             <div class="row justify-content-center mb-5 ">
                 <div class="col-md-7 text-center heading-section ftco-animate">
                     <h2 class="mb-3">Dokter RSUD Blambangan</h2>
-                    <p>Dokter yang baik bisa menyembuhkan penyakit; dokter yang hebat menyembuhkan pasien yang terkena penyakit. Sir William Osler</p>
+                    <blockquote>
+                        <p>Dokter yang baik bisa menyembuhkan penyakit <br> dokter yang hebat menyembuhkan pasien yang terkena
+                            penyakit. <br> 
+                            <cite>
+                                Sir William Osler</p>
+                            </cite>
+                    </blockquote>
                 </div>
             </div>
 
+            @if (count($Dokter) > 0)
             <div class="container-swiper">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                         @foreach ($Dokter as $index => $item)
                             <div class="swiper-slide">
                                 <div class="staff">
-                                    <div class="img mb-4" style="background-image: url('{{ asset('storage/'. $item->gambar) }}');">
+                                    <div class="img mb-4"
+                                        style="background-image: url('{{ asset('storage/' . $item->gambar) }}');">
                                     </div>
                                     <div class="info text-center">
                                         <h3 class="text-uppercase">{{ $item->nama }}</h3>
-                                        <span class="position" style="font-size: 20px;">Dokter {{$item->tipe_dokter == 'spesialis' ? '' : 'umum' }}  {{ $item->spesialis->nama_spesialis ?? null}}</span>
+                                        <span class="position" style="font-size: 20px;">Dokter
+                                            {{ $item->tipe_dokter == 'spesialis' ? '' : 'umum' }}
+                                            {{ $item->spesialis->nama_spesialis ?? null }}</span>
                                         <div class="text">
                                             <div class="row">
                                                 <div class="col">
                                                     @if (count($item->jadwalDokter) > 0)
-                                                        @foreach ($item->jadwalDokter as $value)
+                                                        @php
+                                                            $hari_indonesia = ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'];
+                                                            $jadwalDokter = $item->jadwalDokter->sortBy(function ($jadwal) use ($hari_indonesia) {
+                                                                return array_search($jadwal->hari, $hari_indonesia);
+                                                            });
+                                                        @endphp
+                                                        @foreach ($jadwalDokter as $value)
                                                             <div class="d-flex justify-content-between text-dark">
                                                                 <p>{{ $value->hari }}</p>
                                                                 {{ Carbon\Carbon::parse($value->jam_mulai_praktik)->format('H:i') }}
@@ -113,7 +130,10 @@
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
-
+            @else
+                <h1 class="text-center">Dokter Yang Anda Cari Tidak Ada</h1>
+            @endif
+            
         </div>
     </section>
 @endsection

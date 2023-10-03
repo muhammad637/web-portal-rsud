@@ -11,7 +11,7 @@
                     @foreach ($results as $item)
                     @foreach ($item->rawatJalan as $value)
                             <li>
-                                <a class="dropdown-item d-flex gap-2 align-items-center" href="#"
+                                <a class="dropdown-item d-flex gap-2 align-items-center" style="cursor: pointer"
                                     wire:click="selectItem('{{ $item->nama }}')">
                                     {{ $value->nama }} - {{ $item->nama }}
                                 </a>

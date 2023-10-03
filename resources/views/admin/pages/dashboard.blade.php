@@ -81,7 +81,7 @@
         <div class="card-body">
             <h1 class="fw-bold">History Update Data Layanan</h1>
             <div class="table-responsive mt-5">
-                <table id="example" class="table  table-striped table-bordered   " style="width:100%">
+                <table id="example" class="table table-bordered   " style="width:100%">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -104,13 +104,7 @@
                         @endforeach
                         {{-- @endforeach --}}
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Layanan</th>
-                            <th>Jenis</th>
-                        </tr>
-                    </tfoot>
+                   
                 </table>
             </div>
         </div>

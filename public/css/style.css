@@ -40,6 +40,21 @@
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
         "Liberation Mono", "Courier New", monospace;
 }
+/* CSS untuk mengubah tampilan scrollbar */
+::-webkit-scrollbar {
+    width: 10px; /* Lebar scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    /* background-color: #f1f1f1;  */
+    /* Warna latar belakang track */
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3090a1; /* Warna thumb scrollbar */
+    border-radius: 5px; /* Bentuk thumb */
+}
 
 *,
 *::before,
@@ -9550,7 +9565,6 @@ h5,
     z-index: 3;
 }
 @media (min-width: 992px) {
-
     .ftco-navbar-light {
         padding: 15px 0;
     }

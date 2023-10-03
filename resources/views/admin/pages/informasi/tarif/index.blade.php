@@ -53,6 +53,7 @@
                                     href="#tarifKamar-{{ $item->id }}"><i class="fas fa-pen"></i></a>
                                 <form action="{{ route('admin.tarif.delete', ['tarif' => $item->id]) }}"
                                     class="d-inline" method="post">
+                                    @method('delete')
                                     @csrf
                                     <button type="submit" class="btn btn-danger py-1 px-2 text-decoration-none"
                                         onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
@@ -101,13 +102,7 @@
                         </div>
                     @endforeach
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Nama Kamar</th>
-                        <th>Tarif</th>
-                        <th>Aksi</th>
-                    </tr>
-                </tfoot>
+               
             </table>
         </div>
     </div>
@@ -142,7 +137,7 @@
             </div>
         @endif
         <div class="table-responsive mt-5">
-            <table id="tindakan" class="table  table-striped table-bordered" style="width:100%">
+            <table id="tindakan" class="table  table-bordered" style="width:100%">
                 <thead>
                     <tr>
                         <th>Jenis Tindakan</th>
@@ -215,13 +210,7 @@
                         </div>
                     @endforeach
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Jenis Tindakan</th>
-                        <th>Tarif</th>
-                        <th>Aksi</th>
-                    </tr>
-                </tfoot>
+               
             </table>
         </div>
     </div>

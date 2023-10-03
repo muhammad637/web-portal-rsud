@@ -128,6 +128,7 @@ Route::middleware('auth')->group(function () {
                 Route::post('/store', [AlurController::class, 'alurStore'])->name('admin.alur.store');
                 Route::get('/edit', [AlurController::class, 'alurEdit'])->name('admin.alur.edit');
                 Route::put('/update', [AlurController::class, 'alurUpdate'])->name('admin.alur.update');
+                Route::get('/delete/{alur:id}', [AlurController::class, 'alurdelete'])->name('admin.alur.delete');
             });
             Route::group(['prefix' => "tarif"], function () {
                 Route::get('/', [TarifController::class, 'index'])->name('admin.tarif');
@@ -141,6 +142,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/create', [IKMController::class, 'ikmCreate'])->name('admin.index-kepuasan-masyarakat.create');
                 Route::post('/store', [IKMController::class, 'ikmStore'])->name('admin.index-kepuasan-masyarakat.store');
                 Route::put('/{ikm:id}/update', [IKMController::class, 'ikmUpdate'])->name('admin.ikm.update');
+                Route::delete('/{ikm:id}/delete', [IKMController::class, 'ikmdelete'])->name('admin.ikm.delete');
             });
             Route::group(['prefix' => "sakip"], function () {
                 Route::get('/', [SAKIPController::class, 'sakip'])->name('admin.sakip');

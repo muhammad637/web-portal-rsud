@@ -42,7 +42,7 @@
             </div>
         @endif
         <div class="table-responsive mt-5">
-            <table id="example" class="table  table-striped table-bordered" style="width:100%">
+            <table id="example" class="table  table-bordered" style="width:100%">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -66,13 +66,13 @@
                                 <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
                                     href="#editikm-{{ $item->id }}"><i class="fas fa-pen"></i></a>
 
-                                <form action="" class="d-inline" method="post">
-
+                                <form action="{{route('admin.ikm.delete',['ikm' => $item->id])}}" class="d-inline" method="get">
+                                    @method('delete')
+                                    @csrf
                                     <button type="submit"
                                         class="btn btn-danger py-1 px-2 text-decoration-none"onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
 
-                                        @method('delete')
-                                        @csrf
+                            
                                         <i class="far fa-trash-alt"></i>
                                     </button>
                                 </form>
@@ -104,7 +104,7 @@
                                             <div class="mb-3">
                                                 <label for="pdf" class="form-label">Link File</label>
                                                 <input type="text" class="form-control" name="pdf" id="pdf"
-                                                    value="{{ old('pdf') }}">
+                                                    value="{{ old('pdf',$item->pdf) }}">
                                             </div>
 
                                         </div>
@@ -119,14 +119,7 @@
                         </div>
                     @endforeach
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>Dokumen</th>
-                        <th>Aksi</th>
-                    </tr>
-                </tfoot>
+              
             </table>
         </div>
     </div>

@@ -38,6 +38,9 @@ class DokterController extends Controller
     }
     public function cari(Request $request)
     {
+        if($request->nama_dokter == null && $request->spesialis_id == null){
+            return redirect()->back();
+        }
         if ($request->spesialis_id == null) {
             $dokter = Dokter::where('nama', 'like', '%' . $request->nama_dokter . '%')->get();
         } else {

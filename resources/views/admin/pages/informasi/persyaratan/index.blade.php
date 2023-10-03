@@ -67,13 +67,7 @@
                            
                         @endforeach
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Jenis Penjamin</th>
-                            <th>Rawat Inap</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </tfoot>
+                  
                 </table>
             </div>
         </div>

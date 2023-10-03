@@ -55,13 +55,15 @@
                         <tr>
                             <td>{{ $index + 1 }}</td>
                             <td>{{ $item->nama }}</td>
-                            <td>{{ $item->gambar }}</td>
+                            <td><img src="{{asset('storage/'. $item->gambar) }}" alt="" class="img-fluid w-75"></td>
                             <td>
-                                <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
-                                    href="#editAlur{{ $item->id }}"><i class="fas fa-pen"></i></a>
-                                <a href="#" class="btn btn-danger py-1 px-2 text-decoration-none"
-                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
-                                        class="far fa-trash-alt"></i></a>
+                                <div class="d-flex gap-1">
+                                    <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
+                                        href="#editAlur{{ $item->id }}"><i class="fas fa-pen"></i></a>
+                                    <a href="{{route('admin.alur.delete',['alur' => $item->id])}}" class="btn btn-danger py-1 px-2 text-decoration-none"
+                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
+                                            class="far fa-trash-alt"></i></a>
+                                </div>
 
                             </td>
                         </tr>
@@ -113,14 +115,7 @@
                         </div>
                     @endforeach
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>Gambar</th>
-                        <th>Aksi</th>
-                    </tr>
-                </tfoot>
+               
             </table>
         </div>
     </div>

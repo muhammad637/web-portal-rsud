@@ -52,18 +52,29 @@ class JadwalDokterController extends Controller
         $dokter = Dokter::where('nama', $request->nama_dokter)->first();
         $urutanHari = ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'];
         // Urutkan hari berdasarkan urutan yang telah ditentukan
+        if ($dokter == null) {
+            return redirect()->back()->with('errors', 'dokter yang anda masukkan tidak ada');
+        }
+        $jadwalDokter = [];
+        if (count($dokter->jadwalDokter) > 0) {
+            foreach ($dokter->jadwalDokter as $value) {
+                array_push($jadwalDokter, $value->hari);
+            }
+        }
         if ($haris) {
-            # code...
+            # code... 
             usort($haris, function ($a, $b) use ($urutanHari) {
                 return array_search($a, $urutanHari) - array_search($b, $urutanHari);
-            }); 
+            });
             foreach ($haris as $hari) {
-                JadwalDokter::create([
-                    'dokter_id' => $dokter->id,
-                    'hari' => $hari,
-                    'jam_mulai_praktik' => $request->jam_mulai_praktik,
-                    'jam_selesai_praktik' => $request->jam_selesai_praktik
-                ]);
+                if (!in_array($hari, $jadwalDokter)) {
+                    JadwalDokter::create([
+                        'dokter_id' => $dokter->id,
+                        'hari' => $hari,
+                        'jam_mulai_praktik' => $request->jam_mulai_praktik,
+                        'jam_selesai_praktik' => $request->jam_selesai_praktik
+                    ]);
+                }
             }
             return redirect()->back()->with('success', 'jadwal dokter berhasil ditambahkan');
         } else {
@@ -125,13 +136,15 @@ class JadwalDokterController extends Controller
         //
         $haris = $request->hari;
         // return $haris;
+        // return $haris;
         foreach ($haris as  $hari) {
             # code...
-            $jadwalDokter = JadwalDokter::where('dokter_id', $dokter->id)
-                ->where('hari', $hari)
-                ->get()
-                ->first()
-                ->delete();
+            // $jadwalDokter = JadwalDokter::where('dokter_id', $dokter->id)
+            //     ->where('hari', $hari)
+            //     ->get()
+            //     ->first()
+            //     ->delete();
+            $jadwalDokter = JadwalDokter::find($hari)->delete();
             $jadwalDokter;
         }
         return redirect()->back()->with('success', 'berhasil delete jadwal dokter');

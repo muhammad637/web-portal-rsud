@@ -75,12 +75,14 @@
     </section>
 
     @if (count($layanan->dokter) > 0)
+    
         <section class="pt-5 mt-5">
             <div class="container" style="background: #7bcecc; margin-bottom:7rem;">
                 <h1 class="text-white font-weight-bold text-uppercase">Dokter {{ $layanan->nama }} RSUD Blambangan</h1>
                 <div class="container-swiper p-1 pb-5" style="background: #7bcecc">
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
+                            
                             @foreach ($layanan->dokter as $index => $item)
                                 <div class="swiper-slide rounded">
                                     <div class="staff ">
@@ -94,7 +96,13 @@
                                                 <div class="row">
                                                     <div class="col">
                                                         @if (count($item->jadwalDokter) > 0)
-                                                            @foreach ($item->jadwalDokter as $value)
+                                                        @php
+                                                            $hari_indonesia = ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'];
+                                                            $jadwalDokter = $item->jadwalDokter->sortBy(function ($jadwal) use ($hari_indonesia) {
+                                                                return array_search($jadwal->hari, $hari_indonesia);
+                                                            });
+                                                        @endphp
+                                                            @foreach ($jadwalDokter as $value)
                                                                 <div class="d-flex justify-content-between text-dark">
                                                                     <p>{{ $value->hari }}</p>
                                                                     {{ Carbon\Carbon::parse($value->jam_mulai_praktik)->format('H:i') }}

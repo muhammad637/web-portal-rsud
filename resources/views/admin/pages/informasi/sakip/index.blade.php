@@ -42,7 +42,7 @@
             </div>
         @endif
         <div class="table-responsive mt-5">
-            <table id="example" class="table  table-striped table-bordered" style="width:100%">
+            <table id="example" class="table  table-bordered" style="width:100%">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -58,28 +58,29 @@
                             <td>{{ $index + 1 }}</td>
                             <td>
                                 <label for="">{{ $item->nama }}</label><br>
-                               
+
                             </td>
                             <td>
                                 <label for=""> {{ $item->link_file }}</label>
                             </td>
                             <td>
-                                
+
                                 <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
                                     href="#editsakip-{{ $item->id }}"><i class="fas fa-pen"></i>
                                 </a>
 
-                                    <form action="{{route('admin.sakip.delete',['sakip' => $item->id])}}" class="d-inline" method="post">
+                                <form action="{{ route('admin.sakip.delete', ['sakip' => $item->id]) }}" class="d-inline"
+                                    method="post">
 
-                                        @method('delete')
-                                        @csrf
-                                <a type="submit" class="btn btn-danger py-1 px-2 text-decoration-none"
-                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                    @method('delete')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger py-1 px-2 text-decoration-none"
+                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
 
-                                <i class="far fa-trash-alt"></i>
+                                        <i class="far fa-trash-alt"></i>
 
-                                </a>
-                                    </form>
+                                </button>
+                                </form>
                             </td>
                         </tr>
 
@@ -108,7 +109,7 @@
                                             <div class="mb-3">
                                                 <label for="link_file" class="form-label">Link File</label>
                                                 <input type="text" class="form-control" name="link_file"
-                                                    id="link_file" value="{{ old('link_file') }}">
+                                                    id="link_file" value="{{ old('link_file', $item->link_file) }}">
                                             </div>
 
                                         </div>
@@ -123,14 +124,6 @@
                         </div>
                     @endforeach
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                         <th>Dokumen</th>
-                        <th>Aksi</th>
-                    </tr>
-                </tfoot>
             </table>
         </div>
     </div>

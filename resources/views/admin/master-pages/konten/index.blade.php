@@ -27,14 +27,13 @@
                 </div>
             @endif
             <div class="table-responsive mt-5">
-                <table id="example" class="table  table-striped table-bordered   " style="width:100%">
+                <table id="example" class="table  table-bordered   " style="width:100%">
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>Gambar</th>
-                            <th>Nama Artikel</th>
-                            <th>excerpt</th>
-                            <th>tanggal dibuat</th>
+                            <th>Judul</th>
+                            <th>tanggal</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -43,42 +42,32 @@
                             <tr>
                                 <td>{{ $index + 1 }}</td>
                                 <td>
-                                    <div class="bunder"
-                                        style=" background: url('{{ asset('storage/' . $item->gambar) }}') no-repeat center">
-                                    </div>
+                                   <img width="400" src="{{asset('storage/'.$item->gambar)}}" alt="{{$item->gambar}}" class="img-fluid ">
                                 </td>
                                 <td>{{ $item->judul }}</td>
-                                <td>{{ $item->slug }}</td>
                                 <td>{{ Carbon\Carbon::parse($item->created_at)->format('d-M-Y') }}</td>
                                 <td>
+                                    <div class="d-flex gap-1">
 
-                                    <a href="{{ route('berita.show', ['konten' => $item->slug]) }}" target="_blank"
-                                        class="btn btn-success py-1 px-2 "><i class="fas fa-eye"></i></a>
-                                    <a href="{{ route('admin.konten.edit', ['konten' => $item->slug]) }}"
-                                        class="btn btn-warning py-1 px-2 "><i class="fas fa-pen"></i></a>
-                                    <form action="{{ route('admin.konten.delete', ['konten' => $item->slug]) }}"
-                                        enctype="multipart/form-data" method="post" class="d-inline">
-                                        @csrf
-                                        @method('delete')
-
-                                        <button type="submit" class="btn btn-danger py-1 px-2" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash"></i></button>
-                                        {{-- <button class="btn btn-danger py-1 px-2 text-decoration-none"><i
-                                                class="far fa-trash-alt"></i></button> --}}
-                                    </form>
+                                        <a href="{{ route('berita.show', ['konten' => $item->slug]) }}" target="_blank"
+                                            class="btn btn-success py-1 px-2 "><i class="fas fa-eye"></i></a>
+                                        <a href="{{ route('admin.konten.edit', ['konten' => $item->slug]) }}"
+                                            class="btn btn-warning py-1 px-2 "><i class="fas fa-pen"></i></a>
+                                        <form action="{{ route('admin.konten.delete', ['konten' => $item->slug]) }}"
+                                            enctype="multipart/form-data" method="post" class="d-inline">
+                                            @csrf
+                                            @method('delete')
+    
+                                            <button type="submit" class="btn btn-danger py-1 px-2" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="fas fa-trash"></i></button>
+                                            {{-- <button class="btn btn-danger py-1 px-2 text-decoration-none"><i
+                                                    class="far fa-trash-alt"></i></button> --}}
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>No</th>
-                            <th>Gambar</th>
-                            <th>Nama Artikel</th>
-                            <th>excerpt</th>
-                            <th>tanggal dibuat</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </tfoot>
+                    
                 </table>
             </div>
         </div>

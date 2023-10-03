@@ -42,7 +42,7 @@
             </div>
         @endif
         <div class="table-responsive mt-5">
-            <table id="example" class="table table-light table-striped table-bordered" style="width:100%">
+            <table id="example" class="table table-bordered" style="width:100%">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -62,9 +62,17 @@
                                         @if (count($item->jadwalDokter) == 0)
                                             -
                                         @endif
-                                        <ul class="">          
-                                            @foreach ($item->jadwalDokter as $value)
-                                                <li class="list-group-item ">
+                                        @php
+                                            $hariIndonesia = [ 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu','minggu'];
+                                            // Mengurutkan jadwal dokter berdasarkan hari
+                                            $sortedJadwal = $item->jadwalDokter->sortBy(function ($jadwal) use ($hariIndonesia) {
+                                                return array_search($jadwal->hari, $hariIndonesia);
+                                            });
+                                        @endphp
+
+                                        <ul class="">
+                                            @foreach ($sortedJadwal as $value)
+                                                <li class="list-group-item">
                                                     hari {{ $value->hari }} :
                                                     {{ Carbon\Carbon::parse($value->jam_mulai_praktik)->format('H:i') }}
                                                     -
@@ -147,9 +155,9 @@
                                                         @foreach ($item->jadwalDokter as $data)
                                                             <div class="col-md-4">
                                                                 <input type="checkbox" name="hari[]"
-                                                                    id="{{ $data->hari }}">
+                                                                    id="{{ $data->id }}">
                                                                 <label
-                                                                    for="{{ $data->hari }}">{{ $data->hari }}</label>
+                                                                    for="{{ $data->id }}">{{ $data->hari }}</label>
                                                             </div>
                                                         @endforeach
                                                     </div>
@@ -175,14 +183,7 @@
                         @endforeach
                     @endif
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Dokter </th>
-                        <th>Jadwal Dokter</th>
-                        <th>Aksi</th>
-                    </tr>
-                </tfoot>
+                
             </table>
         </div>
     </div>
