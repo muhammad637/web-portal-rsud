@@ -127,7 +127,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nama</th>
-                        <th>Dokumen</th>
+                         <th>Dokumen</th>
                         <th>Aksi</th>
                     </tr>
                 </tfoot>

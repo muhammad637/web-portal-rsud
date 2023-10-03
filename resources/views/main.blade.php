@@ -7,7 +7,7 @@
     @yield('meta')
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="shortcut icon" type="image/png" href="{{ asset('./RSUD-logo.png') }}" />
+    <link rel="shortcut icon" type="image/png" href="{{ asset('./RSUD-logo.png') }}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/open-iconic-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">

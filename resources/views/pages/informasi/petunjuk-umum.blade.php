@@ -86,14 +86,14 @@
                             <div class="petunjuk-umum">
                                 <div class="row align-items-center">
                                     <div class="col-md-2 col-lg-2  col-6">
-                                        <a class="img mb-4 d-inline-block" href="index.html"
-                                            style="background-image: url('{{ asset('images/pdf.png') }}');">
-                                    </div>
+                                        <a class="img mb-4 d-inline-block" href="index.html" style="background-image: url('{{ asset('images/pdf.png') }}');">
+                                    </a>
                                     </div>
                                     <div class="col">
                                         <div class="info">
-                                            <h3>Hak, Kewajiban dan Tanggung Jawab Serta Tata Tertib Rumah Sakitt</h3>
-                                           
+                                            <h3>Undang-Undang Republik Indonesia Nomor 44 Tahun 2009 Tentang Rumah Sakit
+                                            </h3>
+                                            
                                         </div>
 
                                     </div>
@@ -101,7 +101,6 @@
                             </div>
                         </a>
                         </div>
-
 
 
                     </div>
@@ -155,40 +154,7 @@
                 </div>
 
             </div>
-            <div class="tab-pane fade show " id="v-pills-whatwedo" role="tabpanel"
-                aria-labelledby="v-pills-whatwedo-tab">
-                <div class="container">
-                    <table class="table table-bordered">
-                        <thead class="text-center" style="background-color: #2470A0; color: white">
-                            <tr>
-                                <th scope="col">Jenis Kamar</th>
-                                <th scope="col">Tarif</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center">
-                            <tr>
-
-                                <td>Kelas I</td>
-                                <td>Rp. 525.000,00</td>
-                            </tr>
-                            <tr>
-                                <td>Kelas II</td>
-                                <td>Rp. 360.000,00</td>
-                            </tr>
-                            <tr>
-                                <td>Kelas III</td>
-                                <td>Rp. 300.000,00</td>
-                            </tr>
-                            <tr>
-                                <td>Utama I</td>
-                                <td>Rp. 750.000,00</td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
+            
         </div>
     </div>
 @endsection
