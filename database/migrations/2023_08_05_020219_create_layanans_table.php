@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('layanans', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_layanan');
-            $table->string('gambar_utama');
-            $table->string('nama_layanan');
-            $table->string('gambar-1')->nullable();
-            $table->string('gambar-2')->nullable();
-            $table->string('gambar-3')->nullable();
+            $table->foreignId('kategori_layanan_id')->constrained('kategori_layanans')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('nama');
+            $table->string('slug');
+            $table->string('icon')->nullable();
+            $table->string('gambar');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }

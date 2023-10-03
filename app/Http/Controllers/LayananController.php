@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Layanan;
 use Illuminate\Http\Request;
+use App\Models\KategoriLayanan;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class LayananController extends Controller
 {
@@ -12,8 +15,14 @@ class LayananController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(KategoriLayanan $kategoriLayanan)
     {
+
+        // return $layanan;
+        return view('admin.master-pages.layanan.index', [
+            'kategoriLayanan' => $kategoriLayanan,
+            'layanan' => Layanan::where('kategori_layanan_id', $kategoriLayanan->id)->orderBy('updated_at','desc')->get()
+        ]);
         //
     }
 
@@ -22,9 +31,12 @@ class LayananController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(KategoriLayanan $kategoriLayanan)
     {
         //
+        return view('admin.master-pages.layanan.create', [
+            'kategoriLayanan' => $kategoriLayanan
+        ]);
     }
 
     /**
@@ -35,7 +47,39 @@ class LayananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request->all(); 
+
+        $validateData = $request->validate(
+            [
+                'kategori_layanan_id' => 'required',
+                'nama' => 'required',
+                'slug' => 'required|unique:layanans,slug',
+                'icon' => '',
+                'gambar' => 'required',
+                'deskripsi' => 'required',
+            ]
+        );
+        if ($request->hasFile('icon')) {
+            // Lakukan penyimpanan gambar dan ikon di sini
+            $icon = $request->file('icon')->store('icon-layanan');
+            // return [$gambar, $icon];
+        } else {
+            // Handle jika file gambar atau ikon tidak ada
+            $icon =  null;
+        }
+        $gambar = $request->file('gambar')->store('image-layanan');
+        $validatedData['gambar'] = $request->file('gambar')->store('image-layanan');
+        $postLayanan = [
+            'kategori_layanan_id' => $request->kategori_layanan_id,
+            'nama' => $request->nama,
+            'slug' => $request->slug,
+            'icon' => $icon,
+            'gambar' => $gambar,
+            'deskripsi' => $request->deskripsi
+        ];
+        $layanan = Layanan::create($postLayanan);
+        // return $layanan;
+        return redirect(route('admin.layanan', ['kategoriLayanan' => $layanan->kategoriLayanan->slug]))->with('success', 'data layanan pages  berhasil ditambahkan');
     }
 
     /**
@@ -46,6 +90,7 @@ class LayananController extends Controller
      */
     public function show(Layanan $layanan)
     {
+        return Layanan::where('slug', $layanan->slug)->get();
         //
     }
 
@@ -57,9 +102,10 @@ class LayananController extends Controller
      */
     public function edit(Layanan $layanan)
     {
-        //
+        return view('admin.master-pages.layanan.edit', [
+            'layanan' => $layanan
+        ]);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -69,6 +115,40 @@ class LayananController extends Controller
      */
     public function update(Request $request, Layanan $layanan)
     {
+        $validateData = $request->validate(
+            [
+                'nama' => 'required',
+                'gambar' => '',
+                'slug' => 'required|unique:layanans,slug,' . $layanan->id,
+                'deskripsi' => 'required',
+                'icon' => ''
+            ]
+        );
+        $icon = $layanan->icon;
+        $gambar = $layanan->gambar;
+        if ($request->hasFile('icon')) {
+            # code...
+            // if (Storage::exists($layanan->icon)) {
+            //     Storage::delete($layanan->icon);
+            // }
+            $icon = $request->file('icon')->store('icon-layanan');
+        }
+        if ($request->hasFile('gambar')) {
+            // if (Storage::exists($layanan->icon)) {
+            //     Storage::delete($layanan->icon);
+            // }
+            $gambar = $request->file('gambar')->store('image-layanan');
+        }
+        $update = [
+            'nama' => $request->nama,
+            'slug' => $request->slug,
+            'icon' => $icon,
+            'gambar' => $gambar,
+            'deskripsi' => $request->deskripsi
+        ];
+        $layanan->update($update);
+        // Layanan::create($validateData);
+        return redirect(route('admin.layanan', ['kategoriLayanan' => $layanan->kategoriLayanan->slug]))->with('success', 'data layanan pages  berhasil diupdate');
         //
     }
 
@@ -78,8 +158,12 @@ class LayananController extends Controller
      * @param  \App\Models\Layanan  $layanan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Layanan $layanan)
+    public function delete(Layanan $layanan)
     {
         //
+        // return [$layanan, $kategoriLayanan];
+        // return $layanan;
+        $layanan->delete();
+        return redirect()->back()->with('success', 'data layanan berhasil di hapus');
     }
 }

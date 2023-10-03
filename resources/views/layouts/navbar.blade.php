@@ -1,67 +1,75 @@
-<nav class="navbar navbar-expand-lg bg-white">
+@push('link-css')
+    @livewireStyles
+@endpush
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <div style="border-right: solid 2px #EF8F1D; padding-right:1rem;">
-            <img src={{asset("RSUD-logo.png")}} width="56" height="
-            63" alt="coba coba">
-        </div>
-       
-        <a class="navbar-brand ms-2" style="color: #EF8F1D" href="#">RSUD Blambangan</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+
+        <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('images/navbar/logo.png') }}" alt=""
+                style="width: 50px;"><span class="d-sm-inline d-none" style="font-weight: normal;">
+                RSUD<strong> Blambangan</strong></span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+            aria-controls="ftco-nav" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-4">
+
+
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="{{ route('profil') }}" class="nav-link"><strong>Profil</strong></a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false" style="color: #EF8F1D">
-                        Pasien & Pengunjung
+                        aria-expanded="false"><strong>
+                            Pasien & Pengunjung</strong>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Pasien</a></li>
-                        <li><a class="dropdown-item" href="#">Pengunjung</a></li>
-                     
+                        <li><a class="dropdown-item" href="{{ route('pasien-dan-pengunjung.dokter') }}">Dokter</a></li>
+                        <li><a class="dropdown-item"
+                                href="{{ route('pasien-dan-pengunjung.ketersediaanKamar') }}">Jumlah Kamar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="{{ route('berita.index') }}" class="nav-link"><strong>Artikel</strong></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false"><strong>
+                            Layanan</strong>
+                    </a>
+                    <ul class="dropdown-menu">
+                        @livewire('navbar-layanans')
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false" style="color: #EF8F1D">
-                       Layanan
+                        aria-expanded="false"><strong>
+                            Informasi</strong>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Layanan 1</a></li>
-                        <li><a class="dropdown-item" href="#">Layanan 2</a></li>
-                     
+                        <li><a class="dropdown-item" href="{{ route('informasi.alur-persyaratan') }}">Alur dan
+                                Persyaratan</a></li>
+                        <li><a class="dropdown-item" href="{{ route('informasi.tarif') }}">Tarif</a></li>
+                        <li><a class="dropdown-item" href="{{ route('informasi.petunjukUmum') }}">Petunjuk Umum</a></li>
+                        <li><a class="dropdown-item" href="{{ route('informasi.ikm') }}">Index Kepuasan
+                                Masyarakat</a></li>
+                        <li><a class="dropdown-item" href="{{ route('informasi.sakip') }}">Sakip</a></li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false" style="color: #EF8F1D">
-                       Berita & Artikel
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Berita 1</a></li>
-                        <li><a class="dropdown-item" href="#">Artikel  2</a></li>
-                     
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false" style="color: #EF8F1D">
-                        Profil RSUD
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">1</a></li>
-                        <li><a class="dropdown-item" href="#">2</a></li>
-                       
-                        
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-expanded="false" style="color: #EF8F1D">Hubungi Kami</a>
-                </li>
+                @if (auth()->user())
+                    <li class="nav-item"><a href="{{ route('admin.dashboard') }}"
+                            class="nav-link"><strong>Dashboard</strong></a></li>
+                @endif
+                {{-- <li class="nav-item"><a href="" class="nav-link">Berita</a></li> --}}
             </ul>
 
         </div>
+
     </div>
+
 </nav>
+<!-- END nav -->
+
+@push('link-script')
+    @livewireScripts
+@endpush

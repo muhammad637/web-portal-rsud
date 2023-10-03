@@ -1,114 +1,115 @@
-@extends('main')
+@extends('main', ['title'=>'Daftar Dokter'])
+@push('link-css')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <style>
+        .container-swiper {
+            height: 48rem;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+@endpush
+@push('link-script')
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    // spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+            },
+            autoplay: {
+                delay: 3000,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+@endpush
 @section('content')
-<section id="dokter" class="dokter">
-<div class="card">
-    <div class="card-breadcrumb">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Pasien & Pengunjung</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Dokter</li>
-            </ol>
-        </nav>
-    </div>
-    <div class="cari-dokter">
+@include('pages.partials.hero',['title' => 'Daftar Dokter RSUD Blambangan','menu' => 'pasien & pengunjung'])
+
+
+    <section class="ftco-section">
         <div class="container">
-        <form action="" method="">
-              @csrf
-                <div class="card-body">
-                  <H4><b>Cari Dokter - RSUD Blambangan</b></H4>
-                  <h6><b>Temukan jadwal dokter ahli, spesialis, dan berpengalaman</b></h6>
-                  <br>
-                  <br>
-                  <div class="card-body-in">
-                  <div class="row mt-4">
-                    <div class="col-md-12">
-                      <label for="basic-url" class="form-label">
-                        <h5>Nama Dokter</h5>
-                      </label>
-                      <div class="input-group mb-3" >
-                        <input required type="text" class="form-control">
-                      </div>
-                    </div>
-                    <div class="row mt-4">
-                    <div class="col-md-4">
-                      <label for="basic-url" class="form-label">
-                        <h5>Hari</h5>
-                      </label>
-                      <div class="input-group mb-3">
-                        <select id="cari-hari" class="form-select">
-                            <option>Senin</option>
-                            <option>Selasa</option>
-                            <option>Rabu</option>
-                            <option>Kamis</option>
-                            <option>Jumat</option>
-                            <option>Sabtu</option>
-                        </select>
-                      </div>
-                    </div>
-                      <div class="col-md-4">
-                        <label for="basic-url" class="form-label">
-                          <h5>Jam</h5>
-                        </label>
-                        <div class="input-group mb-3">
-                          <input required type="time" class="form-control" name="jam">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <label for="basic-url" class="form-label">
-                          <h5>Spesialis</h5>
-                        </label>
-                        <div class="input-group mb-3">
-                          <select id="spesialis" class="form-select">
-                            <option> Bedah Umum</option>
-                          </select>
-                        </div>
-                    </div>
-                      <div class="col-md-12">
-                      <button type="button" class="btn btn-success">Cari</button>
-                      </div>
-                  </div>
-                  </div>
-                </div>
-              </div>
-            </form>
 
-            <div class="section-header">
-                <p>Dokter</p>
-            </div>
-
-            <div class="card border-secondary mb-3">
-            <div class="card-header">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5>Bedah Umum</h5>
-                    <p>Jadwal Dokter</p>
+            <div class="row justify-content-center mb-5 ">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <h2 class="mb-3">Dokter RSUD Blambangan</h2>
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a
+                        paradisematic country, in which roasted parts of sentences</p>
                 </div>
             </div>
-            <div class="card-body-jadwal">
-                <h5 class="card-title"></h5>
-                <div class="row">
-                    <div class="card">
-                        <div class="col-6">
-                            <div class="row">
-                                <div class="col-6">
-                                    <img src="" alt="">
 
-                                </div>
-                                <div class="col-6">
-                                    <div >
-                                    <p>Nama Dokter</p>
-                                    <p>Nama Dokter</p>
-                                    </div>   
+            <div class="container-swiper">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        @foreach ($Dokter as $index => $item)
+                            <div class="swiper-slide">
+                                <div class="staff">
+                                    <div class="img mb-4" style="background-image: url('{{ asset('storage/'. $item->gambar) }}');">
+                                    </div>
+                                    <div class="info text-center">
+                                        <h3 class="text-uppercase">{{ $item->nama }}</h3>
+                                        <span class="position" style="font-size: 20px;">Dokter {{$item->tipe_dokter == 'spesialis' ? '' : 'umum' }}  {{ $item->spesialis->nama_spesialis ?? null}}</span>
+                                        <div class="text">
+                                            <div class="row">
+                                                <div class="col">
+                                                    @if (count($item->jadwalDokter) > 0)
+                                                        @foreach ($item->jadwalDokter as $value)
+                                                            <div class="d-flex justify-content-between text-dark">
+                                                                <p>{{ $value->hari }}</p>
+                                                                {{ Carbon\Carbon::parse($value->jam_mulai_praktik)->format('H:i') }}
+                                                                -
+                                                                {{ Carbon\Carbon::parse($value->jam_selesai_praktik)->format('H:i') }}
+                                                            </div>
+                                                        @endforeach
+                                                    @else
+                                                        <p class="text-center" style="text-align: center"> - </p>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
+
         </div>
-          </div>
-</div>
-</section>
-
-
+    </section>
 @endsection

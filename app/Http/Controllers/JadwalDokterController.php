@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dokter;
 use App\Models\JadwalDokter;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 
 class JadwalDokterController extends Controller
 {
@@ -12,9 +16,15 @@ class JadwalDokterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function jadwal()
     {
-        //
+        $urutanHari = ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'];
+        // return Dokter::all();
+        return view('admin.pages.dokter.jadwal-dokter', [
+            'jadwalDokter' => JadwalDokter::orderBy('updated_at', 'desc')->get(),
+            'dokter' => Dokter::orderBy('updated_at', 'desc')->get(),
+            'urutanHari' => $urutanHari,
+        ]);
     }
 
     /**
@@ -33,9 +43,32 @@ class JadwalDokterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function jadwalStore(Request $request)
     {
         //
+        // $tes =  new JadwalDokter;
+        $haris =  $request->hari;
+        // return $tes->rules();
+        $dokter = Dokter::where('nama', $request->nama_dokter)->first();
+        $urutanHari = ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'];
+        // Urutkan hari berdasarkan urutan yang telah ditentukan
+        if ($haris) {
+            # code...
+            usort($haris, function ($a, $b) use ($urutanHari) {
+                return array_search($a, $urutanHari) - array_search($b, $urutanHari);
+            }); 
+            foreach ($haris as $hari) {
+                JadwalDokter::create([
+                    'dokter_id' => $dokter->id,
+                    'hari' => $hari,
+                    'jam_mulai_praktik' => $request->jam_mulai_praktik,
+                    'jam_selesai_praktik' => $request->jam_selesai_praktik
+                ]);
+            }
+            return redirect()->back()->with('success', 'jadwal dokter berhasil ditambahkan');
+        } else {
+            return redirect()->back()->with('success', 'jadwal hari kosong');
+        }
     }
 
     /**
@@ -46,7 +79,7 @@ class JadwalDokterController extends Controller
      */
     public function show(JadwalDokter $jadwalDokter)
     {
-        //
+        return "testing";
     }
 
     /**
@@ -67,8 +100,17 @@ class JadwalDokterController extends Controller
      * @param  \App\Models\JadwalDokter  $jadwalDokter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, JadwalDokter $jadwalDokter)
+    public function jadwalUpdate(Request $request, Dokter $dokter)
     {
+        $validateData = $request->validate(
+            [
+                'jam_mulai_praktik' => 'required',
+                'jam_selesai_praktik' => 'required',
+            ]
+        );
+        $jadwalDokterUpdate = JadwalDokter::where('dokter_id', $dokter->id)->where('hari', $request->hari)->get()->first();
+        $jadwalDokterUpdate->update($validateData);
+        return redirect()->back()->with('success', 'jadwal berhasil diupdate');
         //
     }
 
@@ -78,8 +120,20 @@ class JadwalDokterController extends Controller
      * @param  \App\Models\JadwalDokter  $jadwalDokter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(JadwalDokter $jadwalDokter)
+    public function jadwalDelete(Request $request, Dokter $dokter)
     {
         //
+        $haris = $request->hari;
+        // return $haris;
+        foreach ($haris as  $hari) {
+            # code...
+            $jadwalDokter = JadwalDokter::where('dokter_id', $dokter->id)
+                ->where('hari', $hari)
+                ->get()
+                ->first()
+                ->delete();
+            $jadwalDokter;
+        }
+        return redirect()->back()->with('success', 'berhasil delete jadwal dokter');
     }
 }

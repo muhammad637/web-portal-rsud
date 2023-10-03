@@ -18,6 +18,12 @@ class BeritaDanArtikelFactory extends Factory
     {
         return [
             //
+            "judul" => fake()->sentence(4),
+            "slug" => fake()->sentence(3),
+            "isi" => fake()->text(100),
+            "link" => "",
+            "gambar" => fake()->word(),
+            "jenis" => "berita"
         ];
     }
 }
