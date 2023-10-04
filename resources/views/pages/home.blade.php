@@ -180,7 +180,7 @@
         <div class="container-wrap mt-5">
             <div class="row d-flex no-gutters">
                 <div class="col-md-6 ftco-animate img home-sejarah-image  fadeInUp ftco-animated" id="#col-tes"
-                    style="background-image: url(images/halamanrsud.jpg);">
+                    style="background-image: url(images/halamanrsud.webp);">
                 </div>
                 <div class="col-md-6 d-flex">
                     <div class="about-wrap">
