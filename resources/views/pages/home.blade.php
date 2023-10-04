@@ -61,13 +61,13 @@
 @section('content')
     <section class="home-slider owl-carousel">
         <div class="slider-item" style="background-image: url('images/bg1.webp');">
-            {{-- <div class="overlay"></div> --}}
+            <div class="overlay"></div>
         </div>
         <div class="slider-item" style="background-image: url('images/bg3.webp');">
-            {{-- <div class="overlay"></div> --}}
+            <div class="overlay"></div>
         </div>
         <div class="slider-item" style="background-image: url('images/bg2.webp');">
-            {{-- <div class="overlay"></div> --}}
+            <div class="overlay"></div>
         </div>
     </section>
 

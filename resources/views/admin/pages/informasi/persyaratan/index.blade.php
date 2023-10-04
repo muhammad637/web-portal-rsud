@@ -59,12 +59,7 @@
                                     <a href="{{route('admin.persyaratan.destroy',['persyaratan' => $item->id])}}" class="btn btn-danger py-1 px-2 text-decoration-none" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="far fa-trash-alt"></i>
 
                                 </td>
-                            </tr>
-
-
-
-
-                           
+                            </tr>                         
                         @endforeach
                     </tbody>
                   

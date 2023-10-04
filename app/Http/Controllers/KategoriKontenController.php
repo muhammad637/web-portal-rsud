@@ -56,7 +56,7 @@ class KategoriKontenController extends Controller
         // return $request;
         $validatedData = $request->validate([
             'nama' => 'required',
-            'slug' => 'required|unique:kategoris,slug,' . $kategoriKonten->id,
+            'slug' => 'required|unique:kategori_kontens,slug,' . $kategoriKonten->id,
             // tambahkan aturan validasi lainnya jika diperlukan
         ]);
         $kategoriKonten->update($validatedData);

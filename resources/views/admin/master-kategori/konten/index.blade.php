@@ -69,14 +69,7 @@
                         </tr>
                     @endforeach
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Kategori</th>
-                        <th>Jumlah</th>
-                        <th>Aksi</th>
-                    </tr>
-                </tfoot>
+               
             </table>
         </div>
     </div>
