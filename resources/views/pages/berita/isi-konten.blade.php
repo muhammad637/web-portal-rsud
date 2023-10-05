@@ -18,11 +18,7 @@
                     {!! $isiKonten->deskripsi !!}
                     <div class="mt-5">
                     </div>
-                    @if (isset($isiKonten->link_yt) || isset($isiKonten->link_yt))
-                        <span class="text-center  font-weight-bold d-block text-uppercase">
-                            Selengkapnya
-                        </span>
-                    @endif
+                    
                     <div class="row justify-conten-center align-items-center">
                         @if (isset($isiKonten->link_yt) && $isiKonten->link_yt != null)
                             <div class="col-lg-12 mb-4 col-md-12 mx-auto">

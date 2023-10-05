@@ -38,7 +38,7 @@ class DokterController extends Controller
     }
     public function cari(Request $request)
     {
-        if($request->nama_dokter == null && $request->spesialis_id == null){
+        if ($request->nama_dokter == null && $request->spesialis_id == null) {
             return redirect()->back();
         }
         if ($request->spesialis_id == null) {
@@ -183,6 +183,9 @@ class DokterController extends Controller
             $gambar = $request->file('gambar')->store('gambar-dokter');
         }
         $spesialis =  Spesialis::where('nama_spesialis', 'like', '%' . $request->nama_spesialis . '%')->first();
+        if ($spesialis == null) {
+            return redirect()->back()->with('error', 'spesialis yang anda masukkan tidak ada');
+        }
         if ($request->tipe_dokter == 'umum') {
             $dokter->update([
                 'spesialis_id' => null,
