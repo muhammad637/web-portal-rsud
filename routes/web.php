@@ -30,6 +30,7 @@ use Symfony\Component\HttpKernel\Profiler\Profile;
 use App\Http\Controllers\KategoriLayananController;
 use App\Http\Controllers\LayananUnggulanController;
 use App\Http\Controllers\BeritaDanArtikelController;
+use App\Http\Controllers\JumlahKamarController;
 use App\Http\Controllers\KontenController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PortalController;
@@ -53,7 +54,7 @@ Route::get('/profil', [PortalController::class, 'profil'])->name('profil');
 Route::group(['prefix' => 'pasien-dan-pegunjung'], function () {
     Route::get('/daftar-dokter', [DokterController::class, 'index'])->name('pasien-dan-pengunjung.dokter');
     Route::get('/daftar-dokter/cari', [DokterController::class, 'cari'])->name('pasien-dan-pengunjung.dokter.cari');
-    Route::get('/ketersediaan-kamar', [PortalController::class, 'ketersediaanKamar'])->name('pasien-dan-pengunjung.ketersediaanKamar');
+    Route::get('/ketersediaan-kamar', [JumlahKamarController::class, 'jumlahkamarindex'])->name('pasien-dan-pengunjung.ketersediaanKamar');
     Route::get('/informasikunjungan', [PortalController::class, 'informasiKunjungan'])->name('pasien-dan-pengunjung.informasiKunjungan');
 });
 // BERITA
@@ -151,6 +152,27 @@ Route::middleware('auth')->group(function () {
                 Route::put('/{sakip:id}/update', [SAKIPController::class, 'sakipUpdate'])->name('admin.sakip.update');
                 Route::delete('/{sakip:id}/delete', [SAKIPController::class, 'sakipDelete'])->name('admin.sakip.delete');
             });
+            Route::group(['prefix' => "ketersediaan_kamar"], function () {
+                Route::get('/', [JumlahKamarController::class, 'jumlahkamar'])->name('admin.ketersediaan_kamar');
+                Route::get('/create', [JumlahKamarController::class, 'jumlahkamarCreate'])->name('aadmin.jumlahkamar.create');
+                Route::post('/store', [JumlahKamarController::class, 'store'])->name('admin.jumlahkamar.store');
+                Route::put('/{jumlah_kamar:id}/update', [JumlahKamarController::class, 'jumlahkamarUpdate'])->name('admin.jumlahkamar.update');
+                Route::delete('/{jumlah_kamar:id}/delete', [JumlahKamarController::class, 'jumlahkamarDelete'])->name('admin.jumlahkamar.delete');
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             Route::group(['prefix' => "persyaratan"], function () {
                 Route::get('/', [PersyaratanController::class, 'persyaratan'])->name('admin.persyaratan');
                 Route::get('/create', [PersyaratanController::class, 'persyaratanCreate'])->name('admin.persyaratan.create');

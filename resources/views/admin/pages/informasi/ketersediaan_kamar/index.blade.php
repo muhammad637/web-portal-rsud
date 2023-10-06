@@ -1,4 +1,4 @@
-@extends('admin.pages.main', ['sloot' => 'IKM'])
+@extends('admin.pages.main', ['sloot' => 'Jumlah Ketersediaan Kamar'])
 @push('link-css-admin')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
     <style>
@@ -12,14 +12,14 @@
 @section('content-admin')
 @section('breadcrumb')
     <li class="breadcrumb-item">Informasi</li>
-    <li class="breadcrumb-item">Index Kepuasan Masyarakat</li>
+    <li class="breadcrumb-item">Jumlah Ketersediaan Kamar</li>
 @endsection
 <div class="card">
     <div class="card-body">
 
-        <h1 class="fw-bold">Informasi IKM</h1>
+        <h1 class="fw-bold">Informasi Jumlah Ketersediaan Kamar</h1>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Tambahikm">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Tambahkamar">
             Create <i class="fas fa-plus-circle"></i>
         </button>
 
@@ -46,37 +46,35 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama</th>
-                        <th>Dokumen</th>
+                        <th>Nama Ruangan</th>
+                        <th>Kelas Ruangan</th>
+                        <th>Jumlah Kamar</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @foreach ($ikm as $index => $item)
+                    @foreach ($jumlah_kamar as $index => $item)
                         <tr>
                             <td>{{ $index + 1 }}</td>
+                         
                             <td>
-                                <label for="">{{ $item->nama }}</label><br>
+                                <label for="">{{ $item->nama_ruangan }}</label><br>
 
                             </td>
-                            <td>{{ $item->pdf }}</td>
+                            <td>
+                                <label for=""> {{ $item->kelas }}</label>
+                            </td>
+                            <td>
+                                <label for="">{{ $item->jumlah}}</label>
+                            </td>
                             <td>
 
                                 <a class="btn btn-warning py-1 px-2" data-bs-toggle="modal"
-                                    href="#editikm-{{ $item->id }}"><i class="fas fa-pen"></i></a>
+                                    href="#editjumlahkamar-{{ $item->id }}"><i class="fas fa-pen"></i>
+                                </a>
 
-                                {{-- <form action="{{route('admin.ikm.delete',['ikm' => $item->id])}}" class="d-inline" method="get">
-                                    @method('delete')
-                                    @csrf
-                                    <button type="submit"
-                                        class="btn btn-danger py-1 px-2 text-decoration-none"onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
-
-                            
-                                        <i class="far fa-trash-alt"></i>
-                                    </button>
-                                </form> --}}
-                                <form action="{{ route('admin.ikm.delete', ['ikm' => $item->id]) }}" class="d-inline"
+                                <form action="{{ route('admin.jumlahkamar.delete', ['jumlah_kamar' => $item->id]) }}" class="d-inline"
                                     method="post">
 
                                     @method('delete')
@@ -93,37 +91,41 @@
 
 
                         <!-- Modal edit -->
-                        <div class="modal fade " id="editikm-{{ $item->id }}" tabindex="-1"
-                            aria-labelledby="editikmLabel" aria-hidden="true">
+                        <div class="modal fade " id="editjumlahkamar-{{ $item->id }}" tabindex="-1"
+                            aria-labelledby="editjumlahkamarLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit
-                                            ikm{{ $item->id }}</h1>
+                                            Jumlah Kamar{{ $item->id }}</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
-                                    <form action="{{ route('admin.ikm.update', ['ikm' => $item->id]) }}" method="post"
-                                        enctype="multipart/form-data">
+                                    <form action="{{ route('admin.jumlahkamar.update', ['jumlah_kamar' => $item->id]) }}"
+                                        method="post" enctype="multipart/form-data">
                                         @method('put')
                                         @csrf
                                         <div class="modal-body">
                                             <div class="mb-3">
-                                                <label for="nama" class="form-label">Nama</label>
-                                                <input type="text" class="form-control" name="nama" id="nama"
-                                                    value="{{ old('nama', $item->nama) }}">
+                                                <label for="nama_ruangan" class="form-label">Nama Ruangan</label>
+                                                <input type="text" class="form-control" name="nama_ruangan" id="nama_ruangan"
+                                                    value="{{ old('nama_ruangan', $item->nama_ruangan) }}">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="pdf" class="form-label">Link File</label>
-                                                <input type="text" class="form-control" name="pdf" id="pdf"
-                                                    value="{{ old('pdf',$item->pdf) }}">
+                                                <label for="kelas" class="form-label">Kelas</label>
+                                                <input type="text" class="form-control" name="kelas"
+                                                    id="kelas" value="{{ old('kelas', $item->kelas) }}">
                                             </div>
-
+                                            <div class="mb-3">
+                                                <label for="jumlah" class="form-label">Jumlah</label>
+                                                <input type="number" class="form-control" name="jumlah"
+                                                    id="jumlah" value="{{ old('jumlah', $item->jumlah) }}">
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Tutup</button>
-                                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
                                         </div>
                                     </form>
                                 </div>
@@ -131,39 +133,42 @@
                         </div>
                     @endforeach
                 </tbody>
-              
             </table>
         </div>
     </div>
 </div>
 
 <!-- Modal create -->
-<div class="modal fade " id="Tambahikm" tabindex="-1" aria-labelledby="TambahikmLabel" aria-hidden="true">
+<div class="modal fade " id="Tambahkamar" tabindex="-1" aria-labelledby="TambahsakipLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create IKM</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Form Create Kamar</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('admin.index-kepuasan-masyarakat.store') }}" method="post"
-                enctype="multipart/form-data">
+            <form action="{{ route('admin.jumlahkamar.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama</label>
-                        <input type="text" class="form-control" name="nama" id="nama"
-                            value="{{ old('nama') }}">
+                        <label for="nama_ruangan" class="form-label">Nama</label>
+                        <input type="text" class="form-control" name="nama_ruangan" id="nama_ruangan"
+                            value="{{ old('nama_ruangan') }}">
                     </div>
                     <div class="mb-3">
-                        <label for="pdf" class="form-label">Link File</label>
-                        <input type="text" class="form-control" name="pdf" id="pdf"
-                            value="{{ old('pdf') }}">
+                        <label for="kelas" class="form-label">Kelas</label>
+                        <input type="text" class="form-control" name="kelas" id="kelas"
+                            value="{{ old('kelas') }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="jumlah" class="form-label">Jumlah</label>
+                        <input type="text" class="form-control" name="jumlah" id="jumlah"
+                            value="{{ old('jumlah') }}">
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
             </form>
         </div>

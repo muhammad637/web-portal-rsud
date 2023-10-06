@@ -199,6 +199,15 @@
                                     </span>
                                 </a>
                             </li>
+                            <li>
+                                <a class="sidebar-link {{ Request::is('admin/informasi/ketersediaan_kamar*') ? 'bg-primary text-white' : '' }} d-flex justify-content-between"
+                                    href="{{ route('admin.ketersediaan_kamar') }}" aria-expanded="false">
+                                    <strong><span class="hide-menu">Jumlah Kamar Tersedia</span></strong>
+                                    <span>
+                                        <i class="fa fa-bed" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>

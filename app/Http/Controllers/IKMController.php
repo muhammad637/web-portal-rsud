@@ -61,7 +61,7 @@ class IKMController extends Controller
                 'nama' => $validateData['nama'],
                 'pdf' => $validateData['pdf']
             ]);
-            return redirect(route('admin.index-kepuasan-masyarakat'))->with('succes', 'ikm berhasil ditambahkan');
+            return redirect(route('admin.index-kepuasan-masyarakat'))->with('success', 'ikm berhasil ditambahkan');
             // return Ikm::all();
         
         //
@@ -112,7 +112,7 @@ class IKMController extends Controller
             ]
             );
             $ikm->update($validateData);
-            return redirect(route('admin.index-kepuasan-masyarakat'))->with('succes', 'ikm berhasil diupdate');
+            return redirect(route('admin.index-kepuasan-masyarakat'))->with('success', 'ikm berhasil diupdate');
     }
 
     /**
