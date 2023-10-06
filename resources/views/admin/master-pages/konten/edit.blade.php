@@ -57,6 +57,11 @@
                     <input type="text" class="form-control @error('link_ig') is-invalid @enderror" name="link_ig"
                         id="link_ig" value="{{ old('link_ig',$konten->link_ig) }}">
                 </div>
+                <div class="mb-3">
+                    <label for="author" class="form-label">Author <span class="text-success"> *optional</span></label>
+                    <input type="text" class="form-control @error('author') is-invalid @enderror" name="author"
+                        id="author" value="{{ old('author',$konten->author) }}">
+                </div>
                 <p class="form-label">Kategori</p>
                 <div class="row mb-3">
                     @foreach ($kategoriKonten as $item)

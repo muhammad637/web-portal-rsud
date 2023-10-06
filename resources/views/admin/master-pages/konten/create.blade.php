@@ -66,6 +66,11 @@
                     <trix-editor input="deskripsi"></trix-editor>
                 </div>
                 <div class="mb-3">
+                    <label for="author" class="form-label">Author <span class="text-success"> *optional</span></label>
+                    <input type="text" class="form-control @error('author') is-invalid @enderror" name="author"
+                        id="author" value="{{ old('author') }}">
+                </div>
+                <div class="mb-3">
                     <label for="link_yt" class="form-label">Link Youtube <span class="text-success"> *optional</span></label>
                     <input type="text" class="form-control @error('link_yt') is-invalid @enderror" name="link_yt"
                         id="link_yt" value="{{ old('link_yt') }}">

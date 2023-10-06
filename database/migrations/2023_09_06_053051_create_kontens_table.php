@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('link_yt')->nullable();
             $table->text('link_ig')->nullable();
             $table->string('gambar');
+            $table->string('author')->nullable();
             $table->integer('views')->default(0);
             $table->timestamps();
         });

@@ -57,6 +57,7 @@ class KontenController extends Controller
                 'gambar' => 'required|',
                 'link_ig' => '',
                 'link_yt' => '',
+                'author' => ''
             ]
         );
         $validatedData['jenis'] = 'artikel';
@@ -117,16 +118,21 @@ class KontenController extends Controller
         }
         $linkYT = '';
         $linkIG = '';
+        $author = '';
         if (isset($request->link_yt)) {
             $linkYT = $request->link_yt;
         }
         if (isset($request->link_ig)) {
             $linkIG = $request->link_ig;
         }
+        if (isset($request->author)) {
+            $author = $request->author;
+        }
         $updatedData = array_merge([
             'gambar' => $gambar,
             'link_yt' => $linkYT,
             'link_ig' => $linkIG,
+            'author' => $author
         ], $validatedData);
         $konten->update(
             $updatedData

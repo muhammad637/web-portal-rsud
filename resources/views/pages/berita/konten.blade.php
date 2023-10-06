@@ -16,7 +16,7 @@
                                         <div class="meta mb-3">
                                             <div>
                                                 {{ Carbon\Carbon::parse($item->created_at)->format('d-m-y') }}</div>
-                                            <div>Admin</div>
+                                            <div>{{$item->author}}</div>
                                         </div>
                                         <div class=" pl-sm-3 pl-md-5 deskripsi">
                                             <h3 class="heading">{{ $item->judul }}

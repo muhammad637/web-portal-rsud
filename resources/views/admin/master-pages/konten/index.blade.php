@@ -34,6 +34,7 @@
                             <th>Gambar</th>
                             <th>Judul</th>
                             <th>tanggal</th>
+                            <th>Author</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -46,6 +47,8 @@
                                 </td>
                                 <td>{{ $item->judul }}</td>
                                 <td>{{ Carbon\Carbon::parse($item->created_at)->format('d-M-Y') }}</td>
+                                <td>{{ $item->author}}</td>
+                                
                                 <td>
                                     <div class="d-flex gap-1">
 
