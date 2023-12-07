@@ -66,9 +66,9 @@
                     <trix-editor input="deskripsi"></trix-editor>
                 </div>
                 <div class="mb-3">
-                    <label for="author" class="form-label">Author <span class="text-success"> *optional</span></label>
+                    <label for="author" class="form-label">Author <span class="text-success"> </span></label>
                     <input type="text" class="form-control @error('author') is-invalid @enderror" name="author"
-                        id="author" value="{{ old('author') }}">
+                        id="author" value="{{ old('author',auth()->user()->name) }}">
                 </div>
                 <div class="mb-3">
                     <label for="link_yt" class="form-label">Link Youtube <span class="text-success"> *optional</span></label>

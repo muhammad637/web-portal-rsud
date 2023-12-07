@@ -107,7 +107,7 @@ class DokterController extends Controller
                 'nama' => 'required|unique:dokters,nama',
                 'tipe_dokter' => 'required',
                 'nama_spesialis' => '',
-                'gambar' => 'required'
+                'gambar' => 'required|max:1024'
             ]
         );
         $validatedData['gambar'] = $request->file('gambar')->store('gambar-dokter');
@@ -180,6 +180,7 @@ class DokterController extends Controller
         $gambar = $dokter->gambar;
         if ($request->gambar) {
             Storage::delete($dokter->gambar);
+            $request->validate(['gambar' => 'max:1024']);
             $gambar = $request->file('gambar')->store('gambar-dokter');
         }
         $spesialis =  Spesialis::where('nama_spesialis', 'like', '%' . $request->nama_spesialis . '%')->first();

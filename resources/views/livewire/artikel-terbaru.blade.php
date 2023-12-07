@@ -11,7 +11,7 @@
                     <div class="meta">
                         <div><a href="#"><span class="icon-calendar"></span>
                                 {{ \Carbon\Carbon::parse($item->created_at)->format('d, M Y') }}</a></div>
-                        <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                        <div><a href="#"><span class="icon-person"></span> {{$item->author ?? '-'}}</a></div>
                     </div>
                 </div>
             </div>

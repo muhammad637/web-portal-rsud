@@ -61,11 +61,11 @@
                 <div>
                     <div class="row">
                         <div class="col-md-6">
-                            <a href="index.html" target="_blank">
+                            <a href="https://drive.google.com/file/d/1z9qpuUEuCYzM7XkI24G3ukthf4eFSOEF/view" target="_blank">
                             <div class="petunjuk-umum">
                                 <div class="row align-items-center">
                                     <div class="col-md-2 col-lg-2  col-6">
-                                        <div class="img mb-4 d-inline-block" href="index.html" style="background-image: url('{{ asset('images/pdf.png') }}');">
+                                        <div class="img mb-4 d-inline-block" href="" style="background-image: url('{{ asset('images/pdf.png') }}');">
                                         </div>
                                     </div>
                                     <div class="col">
@@ -79,26 +79,7 @@
                             </div>
                         </a>
                         </div>
-                        <div class="col-md-6">
-                            <a href="index.html" target="_blank">
-                            <div class="petunjuk-umum">
-                                <div class="row align-items-center">
-                                    <div class="col-md-2 col-lg-2  col-6">
-                                        <div class="img mb-4 d-inline-block" href="index.html" style="background-image: url('{{ asset('images/pdf.png') }}');">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="info">
-                                            <h3>Undang-Undang Republik Indonesia Nomor 44 Tahun 2009 Tentang Rumah Sakit
-                                            </h3>
-                                            
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        </div>
+                        
 
 
                     </div>

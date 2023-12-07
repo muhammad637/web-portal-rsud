@@ -4,7 +4,7 @@
     <section class="ftco-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-8 col-sm-12">
                     <div class="row">
                         <div class="col-md-12 ftco-animate">
                             <div class="blog-entry">
@@ -16,7 +16,7 @@
                                         <div class="meta mb-3">
                                             <div>
                                                 {{ Carbon\Carbon::parse($item->created_at)->format('d-m-y') }}</div>
-                                            <div>{{$item->author}}</div>
+                                            <div>{{$item->author ?? '-'}}</div>
                                         </div>
                                         <div class=" pl-sm-3 pl-md-5 deskripsi">
                                             <h3 class="heading">{{ $item->judul }}
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div> <!-- END: col-md-8 -->
-                <div class="col-md-4 sidebar ftco-animate">
+                <div class="col-md-4 col-sm-12 sidebar ftco-animate fadeInUp ftco-animated">
                     <div class="sidebar-box ftco-animate">
                         <div class="categories">
                             <h3>Kategori</h3>
@@ -51,7 +51,7 @@
                     <div class="sidebar-box ftco-animate">
                         <h3>Berita Terbaru</h3>
                         @foreach ($kontenTerbaru as $item)
-                            <div class="block-21 mb-4 d-flex">
+                            {{-- <div class="block-21 mb-4 d-flex">
                                 <a class="blog-img mr-4"
                                     style="background-image: url('{{ asset('storage/' . $item->gambar) }}');"></a>
                                 <div class="text">
@@ -60,7 +60,17 @@
                                     <div class="meta">
                                         <div><a href="#"><span class="icon-calendar"></span>
                                                 {{ Carbon\Carbon::parse($item->created_at)->format('d-m-y') }} </a></div>
-                                        <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                        <div><a href="#"><span class="icon-person"></span> {{$item->author ?? '-'}}</a></div>
+                                    </div>
+                                </div>
+                            </div> --}}
+                            <div class="block-21 mb-4 d-flex">
+                                <a class="blog-img mr-4" style="background-image: url({{ asset('storage/' . $item->gambar) }});"></a>
+                                <div class="text">
+                                    <h3 class="heading"><a href="#">{{ $item->judul }}</a></h3>
+                                    <div class="meta">
+                                        <div><a href="#"><span class="icon-calendar"></span> {{ Carbon\Carbon::parse($item->created_at)->format('d-m-y') }}</a></div>
+                                        <div><a href="#"><span class="icon-person"></span> {{$item->author ?? '-'}}</a></div>
                                     </div>
                                 </div>
                             </div>

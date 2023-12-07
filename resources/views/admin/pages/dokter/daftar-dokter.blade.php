@@ -60,8 +60,10 @@
                         <tr>
                             <td>{{ $index + 1 }}</td>
                             <td>{{ $item->nama }}</td>
-                            <td><img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->gambar }}"
-                                    width="200"> </td>
+                            <td>
+                                <img src="{{ asset('storage/' . $item->gambar) }}" alt="{{ $item->gambar }}"
+                                    width="200"> 
+                                </td>
                             <td>Dokter {{ $item->tipe_dokter }} {{ $item->spesialis ? ' - ' : '' }}
                                 <b> {{ $item->spesialis->nama_spesialis ?? null }} </b>
                             </td>

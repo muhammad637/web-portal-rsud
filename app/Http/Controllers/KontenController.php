@@ -54,10 +54,10 @@ class KontenController extends Controller
                 'judul' => 'required|max:255',
                 'slug' => 'required|unique:kontens,slug|max:255',
                 'deskripsi' => 'required',
-                'gambar' => 'required|',
+                'gambar' => 'required|max:1024',
                 'link_ig' => '',
                 'link_yt' => '',
-                'author' => ''
+                'author' => 'required'
             ]
         );
         $validatedData['jenis'] = 'artikel';
