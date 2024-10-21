@@ -12,19 +12,26 @@
 <div class="card">
     <div class="card-body">
         <h1 class="text-center text-capitalize fw-bold">form Tambah Dokter</h1>
+        @if (session()->has('error'))
+            <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
+                <span>{{ session()->get('error') }}</span>
+                {{-- 'testing' --}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <form action="{{ route('admin.dokter.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="NamaDokter" class="form-label">Nama Dokter</label>
                 <input type="text" class="form-control" id="NamaDokter" aria-describedby="NamaDokter" required
-                    name="nama">
+                    name="nama" value="{{ old('nama') }}">
             </div>
             <div class="mb-3">
                 @livewire('admin.dokter.preview-gambar')
             </div>
             @livewire('admin.dokter.search-spesialis-dokter')
             @livewire('admin.dokter.search-rawat-jalan', ['layanan' => $layanan, 'layanan_id' => []])
-            <a href="{{route('admin.dokter')}}" class="btn btn-warning">Kembali</a>
+            <a href="{{ route('admin.dokter') }}" class="btn btn-warning">Kembali</a>
             <button type="submit" class="btn btn-primary">Save changes</button>
         </form>
     </div>

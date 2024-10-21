@@ -5,39 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\Konten;
 use Illuminate\Http\Request;
 use App\Models\KategoriKonten;
-use App\Models\BeritaDanArtikel;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
-class KontenController extends Controller
+class InovasiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //
     public function index()
     {
-        //
-
-        return view('admin.master-pages.konten.index', [
-            'konten' => Konten::whereDoesntHave('kategori_konten', function ($query) {
+        return view('admin.master-pages.inovasi.index', [
+            'inovasi' => Konten::wherehas('kategori_konten', function ($query) {
                 $query->where('nama', 'inovasi');
             })->orderBy('updated_at', 'desc')->get(),
         ]);
-
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
-        return view('admin.master-pages.konten.create', [
+        return view('admin.master-pages.inovasi.create', [
             "kategoriKonten" => KategoriKonten::where(
                 'nama',
                 '!=',
@@ -69,36 +56,38 @@ class KontenController extends Controller
         );
         $validatedData['jenis'] = 'artikel';
         //code...
-        $validatedData['gambar'] = $request->file('gambar')->store('image-konten');
-        $konten = Konten::create($validatedData);
-        $konten->kategori_konten()->sync($request->input('kategori'));
-        return $request->input('kategori');
-        return redirect(route('admin.konten.index'))->with('success', 'konten berhasil di tambahkan');
+        $validatedData['gambar'] = $request->file('gambar')->store('image-inovasi');
+        $inovasi = Konten::create($validatedData);
+        $inov = KategoriKonten::firstOrCreate(['nama' => 'Inovasi', 'slug' => 'inovasi']);
+        $inovasi->kategori_konten()->sync([...$request->input('kategori'), $inov->id]);
+        return redirect(route('admin.inovasi.index'))->with('success', 'inovasi berhasil di tambahkan');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Konten  $konten
+     * @param  \App\Models\Konten  $inovasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Konten $konten)
+    public function show(Konten $inovasi)
     {
         //
+        return $inovasi;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Konten  $konten
+     * @param  \App\Models\Konten  $inovasi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Konten $konten)
+    public function edit(Konten $inovasi)
     {
+        
         //
-        // return $konten->kategori_konten;
-        return view('admin.master-pages.konten.edit', [
-            'konten' => $konten,
+        // return "testing";
+        return view('admin.master-pages.inovasi.edit', [
+            'inovasi' => $inovasi,
             "kategoriKonten" => KategoriKonten::where(
                 'nama',
                 '!=',
@@ -111,22 +100,22 @@ class KontenController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Konten  $konten
+     * @param  \App\Models\Konten  $inovasi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Konten $konten)
+    public function update(Request $request, Konten $inovasi)
     {
         //
         $rule = [
             'judul' => 'required|max:255',
-            'slug' => 'required|max:255|unique:kontens,slug,' . $konten->id,
+            'slug' => 'required|max:255|unique:kontens,slug,' . $inovasi->id,
             'deskripsi' => 'required',
         ];
         $validatedData = $request->validate($rule);
-        $gambar = $konten->gambar;
+        $gambar = $inovasi->gambar;
         if ($request->gambar) {
-            Storage::delete($konten->gambar);
-            $gambar = $request->file('gambar')->store('image-konten');
+            Storage::delete($inovasi->gambar);
+            $gambar = $request->file('gambar')->store('image-inovasi');
         }
         $linkYT = '';
         $linkIG = '';
@@ -146,26 +135,27 @@ class KontenController extends Controller
             'link_ig' => $linkIG,
             'author' => $author
         ], $validatedData);
-        $konten->update(
+        $inovasi->update(
             $updatedData
         );
 
-        $konten->kategori_konten()->sync($request->input('kategori'));
-        return redirect(route('admin.konten.index'))->with('success', 'berhasil update berita');
+        $inov = KategoriKonten::firstOrCreate(['nama' => 'Inovasi', 'slug' => 'inovasi']);
+        $inovasi->kategori_konten()->sync([...$request->input('kategori'), $inov->id]);
+        return redirect(route('admin.inovasi.index'))->with('success', 'berhasil update berita');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Konten  $konten
+     * @param  \App\Models\Konten  $inovasi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Konten $konten)
+    public function destroy(Konten $inovasi)
     {
         //
-        Storage::delete($konten->gambar);
-        $konten->delete();
-        return redirect(route('admin.konten.index'))->with('success', 'berhasil hapus berita');
+        Storage::delete($inovasi->gambar);
+        $inovasi->delete();
+        return redirect(route('admin.inovasi.index'))->with('success', 'berhasil hapus berita');
     }
 
     public function slug(Request $request)

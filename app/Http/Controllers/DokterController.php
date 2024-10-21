@@ -24,7 +24,7 @@ class DokterController extends Controller
     public function index()
     {
 
-        $dokter = Dokter::orderBy('updated_at', 'desc')->get();
+        $dokter = Dokter::orderBy('created_at', 'desc')->get();
         $spesialis = Spesialis::all();
         // $layananRawatJalan = KategoriLayanan::where('slug','like', "%rawat-jalan%")->get();
         // return $layananRawatJalan;
@@ -61,7 +61,7 @@ class DokterController extends Controller
         //     $query->where('slug','poli-gigi');
         // }])->get();
         // return $dokter;
-        $dokter = Dokter::all();
+        $dokter = Dokter::orderBY('created_at', 'desc')->get();
         if ($rawatJalan == null) {
             $layanan = [];
         } else {
@@ -101,32 +101,42 @@ class DokterController extends Controller
      */
     public function dokterStore(Request $request)
     {
-        // return $request->all();
-        $validatedData = $request->validate(
-            [
-                'nama' => 'required|unique:dokters,nama',
-                'tipe_dokter' => 'required',
-                'nama_spesialis' => '',
-                'gambar' => 'required|max:1024'
-            ]
-        );
-        $validatedData['gambar'] = $request->file('gambar')->store('gambar-dokter');
-        $dokter = Dokter::create([
-            'nama' => $validatedData['nama'],
-            'gambar' => $validatedData['gambar'],
-            'tipe_dokter' => $request->tipe_dokter
-        ]);
-        $dokter->rawatJalan()->sync($request->rawatJalan);
-        $spesialis = '';
-        if ($request->nama_spesialis) {
-            # code...
-            $spesialis =  Spesialis::where('nama_spesialis', 'like', '%' . $request->nama_spesialis . '%')->first();
-            $dokter->update(['spesialis_id' => $spesialis->id]);
+        try {
+            //code...
+
+            $validatedData = $request->validate(
+                [
+                    'nama' => 'required|unique:dokters,nama',
+                    'tipe_dokter' => 'required',
+                    'nama_spesialis' => '',
+                    'gambar' => 'required|max:1024'
+                ]
+            );
+            $validatedData['gambar'] = $request->file('gambar')->store('gambar-dokter');
+            $spesialis = '';
+            $spesialis_id = null;
+            if ($request->nama_spesialis) {
+                # code...
+                $spesialis =  Spesialis::where('nama_spesialis', 'like', '%' . $request->nama_spesialis . '%')->first();
+                if ($spesialis == null) {
+                    return redirect()->back()->with('error', 'spesialis yang anda masukkan tidak ada')->withInput();
+                }
+               $spesialis_id = $spesialis->id;
+            }
+            $dokter = Dokter::create([
+                'nama' => $validatedData['nama'],
+                'gambar' => $validatedData['gambar'],
+                'tipe_dokter' => $request->tipe_dokter,
+                'spesialis_id' => $spesialis_id,
+            ]);
+            $dokter->rawatJalan()->sync($request->rawatJalan);
+
+            // return $dokter;
+
+            return redirect()->route('admin.dokter')->with('success', 'dokter berhasil ditambahkan');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error',$th->getMessage()) ;
         }
-
-
-        return redirect()->route('admin.dokter')->with('success', 'dokter berhasil ditambahkan');
-
         //
     }
 

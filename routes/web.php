@@ -15,12 +15,17 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SAKIPController;
 use App\Http\Controllers\TarifController;
 use App\Http\Controllers\DokterController;
+use App\Http\Controllers\KontenController;
+use App\Http\Controllers\PortalController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\InovasiController;
+use App\Http\Controllers\LayananController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RawatInapController;
 use App\Http\Controllers\SpesialisController;
 use App\Http\Controllers\RawatJalanController;
+use App\Http\Controllers\JumlahKamarController;
 use App\Http\Controllers\PersyaratanController;
 use App\Http\Controllers\JadwalDokterController;
 use App\Http\Controllers\PetunjukUmumController;
@@ -30,10 +35,6 @@ use Symfony\Component\HttpKernel\Profiler\Profile;
 use App\Http\Controllers\KategoriLayananController;
 use App\Http\Controllers\LayananUnggulanController;
 use App\Http\Controllers\BeritaDanArtikelController;
-use App\Http\Controllers\JumlahKamarController;
-use App\Http\Controllers\KontenController;
-use App\Http\Controllers\LayananController;
-use App\Http\Controllers\PortalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +59,10 @@ Route::group(['prefix' => 'pasien-dan-pegunjung'], function () {
     Route::get('/informasikunjungan', [PortalController::class, 'informasiKunjungan'])->name('pasien-dan-pengunjung.informasiKunjungan');
 });
 // BERITA
+Route::group(['prefix' => 'artikel'], function () {
+    Route::get('/', [PortalController::class, 'konten'])->name('berita.index');
+    Route::get('/{konten:slug}', [PortalController::class, 'isiKonten'])->name('berita.show');
+});
 Route::group(['prefix' => 'artikel'], function () {
     Route::get('/', [PortalController::class, 'konten'])->name('berita.index');
     Route::get('/{konten:slug}', [PortalController::class, 'isiKonten'])->name('berita.show');
@@ -198,7 +203,16 @@ Route::middleware('auth')->group(function () {
             Route::put('/{user:id}/aktif', [UserController::class, 'aktif'])->name('admin.user.aktif');
         });
         // pages
-        // // konten
+        // inovasi
+        Route::prefix('inovasi')->name('admin.inovasi.')->group(function(){
+            Route::get('/', [InovasiController::class,'index'])->name('index');
+            Route::get('/create', [InovasiController::class,'create'])->name('create');
+            Route::get('/{inovasi:slug}/edit', [InovasiController::class,'edit'])->name('edit');
+            Route::put('/{inovasi:slug}/update', [InovasiController::class,'update'])->name('update');
+            Route::delete('/{inovasi:slug}', [InovasiController::class,'destroy'])->name('delete');
+            Route::post('/store', [InovasiController::class,'store'])->name('store');
+        });
+        // konten
         Route::group(["prefix" => 'konten'], function () {
             Route::get('/', [KontenController::class, 'index'])->name('admin.konten.index');
             Route::get('/create', [KontenController::class, 'create'])->name('admin.konten.create');

@@ -16,8 +16,8 @@ class SearchSpesialisDokter extends Component
 
     public function mount($tipeDokterFormEdit = null, $spesialisFormEdit = null)
     {
-        $this->tipe_dokter = $tipeDokterFormEdit;
-        $this->spesialisFormEdit = $spesialisFormEdit;
+        $this->tipe_dokter = old('tipe_dokter',$tipeDokterFormEdit);
+        $this->spesialisFormEdit = old('nama_spesialis',$spesialisFormEdit);
         if ($this->tipeDokterFormEdit == 'spesialis') {
             $this->displayResult = true;
             $this->search = $this->spesialisFormEdit;

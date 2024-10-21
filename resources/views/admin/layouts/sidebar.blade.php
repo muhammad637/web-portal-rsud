@@ -75,7 +75,7 @@
                 </li>
                 {{-- master pages --}}
                 <li
-                    class="sidebar-item  {{ Request::is('admin/konten*') || Request::is('admin/pages*') ? '' : '' }}">
+                    class="sidebar-item  {{ Request::is('admin/konten*') || Request::is('admin/pages*') || Request::is('admin/inovasi*') ? '' : '' }}">
                     <a class="sidebar-link d-flex  justify-content-between {{ Request::is('admin/konten*') || Request::is('admin/pages*') ? '' : '' }}"
                         data-bs-toggle="collapse" href="#masterPages" role="button" aria-expanded="false"
                         aria-controls="collapseExample">
@@ -85,9 +85,18 @@
                         <strong><span class="hide-menu"> Pages</span></strong>
                         <i class="fa-solid fa-chevron-down"></i>
                     </a>
-                    <div class="collapse {{ Request::is('admin/konten*') || Request::is('admin/pages*') ? '  show' : '' }}"
+                    <div class="collapse {{ Request::is('admin/konten*') || Request::is('admin/pages*') || Request::is('admin/inovasi*') ? '  show' : '' }}"
                         id="masterPages">
                         <ul class="mt-2">
+                            <li class="">
+                                <a class="sidebar-link  {{ Request::is('admin/inovasi*') ? 'bg-primary text-white ' : '' }} d-flex justify-content-between"
+                                    href="{{ route('admin.inovasi.index') }}" aria-expanded="false">
+                                    <strong><span class="hide-menu">Inovasi</span></strong>
+                                    <span>
+                                        <i class="fa-solid fa-newspaper"></i>
+                                    </span>
+                                </a>
+                            </li>
                             <li class="">
                                 <a class="sidebar-link  {{ Request::is('admin/konten*') ? 'bg-primary text-white ' : '' }} d-flex justify-content-between"
                                     href="{{ route('admin.konten.index') }}" aria-expanded="false">

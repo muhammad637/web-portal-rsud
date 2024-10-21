@@ -23,7 +23,7 @@
             -webkit-transition: all 0.3s ease;
             -ms-transition: all 0.3s ease;
             transition: all 0.3s ease;
-            background: #2470A0;
+            background: #1706fd;
             bordeR: 1px solid #71C9CE;
         }
 

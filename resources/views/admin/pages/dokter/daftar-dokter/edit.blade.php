@@ -12,6 +12,13 @@
 <div class="card">
     <div class="card-body">
         <h1 class="text-center text-capitalize fw-bold">form Edit Dokter</h1>
+          @if (session()->has('error'))
+            <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
+                <span>{{ session()->get('error') }}</span>
+                {{-- 'testing' --}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <form action="{{ route('admin.dokter.update',['dokter' => $dokter->id]) }}" method="post" enctype="multipart/form-data">
             @method('patch')
             @csrf

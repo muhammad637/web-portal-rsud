@@ -11,6 +11,7 @@ class PreviewGambar extends Component
     public $user  = 'tes';
     public $gambarFormEdit;
     public $image;
+    
     public function render()
     {
         return view('livewire.admin.dokter.preview-gambar');

@@ -22,12 +22,8 @@ class PortalController extends Controller
         return view('pages.profil.profil');
     }
     // pasien_pengunjung
-    public function daftarDokter()
-    {
-    }
-    public function cariDokter()
-    {
-    }
+    public function daftarDokter() {}
+    public function cariDokter() {}
     public function informasiKunjungan()
     {
         return view('pages.pasien-pengunjung.informasi-kunjungan');
@@ -55,7 +51,7 @@ class PortalController extends Controller
     {
         return view('pages.berita.isi-konten', [
             "isiKonten" => $konten,
-            "kategoriKonten" => KategoriKonten::all(),
+            "kategoriKontenAll" => KategoriKonten::where('nama', '!=', 'inovasi')->get(),
             'kontenTerbaru' => Konten::orderBy('updated_at', 'desc')->limit(3)->get()
         ]);
     }
@@ -63,7 +59,7 @@ class PortalController extends Controller
     {
         return view('pages.berita.konten-kategori', [
             "kategoriKonten" => $kategoriKonten,
-            "kategoriKontenAll" => KategoriKonten::all(),
+            "kategoriKontenAll" => KategoriKonten::where('nama', '!=', 'inovasi')->get(),
             'kontenTerbaru' => Konten::orderBy('updated_at', 'desc')->limit(3)->get()
         ]);
     }
@@ -72,10 +68,10 @@ class PortalController extends Controller
     {
         if ($kategoriLayanan->slug == 'layanan-unggulan' || $kategoriLayanan->slug == 'layanan-rawat-jalan') {
             // return view('pages.layanan.indexKhusus');
-            return view('pages.layanan.khusus-index',[
+            return view('pages.layanan.khusus-index', [
                 'kategoriLayanan' => $kategoriLayanan
             ]);
-        }else{
+        } else {
             // return view('pages.layanan.indexUmum');
             return view('pages.layanan.umum-index', [
                 'kategoriLayanan' => $kategoriLayanan
@@ -85,20 +81,14 @@ class PortalController extends Controller
     public function layananShow(Layanan $layanan)
     {
         // return $layanan;
-        return view('pages.layanan.show',[
+        return view('pages.layanan.show', [
             'layanan' => $layanan
         ]);
     }
     // informasi
-    public function alurPersyaratan()
-    {
-    }
-    public function tarif()
-    {
-    }
-    public function ikm()
-    {
-    }
+    public function alurPersyaratan() {}
+    public function tarif() {}
+    public function ikm() {}
     public function petunjukUmum()
     {
         return view('pages.informasi.petunjuk-umum');
