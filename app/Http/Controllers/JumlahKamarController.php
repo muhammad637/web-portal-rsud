@@ -16,19 +16,31 @@ class JumlahKamarController extends Controller
     {
         // $count = jumlah_kamar::where('jumlah')->count();
         // return $count;
-       
-        return view('pages.pasien-pengunjung.ketersediaan-kamar',[
+
+        return view('pages.pasien-pengunjung.ketersediaan-kamar', [
+            'jumlah_kamar' => jumlah_kamar::all(),
+            'jumlahKamar' => 0
+        ]);
+    }
+    public function ketersediaanKamarindex()
+    {
+        // $count = jumlah_kamar::where('jumlah')->count();
+        // return $count;
+
+        return view('pages.informasi.ketersediaan-kamar', [
             'jumlah_kamar' => jumlah_kamar::all(),
             'jumlahKamar' => 0
         ]);
         //
     }
 
-    public function jumlahkamar(){
+    public function jumlahkamar()
+    {
         return view('admin.pages.informasi.ketersediaan_kamar.index', [
             'jumlah_kamar' => jumlah_kamar::orderBy('updated_at', 'desc')->get()
         ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -53,15 +65,17 @@ class JumlahKamarController extends Controller
             [
                 'nama_ruangan' => 'required',
                 'kelas' => 'required',
-                'jumlah' => 'required'
+                'jumlah' => 'required',
+                'ketersediaan_kamar' => 'integer'
             ]
-            );
+        );
         //
 
         jumlah_kamar::create([
             'nama_ruangan' => $validatedData['nama_ruangan'],
             'kelas' => $validatedData['kelas'],
-            'jumlah' => $validatedData['jumlah']
+            'jumlah' => $validatedData['jumlah'],
+            'ketersediaan_kamar' => $validatedData['ketersediaan_kamar']
         ]);
         return redirect()->back()->with('success', 'jumlahkamar berhasil ditambahkan');
     }
@@ -104,9 +118,11 @@ class JumlahKamarController extends Controller
             [
                 'nama_ruangan' => '',
                 'kelas' => '',
-                'jumlah' => ''
+                'jumlah' => '',
+                'ketersediaan_kamar' => 'integer'
+
             ]
-            );
+        );
         $jumlah_kamar->update($validatedData);
         return redirect()->back()->with('success', 'jumlah kamar berhasil di update');
         //
@@ -120,10 +136,11 @@ class JumlahKamarController extends Controller
      */
 
 
-     public function jumlahkamarDelete(jumlah_kamar $jumlah_kamar){
+    public function jumlahkamarDelete(jumlah_kamar $jumlah_kamar)
+    {
         $jumlah_kamar->delete();
         return redirect()->back()->with('success', 'jumlah kamar berhasil dihapus');
-     }
+    }
     public function destroy(jumlah_kamar $jumlah_kamar)
     {
         //

@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Kategori;
 use Illuminate\Database\Seeder;
 use App\Models\BeritaDanArtikel;
+use App\Models\KategoriKonten;
+use App\Models\KontakDarurat;
 
 class DatabaseSeeder extends Seeder
 {
@@ -29,6 +31,13 @@ class DatabaseSeeder extends Seeder
             // 'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => '12334345465757576',
+        ]);
+        KontakDarurat::create([
+            'kontak_darurat' => '0123123-123123'
+        ]);
+        KategoriKonten::create([
+            'nama' => 'Inovasi',
+            'slug' => 'inovasi'
         ]);
     }
 }

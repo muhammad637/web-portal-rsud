@@ -1,6 +1,6 @@
 @extends('main', ['title'=> $isiKonten->judul])
 @section('content')
-@include('pages.partials.hero',['title' => 'Kumpulan Artikel RSUD Blambangan','menu' => 'Artikel'])
+@include('pages.partials.hero',['title' => 'Kumpulan Inovasi RSUD Blambangan','menu' => 'Inovasi'])
 
     <section class="ftco-section">
         <div class="container">
@@ -50,27 +50,36 @@
                     </div>
 
                     <div class="sidebar-box ftco-animate">
-                        <h3>Artikel Terbaru</h3>
-                        @foreach ($kontenTerbaru as $index)
-                            <div class="block-21 mb-4 d-flex">
+                        <h3>Inovasi Terbaru</h3>
+                        @foreach ($kontenTerbaru as $item)
+                            {{-- <div class="block-21 mb-4 d-flex">
                                 <a class="blog-img mr-4"
-                                    style="background-image: url({{ asset('storage/' . $index->gambar) }});"></a>
+                                    style="background-image: url('{{ asset('storage/' . $item->gambar) }}');"></a>
                                 <div class="text">
-                                    <h3 class="heading"><a
-                                            href="{{ route('berita.show', ['konten' => $index->slug]) }}">{{ $index->judul }}
+                                    <h3 class="heading"><a href="#">{{ $item->judul }}
                                         </a></h3>
                                     <div class="meta">
-                                        <div><span class="icon-calendar"></span>
-                                            {{ $index->updated_at->diffForHumans() }}</div>
-                                        {{-- <div><a href="#"><span class="icon-person"></span> Admin</a></div> --}}
+                                        <div><a href="#"><span class="icon-calendar"></span>
+                                                {{ Carbon\Carbon::parse($item->created_at)->format('d-m-y') }} </a></div>
+                                        <div><a href="#"><span class="icon-person"></span> {{$item->author ?? '-'}}</a></div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
+                           <div class="block-21 mb-4 d-flex"> <a href="{{ route('inovasi.show', ['konten' => $item->slug]) }}">
+                                <a class="blog-img mr-4" style="background-image: url({{ asset('storage/' . $item->gambar) }});"></a>
+                                <div class="text">
+                                    <h3 class="heading"><a href="{{ route('inovasi.show', ['konten' => $item->slug]) }}">{{ $item->judul }}</a></h3>
+                                    <div class="meta">
+                                        <div><a href="{{ route('inovasi.show', ['konten' => $item->slug]) }}"><span class="icon-calendar"></span> {{ Carbon\Carbon::parse($item->created_at)->format('d-m-y') }}</a></div>
+                                        <div><a href="{{ route('inovasi.show', ['konten' => $item->slug]) }}"><span class="icon-person"></span> {{$item->author ?? '-'}}</a></div>
+                                    </div>
+                                    </a>
+                                </div>
                         @endforeach
                     </div>
 
                     <div class="sidebar-box ftco-animate">
-                        <h3>Tag Artikel</h3>
+                        <h3>Tag Inovasi</h3>
                         <div class="tagcloud">
                             @if (count($isiKonten->kategori_konten) == 0)
                                 <p>--</p>

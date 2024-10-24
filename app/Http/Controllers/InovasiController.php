@@ -59,7 +59,11 @@ class InovasiController extends Controller
         $validatedData['gambar'] = $request->file('gambar')->store('image-inovasi');
         $inovasi = Konten::create($validatedData);
         $inov = KategoriKonten::firstOrCreate(['nama' => 'Inovasi', 'slug' => 'inovasi']);
-        $inovasi->kategori_konten()->sync([...$request->input('kategori'), $inov->id]);
+        $kategori = $request->input('kategori', []); // Ambil input 'kategori', atau array kosong jika tidak ada
+        $kategori[] = $inov->id; // Tambahkan id inovasi ke dalam array
+
+        $inovasi->kategori_konten()->sync($kategori); // Sync dengan kategori, bahkan jika input kosong
+
         return redirect(route('admin.inovasi.index'))->with('success', 'inovasi berhasil di tambahkan');
     }
 

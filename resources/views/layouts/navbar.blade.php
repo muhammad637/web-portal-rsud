@@ -6,7 +6,7 @@
     <div class="container">
 
         <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('images/navbar/logo.png') }}" alt=""
-                style="width: 50px;"><span class="d-sm-inline d-none" style="font-weight: normal;">
+                style="width: 40px;"><span class="d-sm-inline d-none" style="font-weight: normal;">
                 RSUD<strong> Blambangan</strong></span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
             aria-controls="ftco-nav" aria-expanded="true" aria-label="Toggle navigation">
@@ -15,6 +15,8 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="{{ route('profil') }}" class="nav-link"><strong>Profil</strong></a></li>
+                <li class="nav-item"><a href="{{ route('inovasi.index') }}" class="nav-link"><strong>Inovasi</strong></a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown"
                         aria-expanded="false" style="cursor: pointer"><strong>
@@ -51,6 +53,7 @@
                         <li><a class="dropdown-item" href="{{ route('informasi.ikm') }}">Index Kepuasan
                                 Masyarakat</a></li>
                         <li><a class="dropdown-item" href="{{ route('informasi.sakip') }}">Sakip</a></li>
+                        <li><a class="dropdown-item" href="{{ route('informasi.ketersediaanKamar') }}">ketersediaan Kamar Bed</a></li>
                     </ul>
                 </li>
                 @if (auth()->user())

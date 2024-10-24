@@ -35,6 +35,7 @@ use Symfony\Component\HttpKernel\Profiler\Profile;
 use App\Http\Controllers\KategoriLayananController;
 use App\Http\Controllers\LayananUnggulanController;
 use App\Http\Controllers\BeritaDanArtikelController;
+use App\Http\Controllers\JamOperasionalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,10 +64,12 @@ Route::group(['prefix' => 'artikel'], function () {
     Route::get('/', [PortalController::class, 'konten'])->name('berita.index');
     Route::get('/{konten:slug}', [PortalController::class, 'isiKonten'])->name('berita.show');
 });
-Route::group(['prefix' => 'artikel'], function () {
-    Route::get('/', [PortalController::class, 'konten'])->name('berita.index');
-    Route::get('/{konten:slug}', [PortalController::class, 'isiKonten'])->name('berita.show');
+// Inovasi
+Route::group(['prefix' => 'inovasi'], function () {
+    Route::get('/', [PortalController::class, 'inovasi'])->name('inovasi.index');
+    Route::get('/{konten:slug}', [PortalController::class, 'isiInovasi'])->name('inovasi.show');
 });
+
 Route::get('/kategori-berita/{kategoriKonten:slug}', [PortalController::class, 'kategoriKonten'])->name('kategori-berita.index');
 // LAYANAN
 Route::group(['prefix' => 'layanan'], function () {
@@ -80,6 +83,8 @@ Route::group(['prefix' => 'informasi'], function () {
     Route::get('/ikm', [IKMController::class, 'ikmindex'])->name('informasi.ikm');
     Route::get('/sakip', [SAKIPController::class, 'sakipindex'])->name('informasi.sakip');
     Route::get('/petunjuk-umum', [PortalController::class, 'petunjukUmum'])->name('informasi.petunjukUmum');
+    Route::get('/ketersediaan-kamar', [JumlahKamarController::class, 'ketersediaanKamarindex'])->name('informasi.ketersediaanKamar');
+
 });
 
 
@@ -186,6 +191,20 @@ Route::middleware('auth')->group(function () {
                 Route::post('/store', [PersyaratanController::class, 'persyaratanStore'])->name('admin.persyaratan.store');
                 Route::put('/{persyaratan:id}/update', [PersyaratanController::class, 'persyaratanUpdate'])->name('admin.persyaratan.update');
             });
+
+            Route::name('admin.jam-operasional.')->prefix('jam-operasional')->group(function () {
+                Route::get('/', [JamOperasionalController::class, 'index'])->name('index');
+                Route::post('/', [JamOperasionalController::class, 'store'])->name('store');
+                Route::put('/{jamOperasional}', [JamOperasionalController::class, 'update'])->name('update');
+                Route::delete('/{jamOperasional}', [JamOperasionalController::class, 'destroy'])->name('delete');
+            });
+
+            Route::post('kontak-darurat/update',[JamOperasionalController::class,'kontakDarurat'])->name('kontakDarurat.post');
+            Route::name('admin.telepon-darurat')->prefix('telepon-darurat')->group(function () {
+                Route::get('/');
+                Route::put('/update');
+                Route::delete('/delete');
+            });
         });
         // master user
         Route::group(['prefix' => '/user'], function () {
@@ -204,13 +223,13 @@ Route::middleware('auth')->group(function () {
         });
         // pages
         // inovasi
-        Route::prefix('inovasi')->name('admin.inovasi.')->group(function(){
-            Route::get('/', [InovasiController::class,'index'])->name('index');
-            Route::get('/create', [InovasiController::class,'create'])->name('create');
-            Route::get('/{inovasi:slug}/edit', [InovasiController::class,'edit'])->name('edit');
-            Route::put('/{inovasi:slug}/update', [InovasiController::class,'update'])->name('update');
-            Route::delete('/{inovasi:slug}', [InovasiController::class,'destroy'])->name('delete');
-            Route::post('/store', [InovasiController::class,'store'])->name('store');
+        Route::prefix('inovasi')->name('admin.inovasi.')->group(function () {
+            Route::get('/', [InovasiController::class, 'index'])->name('index');
+            Route::get('/create', [InovasiController::class, 'create'])->name('create');
+            Route::get('/{inovasi:slug}/edit', [InovasiController::class, 'edit'])->name('edit');
+            Route::put('/{inovasi:slug}/update', [InovasiController::class, 'update'])->name('update');
+            Route::delete('/{inovasi:slug}', [InovasiController::class, 'destroy'])->name('delete');
+            Route::post('/store', [InovasiController::class, 'store'])->name('store');
         });
         // konten
         Route::group(["prefix" => 'konten'], function () {
@@ -232,5 +251,7 @@ Route::middleware('auth')->group(function () {
             Route::put('/master-kategori-layanan/update/{layanan:slug}', [LayananController::class, 'update'])->name('admin.layanan.update');
             Route::delete('/master-kategori-layanan/delete/{layanan:slug}', [LayananController::class, 'delete'])->name('admin.layanan.delete');
         });
+
+      
     });
 });

@@ -78,22 +78,23 @@
                 <div class="col-md-3 color-1 p-4">
                     <h3 class="mb-4">Telpon Darurat</h3>
                     <p>Hubungi nomor telfon jika anda mengalami keadaan darurat</p>
-                    <span class="phone-number">(0333) 5672572</span>
+                    <span class="phone-number">{{ $kontakDarurat->kontak_darurat }}</span>
                 </div>
                 <div class="col-md-3 color-2 p-4">
                     <h3 class="mb-4">Jam Operasional </h3>
-                    <p class="openinghours d-flex">
-                        <span>Senin - Kamis</span>
-                        <span>07:00 - 14:00</span>
-                    </p>
-                    <p class="openinghours d-flex">
-                        <span>Jum'at</span>
-                        <span>07:00 - 10:30</span>
-                    </p>
-                    <p class="openinghours d-flex">
-                        <span>Sabtu</span>
-                        <span>07:00 - 12:00</span>
-                    </p>
+                    @foreach ($jamOperasional as $item)
+                        <p class="openinghours d-flex">
+                            @if ($item->sampai_hari != null)
+                                <span>{{ $item->mulai_hari }} - {{ $item->sampai_hari }}</span>
+                            @else
+                                <span>{{ $item->mulai_hari }} </span>
+                            @endif
+                            <span>{{ Carbon\Carbon::parse($item->mulai_jam)->format('H:i') }} -
+                                {{ Carbon\Carbon::parse($item->sampai_jam)->format('H:i') }}</span>
+
+                        </p>
+                    @endforeach
+                   
                 </div>
                 <div class="col-md-6 color-3 p-4">
                     <h3 class="mb-2">Cari Dokter</h3>

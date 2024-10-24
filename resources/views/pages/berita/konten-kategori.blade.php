@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-md-12 ftco-animate">
                             <div class="blog-entry">
-                                @foreach ($kategoriKonten->konten as $item)
+                                @foreach ($konten as $item)
                                     <div class="block-20" style="background-image: url('{{asset('storage/'. $item->gambar )}}');">
                                     </div>
                                     <div class="text d-flex py-4">
@@ -59,21 +59,32 @@
                     </div>
 
                     <div class="sidebar-box ftco-animate">
-                        <h3>Artikel Terbaru</h3>
-                        <div class="block-21 mb-4">
-                            @foreach ($kontenTerbaru as $item)
-                                <a class="blog-img mr-4" href="{{route('berita.show',['konten'=> $item->slug])}}" style="background-image: url({{ asset('storage/'.$item->gambar) }});"></a>
+                        <h3>Berita Terbaru</h3>
+                        @foreach ($kontenTerbaru as $item)
+                            {{-- <div class="block-21 mb-4 d-flex">
+                                <a class="blog-img mr-4"
+                                    style="background-image: url('{{ asset('storage/' . $item->gambar) }}');"></a>
                                 <div class="text">
-                                    <h3 class="heading"><a href="{{route('berita.show',['konten'=> $item->slug])}}">{{ $item->judul }}
+                                    <h3 class="heading"><a href="#">{{ $item->judul }}
                                         </a></h3>
                                     <div class="meta">
-                                        <div><span class="icon-calendar"></span>
-                                                {{ Carbon\Carbon::parse($item->created_at)->format('d-m-y') }}</div>
-                                        <div><span class="icon-person"></span> Admin</div>
+                                        <div><a href="#"><span class="icon-calendar"></span>
+                                                {{ Carbon\Carbon::parse($item->created_at)->format('d-m-y') }} </a></div>
+                                        <div><a href="#"><span class="icon-person"></span> {{$item->author ?? '-'}}</a></div>
                                     </div>
                                 </div>
-                            @endforeach
-                        </div>
+                            </div> --}}
+                             <div class="block-21 mb-4 d-flex">
+                                <a class="blog-img mr-4" style="background-image: url({{ asset('storage/' . $item->gambar) }});"></a>
+                                <div class="text">
+                                    <h3 class="heading"><a href="{{route('berita.show',['konten' => $item->slug])}}">{{ $item->judul }}</a></h3>
+                                    <div class="meta">
+                                        <div><a href="#"><span class="icon-calendar"></span> {{ Carbon\Carbon::parse($item->created_at)->format('d-m-y') }}</a></div>
+                                        <div><a href="#"><span class="icon-person"></span> {{$item->author ?? '-'}}</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

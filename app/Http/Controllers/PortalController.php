@@ -36,31 +36,91 @@ class PortalController extends Controller
     public function konten()
     {
         $paginate = 10;
-        $artikel = Konten::orderBy('updated_at', 'desc')->paginate($paginate);
-        // return $artikel;
+        $artikel =
+        Konten::whereDoesntHave('kategori_konten', function ($query)  {
+            $query->where(
+                'nama',
+                'inovasi');
+        })->orderBy('created_at', 'desc')->paginate($paginate);
         return view('pages.berita.konten', [
             'konten' => $artikel,
-            'kategoriKonten' => KategoriKonten::all(),
-            'kontenTerbaru' => Konten::orderBy('created_at', 'desc')
+            'kategoriKonten' => KategoriKonten::where('nama', '!=', 'inovasi')->get(),
+            'kontenTerbaru' =>  Konten::whereDoesntHave('kategori_konten', function ($query)  {
+            $query->where(
+                'nama',
+                'inovasi');
+        })->orderBy('created_at', 'desc')
                 ->take(3)
                 ->get()
-        ]);
+    ]);
     }
 
     public function isiKonten(Konten $konten)
     {
         return view('pages.berita.isi-konten', [
             "isiKonten" => $konten,
-            "kategoriKontenAll" => KategoriKonten::where('nama', '!=', 'inovasi')->get(),
-            'kontenTerbaru' => Konten::orderBy('updated_at', 'desc')->limit(3)->get()
+            "kategoriKonten" => KategoriKonten::where('nama', '!=', 'inovasi')->get(),
+            'kontenTerbaru' =>
+            Konten::whereDoesntHave('kategori_konten', function ($query) {
+                $query->where(
+                    'nama',
+                    'inovasi'
+                );
+            })->orderBy('created_at', 'desc')->limit(3)->get()
         ]);
     }
+    public function inovasi()
+    {
+        $paginate = 10;
+        $artikel =
+        Konten::whereHas('kategori_konten', function ($query)  {
+            $query->where(
+                'nama',
+                'inovasi');
+        })->orderBy('created_at', 'desc')->paginate($paginate);
+        return view('pages.inovasi.konten', [
+            'konten' => $artikel,
+            'kategoriKonten' => KategoriKonten::where('nama', '!=', 'inovasi')->get(),
+            'kontenTerbaru' => Konten::whereHas('kategori_konten', function ($query) {
+                $query->where(
+                    'nama',
+                    'inovasi'
+                );
+            })->orderBy('created_at', 'desc')->take(3)->get()
+        ]);
+    }
+
+    public function isiInovasi(Konten $konten)
+    {
+        return view('pages.inovasi.isi-konten', [
+            "isiKonten" => $konten,
+            "kategoriKonten" => KategoriKonten::where('nama', '!=', 'inovasi')->get(),
+            'kontenTerbaru' => Konten::whereHas('kategori_konten', function ($query) {
+                $query->where(
+                    'nama',
+                    'inovasi'
+                );
+            })->orderBy('created_at', 'desc')->take(3)->get()
+        ]);
+    }
+
+
     public function kategoriKonten(KategoriKonten $kategoriKonten)
     {
+        $konten =  Konten::wherehas('kategori_konten', function ($query) use ($kategoriKonten) {
+            $query->where('slug', $kategoriKonten->slug);
+        })->orderBy('created_at', 'desc')->get();
+
+
         return view('pages.berita.konten-kategori', [
+            "konten" => $konten,
             "kategoriKonten" => $kategoriKonten,
             "kategoriKontenAll" => KategoriKonten::where('nama', '!=', 'inovasi')->get(),
-            'kontenTerbaru' => Konten::orderBy('updated_at', 'desc')->limit(3)->get()
+            'kontenTerbaru' =>  Konten::whereDoesntHave('kategori_konten', function ($query)  {
+            $query->where(
+                'nama',
+                'inovasi');
+        })->orderBy('created_at', 'desc')->limit(3)->get()
         ]);
     }
     // layanan

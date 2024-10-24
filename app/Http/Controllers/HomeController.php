@@ -8,6 +8,8 @@ use App\Models\Konten;
 use App\Models\Layanan;
 use App\Models\Spesialis;
 use Illuminate\Http\Request;
+use App\Models\KontakDarurat;
+use App\Models\JamOperasional;
 use App\Models\KategoriLayanan;
 use App\Models\LayananUnggulan;
 use App\Models\BeritaDanArtikel;
@@ -36,7 +38,9 @@ class HomeController extends Controller
         return view('pages.home', [
             'artikel' => Konten::orderBy('created_at','desc')->limit(3)->get(),
             'LayananUnggulan' => $layanan,
-            'Spesialis' => $spesialis
+            'Spesialis' => $spesialis,
+            'jamOperasional' => JamOperasional::all(),
+            'kontakDarurat' => KontakDarurat::first()
         ]);
         // return $layanan_unggulan;
     }

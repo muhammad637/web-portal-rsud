@@ -49,6 +49,7 @@
                         <th>Nama Ruangan</th>
                         <th>Kelas Ruangan</th>
                         <th>Jumlah Kamar</th>
+                        <th>Ketersediaan Kamar</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -67,6 +68,9 @@
                             </td>
                             <td>
                                 <label for="">{{ $item->jumlah}}</label>
+                            </td>
+                            <td>
+                                <label for="">{{ $item->ketersediaan_kamar}}</label>
                             </td>
                             <td>
 
@@ -121,6 +125,11 @@
                                                 <input type="number" class="form-control" name="jumlah"
                                                     id="jumlah" value="{{ old('jumlah', $item->jumlah) }}">
                                             </div>
+                                            <div class="mb-3">
+                                                <label for="ketersediaan_kamar" class="form-label">Jumlah</label>
+                                                <input type="number" class="form-control" name="ketersediaan_kamar"
+                                                    id="ketersediaan_kamar" value="{{ old('ketersediaan_kamar', $item->ketersediaan_kamar) }}">
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
@@ -163,6 +172,11 @@
                         <label for="jumlah" class="form-label">Jumlah</label>
                         <input type="text" class="form-control" name="jumlah" id="jumlah"
                             value="{{ old('jumlah') }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="ketersediaan_kamar" class="form-label">Ketersediaan Kamar</label>
+                        <input type="text" class="form-control" name="ketersediaan_kamar" id="ketersediaan_kamar"
+                            value="{{ old('ketersediaan_kamar') }}">
                     </div>
 
                 </div>

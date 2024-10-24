@@ -1,6 +1,6 @@
-@extends('main', ['title'=> 'Artikel '])
+@extends('main', ['title'=> 'Inovasi '])
 @section('content')
-@include('pages.partials.hero',['title' => 'Kumpulan Artikel RSUD Blambangan','menu' => 'Artikel'])
+@include('pages.partials.hero',['title' => 'Kumpulan Inovasi RSUD Blambangan','menu' => 'Inovasi'])
     <section class="ftco-section">
         <div class="container">
             <div class="row">
@@ -21,7 +21,7 @@
                                         <div class=" pl-sm-3 pl-md-5 deskripsi">
                                             <h3 class="heading">{{ $item->judul }}
                                             </h3>
-                                            <p><a href="{{ route('berita.show', ['konten' => $item->slug]) }}"
+                                            <p><a href="{{ route('inovasi.show', ['konten' => $item->slug]) }}"
                                                     class="btn btn-primary btn-outline-primary">Read more</a>
                                             </p>
                                         </div>
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="sidebar-box ftco-animate">
-                        <h3>Berita Terbaru</h3>
+                        <h3>Inovasi Terbaru</h3>
                         @foreach ($kontenTerbaru as $item)
                             {{-- <div class="block-21 mb-4 d-flex">
                                 <a class="blog-img mr-4"
@@ -64,16 +64,16 @@
                                     </div>
                                 </div>
                             </div> --}}
-                            <div class="block-21 mb-4 d-flex">
+                           <div class="block-21 mb-4 d-flex"> <a href="{{ route('inovasi.show', ['konten' => $item->slug]) }}">
                                 <a class="blog-img mr-4" style="background-image: url({{ asset('storage/' . $item->gambar) }});"></a>
                                 <div class="text">
-                                    <h3 class="heading"><a href="#">{{ $item->judul }}</a></h3>
+                                    <h3 class="heading"><a href="{{ route('inovasi.show', ['konten' => $item->slug]) }}">{{ $item->judul }}</a></h3>
                                     <div class="meta">
-                                        <div><a href="#"><span class="icon-calendar"></span> {{ Carbon\Carbon::parse($item->created_at)->format('d-m-y') }}</a></div>
-                                        <div><a href="#"><span class="icon-person"></span> {{$item->author ?? '-'}}</a></div>
+                                        <div><a href="{{ route('inovasi.show', ['konten' => $item->slug]) }}"><span class="icon-calendar"></span> {{ Carbon\Carbon::parse($item->created_at)->format('d-m-y') }}</a></div>
+                                        <div><a href="{{ route('inovasi.show', ['konten' => $item->slug]) }}"><span class="icon-person"></span> {{$item->author ?? '-'}}</a></div>
                                     </div>
+                                    </a>
                                 </div>
-                            </div>
                         @endforeach
                     </div>
                 </div>

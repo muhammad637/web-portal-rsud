@@ -217,6 +217,14 @@
                                     </span>
                                 </a>
                             </li>
+                                <a class="sidebar-link {{ Request::is('admin/informasi/jam-operasional*') ? 'bg-primary text-white' : '' }} d-flex justify-content-between"
+                                    href="{{ route('admin.jam-operasional.index') }}" aria-expanded="false">
+                                    <strong><span class="hide-menu">Jam Operasional</span></strong>
+                                    <span>
+                                        <i class="fa fa-clock" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
